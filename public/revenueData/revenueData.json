@@ -1,0 +1,37 @@
+{
+    "cardData": [
+        {
+            "id": "1",
+            "heading": "Total Users",
+            "img": "/Image/dashboardImage/user.png",
+            "totals": "3500",
+            "href":"/",
+            "name": ""
+        },
+        {
+            "id": "2",
+            "heading": "Total Chefs",
+            "img": "/Image/dashboardImage/chefs.png",
+            "totals": "1000",
+            "href":"/dashboard",
+            "name": ""
+        },
+        {
+            "id": "3",
+            "heading": "Total Customers",
+            "img": "/Image/dashboardImage/customer.png",
+            "totals": "2500",
+            "href":"/customer",
+            "name": ""
+        },
+        {
+            "id": "4",
+            "heading": "Total Revenue",
+            "img": "/Image/dashboardImage/revenue.png",
+            "totals": "€ 2,52,358.23 ",
+            "href":"/revenue",
+            "name": ""
+        }
+       
+    ]
+}

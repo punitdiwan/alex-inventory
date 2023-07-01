@@ -1,0 +1,35 @@
+{
+  "name": "bakery_admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type": "module"
+  },
+  "dependencies": {
+    "appwrite": "^11.0.0",
+    "daisyui": "^2.51.5",
+    "flowbite": "^1.6.5",
+    "flowbite-react": "^0.4.3",
+    "jsonwebtoken": "^9.0.0",
+    "next": "13.2.4",
+    "react": "18.2.0",
+    "react-bootstrap-buttons": "^1.0.0",
+    "react-custom-checkbox": "^3.1.5",
+    "react-data-table-component": "^7.5.3",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "react-pro-sidebar": "^1.0.0",
+    "sharp": "^0.32.0",
+    "styled-components": "^5.3.10",
+    "windicss-webpack-plugin": "^1.7.8"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.1"
+  }
+}
