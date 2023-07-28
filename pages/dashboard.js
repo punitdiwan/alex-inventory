@@ -5,11 +5,18 @@ import Layout from "../components/Layout"
 import { IoMdArrowDropdown } from "react-icons/io";
 import TransferServiceComp from "../components/TransferServiceComp";
 import AllBookingComp from "../components/AllBookingComp";
+import { me } from "../lib/client";
 
 
 
 
-const Admin = () => {
+const Admin =  () => {
+
+    async function getUser(){
+      const userData = await me()
+      console.log("user data" , userData);
+    }
+    getUser()
 
 
   // const datac = {
