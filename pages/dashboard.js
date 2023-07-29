@@ -1,78 +1,42 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Layout from "../components/Layout"
+import { useRouter } from "next/router";
 
 import { IoMdArrowDropdown } from "react-icons/io";
 import TransferServiceComp from "../components/TransferServiceComp";
 import AllBookingComp from "../components/AllBookingComp";
-import { me } from "../lib/client";
+import { me } from "../lib/appwrite";
 
 
 
 
-const Admin =  () => {
-
-    async function getUser(){
-      const userData = await me()
-      console.log("user data" , userData);
-    }
-    getUser()
-
-
-  // const datac = {
-  //   cardData: [
-  //     { id: "1", heading: "Total Users", img: "/Image/dashboardImage/user.png", totals: "3500", name: "" },
-  //     { id: "2", heading: "Total Chefs", img: "/Image/dashboardImage/chefs.png", totals: "3500", name: "" },
-  //     { id: "3", heading: "Total Customers", img: "/Image/dashboardImage/customer.png", totals: "3500", name: "" },
-  //     { id: "4", heading: "Total Revenue", img: "/Image/dashboardImage/revenue.png", totals: "$2,52,358.23 ", name: "" },
-
-  //   ]
-  // }
-  const [ourchef, setOurchef] = useState([]);
-  const [ourcustomer, setOurcustomer] = useState([]);
-  const [cheffLength, setChefLength] = useState(0);
-  const [customerLength, setCustomerLength] = useState(0);
-
+const Admin = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [session, setSession] = useState({});
+  const router = useRouter();
 
+  // **GETTING CURRENT SESSION**
   useEffect(() => {
-
-
-    const fetchOurCheff = async () => {
-      try {
-        const response = await fetch("https://www.mamtismamas.com/api/cheff/allChefs")
-        const jsonData = await response.json()
-        // console.log(jsonData, "data")
-        setOurchef(jsonData);
-        const length = jsonData.length;
-        setChefLength(length);
-        // console.log("Length of fetched data:", length);
-      } catch (err) {
-        console.log(err)
-      }
+    async function getSessionHandler() {
+      const session = await me()
+      setSession(session)
     }
+    getSessionHandler()
+  }, [])
 
-    const fetchOurCustomer = async () => {
 
-      try {
-        const response = await fetch("https://www.mamtismamas.com/api/customer/allCustomer")
-        const jsonData = await response.json()
-        // console.log(jsonData, "customer_data")
-        setOurcustomer(jsonData);
-        const length2 = jsonData.length;
-        setCustomerLength(length2);
-        // console.log("Length of customer data:", length2);
-      } catch (err) {
-        console.log(err)
-      }
-      ;
-    }
 
-    fetchOurCustomer();
-    fetchOurCheff();
 
-  }, []);
-  // console.log(data);
+  // **CHECKING IF THE USER IS LOGGED IN OR NOT**
+  //  useEffect(()=> {
+  //   dispatch(isLoggedInHandler())
+  //   if(!isLoggedIn){
+  //     router.replace('/')
+  //   }
+  // },[isLoggedIn])
+
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -94,7 +58,7 @@ const Admin =  () => {
             <div className="flex ">
               <p className=" text-xl font-semibold  mx-12 my-2">62,541</p>
               <IoMdArrowDropdown className='text-4xl text-[#006332]' />
-              {/*<p className=" text-xl font-semibold  mx-12 my-2">{customerLength}</p>*/}
+
 
             </div>
 
@@ -111,7 +75,7 @@ const Admin =  () => {
             <div className="flex ">
               <img className='' src="/completeicon.png" width={45} height={35} alt="logo" />
               <p className=" text-xl font-semibold  mx-12 my-2 text-[#006332]">62,541</p>
-              {/*<p className=" text-xl font-semibold  mx-12 my-2">{customerLength}</p>*/}
+
 
             </div>
 
@@ -129,11 +93,11 @@ const Admin =  () => {
             <div className="flex ">
               <p className=" text-xl font-semibold  mx-12 my-2 ">35,054</p>
               <IoMdArrowDropdown className='text-4xl text-[#006332]' />
-              {/*<p className=" text-xl font-semibold  mx-12 my-2">{customerLength}</p>*/}
+
 
             </div>
 
-            {/*<p className=" text-xl font-semibold  mx-12 my-2">&euro; 2,52,358.23 </p>*/}
+
 
           </div>
         </Link>
@@ -148,7 +112,7 @@ const Admin =  () => {
 
               <img className='' src="/pendingicon.png" width={45} height={35} alt="logo" />
               <p className=" text-xl font-semibold  mx-12 my-2 text-[#FF9933]">01,210</p>
-              {/*<p className=" text-xl font-semibold  mx-12 my-2">{customerLength}</p>*/}
+
 
             </div>
 

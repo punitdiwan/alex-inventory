@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { loginWithEmail } from "../../lib/client";
+import { loginWithEmail } from "../../lib/appwrite";
 
 
 

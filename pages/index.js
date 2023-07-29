@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import WithoutLayout from '../components/WithoutLoyout'
 import { useRouter } from 'next/router'
 import jwt from 'jsonwebtoken';
-import { loginWithEmail } from '../lib/client';
+import { AuthContext } from '../store/AuthContext';
 
 
 const login = () => {
@@ -10,6 +10,9 @@ const login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("")
   const [loginError, setLoginError] = useState("")
+
+  const {loginUser} = useContext(AuthContext)
+
 
 
   function usernameHandler(event) {
@@ -22,41 +25,24 @@ const login = () => {
   }
 
 
-  async function submitHandler(event) {
+   async function submitHandler(event) {
     event.preventDefault()
     try{
       setLoginError(false)
-      const response = await fetch('/api/hello', {
-        method: "POST",
-        body: JSON.stringify({
-          username,
-          password 
-        }),
-        headers: {
-          "Content-type" : "application/json"
-        }
-      });
-      const data = await response.json();   //data.
-      if(data.code && data.code !== 201){
-        throw new Error(data.response.message)
-      }
+      const response = await loginUser(username, password)
+      if(response) throw new Error(response)
 
-      localStorage.setItem("userId", data.userId);
-      router.push('/dashboard')
-
-      console.log(data)
     }catch(error){
       setLoginError(error.message)
-      // console.log(error);
     }
   }
 
-  useEffect(()=> {
-    const isLoggedIn = localStorage.getItem("userId");
-    if(isLoggedIn){
-      router.push('/dashboard')
-    }
-  },[])
+  // useEffect(()=> {
+  //   dispatch(isLoggedInHandler())
+  //   if(isLoggedIn){
+  //     router.push('/dashboard')
+  //   }
+  // },[isLoggedIn])
 
 
 

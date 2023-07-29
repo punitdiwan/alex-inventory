@@ -258,7 +258,7 @@ const Header = () => {
           <h3 className="font-bold text-lg text-center my-5">Do you Really want to Logout ? </h3>
           <div className="modal-action flex justify-center mb-5">
 
-            <Link href="/" className="btn border border-[#E97208] hover:border-[#E97208] bg-white text-[#E97208] hover:bg-[#E97208] hover:text-white w-24 rounded-3xl mx-2">Yes</Link>
+            <button type='button' className="btn border border-[#E97208] hover:border-[#E97208] bg-white text-[#E97208] hover:bg-[#E97208] hover:text-white w-24 rounded-3xl mx-2">Yes</button>
             <label htmlFor="my-modal-6" className="btn bg-[#E97208] border border-[#E97208] hover:bg-white hover:text-[#E97208] hover:border-[#E97208] w-24 rounded-3xl mx-2">No</label>
 
           </div>

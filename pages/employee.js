@@ -7,7 +7,7 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import { GrGallery } from "react-icons/gr";
 
 import Link from "next/link";
-import { logout } from "../lib/client";
+import { logout } from "../lib/appwrite";
 
 
 
