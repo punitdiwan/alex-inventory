@@ -10,10 +10,9 @@ const login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("")
   const [loginError, setLoginError] = useState("")
+  const [isLoggin, setIsLogging] = useState(false)
 
-  const {loginUser} = useContext(AuthContext)
-
-
+  const {loginUser, getUserData } = useContext(AuthContext)
 
   function usernameHandler(event) {
     event.preventDefault();
@@ -29,20 +28,28 @@ const login = () => {
     event.preventDefault()
     try{
       setLoginError(false)
+      setIsLogging(true)
       const response = await loginUser(username, password)
       if(response) throw new Error(response)
 
+      router.push('/dashboard')
+
     }catch(error){
       setLoginError(error.message)
+      setIsLogging(false)
     }
   }
 
-  // useEffect(()=> {
-  //   dispatch(isLoggedInHandler())
-  //   if(isLoggedIn){
-  //     router.push('/dashboard')
-  //   }
-  // },[isLoggedIn])
+  useEffect(()=> {
+    async function getUserDataHandler(){
+      const userdata = await getUserData()
+      if(typeof userdata === "object"){
+        console.log("User found! Redireting to dashboard ");
+        router.push('/dashboard')
+      }
+    }
+    getUserDataHandler()
+  }, [])
 
 
 
@@ -107,7 +114,10 @@ const login = () => {
 
               <div className="mt-4">
                 {<p className='text-center text-red-600 mb-1'>{loginError}</p>}
-                <button className="block w-[100%]  btn py-3 text-white border-2 border-[#E97208] hover:bg-white hover:text-[#E97208] hover:border-[#E97208] rounded-full bg-[#E97208]">Login</button>
+
+                {!isLoggin && <button className="block w-[100%]  btn py-3 text-white border-2 border-[#E97208] hover:bg-white hover:text-[#E97208] hover:border-[#E97208] rounded-full bg-[#E97208]">Login</button>}
+
+                {isLoggin && <button className="cursor-not-allowed	 block w-[100%]  btn py-3 text-gray-500 border-2 border-gray-300 rounded-full bg-gray-300 hover:bg-gray-300 hover:border-gray-300">Logging In...</button>}
               </div>
 
             </div>

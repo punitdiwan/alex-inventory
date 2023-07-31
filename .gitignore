@@ -1,3 +1,7 @@
+# Reference files
+store/referenceFile.js
+lib/test.js
+
 # Logs
 logs
 *.log

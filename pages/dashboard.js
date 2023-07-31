@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Layout from "../components/Layout"
 import { useRouter } from "next/router";
@@ -6,35 +6,32 @@ import { useRouter } from "next/router";
 import { IoMdArrowDropdown } from "react-icons/io";
 import TransferServiceComp from "../components/TransferServiceComp";
 import AllBookingComp from "../components/AllBookingComp";
-import { me } from "../lib/appwrite";
+
+import { AuthContext } from '../store/AuthContext';
+
 
 
 
 
 const Admin = () => {
+  const { getUserData } = useContext(AuthContext)
   const [isOpen, setIsOpen] = useState(false);
-  const [session, setSession] = useState({});
+  const [userData, setUserData] = useState()
   const router = useRouter();
 
-  // **GETTING CURRENT SESSION**
+  // **GETTING USER**
   useEffect(() => {
-    async function getSessionHandler() {
-      const session = await me()
-      setSession(session)
+    async function getUserDataHandler() {
+      const response = await getUserData()
+      if(typeof response === "object"){
+        setUserData(response)
+      }
     }
-    getSessionHandler()
-  }, [])
+    getUserDataHandler()
+
+  }, [getUserData])
 
 
-
-
-  // **CHECKING IF THE USER IS LOGGED IN OR NOT**
-  //  useEffect(()=> {
-  //   dispatch(isLoggedInHandler())
-  //   if(!isLoggedIn){
-  //     router.replace('/')
-  //   }
-  // },[isLoggedIn])
 
 
   const toggleSidebar = () => {
@@ -101,21 +98,15 @@ const Admin = () => {
 
           </div>
         </Link>
+
         {/* ********************Pending Orders****************** */}
         <Link href={"#"} className="card grid h-36 shadow-md bg-white border-b-4 border border-[#FF9933]">
-
           <div className="p-5">
-
             <h2 className="card-title">Pending Orders</h2>
-
             <div className="flex ">
-
               <img className='' src="/pendingicon.png" width={45} height={35} alt="logo" />
               <p className=" text-xl font-semibold  mx-12 my-2 text-[#FF9933]">01,210</p>
-
-
             </div>
-
           </div>
         </Link>
 
@@ -123,12 +114,12 @@ const Admin = () => {
 
 
       <div className="mt-3 mx-1">
-
         <div className=" overflow-y-hidden ease-in duration-300 ">
+          {userData && <AllBookingComp /> }
 
-          <AllBookingComp />
-
-
+          {!userData && <div className="bg-gray-200 ">
+            <h1 className="text-2xl font-semibold  text-slate-500 text-center">NO DATA FOUND!</h1>
+          </div>}
         </div>
       </div>
 

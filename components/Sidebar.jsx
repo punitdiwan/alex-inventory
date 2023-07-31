@@ -17,18 +17,11 @@ import Link from 'next/link';
 
 
 const Sidebar1 = () => {
-
     const params = useRouter()
     const { pathname } = params
-
-
     const { collapseSidebar } = useProSidebar();
 
     return (
-
-
-
-
 
         <Sidebar defaultCollapsed={false} width='180px' collapsedWidth="65px" className='hidden md:block'>
 
@@ -50,7 +43,7 @@ const Sidebar1 = () => {
                 </button>*/}
             </main>
 
-            <Menu>
+            <Menu className='overflow-hidden'>
 
                 <Link href="/dashboard">
                     <div className="flex mb-6">

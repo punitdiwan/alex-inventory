@@ -9,14 +9,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { username, password } = req.body;
 
-    try {
-      const loginResponse = await loginWithEmail(username, password)
-      res.json(loginResponse)
-
-      // res.status(200).json({username, password})
-    } catch (error) {
-      res.json(error)
-    }
+    
 
   } else {
     // Handle any other HTTP method

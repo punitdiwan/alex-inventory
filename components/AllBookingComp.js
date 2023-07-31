@@ -73,7 +73,7 @@ const AllBookingComp = () => {
 
 
     return (
-        <div className="h-screen">
+        <div className="">
 
 
             <h1 className="mt-3 font-semibold text-xl mx-5">Recent Orders(Last 1 days)</h1>
