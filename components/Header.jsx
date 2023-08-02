@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router';
@@ -15,16 +15,39 @@ import { CgProfile } from "react-icons/cg";
 import { MdPassword } from "react-icons/md";
 import { MdDesignServices } from "react-icons/md";
 
+import { AuthContext } from '../store/AuthContext';
+
 
 
 const Header = () => {
-
+  const { getUserData, logoutUser } = useContext(AuthContext)
+  const [userData, setUserData] = useState({})
+  const { prefs } = userData
   const params = useRouter()
   const { pathname } = params
 
+  const [isLogin, setIsLogin] = useState(true)
+
+  function logoutHandler(){
+    setIsLogin(false)
+    logoutUser()
+  }
+
+
+  useEffect(() => {
+    async function getUserDataHandler() {
+      const response = await getUserData()
+      // console.log("🚀 ~ file: Header.jsx:33 ~ getUserDataHandler ~ response:", response)
+
+      setUserData(response)
+    }
+    getUserDataHandler()
+
+  }, [getUserData])
+
   return (
 
-    <div style={{zIndex:10}}>
+    <div style={{ zIndex: 10 }}>
       {/* ***********LOGO for mob screen************** */}
       <Link href="/dashboard" className="block md:hidden" >
         <img className='mx-auto' src="/logobgRemove.png" width={50} height={56} alt="logo" />
@@ -61,13 +84,13 @@ const Header = () => {
               </Link>
 
               <Link href="/category" >
-              <div className="flex my-1">
-                <div className='ms-7 me-3'>
-                  <AiOutlineLock className="text-2xl" style={pathname == "/category" ? { color: "#E97208" } : ""} />
+                <div className="flex my-1">
+                  <div className='ms-7 me-3'>
+                    <AiOutlineLock className="text-2xl" style={pathname == "/category" ? { color: "#E97208" } : ""} />
+                  </div>
+                  <h1 className='font-bold text-xl '>Category</h1>
                 </div>
-                <h1 className='font-bold text-xl '>Category</h1>
-              </div>
-            </Link>
+              </Link>
 
               <Link href="/customer" >
                 <div className="flex my-1">
@@ -77,7 +100,7 @@ const Header = () => {
                   <h1 className='font-bold text-xl '>Customer</h1>
                 </div>
               </Link>
-             
+
               <Link href="/employee" >
                 <div className="flex my-1">
                   <div className='ms-7 me-3'>
@@ -96,8 +119,8 @@ const Header = () => {
                   <h1 className='font-bold text-xl '>Revenue</h1>
                 </div>
               </Link>
-             
-             
+
+
               <Link href="/profile" >
                 <div className="flex my-1">
                   <div className='ms-7 me-3'>
@@ -120,7 +143,7 @@ const Header = () => {
           </div>
 
           {/* ******************LOGO for md or more*************** */}
-           {/*<Link href="/dashboard" >
+          {/*<Link href="/dashboard" >
             <img className='mx-10 md:block hidden' src="/logobgRemove.png" style={{ width: "150px", height: "100px" }} alt="logo" />
           </Link>*/}
 
@@ -130,16 +153,16 @@ const Header = () => {
 
             {
               pathname == "/dashboard" ? ("Dashboard") :
-              pathname == "/category" ? ("Category") :
-              pathname == "/prefrenceNotification" ? ("Change Password") :
-                pathname == "/customer" ? ("Customer") :
-                  pathname == "/employee" ? ("Employee") :
-                    pathname == "/orders" ? ("Orders") :
-                      pathname == "/revenue" ? ("Revenue") :
-                        pathname == "/security" ? ("Permissions") :
-                          pathname == "/notification" ? ("Notification") :
-                          pathname == "/orderDetails" ? ("Order Details") :
-                            pathname == "/profile" ? ("Profile") : ""
+                pathname == "/category" ? ("Category") :
+                  pathname == "/prefrenceNotification" ? ("Change Password") :
+                    pathname == "/customer" ? ("Customer") :
+                      pathname == "/employee" ? ("Employee") :
+                        pathname == "/orders" ? ("Orders") :
+                          pathname == "/revenue" ? ("Revenue") :
+                            pathname == "/security" ? ("Permissions") :
+                              pathname == "/notification" ? ("Notification") :
+                                pathname == "/orderDetails" ? ("Order Details") :
+                                  pathname == "/profile" ? ("Profile") : ""
             }
 
 
@@ -172,14 +195,13 @@ const Header = () => {
             </ul>
           </div>
 
-
           <div className="dropdown ">
             <label tabIndex={0} className="flex">
               <img className='mx-3' src="/Image/headerImage/HeaderPerson.png" width={50} height={50} alt="logo" />
 
               <div className="" style={pathname == "/profile" ? { color: "#E97208" } : pathname == "/prefrenceNotification" ? { color: "#E97208" } : { color: "black" }}  >
-                <p className='font-semibold' >Jonathan</p>
-                <h1 >Admin</h1>
+                <p className='font-semibold' >{userData.name ? userData.name : "User"}</p>
+                <h1>{prefs ? prefs.role : "Role"}</h1>
               </div>
               <BiChevronDown className="text-4xl mt-3" style={pathname == "/profile" ? { color: "#E97208" } : pathname == "/prefrenceNotification" ? { color: "#E97208" } : ""} />
             </label>
@@ -187,18 +209,18 @@ const Header = () => {
             <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-56">
 
               <Link href="/profile" className="flex me-3 hover:bg-slate-100 my-3">
-                <img className='mx-2' src="/Image/headerImage/HeaderPerson.png" width={35} height={35} alt="logo" />
-                <h1 className='font-semibold text-xl hover:text-black'> Profile</h1>
+                <img className='mx-2' src="/Image/headerImage/HeaderPerson.png" width={35} height={35} alt="logo" /> 
+                <h1 className='font-semibold text-xl hover:text-[#E97208]'> Profile</h1>
               </Link>
 
               {/* The button to open modal */}
               <label htmlFor="my-modal-6" className="flex me-3 hover:bg-slate-100 mt-1 mb-3">
                 <img className='mx-3' src="/Image/headerImage/logout.png" width={20} height={20} alt="logo" />
-                <h1 className='font-semibold text-xl hover:text-black'>Logout</h1>
+                <h1 className='pointer-events-auto font-semibold text-xl  hover:text-[#E97208]'>Logout</h1>
               </label>
 
               <Link href="/prefrenceNotification" className="flex me-3 hover:bg-slate-100 my-3">
-                <h1 className='font-semibold text-xl hover:text-black mx-2'>Change Password</h1>
+                <h1 className='font-semibold text-xl hover:text-[#E97208] mx-2'>Change Password</h1>
               </Link>
 
             </ul>
@@ -255,14 +277,17 @@ const Header = () => {
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
-          <h3 className="font-bold text-lg text-center my-5">Do you Really want to Logout ? </h3>
+          
+          {isLogin && (<div> <h3 className="font-bold text-lg text-center my-5">Do you Really want to Logout ? </h3>
           <div className="modal-action flex justify-center mb-5">
-
-            <button type='button' className="btn border border-[#E97208] hover:border-[#E97208] bg-white text-[#E97208] hover:bg-[#E97208] hover:text-white w-24 rounded-3xl mx-2">Yes</button>
+            <button type='button' onClick={logoutHandler} className="btn border border-[#E97208] hover:border-[#E97208] bg-white text-[#E97208] hover:bg-[#E97208] hover:text-white w-24 rounded-3xl mx-2">Yes</button>
             <label htmlFor="my-modal-6" className="btn bg-[#E97208] border border-[#E97208] hover:bg-white hover:text-[#E97208] hover:border-[#E97208] w-24 rounded-3xl mx-2">No</label>
+          </div> </div>)}
+          
 
-          </div>
+          {!isLogin && <h3 className="font-bold text-[#E97208] text-lg text-center my-5">Logging Out Success! </h3>}
         </div>
+
       </div>
 
 
