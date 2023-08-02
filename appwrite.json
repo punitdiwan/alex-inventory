@@ -221,21 +221,6 @@
                     "default": null
                 },
                 {
-                    "key": "status",
-                    "type": "string",
-                    "status": "available",
-                    "required": false,
-                    "array": false,
-                    "elements": [
-                        "NEW",
-                        "ASSIGNED",
-                        "CANCELLED",
-                        "COMPLETED"
-                    ],
-                    "format": "enum",
-                    "default": null
-                },
-                {
                     "key": "category_name",
                     "type": "string",
                     "status": "available",
@@ -271,20 +256,46 @@
                     "array": false,
                     "size": 100000,
                     "default": null
+                },
+                {
+                    "key": "qty",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 1,
+                    "max": 1000,
+                    "default": null
+                },
+                {
+                    "key": "contact",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 15,
+                    "default": null
+                },
+                {
+                    "key": "full_name",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null
+                },
+                {
+                    "key": "status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null
                 }
             ],
             "indexes": [
-                {
-                    "key": "idx_status",
-                    "type": "key",
-                    "status": "available",
-                    "attributes": [
-                        "status"
-                    ],
-                    "orders": [
-                        "ASC"
-                    ]
-                },
                 {
                     "key": "idx_user",
                     "type": "key",
@@ -301,11 +312,18 @@
                     "type": "key",
                     "status": "available",
                     "attributes": [
-                        "user_id",
+                        "user_id"
+                    ],
+                    "orders": []
+                },
+                {
+                    "key": "idx_status",
+                    "type": "key",
+                    "status": "available",
+                    "attributes": [
                         "status"
                     ],
                     "orders": [
-                        "ASC",
                         "ASC"
                     ]
                 }
@@ -376,19 +394,114 @@
                     "array": false,
                     "size": 35,
                     "default": null
+                },
+                {
+                    "key": "img",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 5000,
+                    "default": null
+                },
+                {
+                    "key": "sub_title",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 100,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "64ca00ab8416a8efb2db",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "64b8d1cb6d5ef4397c37",
+            "name": "orders_stats",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "new_count",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 100000000,
+                    "default": null
+                },
+                {
+                    "key": "processing_count",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 1000,
+                    "default": null
+                },
+                {
+                    "key": "cancelled_count",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 100000000,
+                    "default": null
+                },
+                {
+                    "key": "completed_count",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "total_earnings",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 10000000000,
+                    "default": null
                 }
             ],
             "indexes": []
         }
     ],
-    "teams": [
+    "functions": [
         {
-            "$id": "64b2785c3e0758876d9a",
-            "name": "Customers"
-        },
-        {
-            "$id": "648d6531ba432ccdbe7f",
-            "name": "Employees"
+            "$id": "64ca02ae45ad416a91df",
+            "name": "update_orders_stats",
+            "runtime": "node-16.0",
+            "path": "functions/update_orders_stats",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [
+                "databases.64b8d1cb6d5ef4397c37.collections.64900e33e090e3f48b2d.documents.*.create"
+            ],
+            "schedule": "",
+            "timeout": 15
         }
     ]
 }
