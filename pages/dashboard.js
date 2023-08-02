@@ -35,7 +35,8 @@ const Admin = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [userData, setUserData] = useState();
   const [orders, setOrders] = useState({});
-  const ordersDocuments = orders.documents;
+  // const [ordersDocuments, setOrdersDocuments] = ([])
+  const ordersDocuments = orders?.documents;
   const [errorInOrders, setErrorInOrders] = useState(false);
   const [pendingOrder, setPendingOrders] = useState("...");
   const [totalCustomers, setTotalCustomers] = useState("...");
@@ -65,7 +66,7 @@ const Admin = () => {
 
         setOrders({
           ...response,
-          documents: response.documents.reverse(),
+          documents: response.documents,
         });
       } catch (error) {
         setErrorInOrders(true);
@@ -107,10 +108,6 @@ const Admin = () => {
           process.env.NEXT_PUBLIC_CUSTOMERS_TEAM_ID
         );
         setTotalCustomers(response);
-        console.log(
-          "🚀 ~ file: dashboard.js:106 ~ getTotalCustomers ~ response:",
-          response
-        );
       } catch (error) {
         console.log("Team Error: ", error.message);
       }
@@ -212,7 +209,7 @@ const Admin = () => {
             <div className="bg-gray-200 ">
               <h1 className="text-2xl font-semibold  text-slate-500 text-center">
                 {" "}
-                Loading.....!
+                Loading.....
               </h1>
             </div>
           )}

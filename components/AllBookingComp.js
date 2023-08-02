@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../components/Layout";
 
 const AllBookingComp = ({ orders }) => {
-  // console.log(
-  //   "🚀 ~ file: AllBookingComp.js:5 ~ AllBookingComp ~ orders:",
-  //   orders
-  // );
-
+  console.log(
+    "🚀 ~ file: AllBookingComp.js:5 ~ AllBookingComp ~ orders:",
+    orders
+  );
   const datac = {
-    cardData: orders || [],
+    cardData: orders,
   };
-
-  // console.log(  "🚀 ~ file: AllBookingComp.js:44 ~ AllBookingComp ~ details:",datac.cardData[2]
-  // );
-  // console.log(
-  //   "🚀 ~ file: AllBookingComp.js:44 ~ AllBookingComp ~ order details(Array):",
-  //   JSON.parse(datac.cardData[2].details)
-  // );
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -52,9 +43,9 @@ const AllBookingComp = ({ orders }) => {
 
   return (
     <div className="">
-      <h1 className="mt-3 font-semibold text-xl mx-5 border-b-2 border-[#FF9933] inline">
-        Recent Orders: <span className=" font-light">{orders.length}</span>
-      </h1>
+      <div className="mt-3 font-semibold text-xl mx-5 border-b-2 border-[#FF9933] inline">
+        Recent Orders: <span className=" font-light">{orders?.length}</span>
+      </div>
 
       <table className="table table-compact w-full z-0">
         <thead>
@@ -83,7 +74,8 @@ const AllBookingComp = ({ orders }) => {
               <tr key={item.$id}>
                 <th>{index + 1}</th>
                 <td>{item.full_name || "Unknown"}</td>
-                <td>{"Unknown"}</td> {/*JSON.parse(item.address).city || */}
+                <td>{item.address || "Unknown"}</td>
+                {/*JSON.parse(item.address).city || */}
                 <td>{item.contact || "Unknown"}</td>
                 {/* TOOLTIP */}
                 <td
