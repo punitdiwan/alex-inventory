@@ -498,8 +498,7 @@
                 "any"
             ],
             "events": [
-                "databases.*.collections.*.documents.*.create",
-                "databases.*.collections.*.documents.*.update"
+                "databases.64b8d1cb6d5ef4397c37.collections.64900e33e090e3f48b2d.documents.*.create"
             ],
             "schedule": "",
             "timeout": 15

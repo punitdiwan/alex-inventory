@@ -39,8 +39,26 @@ module.exports = async function (req, res) {
       .setKey(req.variables['APPWRITE_FUNCTION_API_KEY'])
       .setSelfSigned(true);
   }
+  const event = req.variables.APPWRITE_FUNCTION_EVENT;
+
+  const event_data = JSON.parse(req.variables.APPWRITE_FUNCTION_EVENT_DATA);
+  const rec_stats_doc = await database.listDocuments("64b8d1cb6d5ef4397c37", "64ca00ab8416a8efb2db");
+  const rec = rec_stats_doc.documents[0];
+
+  const data = {
+    new_count: parseInt(rec.new_count) + 1,
+    processing_count: parseInt(rec.processing_count),
+    cancelled_count: parseInt(rec.cancelled_count),
+    completed_count: parseInt(rec.completed_count),
+    total_earnings: parseInt(rec.total_earnings)
+  }
+
+  const statsres = await database.updateDocument("64b8d1cb6d5ef4397c37", "64ca00ab8416a8efb2db", "64ca32611aa51d31eb12", data);
+  console.log(statsres);
 
   res.json({
-    areDevelopersAwesome: true,
+    code: "OK",
+    msg: "Document updatd",
+    statsres
   });
 };
