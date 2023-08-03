@@ -6,7 +6,7 @@
             "$id": "64b8d1cb6d5ef4397c37",
             "name": "Bakery-db",
             "$createdAt": "2023-07-25T06:53:11.639+00:00",
-            "$updatedAt": "2023-07-25T07:02:44.760+00:00"
+            "$updatedAt": "2023-08-02T10:38:47.530+00:00"
         }
     ],
     "collections": [
@@ -293,6 +293,15 @@
                     "array": false,
                     "size": 50,
                     "default": null
+                },
+                {
+                    "key": "prev_status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null
                 }
             ],
             "indexes": [
@@ -430,13 +439,13 @@
             "documentSecurity": false,
             "attributes": [
                 {
-                    "key": "new_count",
+                    "key": "total_earnings",
                     "type": "integer",
                     "status": "available",
                     "required": false,
                     "array": false,
                     "min": 0,
-                    "max": 100000000,
+                    "max": 10000000000,
                     "default": null
                 },
                 {
@@ -470,13 +479,13 @@
                     "default": null
                 },
                 {
-                    "key": "total_earnings",
+                    "key": "new_count",
                     "type": "integer",
                     "status": "available",
                     "required": false,
                     "array": false,
                     "min": 0,
-                    "max": 10000000000,
+                    "max": 100000000,
                     "default": null
                 }
             ],
@@ -484,6 +493,40 @@
         }
     ],
     "functions": [
+        {
+            "$id": "64bf6d5f70123dafbe16",
+            "name": "addToEmployeeTeam",
+            "runtime": "node-16.0",
+            "path": "functions/update_orders_stats",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "64be470102bde3af0cba",
+            "name": "addToCustomerTeam",
+            "runtime": "node-16.0",
+            "path": "functions/update_orders_stats",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
         {
             "$id": "64ca02ae45ad416a91df",
             "name": "update_orders_stats",
@@ -497,8 +540,42 @@
             "execute": [
                 "any"
             ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "64ca5bbc9740c55835b2",
+            "name": "createUser",
+            "runtime": "node-16.0",
+            "path": "functions/createUser",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "64cb444987577d82cb98",
+            "name": "sendSMS",
+            "runtime": "node-16.0",
+            "path": "functions/sendSMS",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
             "events": [
-                "databases.64b8d1cb6d5ef4397c37.collections.64900e33e090e3f48b2d.documents.*.create"
+                "users.*.create"
             ],
             "schedule": "",
             "timeout": 15
