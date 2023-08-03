@@ -1,50 +1,36 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../components/Layout"
-import { FiFilter } from "react-icons/fi";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { BiEdit } from "react-icons/bi";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { FaCloudUploadAlt } from "react-icons/fa";
+import { getTeamMembers } from "../lib/appwrite";
+import Layout from "../components/Layout";
 
+const datac = {
+  cardData: [
+    {
+      id: "1",
+      fullName: "Johnny Depp ",
+      employeeid: "#124567",
+      address: "3093 Cheshire Road",
+      contact: "+971 21456320",
+      serviceDate: "28/05/2023",
+      serviceAssigned: "4.5/5",
+      wallet: "yes",
+      serviceStatus: "Icon",
+      payment: "Success",
+    },
+  ],
+};
 
-
-const users = () => {
-
-
-  const datac = {
-    cardData: [
-      { id: "1", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-      { id: "2", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed" },
-      { id: "3", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "4", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "5", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-      { id: "6", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed" },
-      { id: "7", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "8", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "9", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-      { id: "10", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed" },
-      { id: "11", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "12", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-      { id: "13", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed" },
-      { id: "14", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "15", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "16", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-      { id: "17", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed" },
-      { id: "18", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "19", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-      { id: "20", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed" },
-      { id: "21", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-      { id: "22", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed" },
-      { id: "23", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "24", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-      { id: "25", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed" },
-      { id: "26", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "27", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-      { id: "28", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed" },
-      { id: "29", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-      { id: "30", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed"},
-    ]
-  }
+const employee = () => {
+  const [customers, setCustomers] = useState([]);
+  const router = useRouter();
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(7);
 
   // Calculate total pages
   const totalPages = Math.ceil(datac.cardData.length / itemsPerPage);
@@ -71,30 +57,148 @@ const users = () => {
     }
   };
 
+  // ****GETTING TOTAL CUSTOMERS****
+  useEffect(() => {
+    async function getTotalCustomers() {
+      try {
+        const response = await getTeamMembers(
+          process.env.NEXT_PUBLIC_CUSTOMERS_TEAM_ID
+        );
+        console.log(
+          "🚀 ~ file: customer.js:67 ~ getTotalCustomers ~ memberships:",
+          response.memberships
+        );
+        // setCustomers(response.memberships);
+      } catch (error) {
+        console.log("Customer Error: ", error.message);
+      }
+    }
+    getTotalCustomers();
+  }, []);
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div className=" sm:w-full h-screen pb-5 px-5">
-      <div className="flex flex-row justify-between">
-        <div className="dropdown dropdown-hover">
-          <label tabIndex={0} className="btn m-1 bg-white text-[#575757] px-10 hover:bg-white border-[#E97208]">
-            <FiFilter className="text-2xl mx-2" />
+      <h1 className="mb-3 mt-3 font-semibold text-xl">Customer</h1>
 
-            All
-          </label>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-[#F0EFEF] border border-black rounded-box w-52">
-            <li><a>Delivered Order</a></li>
-            <li><a>On the way</a></li>
-            <li><a>Preparing Order</a></li>
-            <li><a>Pending Order</a></li>
-            <li><a>Cancel Order</a></li>
-          </ul>
-        </div>
+      {/* The button to open modal */}
+      <div className=" flex justify-between my-5">
+        <input
+          type="text"
+          placeholder="Search"
+          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208]"
+        />
+        <a
+          href="#my_modal_8"
+          className="btn border-0 hover:border hover:border-[#E97208] text-end bg-[#E97208] hover:bg-white hover:text-[#E97208]"
+        >
+          + Add Customer
+        </a>
+      </div>
 
-        <div className="form-control">
+      {/* **********MODAL************ */}
+      <div className="modal" id="my_modal_8">
+        <div className="modal-box">
+          {/**************INPUT TAGS**************/}
+          <div className="grid grid-cols-2 gap-x-5 gap-y-2">
+            <div className="">
+              <p className="mb-2">User ID</p>
+              <input
+                type="text"
+                placeholder="User ID"
+                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+              />
+            </div>
 
-          <input type="date" className="input input-bordered input-md border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208]" />
+            <div className="">
+              <p className="mb-2">Full Name</p>
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+              />
+            </div>
 
+            <div className="">
+              <p className="mb-2">Email</p>
+              <input
+                type="email"
+                placeholder="Email"
+                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+              />
+            </div>
+
+            <div className="">
+              <p className="mb-2">Contact No.</p>
+              <input
+                type="text"
+                placeholder="Contact No."
+                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+              />
+            </div>
+
+            <div className="">
+              <p className="mb-2">Date of Birth</p>
+              <input
+                type="date"
+                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+              />
+            </div>
+
+            <div className="">
+              <p className="mb-2">Gender</p>
+              <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] ">
+                <option value="">Male</option>
+                <option value="">Famale</option>
+              </select>
+            </div>
+            <div className="">
+              <p className="mb-2">Address</p>
+              <input
+                type="text"
+                placeholder="Address"
+                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+              />
+            </div>
+            <div className="">
+              <p className="mb-2">Password</p>
+              <input
+                type="password"
+                placeholder="Password"
+                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+              />
+            </div>
+
+            <div
+              type="file"
+              accept="image/*"
+              className="cursor-pointer col-span-2 border border-[#E97208] rounded-md mt-5"
+            >
+              <input type="file" accept="image/*" id="uploadImage" hidden />
+
+              <label htmlFor="uploadImage" className="flex justify-center my-2">
+                <FaCloudUploadAlt className="text-2xl mx-2" />
+                <p>Upload Profile Image</p>
+              </label>
+            </div>
+          </div>
+          <div className="modal-action flex justify-center">
+            <a
+              href="#"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              x
+            </a>
+            <a
+              href="#"
+              className="btn border-0 hover:border hover:border-[#E97208] bg-[#E97208] hover:bg-[#E97208]"
+            >
+              Add Employee
+            </a>
+          </div>
         </div>
       </div>
 
@@ -102,13 +206,12 @@ const users = () => {
         <thead>
           <tr>
             <th>S.No.</th>
-            <th>Customer Name</th>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
             <th>address</th>
+            <th>Joining Date</th>
             <th>contact</th>
-            <th>Order Item</th>
-            <th>Order Status</th>
-            <th>Amount/Method</th>
-            <th>Payment Status</th>
+            <th>Action</th>
           </tr>
         </thead>
 
@@ -116,26 +219,149 @@ const users = () => {
           {currentItems.map((item, index) => (
             <tr key={item.id}>
               <th>{item.id}</th>
-              <td>{item.fullName}</td>
+              <th>{item.employeeid}</th>
+              <td className="cursor-pointer">{item.fullName}</td>
               <td>{item.address}</td>
+              <td>{item.serviceDate}</td>
               <td>{item.contact}</td>
-              <td>{item.orderItem}</td>
-              <td>{item.orderStatus}</td>
-              <td>{item.amount}{item.method}</td>
-              <td className={item.payment === "Pending" ? "bg-yellow-200 text-yellow-400 font-bold" : item.payment === "Success" ? "bg-green-200 text-green-500 font-bold" : "bg-red-200 text-red-400 font-bold"}>{item.payment}</td>
-              </tr>
+              <td className="flex">
+                <a href="#editemp">
+                  <BiEdit className="text-3xl text-green-600 me-1" />
+                </a>
+
+                {/* **********MODAL************ */}
+                <div className="modal" id="editemp">
+                  <div className="modal-box">
+                    {/**************INPUT TAGS**************/}
+                    <div className="grid grid-cols-2 gap-x-5 gap-y-2">
+                      <div className="">
+                        <p className="mb-2">User ID</p>
+                        <input
+                          type="text"
+                          placeholder="User ID"
+                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+                        />
+                      </div>
+
+                      <div className="">
+                        <p className="mb-2">Full Name</p>
+                        <input
+                          type="text"
+                          placeholder="Full Name"
+                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+                        />
+                      </div>
+
+                      <div className="">
+                        <p className="mb-2">Email</p>
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+                        />
+                      </div>
+
+                      <div className="">
+                        <p className="mb-2">Contact No.</p>
+                        <input
+                          type="text"
+                          placeholder="Contact No."
+                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+                        />
+                      </div>
+
+                      <div className="">
+                        <p className="mb-2">Date of Birth</p>
+                        <input
+                          type="date"
+                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+                        />
+                      </div>
+
+                      <div className="">
+                        <p className="mb-2">Gender</p>
+                        <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] ">
+                          <option value="">Male</option>
+                          <option value="">Famale</option>
+                        </select>
+                      </div>
+                      <div className="">
+                        <p className="mb-2">Address</p>
+                        <input
+                          type="text"
+                          placeholder="Address"
+                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+                        />
+                      </div>
+                      <div className="">
+                        <p className="mb-2">Password</p>
+                        <input
+                          type="password"
+                          placeholder="Password"
+                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+                        />
+                      </div>
+
+                      <div
+                        type="file"
+                        accept="image/*"
+                        className="cursor-pointer col-span-2 border border-[#E97208] rounded-md mt-5"
+                      >
+                        <input
+                          type="file"
+                          accept="image/*"
+                          id="uploadImage"
+                          hidden
+                        />
+
+                        <label
+                          htmlFor="uploadImage"
+                          className="flex justify-center my-2"
+                        >
+                          <FaCloudUploadAlt className="text-2xl mx-2" />
+                          <p>Upload Profile Image</p>
+                        </label>
+                      </div>
+                    </div>
+                    <div className="modal-action flex justify-center">
+                      <a
+                        href="#"
+                        className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                      >
+                        x
+                      </a>
+                      <a
+                        href="#"
+                        className="btn bg-[#E97208] hover:bg-[#E97208]"
+                      >
+                        Edit Employee
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <Link href={"#"}>
+                  <RiDeleteBin6Line className="text-3xl text-red-500 ms-1" />
+                </Link>
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>
 
-
-
-
-      <div className="mx-1" style={{ display: "flex", position: "fixed", bottom: 5, right: 20 }}>
+      <div
+        className="mx-1"
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          bottom: 5,
+          right: 20,
+        }}
+      >
         {/* Pagination buttons */}
 
         <button
-          className="btn btn-sm hover:bg-[#E97208] text-xs  rounded text-white bg-[#E97208]"
+          className="btn btn-sm hover:bg-[#E97208] text-xs border rounded text-white bg-[#E97208]"
           disabled={currentPage === 1}
           onClick={previousPage}
         >
@@ -145,8 +371,9 @@ const users = () => {
         {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index + 1}
-            className={`btn btn-sm btn-outline hover:bg-[#E97208] mx-2  text-black rounded  border-[#E97208] ${currentPage === index + 1 ? "bg-[#E97208] text-white" : ""
-              }`}
+            className={`btn btn-sm btn-outline hover:bg-[#E97208] mx-2  text-black rounded border border-[#E97208] ${
+              currentPage === index + 1 ? "bg-[#E97208] text-white" : ""
+            }`}
             onClick={() => paginate(index + 1)}
           >
             {index + 1}
@@ -154,16 +381,15 @@ const users = () => {
         ))}
 
         <button
-          className="btn btn-sm hover:bg-[#E97208] text-xs  rounded text-white bg-[#E97208]"
+          className="btn btn-sm hover:bg-[#E97208] text-xs border rounded text-white bg-[#E97208]"
           disabled={currentPage === totalPages}
           onClick={nextPage}
         >
           Next
         </button>
-
       </div>
     </div>
   );
 };
 
-export default Layout(users)
+export default Layout(employee);

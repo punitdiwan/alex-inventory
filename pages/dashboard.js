@@ -22,12 +22,6 @@ const DUMMY_ORDERS = [
     method: "(PP)",
     payment: "failed",
   },
-  // { id: "2", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-  // { id: "3", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-  // { id: "4", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Success" },
-  // { id: "5", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Failed" },
-  // { id: "6", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
-  // { id: "7", fullName: "Johnny Depp", address: "3093 Cheshire Road", contact: "+971 21456320", orderItem: "Cold Coffee(2)", orderStatus: "On the way", amount: "$ 80.00", method: "(PP)", payment: "Pending" },
 ];
 
 const Admin = () => {
@@ -35,9 +29,7 @@ const Admin = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [userData, setUserData] = useState();
   const [orders, setOrders] = useState({});
-  // const [ordersDocuments, setOrdersDocuments] = ([])
   const ordersDocuments = orders?.documents;
-  const [errorInOrders, setErrorInOrders] = useState(false);
   const [pendingOrder, setPendingOrders] = useState("...");
   const [totalCustomers, setTotalCustomers] = useState("...");
   const router = useRouter();
@@ -53,8 +45,6 @@ const Admin = () => {
     getUserDataHandler();
   }, [getUserData]);
 
-  const query = "NEW";
-
   // **GETTING ORDERS**
   useEffect(() => {
     async function getDataHandler(databaseId, collectionId) {
@@ -62,14 +52,12 @@ const Admin = () => {
         const response = await getData(databaseId, collectionId);
         if (typeof response !== "object")
           throw new Error("Something went wrong! Try again later");
-        const itemDetails = response?.documents.map((item) => item.details);
 
         setOrders({
           ...response,
           documents: response.documents,
         });
       } catch (error) {
-        setErrorInOrders(true);
         console.log(error.message);
       }
     }
@@ -208,7 +196,6 @@ const Admin = () => {
           {!userData && (
             <div className="bg-gray-200 ">
               <h1 className="text-2xl font-semibold  text-slate-500 text-center">
-                {" "}
                 Loading.....
               </h1>
             </div>

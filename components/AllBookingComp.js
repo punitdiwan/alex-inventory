@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 const AllBookingComp = ({ orders }) => {
-  console.log(
-    "🚀 ~ file: AllBookingComp.js:5 ~ AllBookingComp ~ orders:",
-    orders
-  );
   const datac = {
     cardData: orders,
   };
