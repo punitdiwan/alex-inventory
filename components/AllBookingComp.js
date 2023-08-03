@@ -98,15 +98,7 @@ const AllBookingComp = ({ orders }) => {
                 <td>
                   {item.grand_total}/{item.payment_mode}
                 </td>
-                <td
-                  className={
-                    item.payment === "Pending"
-                      ? "bg-yellow-200 text-yellow-400 font-bold"
-                      : item.payment === "Success"
-                      ? "bg-green-200 text-green-500 font-bold"
-                      : "bg-red-200 text-red-400 font-bold"
-                  }
-                >
+                <td className={"bg-yellow-200 text-yellow-400 font-bold"}>
                   {item.payment || "PENDING"}
                 </td>
               </tr>

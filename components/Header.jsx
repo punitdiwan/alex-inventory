@@ -42,8 +42,9 @@ const Header = () => {
   }, [getUserData]);
 
   return (
-    <div style={{ zIndex: 10 }}>
+    <div style={{ zIndex: 10 }} className="">
       {/* ***********LOGO for mob screen************** */}
+
       <Link href="/dashboard" className="block md:hidden">
         <img
           className="mx-auto"
@@ -180,33 +181,44 @@ const Header = () => {
             <img className='mx-10 md:block hidden' src="/logobgRemove.png" style={{ width: "150px", height: "100px" }} alt="logo" />
           </Link>*/}
 
-          <a className="normal-case text-xl mx-5 font-bold text-[#E97208]">
-            {/* Hello, Admin */}
+          <div className="flex items-center ">
+            <Link href="/dashboard" className=" hidden md:block ">
+              <img
+                className="mx-auto"
+                src="/logobgRemove.png"
+                style={{ height: "80px", width: "100px" }}
+                alt="logo"
+              />
+            </Link>
 
-            {pathname == "/dashboard"
-              ? "Dashboard"
-              : pathname == "/category"
-              ? "Category"
-              : pathname == "/prefrenceNotification"
-              ? "Change Password"
-              : pathname == "/customer"
-              ? "Customer"
-              : pathname == "/employee"
-              ? "Employee"
-              : pathname == "/orders"
-              ? "Orders"
-              : pathname == "/revenue"
-              ? "Revenue"
-              : pathname == "/security"
-              ? "Permissions"
-              : pathname == "/notification"
-              ? "Notification"
-              : pathname == "/orderDetails"
-              ? "Order Details"
-              : pathname == "/profile"
-              ? "Profile"
-              : ""}
-          </a>
+            <a className="normal-case text-xl mx-5 font-bold text-[#E97208] ">
+              {/* Hello, Admin */}
+
+              {pathname == "/dashboard"
+                ? "Dashboard"
+                : pathname == "/category"
+                ? "Category"
+                : pathname == "/prefrenceNotification"
+                ? "Change Password"
+                : pathname == "/customer"
+                ? "Customer"
+                : pathname == "/employee"
+                ? "Employee"
+                : pathname == "/orders"
+                ? "Orders"
+                : pathname == "/revenue"
+                ? "Revenue"
+                : pathname == "/security"
+                ? "Permissions"
+                : pathname == "/notification"
+                ? "Notification"
+                : pathname == "/orderDetails"
+                ? "Order Details"
+                : pathname == "/profile"
+                ? "Profile"
+                : ""}
+            </a>
+          </div>
         </div>
 
         {/* *******************hidden below md **************** */}
