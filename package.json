@@ -10,6 +10,7 @@
     "type": "module"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "appwrite": "^11.0.0",
     "daisyui": "^2.51.5",
     "flowbite": "^1.6.5",
@@ -23,6 +24,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-pro-sidebar": "^1.0.0",
+    "react-redux": "^8.1.1",
     "sharp": "^0.32.0",
     "styled-components": "^5.3.10",
     "windicss-webpack-plugin": "^1.7.8"

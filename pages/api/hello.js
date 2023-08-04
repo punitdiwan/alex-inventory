@@ -1,5 +1,17 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+import { loginWithEmail } from "../../lib/appwrite";
+
+
+
+
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    const { username, password } = req.body;
+
+    
+
+  } else {
+    // Handle any other HTTP method
+  }
 }

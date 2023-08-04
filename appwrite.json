@@ -1,0 +1,584 @@
+{
+    "projectId": "64b8cd79427ebc81a71c",
+    "projectName": "Bakery",
+    "databases": [
+        {
+            "$id": "64b8d1cb6d5ef4397c37",
+            "name": "Bakery-db",
+            "$createdAt": "2023-07-25T06:53:11.639+00:00",
+            "$updatedAt": "2023-08-02T10:38:47.530+00:00"
+        }
+    ],
+    "collections": [
+        {
+            "$id": "649006510a8f6ccbcaed",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "64b8d1cb6d5ef4397c37",
+            "name": "categories",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "status",
+                    "type": "boolean",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "default": true
+                },
+                {
+                    "key": "desc",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "category_name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 25,
+                    "default": null
+                }
+            ],
+            "indexes": [
+                {
+                    "key": "idx_category",
+                    "type": "key",
+                    "status": "available",
+                    "attributes": [
+                        "category_name"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                }
+            ]
+        },
+        {
+            "$id": "64903a2fcd6f88ffa51e",
+            "$permissions": [
+                "create(\"users\")",
+                "read(\"users\")",
+                "update(\"users\")",
+                "delete(\"users\")"
+            ],
+            "databaseId": "64b8d1cb6d5ef4397c37",
+            "name": "discounts",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "status",
+                    "type": "boolean",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "default": true
+                },
+                {
+                    "key": "type",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "elements": [
+                        "Amount",
+                        "Percent"
+                    ],
+                    "format": "enum",
+                    "default": null
+                },
+                {
+                    "key": "value",
+                    "type": "double",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 2000,
+                    "default": 0
+                },
+                {
+                    "key": "description",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 250,
+                    "default": null
+                },
+                {
+                    "key": "title",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 25,
+                    "default": null
+                }
+            ],
+            "indexes": [
+                {
+                    "key": "idx_discount_title",
+                    "type": "key",
+                    "status": "available",
+                    "attributes": [
+                        "title"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                },
+                {
+                    "key": "idx_title_status",
+                    "type": "key",
+                    "status": "available",
+                    "attributes": [
+                        "title",
+                        "status"
+                    ],
+                    "orders": [
+                        "ASC",
+                        "ASC"
+                    ]
+                },
+                {
+                    "key": "idx_status",
+                    "type": "key",
+                    "status": "available",
+                    "attributes": [
+                        "status"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                }
+            ]
+        },
+        {
+            "$id": "64900e33e090e3f48b2d",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "64b8d1cb6d5ef4397c37",
+            "name": "orders",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "taxes",
+                    "type": "double",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "payment_mode",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "elements": [
+                        "COD",
+                        "ONLINE"
+                    ],
+                    "format": "enum",
+                    "default": null
+                },
+                {
+                    "key": "grand_total",
+                    "type": "double",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 1,
+                    "max": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "address",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 250,
+                    "default": null
+                },
+                {
+                    "key": "category_name",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null
+                },
+                {
+                    "key": "total",
+                    "type": "double",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 1,
+                    "max": 100000,
+                    "default": null
+                },
+                {
+                    "key": "user_id",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "details",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 100000,
+                    "default": null
+                },
+                {
+                    "key": "qty",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 1,
+                    "max": 1000,
+                    "default": null
+                },
+                {
+                    "key": "contact",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 15,
+                    "default": null
+                },
+                {
+                    "key": "full_name",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null
+                },
+                {
+                    "key": "status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null
+                },
+                {
+                    "key": "prev_status",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null
+                }
+            ],
+            "indexes": [
+                {
+                    "key": "idx_user",
+                    "type": "key",
+                    "status": "available",
+                    "attributes": [
+                        "user_id"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                },
+                {
+                    "key": "idx_order_status",
+                    "type": "key",
+                    "status": "available",
+                    "attributes": [
+                        "user_id"
+                    ],
+                    "orders": []
+                },
+                {
+                    "key": "idx_status",
+                    "type": "key",
+                    "status": "available",
+                    "attributes": [
+                        "status"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                }
+            ]
+        },
+        {
+            "$id": "64b8d80419a34a5c1cc7",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "64b8d1cb6d5ef4397c37",
+            "name": "products",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "status",
+                    "type": "boolean",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "default": null
+                },
+                {
+                    "key": "price",
+                    "type": "double",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "min": 2,
+                    "max": 1000,
+                    "default": null
+                },
+                {
+                    "key": "isVeg",
+                    "type": "boolean",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "default": null
+                },
+                {
+                    "key": "desc",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 1000,
+                    "default": null
+                },
+                {
+                    "key": "category",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 40,
+                    "default": null
+                },
+                {
+                    "key": "full_name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 35,
+                    "default": null
+                },
+                {
+                    "key": "img",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 5000,
+                    "default": null
+                },
+                {
+                    "key": "sub_title",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 100,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "64ca00ab8416a8efb2db",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "64b8d1cb6d5ef4397c37",
+            "name": "orders_stats",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "total_earnings",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 10000000000,
+                    "default": null
+                },
+                {
+                    "key": "processing_count",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 1000,
+                    "default": null
+                },
+                {
+                    "key": "cancelled_count",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 100000000,
+                    "default": null
+                },
+                {
+                    "key": "completed_count",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "new_count",
+                    "type": "integer",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "min": 0,
+                    "max": 100000000,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        }
+    ],
+    "functions": [
+        {
+            "$id": "64bf6d5f70123dafbe16",
+            "name": "addToEmployeeTeam",
+            "runtime": "node-16.0",
+            "path": "functions/update_orders_stats",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "64be470102bde3af0cba",
+            "name": "addToCustomerTeam",
+            "runtime": "node-16.0",
+            "path": "functions/update_orders_stats",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "64ca02ae45ad416a91df",
+            "name": "update_orders_stats",
+            "runtime": "node-16.0",
+            "path": "functions/update_orders_stats",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "64ca5bbc9740c55835b2",
+            "name": "createUser",
+            "runtime": "node-16.0",
+            "path": "functions/createUser",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "64cb444987577d82cb98",
+            "name": "sendSMS",
+            "runtime": "node-16.0",
+            "path": "functions/sendSMS",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [
+                "users.*.create"
+            ],
+            "schedule": "",
+            "timeout": 15
+        }
+    ]
+}
