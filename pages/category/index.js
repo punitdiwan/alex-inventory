@@ -4,10 +4,31 @@ import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import Link from "next/link";
-import { getCategory } from "../../lib/appwrite";
+import { getCategory, updateCategory } from "../../lib/appwrite";
+import { useRouter } from "next/router";
 
 const category = () => {
   const [category, setCategory] = useState([]);
+
+  const router = useRouter();
+
+  // ****UPDATING CATEGORY STATUS****
+  async function catStatusChangeHandler({ catId, catStatus }) {
+    try {
+      const response = await updateCategory(
+        process.env.NEXT_PUBLIC_DATABASE_ID,
+        process.env.NEXT_PUBLIC_COLL_CATEGORIES,
+        catId,
+        {
+          status: !catStatus,
+        }
+      );
+      console.log(response);
+      // router.reload();
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
   // ****GETTING CATEGORY ****
   useEffect(() => {
@@ -18,7 +39,7 @@ const category = () => {
           process.env.NEXT_PUBLIC_COLL_CATEGORIES
         );
         setCategory(response.documents);
-        // console.log("Category: ", response.documents);
+        console.log("Category: ", response.documents[0]);
       } catch (error) {
         console.error(error);
       }
@@ -26,9 +47,22 @@ const category = () => {
     getCategoryHandler();
   }, []);
 
+  // ****ADDING NEW CATEGORY ****
+  function addCategoryHandler(event) {
+    event.preventDefault();
+  }
+
   const datac = {
     cardData: category,
   };
+
+  // {
+  //   name: ,
+  //   desc: ,
+  //   status: ,
+  // }
+
+  // "unique()", {}
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -71,64 +105,60 @@ const category = () => {
         <div className=" flex justify-end -mb-5">
           <a
             href="#addService"
-            className="btn btn-ghost border border-[#E97208] text-end"
+            className="btn btn-ghost border hover:bg-[#E97208] hover:text-white border-[#E97208] text-end"
           >
             + Add New Category
           </a>
         </div>
         {/* **********MODAL************ */}
         <div className="modal" id="addService">
-          <div className="modal-box w-11/12 max-w-3xl">
+          <div className="modal-box max-w-3xl">
             {/**************INPUT TAGS**************/}
-            <h1 className="font-medium text-xl text-center">
-              Add New Category
-            </h1>
-            <div className="grid grid-cols-6 gap-x-6 gap-y-6 p-5 ">
-              <select className="input w-full max-w-xs  border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] col-span-3 ">
-                <option value="">Catagory</option>
-                <option value="">Category 1</option>
-                <option value="">Category 2</option>
-                <option value="">Category 3</option>
-                <option value="">Category 4</option>
-                <option value="">Category 5</option>
-              </select>
+            <h1 className="text-xl text-center font-bold">Add New Category</h1>
 
-              <div
-                type="file"
-                accept="image/*"
-                className="cursor-pointer  border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] rounded-md col-span-6"
-              >
-                <input type="file" accept="image/*" id="uploadImage" hidden />
+            <form id="categoryAddForm" onSubmit={addCategoryHandler}>
+              <div className="myInputsforNewCategory flex justify-center gap-2 mt-5">
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text font-semibold">
+                      Category Name:
+                    </span>
+                  </label>
+                  <input
+                    name="category_name"
+                    type="text"
+                    placeholder="Type here"
+                    className="input input-bordered w-full max-w-xs"
+                    required
+                  />
+                </div>
 
-                <label
-                  htmlFor="uploadImage"
-                  className="flex justify-center my-2"
-                >
-                  <FaCloudUploadAlt className="text-2xl mx-2" />
-                  <p>Upload Profile Image</p>
-                </label>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text font-semibold">Details:</span>
+                  </label>
+                  <input
+                    name="category_desc"
+                    type="text"
+                    placeholder="Type here"
+                    className="input input-bordered w-full max-w-xs"
+                    required
+                  />
+                </div>
               </div>
 
-              <textarea
-                type="text"
-                placeholder="Describe something about service......"
-                className="input input-bordered py-2  border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208]  w-full max-w-full col-span-6"
-              />
-            </div>
-            <div className="modal-action flex justify-center">
-              <a
-                href="#"
-                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-              >
-                x
-              </a>
-              <a
-                href="#"
-                className="btn bg-[#E97208] hover:bg-[#E97208] border border-[#E97208] hover:border-[#E97208]"
-              >
-                Add Category
-              </a>
-            </div>
+              <div className="modal-action flex justify-center">
+                <a
+                  href="#"
+                  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                >
+                  x
+                </a>
+                <button className="btn bg-[#E97208] hover:bg-[#E97208] border border-[#E97208] hover:border-[#E97208]">
+                  + Add Category
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -136,34 +166,40 @@ const category = () => {
         <thead>
           <tr>
             <th>Category</th>
-            {/* <th>Item</th> */}
 
             <th>Details</th>
 
             <th>Action</th>
+
+            <th>ID</th>
+
+            {/* <th>Disable/Enable</th> */}
           </tr>
         </thead>
 
         <tbody>
-          {currentItems.map((item, index) => (
-            <tr key={item.$id}>
+          {currentItems.map((cat) => (
+            <tr key={cat.$id} className={!cat.status ? "text-gray-400" : ""}>
               <th>
-                <Link href={`/category/${item.category_name}`}>
-                  {item.category_name}
+                <Link disabled href={`/category/${cat.category_name}`}>
+                  {cat.category_name}
                 </Link>
               </th>
               {/* <td>
                 <img
-                  src={item.image}
+                  src={cat.image}
                   alt="Service Image"
                   className="w-16 h-10"
                 />
               </td> */}
-              <td>{item.desc}</td>
+              <td>{cat.desc}</td>
               <td className="flex">
                 {/* The button to open modal */}
                 <a href="#editService">
-                  <BiEdit className="text-2xl mx-2" color="green" />
+                  <BiEdit
+                    className="text-2xl mx-2 mt-3"
+                    color={cat.status ? "green" : "gray"}
+                  />
                 </a>
 
                 {/* **********MODAL************ */}
@@ -235,8 +271,32 @@ const category = () => {
                   </div>
                 </div>
 
-                <RiDeleteBin6Line className="text-2xl mx-2" color="red" />
+                <RiDeleteBin6Line
+                  className="text-2xl mx-2 mt-3"
+                  color={cat.status ? "red" : "gray"}
+                />
               </td>
+              <th>{cat.$id}</th>
+
+              <th>
+                <select
+                  onChange={catStatusChangeHandler.bind(null, {
+                    catId: cat.$id,
+                    catStatus: cat.status,
+                  })}
+                  defaultValue={cat.status ? "enabled" : "disabled"}
+                  className={`select select-bordered w-full max-w-xs ${
+                    cat.status ? "border-green-600" : "border-red-600"
+                  } `}
+                >
+                  <option value={cat.status ? "enabled" : "disabled"}>
+                    {cat.status ? "enabled" : "disabled"}
+                  </option>
+                  <option value={cat.status ? "disabled" : "enabled"}>
+                    {cat.status ? "disabled" : "enabled"}
+                  </option>
+                </select>
+              </th>
             </tr>
           ))}
         </tbody>

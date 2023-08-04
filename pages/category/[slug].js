@@ -6,57 +6,33 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import { getProducts } from "../../lib/appwrite";
 import { useRouter } from "next/router";
 import { Query } from "appwrite";
+import Link from "next/link";
 
 const Cakes = () => {
   const [products, setProducts] = useState([]);
   const router = useRouter();
   const { slug } = router.query;
 
-  const slug2 = "Coffee";
-  console.log("🚀 ~ file: [slug].js:12 ~ Cakes ~ slug: ", slug);
-
+  // ****GETTING PRODUCTS ****
   useEffect(() => {
     async function getProductHandler() {
       try {
         const response = await getProducts(
           process.env.NEXT_PUBLIC_DATABASE_ID,
           process.env.NEXT_PUBLIC_COLL_PRODUCTS,
-          [Query.equal("category", [router.query.slug])]
+          [Query.equal("category", [slug])]
         );
-        console.log(
-          "🚀 ~ file: [slug].js:14 ~ getProductHandler ~ products:",
-          response
-        );
+
+        setProducts(response.documents);
       } catch (error) {
         console.log(error);
       }
     }
     getProductHandler();
-<<<<<<< HEAD
-  }, []);
-=======
   }, [slug]);
->>>>>>> cb487e3ed62b5f7b5520f156ed0b495a096cd991
 
   const datac = {
-    cardData: [
-      {
-        id: "1",
-        image: "/cake.png",
-        serviceName: "Vanilla cake with chocolate",
-        details: "Lorem ipsum lorem dolor.....",
-        servicePrice: "USD 41.36",
-        action: "...",
-      },
-      {
-        id: "2",
-        image: "/cake.png",
-        serviceName: "Vanilla fresh cream Cake",
-        details: "Lorem ipsum lorem dolor.....",
-        servicePrice: "USD 41.36",
-        action: "...",
-      },
-    ],
+    cardData: products,
   };
 
   // Pagination state
@@ -64,12 +40,15 @@ const Cakes = () => {
   const [itemsPerPage] = useState(6);
 
   // Calculate total pages
-  const totalPages = Math.ceil(datac.cardData.length / itemsPerPage);
+  const totalPages = Math.ceil(datac?.cardData?.length / itemsPerPage);
 
   // Get current items
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = datac.cardData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = datac?.cardData?.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -93,24 +72,26 @@ const Cakes = () => {
       <div className="text-sm breadcrumbs">
         <ul>
           <li>
-            <a href="/category">Category </a>
+            <Link href="/category">Category </Link>
           </li>
-          <li>Cakes</li>
+          <li>{slug}</li>
         </ul>
       </div>
 
       <div className="flex justify-between">
-        <h1 className="mb-3 mt-3 font-semibold text-xl">Cakes</h1>
+        <h1 className="mb-3 mt-3 font-semibold text-xl text-[#E97208]">
+          {slug}
+        </h1>
 
         {/* The button to open modal */}
-        <div className=" flex justify-end -mb-5">
+        {/* <div className=" flex justify-end -mb-5">
           <a
             href="#addService"
             className="btn btn-ghost border border-[#E97208] text-end"
           >
             + Add New Category
           </a>
-        </div>
+        </div> */}
         {/* **********MODAL************ */}
         <div className="modal" id="addService">
           <div className="modal-box w-11/12 max-w-3xl">
@@ -179,99 +160,106 @@ const Cakes = () => {
         </thead>
 
         <tbody>
-          {currentItems.map((item, index) => (
-            <tr key={item.id}>
-              <td>{item.serviceName}</td>
-              <td>
-                <img
-                  src={item.image}
-                  alt="Service Image"
-                  className="w-16 h-10"
-                />
-              </td>
-              <td>{item.details}</td>
-              <td>{item.servicePrice}</td>
-              <td className="flex">
-                {/* The button to open modal */}
-                <a href="#editService">
-                  <BiEdit className="text-2xl mx-2" color="green" />
-                </a>
+          {currentItems.length !== 0 &&
+            currentItems.map((item, index) => (
+              <tr key={item.$id}>
+                <td>{item.full_name}</td>
+                <td>
+                  <img
+                    src={item.img}
+                    alt={item.full_name}
+                    className="w-16 h-10"
+                  />
+                </td>
+                <td>{item.desc}</td>
+                <td>{item.price}</td>
+                <td className="flex">
+                  {/* The button to open modal */}
+                  <a href="#editService">
+                    <BiEdit className="text-2xl mx-2" color="green" />
+                  </a>
 
-                {/* **********MODAL************ */}
-                <div className="modal" id="editService">
-                  <div className="modal-box w-11/12 max-w-3xl">
-                    {/**************INPUT TAGS**************/}
-                    <h1 className="font-medium text-xl text-center">
-                      Add New Items
-                    </h1>
-                    <div className="grid grid-cols-8 gap-x-6 gap-y-6 p-5 ">
-                      <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] col-span-3 ">
-                        <option value="">Catagory</option>
-                        <option value="">Catagory 1</option>
-                        <option value="">Catagory 2</option>
-                        <option value="">Catagory 3</option>
-                      </select>
+                  {/* **********MODAL************ */}
+                  <div className="modal" id="editService">
+                    <div className="modal-box w-11/12 max-w-3xl">
+                      {/**************INPUT TAGS**************/}
+                      <h1 className="font-medium text-xl text-center">
+                        Add New Items
+                      </h1>
+                      <div className="grid grid-cols-8 gap-x-6 gap-y-6 p-5 ">
+                        <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] col-span-3 ">
+                          <option value="">Catagory</option>
+                          <option value="">Catagory 1</option>
+                          <option value="">Catagory 2</option>
+                          <option value="">Catagory 3</option>
+                        </select>
 
-                      <input
-                        type="text"
-                        placeholder="Enter Item Name"
-                        className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] col-span-3 "
-                      />
-                      <input
-                        type="text"
-                        placeholder="Enter Price"
-                        className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] col-span-2"
-                      />
-                      <div
-                        type="file"
-                        accept="image/*"
-                        className="cursor-pointer border border-[#E97208] rounded-md col-span-8"
-                      >
                         <input
+                          type="text"
+                          placeholder="Enter Item Name"
+                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] col-span-3 "
+                        />
+                        <input
+                          type="text"
+                          placeholder="Enter Price"
+                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] col-span-2"
+                        />
+                        <div
                           type="file"
                           accept="image/*"
-                          id="uploadImage"
-                          hidden
-                        />
-
-                        <label
-                          htmlFor="uploadImage"
-                          className="flex justify-center my-2"
+                          className="cursor-pointer border border-[#E97208] rounded-md col-span-8"
                         >
-                          <FaCloudUploadAlt className="text-2xl mx-2" />
-                          <p>Upload Profile Image</p>
-                        </label>
-                      </div>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            id="uploadImage"
+                            hidden
+                          />
 
-                      <textarea
-                        type="text"
-                        placeholder="Describe something about that item and ingredents......"
-                        className="input input-bordered py-2 border-[#E97208] focus:ring-[#E97208] focus:border[#E97208]  w-full max-w-full col-span-8"
-                      />
-                    </div>
-                    <div className="modal-action flex justify-center">
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                      >
-                        x
-                      </a>
-                      <a
-                        href="#"
-                        className="btn bg-[#E97208] hover:bg-[#E97208]"
-                      >
-                        Add Item
-                      </a>
+                          <label
+                            htmlFor="uploadImage"
+                            className="flex justify-center my-2"
+                          >
+                            <FaCloudUploadAlt className="text-2xl mx-2" />
+                            <p>Upload Profile Image</p>
+                          </label>
+                        </div>
+
+                        <textarea
+                          type="text"
+                          placeholder="Describe something about that item and ingredents......"
+                          className="input input-bordered py-2 border-[#E97208] focus:ring-[#E97208] focus:border[#E97208]  w-full max-w-full col-span-8"
+                        />
+                      </div>
+                      <div className="modal-action flex justify-center">
+                        <a
+                          href="#"
+                          className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                        >
+                          x
+                        </a>
+                        <a
+                          href="#"
+                          className="btn bg-[#E97208] hover:bg-[#E97208]"
+                        >
+                          Add Item
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <RiDeleteBin6Line className="text-2xl mx-2" color="red" />
-              </td>
-            </tr>
-          ))}
+                  <RiDeleteBin6Line className="text-2xl mx-2" color="red" />
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
+
+      {currentItems.length === 0 && (
+        <div className="text-lg font-semibold text-center mt-5">
+          NO PRODUTCS FOUND!
+        </div>
+      )}
 
       <div
         className="mx-1"
