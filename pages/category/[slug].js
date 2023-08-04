@@ -1,34 +1,58 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaCloudUploadAlt } from "react-icons/fa";
-import Link from "next/link";
-import { getCategory } from "../lib/appwrite";
+import { getProducts } from "../../lib/appwrite";
+import { useRouter } from "next/router";
+import { Query } from "appwrite";
 
-const category = () => {
-  const [category, setCategory] = useState([]);
+const Cakes = () => {
+  const [products, setProducts] = useState([]);
+  const router = useRouter();
+  const { slug } = router.query;
 
-  // ****GETTING CATEGORY ****
+  const slug2 = "Coffee";
+  console.log("🚀 ~ file: [slug].js:12 ~ Cakes ~ slug: ", slug);
+
   useEffect(() => {
-    async function getCategoryHandler() {
+    async function getProductHandler() {
       try {
-        const response = await getCategory(
+        const response = await getProducts(
           process.env.NEXT_PUBLIC_DATABASE_ID,
-          process.env.NEXT_PUBLIC_COLL_CATEGORIES
+          process.env.NEXT_PUBLIC_COLL_PRODUCTS,
+          [Query.equal("category", slug)]
         );
-        setCategory(response.documents);
-        // console.log(response.documents);
-        console.log(response.documents[0]);
+        console.log(
+          "🚀 ~ file: [slug].js:14 ~ getProductHandler ~ products:",
+          response
+        );
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     }
-    getCategoryHandler();
-  }, []);
+    getProductHandler();
+  }, [getProducts]);
 
   const datac = {
-    cardData: category,
+    cardData: [
+      {
+        id: "1",
+        image: "/cake.png",
+        serviceName: "Vanilla cake with chocolate",
+        details: "Lorem ipsum lorem dolor.....",
+        servicePrice: "USD 41.36",
+        action: "...",
+      },
+      {
+        id: "2",
+        image: "/cake.png",
+        serviceName: "Vanilla fresh cream Cake",
+        details: "Lorem ipsum lorem dolor.....",
+        servicePrice: "USD 41.36",
+        action: "...",
+      },
+    ],
   };
 
   // Pagination state
@@ -36,15 +60,12 @@ const category = () => {
   const [itemsPerPage] = useState(6);
 
   // Calculate total pages
-  const totalPages = Math.ceil(datac?.cardData?.length / itemsPerPage);
+  const totalPages = Math.ceil(datac.cardData.length / itemsPerPage);
 
   // Get current items
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = datac?.cardData?.slice(
-    indexOfFirstItem,
-    indexOfLastItem
-  );
+  const currentItems = datac.cardData.slice(indexOfFirstItem, indexOfLastItem);
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -65,8 +86,17 @@ const category = () => {
 
   return (
     <div className="sm:w-full h-screen pb-5 px-5">
+      <div className="text-sm breadcrumbs">
+        <ul>
+          <li>
+            <a href="/category">Category </a>
+          </li>
+          <li>Cakes</li>
+        </ul>
+      </div>
+
       <div className="flex justify-between">
-        <h1 className="mb-3 mt-3 font-semibold text-xl">Category</h1>
+        <h1 className="mb-3 mt-3 font-semibold text-xl">Cakes</h1>
 
         {/* The button to open modal */}
         <div className=" flex justify-end -mb-5">
@@ -136,11 +166,10 @@ const category = () => {
       <table className="table table-compact w-full z-0">
         <thead>
           <tr>
-            <th>Category</th>
-            {/* <th>Item</th> */}
-
+            <th>Item Name</th>
+            <th>Item Image</th>
             <th>Details</th>
-
+            <th>Item Price</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -148,17 +177,16 @@ const category = () => {
         <tbody>
           {currentItems.map((item, index) => (
             <tr key={item.id}>
-              <th>
-                <Link href={"#"}>{item.category_name}</Link>
-              </th>
-              {/* <td>
+              <td>{item.serviceName}</td>
+              <td>
                 <img
                   src={item.image}
                   alt="Service Image"
                   className="w-16 h-10"
                 />
-              </td> */}
-              <td>{item.desc}</td>
+              </td>
+              <td>{item.details}</td>
+              <td>{item.servicePrice}</td>
               <td className="flex">
                 {/* The button to open modal */}
                 <a href="#editService">
@@ -279,4 +307,4 @@ const category = () => {
   );
 };
 
-export default Layout(category);
+export default Layout(Cakes);
