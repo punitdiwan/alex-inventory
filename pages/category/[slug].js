@@ -21,7 +21,7 @@ const Cakes = () => {
         const response = await getProducts(
           process.env.NEXT_PUBLIC_DATABASE_ID,
           process.env.NEXT_PUBLIC_COLL_PRODUCTS,
-          [Query.equal("category", slug)]
+          [Query.equal("category", [router.query.slug])]
         );
         console.log(
           "🚀 ~ file: [slug].js:14 ~ getProductHandler ~ products:",
@@ -32,7 +32,7 @@ const Cakes = () => {
       }
     }
     getProductHandler();
-  }, [getProducts]);
+  }, []);
 
   const datac = {
     cardData: [
