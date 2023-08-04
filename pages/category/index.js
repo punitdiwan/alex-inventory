@@ -146,7 +146,7 @@ const category = () => {
 
         <tbody>
           {currentItems.map((item, index) => (
-            <tr key={item.id}>
+            <tr key={item.$id}>
               <th>
                 <Link href={`/category/${item.category_name}`}>
                   {item.category_name}
