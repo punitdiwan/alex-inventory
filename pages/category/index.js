@@ -24,7 +24,7 @@ const category = () => {
         }
       );
       console.log(response);
-      // router.reload();
+      router.reload();
     } catch (error) {
       console.log(error.message);
     }
