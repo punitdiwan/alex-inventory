@@ -32,7 +32,11 @@ const Cakes = () => {
       }
     }
     getProductHandler();
+<<<<<<< HEAD
   }, []);
+=======
+  }, [slug]);
+>>>>>>> cb487e3ed62b5f7b5520f156ed0b495a096cd991
 
   const datac = {
     cardData: [
