@@ -497,7 +497,7 @@
             "$id": "64bf6d5f70123dafbe16",
             "name": "addToEmployeeTeam",
             "runtime": "node-16.0",
-            "path": "functions/update_orders_stats",
+            "path": "functions/addToEmployeeTeam",
             "entrypoint": "src/index.js",
             "ignore": [
                 "node_modules",
@@ -514,7 +514,7 @@
             "$id": "64be470102bde3af0cba",
             "name": "addToCustomerTeam",
             "runtime": "node-16.0",
-            "path": "functions/update_orders_stats",
+            "path": "functions/addToCustomerTeam",
             "entrypoint": "src/index.js",
             "ignore": [
                 "node_modules",
@@ -566,6 +566,25 @@
             "name": "sendSMS",
             "runtime": "node-16.0",
             "path": "functions/sendSMS",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [
+                "any"
+            ],
+            "events": [
+                "users.*.create"
+            ],
+            "schedule": "",
+            "timeout": 15
+        },
+        {
+            "$id": "64cb948728c77acc5239",
+            "name": "loginUser",
+            "runtime": "node-16.0",
+            "path": "functions/loginUser",
             "entrypoint": "src/index.js",
             "ignore": [
                 "node_modules",
