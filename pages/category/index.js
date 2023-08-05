@@ -6,14 +6,20 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import Link from "next/link";
 import { getCategory, updateCategory } from "../../lib/appwrite";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
 
 const category = () => {
+  const [reload, setReload] = useState(true);
   const [category, setCategory] = useState([]);
 
   const router = useRouter();
 
   // ****UPDATING CATEGORY STATUS****
   async function catStatusChangeHandler({ catId, catStatus }) {
+    const toast_message = catStatus
+      ? "Category disabled successfully!"
+      : "Category enabled successfully!";
+
     try {
       const response = await updateCategory(
         process.env.NEXT_PUBLIC_DATABASE_ID,
@@ -23,8 +29,22 @@ const category = () => {
           status: !catStatus,
         }
       );
-      console.log(response);
-      // router.reload();
+
+      toast.success(toast_message, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setTimeout(() => {
+        setReload((prevState) => {
+          return !prevState;
+        });
+      }, 100);
     } catch (error) {
       console.log(error.message);
     }
@@ -45,7 +65,7 @@ const category = () => {
       }
     }
     getCategoryHandler();
-  }, []);
+  }, [reload]);
 
   // ****ADDING NEW CATEGORY ****
   function addCategoryHandler(event) {
@@ -55,14 +75,6 @@ const category = () => {
   const datac = {
     cardData: category,
   };
-
-  // {
-  //   name: ,
-  //   desc: ,
-  //   status: ,
-  // }
-
-  // "unique()", {}
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -98,6 +110,7 @@ const category = () => {
 
   return (
     <div className="sm:w-full h-screen pb-5 px-5">
+      <ToastContainer />
       <div className="flex justify-between">
         <h1 className="mb-3 mt-3 font-semibold text-xl">Category</h1>
 
@@ -284,7 +297,9 @@ const category = () => {
                     catId: cat.$id,
                     catStatus: cat.status,
                   })}
-                  defaultValue={cat.status ? "enabled" : "disabled"}
+                  // defaultValue={cat?.status ? "enabled" : "disabled"}
+                  // defaultValue={"hello"}
+                  value={"hello"}
                   className={`select select-bordered w-full max-w-xs ${
                     cat.status ? "border-green-600" : "border-red-600"
                   } `}
