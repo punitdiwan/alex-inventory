@@ -10,19 +10,156 @@ import AllBookingComp from "../components/AllBookingComp";
 import { AuthContext } from "../store/AuthContext";
 import { getData, getTeamMembers } from "../lib/appwrite";
 
-const DUMMY_ORDERS = [
-  {
-    id: "1",
-    fullName: "Johnny Depp",
-    address: "3093 Cheshire Road",
-    contact: "+971 21456320",
-    orderItem: "Cold Coffee(2)",
-    orderStatus: "On the way",
-    amount: "$ 80.00",
-    method: "(PP)",
-    payment: "failed",
-  },
-];
+
+const StockList = () => {
+  // Dummy data for the table
+  const dummyData = [
+    {
+      name: "Item 1",
+      sold_Quantity: 50,
+      Remaining_Quantity: 100,
+      price: 25.99,
+    },
+    {
+        name: "Item 2",
+        sold_Quantity: 30,
+        Remaining_Quantity: 70,
+        price: 19.99,
+      },
+      {
+        name: "Item 2",
+        sold_Quantity: 30,
+        Remaining_Quantity: 70,
+        price: 19.99,
+      },
+      {
+        name: "Item 2",
+        sold_Quantity: 30,
+        Remaining_Quantity: 70,
+        price: 19.99,
+      },
+      {
+        name: "Item 2",
+        sold_Quantity: 30,
+        Remaining_Quantity: 70,
+        price: 19.99,
+      },
+      {
+        name: "Item 2",
+        sold_Quantity: 30,
+        Remaining_Quantity: 70,
+        price: 19.99,
+      },
+    // Add more dummy data as needed
+  ];
+
+  return (
+    <div className="mx-auto">
+      <div className="p-4">
+        <div className="flex justify-between items-center mb-4">
+          <div className="text-2xl font-semibold">StockList</div>
+          <div className="text-blue-600 cursor-pointer hover:underline">See All</div>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full border">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="p-4 border text-center">Name</th>
+                <th className="p-4 border text-center">Sold Quantity</th>
+                <th className="p-4 border text-center">Remaining Quantity</th>
+                <th className="p-4 border text-center">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dummyData.map((item, index) => (
+                <tr key={index} className={(index + 1) % 2 === 0 ? "bg-gray-50" : ""}>
+                  <td className="p-4 border text-center">{item.name}</td>
+                  <td className="p-4 border text-center">{item.sold_Quantity}</td>
+                  <td className="p-4 border text-center">{item.Remaining_Quantity}</td>
+                  <td className="p-4 border text-center">${item.price.toFixed(2)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
+
+
+
+
+
+const LowQuantityStock = () => {
+  // Dummy data for Forest Essentials
+  const lowquantity = [
+    {
+      productName: "Forest Essentials",
+      remainingQuantity: 10,
+      imageUrl: "Image/product1.png",
+      status: "Low",
+    },
+    {
+      productName: "Organic Tea",
+      remainingQuantity: 5,
+      imageUrl: "Image/Product2.png",
+      status: "Low",
+    },
+    {
+      productName: "Handmade Soap",
+      remainingQuantity: 3,
+      imageUrl: "Image/Product3.png",
+      status: "Low",
+    },
+    {
+      productName: "Handmade Soap",
+      remainingQuantity: 3,
+      imageUrl: "Image/Product3.png",
+      status: "Low",
+    },
+    {
+      productName: "Forest Essentials",
+      remainingQuantity: 10,
+      imageUrl: "Image/product1.png",
+      status: "Low",
+    },
+    // Add more entries as needed
+  ];
+
+  return (
+    <div className="mx-auto">
+      <div className="p-4">
+        <div className="flex justify-between items-center mb-4">
+          <div className="text-2xl font-semibold">StockList</div>
+          <div className="text-blue-600 cursor-pointer hover:underline">
+            See All
+          </div>
+        </div>
+        {lowquantity.map((data, index) => (
+          <div key={index} className="flex items-center mb-4">
+            <img
+              src={data.imageUrl}
+              className="mr-4 w-16 h-16 object-contain"
+              alt={data.productName}
+            />
+            <div>
+              <div className="text-xl font-semibold">{data.productName}</div>
+              <div>Remaining Quantity: {data.remainingQuantity} Packet</div>
+            </div>
+            <p className="text-red-500 font-bold ml-12">{data.status}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+
+
 
 const Admin = () => {
   const { getUserData } = useContext(AuthContext);
@@ -109,99 +246,187 @@ const Admin = () => {
 
   return (
     <div className="pt-5 sm:w-full h-full">
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 mx-5">
-        {/* ********************Total Customer****************** */}
-
-        <Link
-          href={"#"}
-          className="card grid h-36 shadow-md bg-white border-b-4 border border-[#4267B2] "
-        >
-          <div className="p-5">
-            <h2 className="card-title">Total Customers</h2>
-
-            <div className="flex ">
-              <p className=" text-xl font-semibold  mx-12 my-2">
-                {totalCustomers.total}
+      <div style={{ background: "white" }}>
+          <div style={{ display: "flex" }} className="ml-2 ">
+            <div className="sales-overview">
+              {/** This Section For Sales Overview  */}
+              <p
+                style={{ fontSize: "20px" }}
+                className="text-2xl font-semibold p-2"
+              >
+                Sales Overview
               </p>
-              <IoMdArrowDropdown className="text-4xl text-[#006332]" />
+              <div className="flex justify-between items-center">
+                <div className="mt-6 ml-3">
+                  <div className="ml-9">
+                    <img src="/Image/Sales.png" />
+                  </div>
+                  <div className="flex mt-4">
+                    <p className="flex-1 text-left ml-2 ">832</p>
+                    <p className="flex-1 text-right ml-6">Sales</p>
+                  </div>
+                </div>
+                <div className="mt-6 ml-3">
+                  <div className="ml-12">
+                    <img src="/Image/Revenue.png" />
+                  </div>
+                  <div className="flex mt-4">
+                    <p className="flex-1 text-left ml-2 ">₹18,300</p>
+                    <p className="flex-1 text-right ml-6">Revenue</p>
+                  </div>
+                </div>
+                <div className="mt-6 ml-3">
+                  <div className="ml-9">
+                    <img src="/Image/Profit.png" />
+                  </div>
+                  <div className="flex mt-4">
+                    <p className="flex-1 text-left ml-2 ">₹868</p>
+                    <p className="flex-1 text-right ml-6">Profit</p>
+                  </div>
+                </div>
+                <div className="mt-6 ml-3">
+                  <div className="ml-9">
+                    <img src="/Image/Cost.png" />
+                  </div>
+                  <div className="flex mt-4">
+                    <p className="flex-1 text-left ml-2 ">₹17,432</p>
+                    <p className="flex-1 text-right ml-6">Cost</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/**Inventory Summary */}
+            <div className="ml-2">
+              <div className="inventory-summary">
+                <p
+                  style={{ fontSize: "20px" }}
+                  className="text-2xl font-semibold p-2"
+                >
+                  Inventory Summary
+                </p>
+                <div className="flex justify-between items-center">
+                  <div className=" ml-7" style={{ marginTop: "-1px" }}>
+                    <div className="ml-9">
+                      <img src="/Image/Quantity.png" />
+                    </div>
+                    <div className="flex mt-1">
+                      <p className=" ml-10 ">832</p>
+                    </div>
+                    <p className=" ml-2">Quantity in Hand</p>
+                  </div>
+
+                  <div
+                    className=" ml-7"
+                    style={{ marginTop: "-1px", marginRight: "35px" }}
+                  >
+                    <div className="ml-9">
+                      <img src="/Image/loc.png" />
+                    </div>
+                    <div className="flex mt-1">
+                      <p className=" ml-10 ">832</p>
+                    </div>
+                    <p className=" ml-2">To be received</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </Link>
-        {/* ********************Total Orders****************** */}
 
-        <Link
-          href={"#"}
-          className="card grid h-36 shadow-md bg-white border-b-4 border border-[#006332]"
-        >
-          <div className="p-5">
-            <h2 className="card-title">Total Orders</h2>
-
-            <div className="flex ">
-              <img
-                className=""
-                src="/completeicon.png"
-                width={45}
-                height={35}
-                alt="logo"
-              />
-              <p className=" text-xl font-semibold  mx-12 my-2 text-[#006332]">
-                {orders.total || "..."}
+          <div style={{ display: "flex", marginTop: "20px" }} className="ml-2">
+            <div className="sales-overview">
+              <p
+                style={{ fontSize: "20px" }}
+                className="text-2xl font-semibold p-2"
+              >
+                
+                Purchase Overview
               </p>
+              <div className="flex justify-between items-center">
+                <div className="mt-6 ml-3">
+                  <div className="ml-9">
+                    <img src="/Image/Purchase.png" />
+                  </div>
+                  <div className="flex mt-4">
+                    <p className="flex-1 text-left ml-2 ">832</p>
+                    <p className="flex-1 text-right ml-6">Purchase</p>
+                  </div>
+                </div>
+                <div className="mt-6 ml-3">
+                  <div className="ml-12">
+                    <img src="/Image/Cost.png" />
+                  </div>
+                  <div className="flex mt-4">
+                    <p className=" ml-2 ">₹18,300</p>
+                    <p className=" ml-6">Cost</p>
+                  </div>
+                </div>
+                <div className="mt-6 ml-3">
+                  <div className="ml-9">
+                    <img src="/Image/Cancel.png" />
+                  </div>
+                  <div className="flex mt-4">
+                    <p className="flex-1 text-left ml-2 ">₹868</p>
+                    <p className="flex-1 text-right ml-6">Cancel</p>
+                  </div>
+                </div>
+                <div className="mt-6 ml-3">
+                  <div className="ml-9">
+                    <img src="/Image/Profit.png" />
+                  </div>
+                  <div className="flex mt-4">
+                    <p className="flex-1 text-left ml-2 ">₹17,432</p>
+                    <p className="flex-1 text-right ml-6">Return</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="ml-2">
+              <div className="inventory-summary">
+                <p
+                  style={{ fontSize: "20px" }}
+                  className="text-2xl font-semibold p-2"
+                >
+                  Product Summary
+                </p>
+                <div className="flex justify-between items-center">
+                  <div className=" ml-7" style={{ marginTop: "-1px" }}>
+                    <div className="ml-9">
+                      <img src="/Image/Suppliers.png" />
+                    </div>
+                    <div className="flex mt-1">
+                      <p className=" ml-10 ">832</p>
+                    </div>
+                    <p className=" ml-2">Number of Suppliers</p>
+                  </div>
+
+                  <div
+                    className=" ml-7"
+                    style={{ marginTop: "-1px", marginRight: "18px" }}
+                  >
+                    <div style={{marginLeft:"75px"}}>
+                      <img src="/Image/Categories.png" />
+                    </div>
+                    <div className="flex mt-1">
+                      <p style={{marginLeft:'75px'}}>832</p>
+                    </div>
+                    <p className=" ml-2">Number of Categories</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </Link>
-        {/* ********************Total Earning****************** */}
 
-        <Link
-          href={"#"}
-          className="card grid h-36 shadow-md bg-white border-b-4 border border-[#000000]"
-        >
-          <div className="p-5">
-            <h2 className="card-title">Total Earning</h2>
-
-            <div className="flex ">
-              <p className=" text-xl font-semibold  mx-12 my-2 ">35,054</p>
-              <IoMdArrowDropdown className="text-4xl text-[#006332]" />
+          <div style={{ display: "flex", marginTop: "20px" }} className="ml-2">
+            <div className="Stock-List">
+              <StockList />
+            </div>
+            <div className="low-quantity">
+              <LowQuantityStock />
             </div>
           </div>
-        </Link>
-
-        {/* ********************Pending Orders****************** */}
-        <Link
-          href={"#"}
-          className="card grid h-36 shadow-md bg-white border-b-4 border border-[#FF9933]"
-        >
-          <div className="p-5">
-            <h2 className="card-title">Pending Orders</h2>
-            <div className="flex ">
-              <img
-                className=""
-                src="/pendingicon.png"
-                width={45}
-                height={35}
-                alt="logo"
-              />
-              <p className=" text-xl font-semibold  mx-12 my-2 text-[#FF9933]">
-                {pendingOrder}
-              </p>
-            </div>
-          </div>
-        </Link>
-      </div>
-
-      <div className="mt-3 mx-1">
-        <div className=" overflow-y-hidden ease-in duration-300 ">
-          {userData && <AllBookingComp orders={ordersDocuments} />}
-
-          {!userData && (
-            <div className="bg-gray-200 ">
-              <h1 className="text-2xl font-semibold  text-slate-500 text-center">
-                Loading.....
-              </h1>
-            </div>
-          )}
         </div>
-      </div>
+    
     </div>
   );
 };

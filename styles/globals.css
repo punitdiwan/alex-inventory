@@ -43,3 +43,55 @@ li:hover>button svg {
 .min-w-32 {
   min-width: 8rem
 }
+
+
+
+.sales-overview {
+  background-color: white;
+  border: 1px solid #ccc; /* Add a grey border */
+  border-radius: 8px; /* Add a grey border-radius */
+  width: 680px;
+  height: 150px;
+  margin-left: 20px;
+}
+
+.inventory-summary {
+  background-color: white;
+  border: 1px solid #ccc; /* Add a grey border */
+  border-radius: 8px; /* Add a grey border-radius */
+  width: 450px;
+  height: 150px;
+  
+}
+.Stock-List{
+  background-color: white;
+  border: 1px solid #ccc; /* Add a grey border */
+  border-radius: 8px; /* Add a grey border-radius */
+  width: 680px;
+  height: 450px;
+  margin-left: 20px;
+
+}
+.low-quantity{
+  background-color: white;
+  border: 1px solid #ccc; /* Add a grey border */
+  border-radius: 8px; /* Add a grey border-radius */
+  width: 450px;
+  height: 450px;
+  margin-left: 6px;
+
+}
+
+/* Add the necessary styles for the filter button */
+.filter-button {
+  background-color: white;
+  color: grey;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+}
+
+/* Optional: Adjust icon size */
+.filter-button i {
+  font-size: 16px;
+}

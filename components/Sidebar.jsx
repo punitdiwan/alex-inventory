@@ -30,7 +30,7 @@ const Sidebar1 = () => {
       <main>
         <button
           onClick={() => collapseSidebar()}
-          className="hover:text-[#E97208]"
+          className="hover:text-[#1570EF]"
         >
           <div className="flex">
             <div className="ms-7 me-3">
@@ -38,7 +38,7 @@ const Sidebar1 = () => {
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/dashboard" ? "text-[#E97208]" : ""
+                pathname === "/dashboard" ? "text-[#1570EF]" : ""
               }`}
             ></h1>
           </div>
@@ -51,12 +51,12 @@ const Sidebar1 = () => {
             <div className="ms-7 me-3">
               <TbLayoutDashboard
                 className="text-2xl"
-                style={pathname === "/dashboard" ? { color: "#E97208" } : {}}
+                style={pathname === "/dashboard" ? { color: "#1570EF" } : {}}
               />
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/dashboard" ? "text-[#E97208]" : ""
+                pathname === "/dashboard" ? "text-[#1570EF]" : ""
               }`}
             >
               Dashboard
@@ -69,15 +69,15 @@ const Sidebar1 = () => {
             <div className="ms-7 me-3">
               <AiOutlineShoppingCart
                 className="text-2xl"
-                style={pathname == "/orders" ? { color: "#E97208" } : ""}
+                style={pathname == "/orders" ? { color: "#1570EF" } : ""}
               />
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/orders" ? "text-[#E97208]" : ""
+                pathname === "/orders" ? "text-[#1570EF]" : ""
               }`}
             >
-              Orders
+              Inventory
             </h1>
           </div>
         </Link>
@@ -86,12 +86,12 @@ const Sidebar1 = () => {
             <div className="ms-7 me-3">
               <AiOutlineLock
                 className="text-2xl"
-                style={pathname == "/category" ? { color: "#E97208" } : ""}
+                style={pathname == "/category" ? { color: "#1570EF" } : ""}
               />
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/category" ? "text-[#E97208]" : ""
+                pathname === "/category" ? "text-[#1570EF]" : ""
               }`}
             >
               Category
@@ -103,15 +103,15 @@ const Sidebar1 = () => {
             <div className="ms-7 me-3">
               <TbUsers
                 className="text-2xl"
-                style={pathname == "/customer" ? { color: "#E97208" } : ""}
+                style={pathname == "/customer" ? { color: "#1570EF" } : ""}
               />
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/customer" ? "text-[#E97208]" : ""
+                pathname === "/customer" ? "text-[#1570EF]" : ""
               }`}
             >
-              Customer
+              Supplier
             </h1>
           </div>
         </Link>
@@ -139,12 +139,12 @@ const Sidebar1 = () => {
             <div className="ms-7 me-3">
               <HiOutlineCurrencyDollar
                 className="text-2xl"
-                style={pathname == "/revenue" ? { color: "#E97208" } : ""}
+                style={pathname == "/revenue" ? { color: "#1570EF" } : ""}
               />
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/revenue" ? "text-[#E97208]" : ""
+                pathname === "/revenue" ? "text-[#1570EF]" : ""
               }`}
             >
               Revenue
@@ -156,9 +156,9 @@ const Sidebar1 = () => {
           label="Setting"
           className={`text-xl font-bold z-40 -my-3 -ms-1 ${
             pathname === "/profile"
-              ? "text-[#E97208]"
+              ? "text-[#1570EF]"
               : pathname === "/prefrenceNotification"
-              ? "text-[#E97208]"
+              ? "text-[#1570EF]"
               : ""
           }`}
           icon={
@@ -166,11 +166,11 @@ const Sidebar1 = () => {
               className="text-5xl pl-3"
               style={
                 pathname == "/profile"
-                  ? { color: "#E97208" }
+                  ? { color: "#1570EF" }
                   : pathname == "/prefrenceNotification"
-                  ? { color: "#E97208" }
+                  ? { color: "#1570EF" }
                   : pathname == "/discountVoucher"
-                  ? { color: "#E97208" }
+                  ? { color: "#1570EF" }
                   : ""
               }
             />

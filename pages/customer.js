@@ -1,36 +1,137 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { BiEdit } from "react-icons/bi";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { FaCloudUploadAlt } from "react-icons/fa";
-import { getTeamMembers } from "../lib/appwrite";
 import Layout from "../components/Layout";
+import { FiFilter } from "react-icons/fi";
 
-const datac = {
-  cardData: [
-    {
-      id: "1",
-      fullName: "Johnny Depp ",
-      employeeid: "#124567",
-      address: "3093 Cheshire Road",
-      contact: "+971 21456320",
-      serviceDate: "28/05/2023",
-      serviceAssigned: "4.5/5",
-      wallet: "yes",
-      serviceStatus: "Icon",
-      payment: "Success",
-    },
-  ],
-};
+const users = () => {
+  const datac = {
+    cardData: [
+      {
+        id: "1",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+      {
+        id: "2",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+      {
+        id: "3",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+      {
+        id: "4",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+      {
+        id: "5",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+      {
+        id: "6",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+      {
+        id: "7",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+      {
+        id: "8",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+      {
+        id: "9",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+      {
+        id: "10",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
 
-const employee = () => {
-  const [customers, setCustomers] = useState([]);
-  const router = useRouter();
+      {
+        id: "11",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+      {
+        id: "12",
+        supplier_name: "Supplier 1",
+        supplier_brand: "Himalaya",
+        phone_no: "+91 21456 32001",
+        email_id: "Supplier@example.com",
+        country: "India",
+        last_purchasing_date: "19/05/23",
+        action: "(PP)",
+      },
+    ],
+  };
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(7);
+  const [itemsPerPage] = useState(10);
 
   // Calculate total pages
   const totalPages = Math.ceil(datac.cardData.length / itemsPerPage);
@@ -57,311 +158,148 @@ const employee = () => {
     }
   };
 
-  // ****GETTING TOTAL CUSTOMERS****
-  useEffect(() => {
-    async function getTotalCustomers() {
-      try {
-        const response = await getTeamMembers(
-          process.env.NEXT_PUBLIC_CUSTOMERS_TEAM_ID
-        );
-        console.log(
-          "🚀 ~ file: customer.js:67 ~ getTotalCustomers ~ memberships:",
-          response.memberships
-        );
-        // setCustomers(response.memberships);
-      } catch (error) {
-        console.log("Customer Error: ", error.message);
-      }
-    }
-    getTotalCustomers();
-  }, []);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <div className=" sm:w-full h-screen pb-5 px-5">
-      <h1 className="mb-3 mt-3 font-semibold text-xl">Customer</h1>
-
-      {/* The button to open modal */}
-      <div className=" flex justify-between my-5">
-        <input
-          type="text"
-          placeholder="Search"
-          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208]"
-        />
-        <a
-          href="#my_modal_8"
-          className="btn border-0 hover:border hover:border-[#E97208] text-end bg-[#E97208] hover:bg-white hover:text-[#E97208]"
-        >
-          + Add Customer
-        </a>
-      </div>
-
-      {/* **********MODAL************ */}
-      <div className="modal" id="my_modal_8">
-        <div className="modal-box">
-          {/**************INPUT TAGS**************/}
-          <div className="grid grid-cols-2 gap-x-5 gap-y-2">
-            <div className="">
-              <p className="mb-2">User ID</p>
-              <input
-                type="text"
-                placeholder="User ID"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div className="">
-              <p className="mb-2">Full Name</p>
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div className="">
-              <p className="mb-2">Email</p>
-              <input
-                type="email"
-                placeholder="Email"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div className="">
-              <p className="mb-2">Contact No.</p>
-              <input
-                type="text"
-                placeholder="Contact No."
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div className="">
-              <p className="mb-2">Date of Birth</p>
-              <input
-                type="date"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div className="">
-              <p className="mb-2">Gender</p>
-              <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] ">
-                <option value="">Male</option>
-                <option value="">Famale</option>
-              </select>
-            </div>
-            <div className="">
-              <p className="mb-2">Address</p>
-              <input
-                type="text"
-                placeholder="Address"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-            <div className="">
-              <p className="mb-2">Password</p>
-              <input
-                type="password"
-                placeholder="Password"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div
-              type="file"
-              accept="image/*"
-              className="cursor-pointer col-span-2 border border-[#E97208] rounded-md mt-5"
-            >
-              <input type="file" accept="image/*" id="uploadImage" hidden />
-
-              <label htmlFor="uploadImage" className="flex justify-center my-2">
-                <FaCloudUploadAlt className="text-2xl mx-2" />
-                <p>Upload Profile Image</p>
-              </label>
-            </div>
-          </div>
-          <div className="modal-action flex justify-center">
-            <a
-              href="#"
-              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-            >
-              x
-            </a>
-            <a
-              href="#"
-              className="btn border-0 hover:border hover:border-[#E97208] bg-[#E97208] hover:bg-[#E97208]"
-            >
-              Add Employee
-            </a>
-          </div>
+    <div className="sm:w-full h-screen pb-5 px-5">
+      <div className="flex flex-row justify-between">
+        <div className="text-xl font-bold ml-3">Supplier</div>
+        <div className="flex space-x-2">
+          {/** button to open suppplier */}
+          <a href="#addsupplier">
+            <button className="bg-blue-500 text-white rounded-lg px-4 py-2 mr-2">
+              Add Supplier
+            </button>{" "}
+          </a>
+          <button className="filter-button rounded-lg px-4 py-2">
+            <i className="fas fa-filter mr-2"></i>
+            Filters
+          </button>
+          <button className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2">
+            <i className="fas fa-download mr-2"></i>
+            Download all
+          </button>
         </div>
       </div>
+      {/* **********MODAL************ */}
+      <div className="modal" id="addsupplier">
+        <div className="modal-box w-7/1 max-w-2xl">
+          {/**************INPUT TAGS**************/}
+          <h1 className="font-medium text-xl ml-7">New Supplier</h1>
+          <div>
+            <div
+              style={{
+                display: "flex",
+                marginLeft: "180px",
+                marginTop: "10px",
+              }}
+              className=""
+            >
+              <img src="/Image/pic_modal.png" />
+              <div className="ml-3">Drag image here
+              <div className="ml-11"> Or</div>
+              <div className="ml-1">Browse image</div>
+              </div>
+            </div>
+          </div>
 
-      <table className="table table-compact w-full z-0">
+          <div className="mt-6 ml-3">
+            <div className="flex items-center">
+              <label className="mr-2">SupplierName</label>
+              <div style={{marginLeft:"60px"}}>
+                <input
+                  type="text"
+                  placeholder="Enter product name"
+                  className="border rounded p-1 "
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center mt-5 ml-3">
+            <label className="mr-2">Supplier Brand</label>
+            <div style={{marginLeft:"60px"}}>
+              <input
+                type="text"
+                placeholder="Select product category"
+                className="border rounded p-1"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center mt-5 ml-3">
+            <label className="mr-2">Phone No.</label>
+            <div style={{marginLeft:"90px"}}>
+              <input
+                type="number"
+                placeholder="Enter product name"
+                className="border rounded p-1"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center mt-5 ml-3">
+            <label className="mr-2">Email Id</label>
+            <div style={{marginLeft:"110px"}}>
+              <input
+                type="email"
+                placeholder="Enter your email Address"
+                className="border rounded p-1"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center mt-5 ml-3">
+            <lable className="mr-2">Country</lable>
+            <div style={{marginLeft:"110px"}}>
+              <input
+                type="text"
+                placeholder="Enter your country"
+                className="border rounded p-1"
+              />
+            </div>
+          </div>
+          
+            <div style={{display:"flex-row",marginLeft:"150px",marginTop:"20px"}} className="ml-6">
+            <button className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2 ">
+              Discard
+            </button> 
+            <button className="bg-blue-500 text-white rounded-lg px-4 py-2 mr-2">
+              Add Supplier
+            </button>
+          </div>
+          </div>
+        
+      </div>
+
+      <table className="table w-full mt-7">
         <thead>
           <tr>
-            <th>S.No.</th>
-            <th>Employee ID</th>
-            <th>Employee Name</th>
-            <th>address</th>
-            <th>Joining Date</th>
-            <th>contact</th>
-            <th>Action</th>
+            <th className="text-center text-gray-500">Supplier Name</th>
+            <th className="text-center text-gray-500">Supplier Brand</th>
+            <th className="text-center text-gray-500">Phone No.</th>
+            <th className="text-center text-gray-500">Email Id</th>
+            <th className="text-center text-gray-500">Country</th>
+            <th className="text-center text-gray-500">Last Purchasing Date</th>
+            <th className="text-center text-gray-500">Action</th>
           </tr>
         </thead>
 
         <tbody>
-          {currentItems.map((item, index) => (
+          {currentItems.map((item) => (
             <tr key={item.id}>
-              <th>{item.id}</th>
-              <th>{item.employeeid}</th>
-              <td className="cursor-pointer">{item.fullName}</td>
-              <td>{item.address}</td>
-              <td>{item.serviceDate}</td>
-              <td>{item.contact}</td>
-              <td className="flex">
-                <a href="#editemp">
-                  <BiEdit className="text-3xl text-green-600 me-1" />
-                </a>
-
-                {/* **********MODAL************ */}
-                <div className="modal" id="editemp">
-                  <div className="modal-box">
-                    {/**************INPUT TAGS**************/}
-                    <div className="grid grid-cols-2 gap-x-5 gap-y-2">
-                      <div className="">
-                        <p className="mb-2">User ID</p>
-                        <input
-                          type="text"
-                          placeholder="User ID"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div className="">
-                        <p className="mb-2">Full Name</p>
-                        <input
-                          type="text"
-                          placeholder="Full Name"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div className="">
-                        <p className="mb-2">Email</p>
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div className="">
-                        <p className="mb-2">Contact No.</p>
-                        <input
-                          type="text"
-                          placeholder="Contact No."
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div className="">
-                        <p className="mb-2">Date of Birth</p>
-                        <input
-                          type="date"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div className="">
-                        <p className="mb-2">Gender</p>
-                        <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] ">
-                          <option value="">Male</option>
-                          <option value="">Famale</option>
-                        </select>
-                      </div>
-                      <div className="">
-                        <p className="mb-2">Address</p>
-                        <input
-                          type="text"
-                          placeholder="Address"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-                      <div className="">
-                        <p className="mb-2">Password</p>
-                        <input
-                          type="password"
-                          placeholder="Password"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div
-                        type="file"
-                        accept="image/*"
-                        className="cursor-pointer col-span-2 border border-[#E97208] rounded-md mt-5"
-                      >
-                        <input
-                          type="file"
-                          accept="image/*"
-                          id="uploadImage"
-                          hidden
-                        />
-
-                        <label
-                          htmlFor="uploadImage"
-                          className="flex justify-center my-2"
-                        >
-                          <FaCloudUploadAlt className="text-2xl mx-2" />
-                          <p>Upload Profile Image</p>
-                        </label>
-                      </div>
-                    </div>
-                    <div className="modal-action flex justify-center">
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                      >
-                        x
-                      </a>
-                      <a
-                        href="#"
-                        className="btn bg-[#E97208] hover:bg-[#E97208]"
-                      >
-                        Edit Employee
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <Link href={"#"}>
-                  <RiDeleteBin6Line className="text-3xl text-red-500 ms-1" />
-                </Link>
-              </td>
+              <td className="text-center">{item.supplier_name}</td>
+              <td className="text-center">{item.supplier_brand}</td>
+              <td className="text-center">{item.phone_no}</td>
+              <td className="text-center">{item.email_id}</td>
+              <td className="text-center">{item.country}</td>
+              <td className="text-center">{item.last_purchasing_date}</td>
+              <td className="text-center">{item.action}</td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div
-        className="mx-1"
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          bottom: 5,
-          right: 20,
-        }}
-      >
-        {/* Pagination buttons */}
-
+      <div className="mx-1 fixed bottom-5 right-20">
         <button
-          className="btn btn-sm hover:bg-[#E97208] text-xs border rounded text-white bg-[#E97208]"
+          className="btn btn-sm hover:bg-[#1366D9] text-xs rounded text-white bg-[#1366D9]"
           disabled={currentPage === 1}
           onClick={previousPage}
         >
@@ -371,8 +309,8 @@ const employee = () => {
         {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index + 1}
-            className={`btn btn-sm btn-outline hover:bg-[#E97208] mx-2  text-black rounded border border-[#E97208] ${
-              currentPage === index + 1 ? "bg-[#E97208] text-white" : ""
+            className={`btn btn-sm btn-outline hover:bg-[#1366D9] mx-2 text-black rounded border-[#1366D9] ${
+              currentPage === index + 1 ? "bg-[#1366D9] text-white" : ""
             }`}
             onClick={() => paginate(index + 1)}
           >
@@ -381,7 +319,7 @@ const employee = () => {
         ))}
 
         <button
-          className="btn btn-sm hover:bg-[#E97208] text-xs border rounded text-white bg-[#E97208]"
+          className="btn btn-sm hover:bg-[#1366D9] text-xs rounded text-white bg-[#1366D9]"
           disabled={currentPage === totalPages}
           onClick={nextPage}
         >
@@ -392,4 +330,4 @@ const employee = () => {
   );
 };
 
-export default Layout(employee);
+export default Layout(users);
