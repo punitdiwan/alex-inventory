@@ -94,7 +94,7 @@ const Sidebar1 = () => {
                 pathname === "/category" ? "text-[#1570EF]" : ""
               }`}
             >
-              Category
+              Reports
             </h1>
           </div>
         </Link>
@@ -147,7 +147,7 @@ const Sidebar1 = () => {
                 pathname === "/revenue" ? "text-[#1570EF]" : ""
               }`}
             >
-              Revenue
+              Employees
             </h1>
           </div>
         </Link>
