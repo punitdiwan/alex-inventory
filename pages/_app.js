@@ -6,6 +6,7 @@ import "../node_modules/react-toastify/dist/ReactToastify.css";
 import { useCallback, useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
+  
   const router = useRouter();
 
   useEffect(() => {
@@ -31,3 +32,5 @@ export default function App({ Component, pageProps }) {
     </AuthProvider>
   );
 }
+
+
