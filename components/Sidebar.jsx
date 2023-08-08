@@ -134,17 +134,17 @@ const Sidebar1 = () => {
           </div>
         </Link> */}
 
-        <Link href="/revenue">
+        <Link href="/employee">
           <div className="flex my-6">
             <div className="ms-7 me-3">
               <HiOutlineCurrencyDollar
                 className="text-2xl"
-                style={pathname == "/revenue" ? { color: "#1570EF" } : ""}
+                style={pathname == "/employee" ? { color: "#1570EF" } : ""}
               />
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/revenue" ? "text-[#1570EF]" : ""
+                pathname === "/employee" ? "text-[#1570EF]" : ""
               }`}
             >
               Employees

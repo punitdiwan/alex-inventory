@@ -14,6 +14,7 @@ import { AiOutlineLock } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { MdPassword } from "react-icons/md";
 import { MdDesignServices } from "react-icons/md";
+import { CiSearch } from "react-icons/ci";
 
 const Header = () => {
   let pageTitleLogo = "";
@@ -199,12 +200,14 @@ const Header = () => {
             </a>
           </div>
           <div className="w-full max-w-sm mx-auto p-1 relative text-gray-600 " style={{marginRight:'410px'}} >
-            <input
+            <div >
+              {/* <CiSearch className="mt-6"/> */}
+            <input  
               className="border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none w-full"
               type="search"
               name="search"
-              placeholder="Search"
-            />
+              placeholder=" Search product, supplier, order" 
+            /></div>
             <button type="submit" className="absolute right-0 top-0 mt-2 mr-4">
               <svg
                 className="h-4 w-4 fill-current"
