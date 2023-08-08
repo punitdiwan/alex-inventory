@@ -1,11 +1,11 @@
-import React from 'react'
+// import React from 'react'
 
-const WithoutLayout = (Component) => {
-  return ()=>(
-    <div>
-     <Component/>
-    </div>
-  )
-}
+// const WithoutLayout = (Component) => {
+//   return ()=>(
+//     <div>
+//      <Component/>
+//     </div>
+//   )
+// }
 
-export default WithoutLayout
+// export default WithoutLayout

@@ -95,3 +95,68 @@ li:hover>button svg {
 .filter-button i {
   font-size: 16px;
 }
+
+.logo{
+  margin-top: 150px;
+}
+
+.employeeButton{
+
+  margin-top: 20px;
+
+}
+.employeeTable{
+
+  margin-top: 30px;
+
+}
+
+.labeltoggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.inputtoggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.spantoggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: grey;
+  transition: 0.3s;
+  border-radius: 30px;
+}
+
+.spantoggle:before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 25px;
+  left: 3px;
+  bottom: 2.6px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.inputtoggle:checked + .spantoggle {
+  background-color: #4169E1;
+}
+
+.inputtoggle:checked + .spantoggle:before {
+  transform: translateX(29px);
+}
+
+
+.fillteIcon{
+  margin-top: 20px;
+}

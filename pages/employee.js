@@ -1,13 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
-import { BiEdit } from "react-icons/bi";
+import { BiFilter } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { GrGallery } from "react-icons/gr";
+import { FaGreaterThan } from "react-icons/fa";
 
 import Link from "next/link";
 import { logout } from "../lib/appwrite";
+
+
+const Toggle = ({ label, toggled, onClick }) => {
+  const [isToggled, toggle] = useState(toggled)
+
+  const callback = () => {
+    toggle(!isToggled)
+    onClick(!isToggled)
+  }
+
+  return (
+    <label className="labeltoggle">
+      <input type="checkbox" defaultChecked={isToggled} onClick={callback} className="inputtoggle" />
+      <span className="spantoggle" />
+      {/* <strong className="strongtoggle">{label}</strong> */}
+    </label>
+  )
+}
+
+
+
+
+
 
 const employee = () => {
   const router = useRouter();
@@ -16,364 +40,181 @@ const employee = () => {
     cardData: [
       {
         id: "1",
-        fullName: "Johnny Depp ",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "2",
-        fullName: "Johnny Depp ",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "3",
-        fullName: "Johnny Depp ",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Failed",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "4",
-        fullName: "Johnny Depp ",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Pending",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "5",
-        fullName: "Johnny Depp ",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "6",
-        fullName: "Johnny Depp ",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "7",
-        fullName: "Johnny Depp ",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "8",
-        fullName: "Johnny Depp ",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "9",
-        fullName: "Johnny Depp ",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Failed",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "10",
-        fullName: "Johnny Depp",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Pending",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "11",
-        fullName: "Johnny Depp",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "12",
-        fullName: "Johnny Depp",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "13",
-        fullName: "Johnny Depp",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Failed",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "14",
-        fullName: "Johnny Depp",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Pending",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "15",
-        fullName: "Johnny Depp",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
       {
         id: "16",
-        fullName: "Johnny Depp",
+        employeename: "Johnny Depp ",
         employeeid: "#124567",
         address: "3093 Cheshire Road",
         contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
+        joiningDate: "28/05/2023",
+        active: "on",
+        action: "edit",
+        imageemp:'/Image/empl.png',
       },
-      {
-        id: "17",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Failed",
-      },
-      {
-        id: "18",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Pending",
-      },
-      {
-        id: "19",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Pending",
-      },
-      {
-        id: "20",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Pending",
-      },
-      {
-        id: "21",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
-      },
-      {
-        id: "22",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
-      },
-      {
-        id: "23",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Failed",
-      },
-      {
-        id: "24",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Pending",
-      },
-      {
-        id: "25",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Pending",
-      },
-      {
-        id: "26",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
-      },
-      {
-        id: "27",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Success",
-      },
-      {
-        id: "28",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Failed",
-      },
-      {
-        id: "29",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Pending",
-      },
-      {
-        id: "20",
-        fullName: "Johnny Depp",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        serviceDate: "28/05/2023",
-        serviceAssigned: "4.5/5",
-        wallet: "yes",
-        serviceStatus: "Icon",
-        payment: "Pending",
-      },
+
     ],
   };
 
@@ -406,136 +247,56 @@ const employee = () => {
     }
   };
 
+
+  const logState = state => {
+    console.log("Toggled:", state)
+  }
+
+
   return (
-    <div className=" sm:w-full h-screen pb-5 px-5">
-      <h1 className="mb-3 mt-3 font-semibold text-xl">Employees</h1>
+
+    <div className=" sm:w-full h-screen pb-5 px-5 employeeButton">
+
 
       {/* The button to open modal */}
-      <div className=" flex justify-between my-5">
-        <input
-          type="text"
-          placeholder="Search"
-          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208]"
-        />
-        <a
-          href="#my_modal_8"
-          className="btn border-0 hover:border hover:border-[#E97208] text-end bg-[#E97208] hover:bg-white hover:text-[#E97208]"
-        >
-          + Add Employee
-        </a>
-      </div>
-      {/* **********MODAL************ */}
-      <div className="modal" id="my_modal_8">
-        <div className="modal-box">
-          {/**************INPUT TAGS**************/}
-          <div className="grid grid-cols-2 gap-x-5 gap-y-2">
-            <div className="">
-              <p className="mb-2">User ID</p>
-              <input
-                type="text"
-                placeholder="User ID"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div className="">
-              <p className="mb-2">Full Name</p>
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div className="">
-              <p className="mb-2">Email</p>
-              <input
-                type="email"
-                placeholder="Email"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div className="">
-              <p className="mb-2">Contact No.</p>
-              <input
-                type="text"
-                placeholder="Contact No."
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div className="">
-              <p className="mb-2">Date of Birth</p>
-              <input
-                type="date"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div className="">
-              <p className="mb-2">Gender</p>
-              <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] ">
-                <option value="">Male</option>
-                <option value="">Famale</option>
-              </select>
-            </div>
-            <div className="">
-              <p className="mb-2">Address</p>
-              <input
-                type="text"
-                placeholder="Address"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-            <div className="">
-              <p className="mb-2">Password</p>
-              <input
-                type="password"
-                placeholder="Password"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div>
-
-            <div
-              type="file"
-              accept="image/*"
-              className="cursor-pointer col-span-2 border border-[#E97208] rounded-md mt-5"
+      <div className="flex items-center justify-between">
+        <h1 className="font-semibold text-xl">Employees</h1>
+        <div className="flex ">
+          <div >
+            <a href="#my_modal_8"
+              className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
             >
-              <input type="file" accept="image/*" id="uploadImage" hidden />
-
-              <label htmlFor="uploadImage" className="flex justify-center my-2">
-                <FaCloudUploadAlt className="text-2xl mx-2" />
-                <p>Upload Profile Image</p>
-              </label>
-            </div>
-          </div>
-          <div className="modal-action flex justify-center">
-            <a
-              href="#"
-              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-            >
-              x
+              Add New Employee
             </a>
-            <a
-              href="#"
-              className="btn border-0 hover:border hover:border-[#E97208] bg-[#E97208] hover:bg-[#E97208]"
+          </div>
+          <div className="ml-4">
+            <a href=""
+              className="btn border-0 hover:border hover:border-[grey]  hover:bg-white hover:text-[#1366D9] fiterIcon "
             >
-              Add Employee
+              <BiFilter className="" /> Filters
+            </a>
+          </div>
+          <div className="ml-4">
+            <a
+              href=""
+              className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
+            >
+              Download all
             </a>
           </div>
         </div>
       </div>
+      <table className="table table-compact w-full z-0 employeeTable">
 
-      <table className="table table-compact w-full z-0">
         <thead>
           <tr>
-            <th>S.No.</th>
+            {/* <th>S.No.</th> */}
             <th>Employee ID</th>
             <th>Employee Name</th>
             <th>address</th>
             <th>Joining Date</th>
             <th>contact</th>
+            <th>Active</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -543,130 +304,27 @@ const employee = () => {
         <tbody>
           {currentItems.map((item, index) => (
             <tr key={item.id}>
-              <th>{item.id}</th>
+              {/* <th>{item.id}</th> */}
               <th>{item.employeeid}</th>
-              <td className="cursor-pointer">{item.fullName}</td>
+              <td className="cursor-pointer"><div style={{display:'flex'}}><img src={item.imageemp} style={{marginRight:'5px'}}/>{item.employeename}</div></td>
               <td>{item.address}</td>
-              <td>{item.serviceDate}</td>
+              <td>{item.joiningDate}</td>
               <td>{item.contact}</td>
+              <td><Toggle
+                label="Toggle me"
+                toggled={true}
+                onClick={logState}
+              /></td>
               <td className="flex">
-                <a href="#editemp">
-                  <BiEdit className="text-3xl text-green-600 me-1" />
+                <a href="#emp_Profile">
+                  <img src="/Image/carbon_view.png" className="text-3xl text-green-600 me-1" />
                 </a>
 
-                {/* **********MODAL************ */}
-                <div className="modal" id="editemp">
-                  <div className="modal-box">
-                    {/**************INPUT TAGS**************/}
-                    <div className="grid grid-cols-2 gap-x-5 gap-y-2">
-                      <div className="">
-                        <p className="mb-2">User ID</p>
-                        <input
-                          type="text"
-                          placeholder="User ID"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div className="">
-                        <p className="mb-2">Full Name</p>
-                        <input
-                          type="text"
-                          placeholder="Full Name"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div className="">
-                        <p className="mb-2">Email</p>
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div className="">
-                        <p className="mb-2">Contact No.</p>
-                        <input
-                          type="text"
-                          placeholder="Contact No."
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div className="">
-                        <p className="mb-2">Date of Birth</p>
-                        <input
-                          type="date"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div className="">
-                        <p className="mb-2">Gender</p>
-                        <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] ">
-                          <option value="">Male</option>
-                          <option value="">Famale</option>
-                        </select>
-                      </div>
-                      <div className="">
-                        <p className="mb-2">Address</p>
-                        <input
-                          type="text"
-                          placeholder="Address"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-                      <div className="">
-                        <p className="mb-2">Password</p>
-                        <input
-                          type="password"
-                          placeholder="Password"
-                          className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-                        />
-                      </div>
-
-                      <div
-                        type="file"
-                        accept="image/*"
-                        className="cursor-pointer col-span-2 border border-[#E97208] rounded-md mt-5"
-                      >
-                        <input
-                          type="file"
-                          accept="image/*"
-                          id="uploadImage"
-                          hidden
-                        />
-
-                        <label
-                          htmlFor="uploadImage"
-                          className="flex justify-center my-2"
-                        >
-                          <FaCloudUploadAlt className="text-2xl mx-2" />
-                          <p>Upload Profile Image</p>
-                        </label>
-                      </div>
-                    </div>
-                    <div className="modal-action flex justify-center">
-                      <a
-                        href="#"
-                        className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                      >
-                        x
-                      </a>
-                      <a
-                        href="#"
-                        className="btn bg-[#E97208] hover:bg-[#E97208]"
-                      >
-                        Edit Employee
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
+                <a href="#emp_Profile">
+                  <img src="/Image/Edit.png" className="text-3xl text-green-600 me-1" />
+                </a>
                 <Link href={"#"}>
-                  <RiDeleteBin6Line className="text-3xl text-red-500 ms-1" />
+                  <img src="/Image/Delete.png" className="text-3xl text-red-500 ms-1" />
                 </Link>
               </td>
             </tr>
@@ -686,7 +344,7 @@ const employee = () => {
         {/* Pagination buttons */}
 
         <button
-          className="btn btn-sm hover:bg-[#E97208] text-xs border rounded text-white bg-[#E97208]"
+          className="btn btn-sm hover:bg-[#1366D9] text-xs border rounded text-white bg-[#1366D9]"
           disabled={currentPage === 1}
           onClick={previousPage}
         >
@@ -696,9 +354,8 @@ const employee = () => {
         {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index + 1}
-            className={`btn btn-sm btn-outline hover:bg-[#E97208] mx-2  text-black rounded border border-[#E97208] ${
-              currentPage === index + 1 ? "bg-[#E97208] text-white" : ""
-            }`}
+            className={`btn btn-sm btn-outline hover:bg-[#1366D9] mx-2  text-black rounded border border-[#1366D9] ${currentPage === index + 1 ? "bg-[#1366D9] text-white" : ""
+              }`}
             onClick={() => paginate(index + 1)}
           >
             {index + 1}
@@ -706,12 +363,319 @@ const employee = () => {
         ))}
 
         <button
-          className="btn btn-sm hover:bg-[#E97208] text-xs border rounded text-white bg-[#E97208]"
+          className="btn btn-sm hover:bg-[#1366D9] text-xs border rounded text-white bg-[#1366D9]"
           disabled={currentPage === totalPages}
           onClick={nextPage}
         >
           Next
         </button>
+      </div>
+      {/* **********MODAL***** for  AddEmployee ******* */}
+
+      <div className="modal fixed inset-0 flex items-center justify-center" id="my_modal_8">
+        <div className="modal-box max-w-[1120px] min-h-[700px] ">
+          <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Employee <FaGreaterThan className="mt-1 ml-2 mr-2" /> Add New Employee</div>
+          {/**************INPUT TAGS**************/}
+          <div type="file"
+            accept="image/*" style={{
+              display: 'flex', marginTop: '15px',
+              marginLeft: '240px', marginBottom: '5px'
+            }} className="cursor-pointer ">
+            <input type="file" accept="image/*" id="uploadImage" hidden />
+            <img src="/Image/EmployeeLogo.png" />
+            <label htmlFor="uploadImage" style={{ marginLeft: '10px', marginTop: '10px' }}> <p className="cursor-pointer" >Upload Profile Image</p></label>
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-5 gap-y-2">
+            <div className="" style={{ marginLeft: '250px' }}>
+              <p className="mb-2 ">User ID</p>
+              <input
+                type="text"
+                placeholder="#124567"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            <div className="" style={{ marginLeft: '50px' }}>
+              <p className="mb-2">Full Name</p>
+              <input
+                type="text"
+                placeholder="John Cooper"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            <div className="" style={{ marginLeft: '250px' }}>
+              <p className="mb-2">Email</p>
+              <input
+                type="email"
+                placeholder="johncopper@example.com"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            <div className="" style={{ marginLeft: '50px' }}>
+              <p className="mb-2">Contact No.</p>
+              <input
+                type="text"
+                placeholder="+971 123 4577"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+
+            <div className="" style={{ marginLeft: '250px' }}>
+              <p className="mb-2">Address</p>
+              <input
+                type="text"
+                placeholder="Sheikh Mohammed Bin Rashed 
+                Boulevard Downtown Dubai,"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+            <div className="" style={{ marginLeft: '50px' }}>
+              <p className="mb-2">Password</p>
+              <input
+                type="password"
+                placeholder="********"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+           
+            <div style={{ marginLeft: '180px' }}>
+              <table className="table table-compact w-full z-0 employeeTable" style={{ width: '900px' }}>
+
+                <thead>
+                  <tr>
+                    <th>Permissions</th>
+                    <th>View</th>
+                    <th>Add</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>permission1</td>
+                    <td > <Toggle
+                      label="Toggle me"
+                      toggled={true}
+                      onClick={logState}
+                    />View </td>
+                    <td> <Toggle
+                      label="Toggle me"
+                      toggled={true}
+                      onClick={logState}
+                    />Add</td>
+                    <td> <Toggle
+                      label="Toggle me"
+                      toggled={true}
+                      onClick={logState}
+                    />Edit</td>
+                    <td> <Toggle
+                      label="Toggle me"
+                      toggled={true}
+                      onClick={logState}
+                    />Delete</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="modal-action flex justify-center">
+            <a
+              href="#"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              x
+            </a>
+            <a
+              href="#"
+              className="btn border-0 hover:border hover:border-[#1570EF] bg-[#1570EF] hover:bg-[#1570EF]"
+            >
+              Add Employee
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/**End the modal of add employee  */}
+
+
+      
+       {/* **********MODAL***** for  Employee Profile ******* */}
+
+       <div className="modal fixed inset-0 flex items-center justify-center" id="emp_Profile">
+        <div className="modal-box max-w-[1120px] min-h-[700px] ">
+          <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Employee <FaGreaterThan className="mt-1 ml-2 mr-2" />Profile</div>
+          {/**************INPUT TAGS**************/}
+          <div style={{
+              display: 'flex', marginTop: '15px',
+              marginLeft: '240px', marginBottom: '5px'
+            }}>
+          
+            <img src="/Image/EmpLogo.png" />
+            <div>
+            <div  style={{ marginLeft: '10px', marginTop: '10px' }}> <p>John Copper</p></div>
+            <div  style={{ marginLeft: '10px', marginTop: '10px' }}> <p>employee@example.com</p></div>
+            </div>
+            
+          </div>
+          {/* 
+          <div
+            type="file"
+            accept="image/*"
+            className="cursor-pointer "
+          >
+            <input type="file" accept="image/*" id="uploadImage" hidden />
+
+            <label htmlFor="uploadImage" className="flex justify-center my-2">
+
+              <p>Upload Profile Image</p>
+            </label>
+          </div> */}
+
+
+
+          <div className="grid grid-cols-2 gap-x-5 gap-y-2">
+            <div className="" style={{ marginLeft: '250px' }}>
+              <p className="mb-2 ">User ID</p>
+              <input
+                type="text"
+                placeholder="#124567"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            <div className="" style={{ marginLeft: '50px' }}>
+              <p className="mb-2">Full Name</p>
+              <input
+                type="text"
+                placeholder="John Cooper"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            <div className="" style={{ marginLeft: '250px' }}>
+              <p className="mb-2">Email</p>
+              <input
+                type="email"
+                placeholder="johncopper@example.com"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            <div className="" style={{ marginLeft: '50px' }}>
+              <p className="mb-2">Contact No.</p>
+              <input
+                type="text"
+                placeholder="+971 123 4577"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            {/* <div className="">
+              <p className="mb-2">Date of Birth</p>
+              <input
+                type="date"
+                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
+              />
+            </div> */}
+
+            {/* <div className="">
+              <p className="mb-2">Gender</p>
+              <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] ">
+                <option value="">Male</option>
+                <option value="">Famale</option>
+              </select>
+            </div> */}
+
+            <div className="" style={{ marginLeft: '250px' }}>
+              <p className="mb-2">Address</p>
+              <input
+                type="text"
+                placeholder="Sheikh Mohammed Bin Rashed 
+                Boulevard Downtown Dubai,"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+            <div className="" style={{ marginLeft: '50px' }}>
+              <p className="mb-2">Password</p>
+              <input
+                type="password"
+                placeholder="********"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            {/* <div
+              type="file"
+              accept="image/*"
+              className="cursor-pointer "
+             >
+              <input type="file" accept="image/*" id="uploadImage" hidden />
+
+              <label htmlFor="uploadImage" className="flex justify-center my-2">
+
+                <p>Upload Profile Image</p>
+              </label>
+            </div> */}
+            <div style={{ marginLeft: '180px' }}>
+              <table className="table table-compact w-full z-0 employeeTable" style={{ width: '900px' }}>
+
+                <thead>
+                  <tr>
+                    <th>Permissions</th>
+                    <th>View</th>
+                    <th>Add</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>permission1</td>
+                    <td > <Toggle
+                      label="Toggle me"
+                      toggled={true}
+                      onClick={logState}
+                    />View </td>
+                    <td> <Toggle
+                      label="Toggle me"
+                      toggled={true}
+                      onClick={logState}
+                    />Add</td>
+                    <td> <Toggle
+                      label="Toggle me"
+                      toggled={true}
+                      onClick={logState}
+                    />Edit</td>
+                    <td> <Toggle
+                      label="Toggle me"
+                      toggled={true}
+                      onClick={logState}
+                    />Delete</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="modal-action flex justify-center">
+            <a
+              href="#"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              x
+            </a>
+            <a
+              href="#"
+              className="btn border-0 hover:border hover:border-[#1570EF] bg-[#1570EF] hover:bg-[#1570EF]"
+            >
+              Save
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

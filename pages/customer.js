@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { FiFilter } from "react-icons/fi";
+import Link from "next/link";
 
 const users = () => {
   const datac = {
@@ -291,7 +292,18 @@ const users = () => {
               <td className="text-center">{item.email_id}</td>
               <td className="text-center">{item.country}</td>
               <td className="text-center">{item.last_purchasing_date}</td>
-              <td className="text-center">{item.action}</td>
+              <td className="flex">
+                <a href="#">
+                  <img src="/Image/carbon_view.png" className="text-3xl text-green-600 me-1" />
+                </a>
+
+                <a href="#">
+                  <img src="/Image/Edit.png" className="text-3xl text-green-600 me-1" />
+                </a>
+                <Link href={"#"}>
+                  <img src="/Image/Delete.png" className="text-3xl text-red-500 ms-1" />
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>
