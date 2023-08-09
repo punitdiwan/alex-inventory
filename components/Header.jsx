@@ -77,17 +77,46 @@ const Header = () => {
                   </div>
                 </Link>
 
-                <Link href="/category">
+                <Link href="/report">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <AiOutlineLock
                         className="text-2xl"
                         style={
-                          pathname == "/category" ? { color: "#E97208" } : ""
+                          pathname == "/report" ? { color: "#E97208" } : ""
                         }
                       />
                     </div>
                     <h1 className="font-bold text-xl ">Category</h1>
+                  </div>
+                </Link>
+                
+                <Link href="/todaysale">
+                  <div className="flex my-1">
+                    <div className="ms-7 me-3">
+                      <AiOutlineLock
+                        className="text-2xl"
+                        style={
+                          pathname == "/todaysale" ? { color: "#E97208" } : ""
+                        }
+                      />
+                    </div>
+                    <h1 className="font-bold text-xl ">todaysale</h1>
+                  </div>
+                </Link>
+
+
+                <Link href="/totalrevenue">
+                  <div className="flex my-1">
+                    <div className="ms-7 me-3">
+                      <AiOutlineLock
+                        className="text-2xl"
+                        style={
+                          pathname == "/totalrevenue" ? { color: "#E97208" } : ""
+                        }
+                      />
+                    </div>
+                    <h1 className="font-bold text-xl ">Total revenue</h1>
                   </div>
                 </Link>
 
@@ -174,7 +203,7 @@ const Header = () => {
 
               {pathname == "/dashboard" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
-              ) : pathname == "/category" ? (
+              ) : pathname == "/report" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
               ) : pathname == "/prefrenceNotification" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
@@ -194,7 +223,13 @@ const Header = () => {
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
               ) : pathname == "/profile" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
-              ) : (
+              ) : pathname =="/totalrevenue" ? (
+                <img src="/Image/Logo.png" alt="Dashboard Logo" />
+              ): pathname =="/todaysale" ? (
+                <img src="/Image/Logo.png" alt="Dashboard Logo" />
+              )
+
+                : (
                 ""
               )}
             </a>

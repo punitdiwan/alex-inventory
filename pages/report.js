@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import { BiFilter } from "react-icons/bi";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { FaCloudUploadAlt } from "react-icons/fa";
-import { GrGallery } from "react-icons/gr";
+
 import { FaGreaterThan } from "react-icons/fa";
 
 import Link from "next/link";
-import { logout } from "../lib/appwrite";
+
+
 
 
 const Toggle = ({ label, toggled, onClick }) => {
@@ -31,194 +30,227 @@ const Toggle = ({ label, toggled, onClick }) => {
 
 
 
+const report = () => {
 
-
-const employee = () => {
-  const router = useRouter();
 
   const Menus = [
-    { label: "Active Employee", url: "/" },
-    { label: "In-active Employee", url: "/" },
-    { label: "Date Range", url: "/" },
+    { label: "My Orders", url: "/report" },
+    { label: "Today Sales", url: "/todaysale" },
+    { label: "Total Revenue", url: "/totalrevenue" },
   ];
+
+
+  const router = useRouter();
 
   const datac = {
     cardData: [
       {
         id: "1",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "2",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "3",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "4",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "5",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "6",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "7",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "8",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "9",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "10",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "11",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "12",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "13",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "14",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "15",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
       {
         id: "16",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        productname: "Forest Essentials",
+        brandname: "Himalaya",
+        category: "Face ",
+        suppliername: "Supplier 1",
+        quantity: "43 Packets",
+        buyingprice: "₹ 130",
+        totalprice: "₹ 6,200",
+        totaldue: '₹ 00',
+        paymentstaus: 'Confirm',
+        action: ' ',
       },
 
     ],
@@ -259,7 +291,11 @@ const employee = () => {
   }
 
   const [open, setOpen] = useState(false);
-  
+
+
+  const menuRef = useRef();
+  const imgRef = useRef();
+
 
 
   return (
@@ -269,13 +305,14 @@ const employee = () => {
 
       {/* The button to open modal */}
       <div className="flex items-center justify-between">
-        <h1 className="font-semibold text-xl">Employees</h1>
-        <div className="flex ">
+        <div >
+          <div style={{ display: 'flex' }} className="text-xl font-bold">  Reports <FaGreaterThan className=" mt-1 ml-3 mr-3" />  My Orders</div> </div>
+        <div className="flex">
           <div >
-            <a href="#my_modal_8"
+            <a href="#create_order"
               className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
             >
-              Add New Employee
+              Create new Order
             </a>
           </div>
           <div className="relative ml-4">
@@ -289,7 +326,7 @@ const employee = () => {
 
             {open && (
               <div
-               
+                ref={menuRef}
                 className="bg-white p-4 w-52 shadow-lg absolute top-full right-0 mt-2 z-10"
               >
                 <ul>
@@ -321,12 +358,15 @@ const employee = () => {
         <thead>
           <tr>
             {/* <th>S.No.</th> */}
-            <th>Employee ID</th>
-            <th>Employee Name</th>
-            <th>address</th>
-            <th>Joining Date</th>
-            <th>contact</th>
-            <th>Active</th>
+            <th>Product Name</th>
+            <th>Brand Name</th>
+            <th>Category</th>
+            <th>Supplier Name</th>
+            <th>Quantity</th>
+            <th>Buying Price</th>
+            <th>Total Price</th>
+            <th>Total Due</th>
+            <th>Payment Status</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -335,27 +375,20 @@ const employee = () => {
           {currentItems.map((item, index) => (
             <tr key={item.id}>
               {/* <th>{item.id}</th> */}
-              <th>{item.employeeid}</th>
-              <td className="cursor-pointer"><div style={{display:'flex'}}><img src={item.imageemp} style={{marginRight:'5px'}}/>{item.employeename}</div></td>
-              <td>{item.address}</td>
-              <td>{item.joiningDate}</td>
-              <td>{item.contact}</td>
-              <td><Toggle
-                label="Toggle me"
-                toggled={true}
-                onClick={logState}
-              /></td>
-              <td className="flex">
-                <a href="#emp_Profile">
-                  <img src="/Image/carbon_view.png" className="text-3xl text-green-600 me-1" />
-                </a>
+              <th>{item.productname}</th>
+              <td className="cursor-pointer">{item.brandname}</td>
+              <td>{item.category}</td>
+              <td>{item.suppliername}</td>
+              <td>{item.quantity}</td>
+              <td>{item.buyingprice}</td>
+              <td >{item.totalprice}</td>
+              <td >{item.totaldue}</td>
+              <td style={{ color: "#10A760" }}>{item.paymentstaus}</td>
 
-                <a href="#emp_Profile">
-                  <img src="/Image/Edit.png" className="text-3xl text-green-600 me-1" />
-                </a>
-                <Link href={"#"}>
-                  <img src="/Image/Delete.png" className="text-3xl text-red-500 ms-1" />
-                </Link>
+              <td class="flex">
+                <button className="bg-[#1570EF] text-white border border-blue-700 rounded px-4 py-2">
+                  Pay now
+                </button>
               </td>
             </tr>
           ))}
@@ -370,7 +403,7 @@ const employee = () => {
           bottom: 5,
           right: 20,
         }}
-         >
+      >
         {/* Pagination buttons */}
 
         <button
@@ -403,7 +436,7 @@ const employee = () => {
       {/* **********MODAL***** for  AddEmployee ******* */}
 
       <div className="modal fixed inset-0 flex items-center justify-center" id="my_modal_8">
-        <div className="modal-box max-w-[1120px] min-h-[650px] ">
+        <div className="modal-box max-w-[1120px] min-h-[700px] ">
           <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Employee <FaGreaterThan className="mt-1 ml-2 mr-2" /> Add New Employee</div>
           {/**************INPUT TAGS**************/}
           <div type="file"
@@ -472,7 +505,7 @@ const employee = () => {
               />
             </div>
 
-           
+
             <div style={{ marginLeft: '180px' }}>
               <table className="table table-compact w-full z-0 employeeTable" style={{ width: '900px' }}>
 
@@ -533,24 +566,132 @@ const employee = () => {
       {/**End the modal of add employee  */}
 
 
-      
-       {/* **********MODAL***** for  Employee Profile ******* */}
 
-       <div className="modal fixed inset-0 flex items-center justify-center" id="emp_Profile">
-        <div className="modal-box max-w-[1120px] min-h-[650px] ">
+      {/* **********MODAL***** for  Create New Order ******* */}
+
+      <div className="modal fixed inset-0 flex items-center justify-center" id="create_order">
+        <div className="modal-box max-w-[600px] min-h-[650px] ">
+          <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Create New Order</div>
+          {/**************INPUT TAGS**************/}
+
+
+          <div style={{ marginTop: '20px' }}>
+            <div style={{ display: 'flex' }} >
+              <div className="mb-2 text-bold " style={{ marginTop: "20px", marginLeft: "47px" }}>Supplier Name</div>
+              <input
+                type="text"
+                placeholder="Supplier 1"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{ marginTop: '10px', marginLeft: "65px", borderColor: "grey" }} />
+            </div>
+
+            <div style={{ display: 'flex' }}>
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Brand Name</div>
+              <input
+                type="text"
+                placeholder="Himalaya"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{ marginTop: '10px', marginLeft: "80px", borderColor: "grey" }} />
+            </div>
+
+            <div style={{ display: 'flex' }} >
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Category</div>
+              <input
+                type="email"
+                placeholder="Face"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{ marginTop: '10px', marginLeft: "103px", borderColor: "grey" }} />
+            </div>
+
+            <div style={{ display: 'flex' }} >
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Supplier</div>
+              <input
+                type="text"
+                placeholder="Supplier1"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{ marginTop: '10px', marginLeft: "111px", borderColor: "grey" }} />
+            </div>
+
+
+            <div style={{ display: 'flex' }} >
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Quantity</div>
+              <input
+                type="text"
+                placeholder="43  Packets"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{ marginTop: '10px', marginLeft: "110px", borderColor: "grey" }} />
+            </div>
+            <div style={{ display: 'flex' }} >
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Buying Price</div>
+              <input
+                type="password"
+                placeholder="₹ 240"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{ marginTop: '10px', marginLeft: "81px", borderColor: "grey" }} />
+            </div>
+
+            <div style={{ display: 'flex' }} >
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Order Date</div>
+              <input
+                type="date"
+                placeholder="18/05/23"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{ marginTop: '10px', marginLeft: "93px", borderColor: "grey" }} />
+            </div>
+            <div style={{ display: 'flex' }} >
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Total Price</div>
+              <input
+                type="text"
+                placeholder="14,253"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{ marginTop: '10px', marginLeft: "93px", borderColor: "grey" }} />
+            </div>
+
+
+          </div>
+          <div className="modal-action flex justify-center">
+            <a
+              href="#"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              x
+            </a>
+            <a
+              href="#"
+              className="btn border-0 hover:border hover:border-[#858D9D] bg-[#858D9D] hover:bg-[#858D9D]"
+            >
+              Discard
+            </a>
+            <a
+              href="#"
+              className="btn border-0 hover:border hover:border-[#1570EF] bg-[#1570EF] hover:bg-[#1570EF]"
+            >
+              Place Order
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      {/* **********MODAL***** for  Employee Profile ******* */}
+
+      <div className="modal fixed inset-0 flex items-center justify-center" id="emp_Profile">
+        <div className="modal-box max-w-[1120px] min-h-[700px] ">
           <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Employee <FaGreaterThan className="mt-1 ml-2 mr-2" />Profile</div>
           {/**************INPUT TAGS**************/}
           <div style={{
-              display: 'flex', marginTop: '15px',
-              marginLeft: '240px', marginBottom: '5px'
-            }}>
-          
+            display: 'flex', marginTop: '15px',
+            marginLeft: '240px', marginBottom: '5px'
+          }}>
+
             <img src="/Image/EmpLogo.png" />
             <div>
-            <div  style={{ marginLeft: '10px', marginTop: '10px' }}> <p>John Copper</p></div>
-            <div  style={{ marginLeft: '10px', marginTop: '10px' }}> <p>employee@example.com</p></div>
+              <div style={{ marginLeft: '10px', marginTop: '10px' }}> <p>John Copper</p></div>
+              <div style={{ marginLeft: '10px', marginTop: '10px' }}> <p>employee@example.com</p></div>
             </div>
-            
+
           </div>
           {/* 
           <div
@@ -707,8 +848,11 @@ const employee = () => {
           </div>
         </div>
       </div>
+
+
+
     </div>
   );
 };
 
-export default Layout(employee);
+export default Layout(report);
