@@ -81,23 +81,24 @@ const Sidebar1 = () => {
             </h1>
           </div>
         </Link>
-        <Link href="/category">
+        <Link href="/report">
           <div className="flex my-6">
             <div className="ms-7 me-3">
               <AiOutlineLock
                 className="text-2xl"
-                style={pathname == "/category" ? { color: "#1570EF" } : ""}
+                style={pathname == "/report" ? { color: "#1570EF" } : ""}
               />
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/category" ? "text-[#1570EF]" : ""
+                pathname === "/report" ? "text-[#1570EF]" : ""
               }`}
             >
               Reports
             </h1>
           </div>
         </Link>
+        
         <Link href="/customer">
           <div className="flex my-6">
             <div className="ms-7 me-3">

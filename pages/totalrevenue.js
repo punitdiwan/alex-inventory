@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import { BiFilter } from "react-icons/bi";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { FaCloudUploadAlt } from "react-icons/fa";
-import { GrGallery } from "react-icons/gr";
+
 import { FaGreaterThan } from "react-icons/fa";
 
 import Link from "next/link";
-import { logout } from "../lib/appwrite";
+
+
 
 
 const Toggle = ({ label, toggled, onClick }) => {
@@ -31,194 +30,211 @@ const Toggle = ({ label, toggled, onClick }) => {
 
 
 
+const totalrevenue = () => {
 
-
-const employee = () => {
-  const router = useRouter();
 
   const Menus = [
-    { label: "Active Employee", url: "/" },
-    { label: "In-active Employee", url: "/" },
-    { label: "Date Range", url: "/" },
+    { label: "My Orders", url: "/report" },
+    { label: "Today Sales", url: "/todaysale" },
+    { label: "Total Revenue", url: "/totalrevenue" },
   ];
+
+
+  const router = useRouter();
 
   const datac = {
     cardData: [
       {
         id: "1",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "2",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "3",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "4",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "5",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "6",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "7",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "8",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "9",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "10",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "11",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "12",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "13",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "14",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "15",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
       {
         id: "16",
-        employeename: "Johnny Depp ",
-        employeeid: "#124567",
-        address: "3093 Cheshire Road",
-        contact: "+971 21456320",
-        joiningDate: "28/05/2023",
-        active: "on",
-        action: "edit",
-        imageemp:'/Image/empl.png',
+        categoryname: "Face ",
+        brandname: "Himalaya",
+        totalquantity: "22 packets",
+        date: "20/06/23",
+        costpacket: "₹ 35",
+        sellpacket: "₹ 50",
+        profitpacket: "₹ 15",
+        totalprofit: '₹ 330',
+        action: ' ',
       },
 
     ],
@@ -259,7 +275,11 @@ const employee = () => {
   }
 
   const [open, setOpen] = useState(false);
-  
+
+
+  const menuRef = useRef();
+  const imgRef = useRef();
+
 
 
   return (
@@ -269,15 +289,9 @@ const employee = () => {
 
       {/* The button to open modal */}
       <div className="flex items-center justify-between">
-        <h1 className="font-semibold text-xl">Employees</h1>
-        <div className="flex ">
-          <div >
-            <a href="#my_modal_8"
-              className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
-            >
-              Add New Employee
-            </a>
-          </div>
+        <div >
+          <div style={{ display: 'flex' }} className="text-xl font-bold">  Reports <FaGreaterThan  className=" mt-1 ml-3 mr-3"/> Total Revenue</div> </div>
+        <div className="flex">
           <div className="relative ml-4">
             <div
               onClick={() => setOpen(!open)}
@@ -289,7 +303,7 @@ const employee = () => {
 
             {open && (
               <div
-               
+                ref={menuRef}
                 className="bg-white p-4 w-52 shadow-lg absolute top-full right-0 mt-2 z-10"
               >
                 <ul>
@@ -321,12 +335,14 @@ const employee = () => {
         <thead>
           <tr>
             {/* <th>S.No.</th> */}
-            <th>Employee ID</th>
-            <th>Employee Name</th>
-            <th>address</th>
-            <th>Joining Date</th>
-            <th>contact</th>
-            <th>Active</th>
+            <th>Category</th>
+            <th>Brand Name</th>
+            <th>Total Qty.</th>
+            <th>Date</th>
+            <th>Cost/packet</th>
+            <th>Sell/packet</th>
+            <th>Profit/packet</th>
+            <th>Total Profit</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -335,24 +351,21 @@ const employee = () => {
           {currentItems.map((item, index) => (
             <tr key={item.id}>
               {/* <th>{item.id}</th> */}
-              <th>{item.employeeid}</th>
-              <td className="cursor-pointer"><div style={{display:'flex'}}><img src={item.imageemp} style={{marginRight:'5px'}}/>{item.employeename}</div></td>
-              <td>{item.address}</td>
-              <td>{item.joiningDate}</td>
-              <td>{item.contact}</td>
-              <td><Toggle
-                label="Toggle me"
-                toggled={true}
-                onClick={logState}
-              /></td>
+              <th>{item.categoryname}</th>
+              <td className="cursor-pointer">{item.brandname}</td>
+              <td>{item.totalquantity}</td>
+              <td>{item.date}</td>
+              <td>{item.costpacket}</td>
+              <td>{item.sellpacket}</td>
+              <td style={{ color: "#10A760" }}>{item.profitpacket}</td>
+              <td style={{ color: "#1570EF" }}>{item.totalprofit}</td>
+
               <td className="flex">
                 <a href="#emp_Profile">
                   <img src="/Image/carbon_view.png" className="text-3xl text-green-600 me-1" />
                 </a>
 
-                <a href="#emp_Profile">
-                  <img src="/Image/Edit.png" className="text-3xl text-green-600 me-1" />
-                </a>
+
                 <Link href={"#"}>
                   <img src="/Image/Delete.png" className="text-3xl text-red-500 ms-1" />
                 </Link>
@@ -370,7 +383,7 @@ const employee = () => {
           bottom: 5,
           right: 20,
         }}
-         >
+      >
         {/* Pagination buttons */}
 
         <button
@@ -403,7 +416,7 @@ const employee = () => {
       {/* **********MODAL***** for  AddEmployee ******* */}
 
       <div className="modal fixed inset-0 flex items-center justify-center" id="my_modal_8">
-        <div className="modal-box max-w-[1120px] min-h-[650px] ">
+        <div className="modal-box max-w-[1120px] min-h-[700px] ">
           <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Employee <FaGreaterThan className="mt-1 ml-2 mr-2" /> Add New Employee</div>
           {/**************INPUT TAGS**************/}
           <div type="file"
@@ -472,7 +485,7 @@ const employee = () => {
               />
             </div>
 
-           
+
             <div style={{ marginLeft: '180px' }}>
               <table className="table table-compact w-full z-0 employeeTable" style={{ width: '900px' }}>
 
@@ -533,24 +546,24 @@ const employee = () => {
       {/**End the modal of add employee  */}
 
 
-      
-       {/* **********MODAL***** for  Employee Profile ******* */}
 
-       <div className="modal fixed inset-0 flex items-center justify-center" id="emp_Profile">
-        <div className="modal-box max-w-[1120px] min-h-[650px] ">
+      {/* **********MODAL***** for  Employee Profile ******* */}
+
+      <div className="modal fixed inset-0 flex items-center justify-center" id="emp_Profile">
+        <div className="modal-box max-w-[1120px] min-h-[700px] ">
           <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Employee <FaGreaterThan className="mt-1 ml-2 mr-2" />Profile</div>
           {/**************INPUT TAGS**************/}
           <div style={{
-              display: 'flex', marginTop: '15px',
-              marginLeft: '240px', marginBottom: '5px'
-            }}>
-          
+            display: 'flex', marginTop: '15px',
+            marginLeft: '240px', marginBottom: '5px'
+          }}>
+
             <img src="/Image/EmpLogo.png" />
             <div>
-            <div  style={{ marginLeft: '10px', marginTop: '10px' }}> <p>John Copper</p></div>
-            <div  style={{ marginLeft: '10px', marginTop: '10px' }}> <p>employee@example.com</p></div>
+              <div style={{ marginLeft: '10px', marginTop: '10px' }}> <p>John Copper</p></div>
+              <div style={{ marginLeft: '10px', marginTop: '10px' }}> <p>employee@example.com</p></div>
             </div>
-            
+
           </div>
           {/* 
           <div
@@ -711,4 +724,4 @@ const employee = () => {
   );
 };
 
-export default Layout(employee);
+export default Layout(totalrevenue);
