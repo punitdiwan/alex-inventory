@@ -55,7 +55,7 @@ const Header = () => {
                       <TbLayoutDashboard
                         className="text-2xl"
                         style={
-                          pathname == "/dashboard" ? { color: "#E97208" } : ""
+                          pathname == "/dashboard" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
@@ -69,7 +69,7 @@ const Header = () => {
                       <AiOutlineShoppingCart
                         className="text-2xl"
                         style={
-                          pathname == "/orders" ? { color: "#E97208" } : ""
+                          pathname == "/orders" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
@@ -83,7 +83,7 @@ const Header = () => {
                       <AiOutlineLock
                         className="text-2xl"
                         style={
-                          pathname == "/report" ? { color: "#E97208" } : ""
+                          pathname == "/report" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
@@ -97,7 +97,7 @@ const Header = () => {
                       <AiOutlineLock
                         className="text-2xl"
                         style={
-                          pathname == "/todaysale" ? { color: "#E97208" } : ""
+                          pathname == "/todaysale" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
@@ -112,7 +112,7 @@ const Header = () => {
                       <AiOutlineLock
                         className="text-2xl"
                         style={
-                          pathname == "/totalrevenue" ? { color: "#E97208" } : ""
+                          pathname == "/totalrevenue" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
@@ -126,7 +126,7 @@ const Header = () => {
                       <TbUsers
                         className="text-2xl"
                         style={
-                          pathname == "/customer" ? { color: "#E97208" } : ""
+                          pathname == "/customer" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
@@ -140,7 +140,7 @@ const Header = () => {
                       <MdDesignServices
                         className="text-2xl"
                         style={
-                          pathname == "/employee" ? { color: "#E97208" } : ""
+                          pathname == "/employee" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
@@ -154,7 +154,7 @@ const Header = () => {
                       <HiOutlineCurrencyDollar
                         className="text-2xl"
                         style={
-                          pathname == "/revenue" ? { color: "#E97208" } : ""
+                          pathname == "/revenue" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
@@ -168,7 +168,7 @@ const Header = () => {
                       <CgProfile
                         className="text-2xl"
                         style={
-                          pathname == "/profile" ? { color: "#E97208" } : ""
+                          pathname == "/profile" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
@@ -182,12 +182,27 @@ const Header = () => {
                         className="text-2xl"
                         style={
                           pathname == "/prefrenceNotification"
-                            ? { color: "#E97208" }
+                            ? { color: "#1570EF" }
                             : ""
                         }
                       />
                     </div>
                     <h1 className="font-bold text-xl ">Change Password</h1>
+                  </div>
+                </Link>
+                <Link href="/bankandtransaction">
+                  <div className="flex my-1">
+                    <div className="ms-7 me-3">
+                      <MdPassword
+                        className="text-2xl"
+                        style={
+                          pathname == "/bankandtransaction"
+                            ? { color: "#1570EF" }
+                            : ""
+                        }
+                      />
+                    </div>
+                    <h1 className="font-bold text-xl ">Bank And Transaction</h1>
                   </div>
                 </Link>
               </ul>
@@ -227,9 +242,9 @@ const Header = () => {
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
               ): pathname =="/todaysale" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
-              )
-
-                : (
+              ) : pathname =="/bankandtransaction" ? (
+                <img src="/Image/Logo.png" alt="Dashboard Logo" />
+              )  : (
                 ""
               )}
             </a>
@@ -263,7 +278,7 @@ const Header = () => {
               <span className="indicator-item badge badge-xs border border-[#1570EF] bg-[#1570EF]"></span>
               <MdOutlineNotificationsActive
                 className="text-2xl"
-                style={pathname == "/notification" ? { color: "#E97208" } : ""}
+                style={pathname == "/notification" ? { color: "#1570EF" } : ""}
               />
             </Link>
 
@@ -311,9 +326,9 @@ const Header = () => {
                   className=""
                   style={
                     pathname == "/profile"
-                      ? { color: "#E97208" }
+                      ? { color: "#1570EF" }
                       : pathname == "/prefrenceNotification"
-                      ? { color: "#E97208" }
+                      ? { color: "#1570EF" }
                       : { color: "black" }
                   }
                 >
@@ -324,9 +339,9 @@ const Header = () => {
                   className="text-4xl mt-3"
                   style={
                     pathname == "/profile"
-                      ? { color: "#E97208" }
+                      ? { color: "#1570EF" }
                       : pathname == "/prefrenceNotification"
-                      ? { color: "#E97208" }
+                      ? { color: "#1570EF" }
                       : ""
                   }
                 />
@@ -405,7 +420,7 @@ const Header = () => {
                 <h1 className="font-semibold text-md flex">
                   <MdOutlinePersonOutline
                     className="mx-2 mt-1"
-                    style={pathname == "/profile" ? { color: "#E97208" } : ""}
+                    style={pathname == "/profile" ? { color: "#1570EF" } : ""}
                   />
                   Profile
                 </h1>
@@ -416,7 +431,7 @@ const Header = () => {
                   <MdOutlineNotificationsActive
                     className="mx-2 my-1"
                     style={
-                      pathname == "/notification" ? { color: "#E97208" } : ""
+                      pathname == "/notification" ? { color: "#1570EF" } : ""
                     }
                   />
                 </h1>
@@ -461,13 +476,13 @@ const Header = () => {
             <div className="modal-action flex justify-center mb-5">
               <Link
                 href="/"
-                className="btn border border-[#E97208] hover:border-[#E97208] bg-white text-[#E97208] hover:bg-[#E97208] hover:text-white w-24 rounded-3xl mx-2"
+                className="btn border border-[#1570EF] hover:border-[#1570EF] bg-white text-[#1570EF] hover:bg-[#1570EF] hover:text-white w-24 rounded-3xl mx-2"
               >
                 Yes
               </Link>
               <label
                 htmlFor="my-modal-6"
-                className="btn bg-[#E97208] border border-[#E97208] hover:bg-white hover:text-[#E97208] hover:border-[#E97208] w-24 rounded-3xl mx-2"
+                className="btn bg-[#1570EF] border border-[#1570EF] hover:bg-white hover:text-[#1570EF] hover:border-[#1570EF] w-24 rounded-3xl mx-2"
               >
                 No
               </label>

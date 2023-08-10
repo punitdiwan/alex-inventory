@@ -2,13 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import { BiFilter } from "react-icons/bi";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { FaCloudUploadAlt } from "react-icons/fa";
-import { GrGallery } from "react-icons/gr";
 import { FaGreaterThan } from "react-icons/fa";
-
 import Link from "next/link";
-import { logout } from "../lib/appwrite";
+
 
 
 const Toggle = ({ label, toggled, onClick }) => {
@@ -27,11 +23,6 @@ const Toggle = ({ label, toggled, onClick }) => {
     </label>
   )
 }
-
-
-
-
-
 
 const employee = () => {
   const router = useRouter();

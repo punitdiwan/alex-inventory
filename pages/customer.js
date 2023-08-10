@@ -2,8 +2,18 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { FiFilter } from "react-icons/fi";
 import Link from "next/link";
+import { BiFilter } from "react-icons/bi";
+import { FaGreaterThan } from "react-icons/fa";
 
 const users = () => {
+  
+  const Menus = [
+    { label: "In-stock", url: "/" },
+    { label: "Low stock", url: "/" },
+    { label: "Out of stock", url: "/" },
+  ];
+
+
   const datac = {
     cardData: [
       {
@@ -159,6 +169,8 @@ const users = () => {
     }
   };
 
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="sm:w-full h-screen pb-5 px-5">
       <div className="flex flex-row justify-between">
@@ -170,10 +182,34 @@ const users = () => {
               Add Supplier
             </button>{" "}
           </a>
-          <button className="filter-button rounded-lg px-4 py-2">
-            <i className="fas fa-filter mr-2"></i>
-            Filters
-          </button>
+          <div className="relative ml-4">
+            <div
+              onClick={() => setOpen(!open)}
+              className="cursor-pointer btn border-0 hover:border hover:border-[grey] hover:bg-white hover:text-[#1366D9] fiterIcon"
+            >
+              <BiFilter className="" />
+              Filters
+            </div>
+
+            {open && (
+              <div
+               
+                className="bg-white p-4 w-52 shadow-lg absolute top-full right-0 mt-2 z-10"
+              >
+                <ul>
+                  {Menus.map((menu) => (
+                    <li
+                      onClick={() => setOpen(false)}
+                      className="p-2 text-lg cursor-pointer rounded hover:bg-blue-200"
+                      key={menu.label}
+                    >
+                      <Link href={menu.url}>{menu.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
           <button className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2">
             <i className="fas fa-download mr-2"></i>
             Download all
@@ -181,123 +217,190 @@ const users = () => {
         </div>
       </div>
       {/* **********MODAL************ */}
-      <div className="modal" id="addsupplier">
-        <div className="modal-box w-7/1 max-w-2xl">
+      {/* **********MODAL***** for  Create New Order ******* */}
+
+      <div
+        className="modal fixed inset-0 flex items-center justify-center"
+        id="addsupplier"
+      >
+        <div className="modal-box max-w-[600px] min-h-[580px] ">
+          <div
+            style={{ display: "flex", marginLeft: "20px", marginTop: "5px" }}
+            className="text-xl font-semibold mr-4"
+          >
+            New Supplier
+          </div>
           {/**************INPUT TAGS**************/}
-          <h1 className="font-medium text-xl ml-7">New Supplier</h1>
-          <div>
-            <div
-              style={{
-                display: "flex",
-                marginLeft: "180px",
-                marginTop: "10px",
-              }}
-              className=""
+
+          <div
+            type="file"
+            accept="image/*"
+            style={{
+              display: "flex",
+              marginTop: "15px",
+              marginLeft: "170px",
+              marginBottom: "5px",
+            }}
+            className="cursor-pointer "
+          >
+            <input type="file" accept="image/*" id="uploadImage" hidden />
+            <img src="/Image/supplierLogo.png" />
+            <label
+              htmlFor="uploadImage"
+              style={{ marginLeft: "10px", marginTop: "10px" }}
             >
-              <img src="/Image/pic_modal.png" />
-              <div className="ml-3">Drag image here
-              <div className="ml-11"> Or</div>
-              <div className="ml-1">Browse image</div>
-              </div>
-            </div>
+              {" "}
+              <p className="cursor-pointer">Upload Profile Image</p>
+            </label>
           </div>
 
-          <div className="mt-6 ml-3">
-            <div className="flex items-center">
-              <label className="mr-2">SupplierName</label>
-              <div style={{marginLeft:"60px"}}>
-                <input
-                  type="text"
-                  placeholder="Enter product name"
-                  className="border rounded p-1 "
-                />
+          <div style={{ marginTop: "20px" }}>
+            <div style={{ display: "flex" }}>
+              <div
+                className="mb-2 text-bold "
+                style={{ marginTop: "20px", marginLeft: "27px" }}
+              >
+                Supplier Name
               </div>
-            </div>
-          </div>
-          <div className="flex items-center mt-5 ml-3">
-            <label className="mr-2">Supplier Brand</label>
-            <div style={{marginLeft:"60px"}}>
               <input
                 type="text"
-                placeholder="Select product category"
-                className="border rounded p-1"
+                placeholder="enter a supplier"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "65px",
+                  borderColor: "grey",
+                }}
               />
             </div>
-          </div>
 
-          <div className="flex items-center mt-5 ml-3">
-            <label className="mr-2">Phone No.</label>
-            <div style={{marginLeft:"90px"}}>
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+                Supplier Brand
+              </div>
+              <input
+                type="text"
+                placeholder=" enter supplier brand "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "63px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+                Phone No.
+              </div>
               <input
                 type="number"
-                placeholder="Enter product name"
-                className="border rounded p-1"
+                placeholder="854697123"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "95px",
+                  borderColor: "grey",
+                }}
               />
             </div>
-          </div>
 
-          <div className="flex items-center mt-5 ml-3">
-            <label className="mr-2">Email Id</label>
-            <div style={{marginLeft:"110px"}}>
-              <input
-                type="email"
-                placeholder="Enter your email Address"
-                className="border rounded p-1"
-              />
-            </div>
-          </div>
-
-          <div className="flex items-center mt-5 ml-3">
-            <lable className="mr-2">Country</lable>
-            <div style={{marginLeft:"110px"}}>
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+                Email Id
+              </div>
               <input
                 type="text"
-                placeholder="Enter your country"
-                className="border rounded p-1"
+                placeholder="example@gmai.com"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "114px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+                Country
+              </div>
+              <input
+                type="text"
+                placeholder="Select Brand Category"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "114px",
+                  borderColor: "grey",
+                }}
               />
             </div>
           </div>
-          
-            <div style={{display:"flex-row",marginLeft:"150px",marginTop:"20px"}} className="ml-6">
-            <button className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2 ">
+          <div className="modal-action flex justify-center">
+            <a
+              href="#"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              x
+            </a>
+            <div style={{display:"flex",marginTop:"10px"}}>
+              <div style={{marginLeft:"160px"}}>
+            <a
+              href="#" 
+              className="btn border-0 hover:border hover:border-[#858D9D] bg-[#858D9D] hover:bg-[#858D9D] "
+            >
               Discard
-            </button> 
-            <button className="bg-blue-500 text-white rounded-lg px-4 py-2 mr-2">
+            </a>
+            </div>
+            <div style={{marginLeft:"20px"}}>
+            <a
+              href="#"
+              className="btn border-0 hover:border hover:border-[#1570EF] bg-[#1570EF] hover:bg-[#1570EF]"
+            >
               Add Supplier
-            </button>
+            </a>
+            </div>
+            </div>
           </div>
-          </div>
-        
+        </div>
       </div>
 
-      <table className="table w-full mt-7">
+      <table className="table table-compact w-full z-0 employeeTable">
+
         <thead>
           <tr>
-            <th className="text-center text-gray-500">Supplier Name</th>
-            <th className="text-center text-gray-500">Supplier Brand</th>
-            <th className="text-center text-gray-500">Phone No.</th>
-            <th className="text-center text-gray-500">Email Id</th>
-            <th className="text-center text-gray-500">Country</th>
-            <th className="text-center text-gray-500">Last Purchasing Date</th>
-            <th className="text-center text-gray-500">Action</th>
+            {/* <th>S.No.</th> */}
+            <th>Supplier Name</th>
+            <th>Supplier Brand</th>
+            <th>Phone No.</th>
+            <th>Email Id</th>
+            <th>Country</th>
+            <th>Last Purchasing Date </th>
+            <th>Action</th>
           </tr>
         </thead>
 
         <tbody>
-          {currentItems.map((item) => (
+          {currentItems.map((item, index) => (
             <tr key={item.id}>
-              <td className="text-center">{item.supplier_name}</td>
-              <td className="text-center">{item.supplier_brand}</td>
-              <td className="text-center">{item.phone_no}</td>
-              <td className="text-center">{item.email_id}</td>
-              <td className="text-center">{item.country}</td>
-              <td className="text-center">{item.last_purchasing_date}</td>
+              {/* <th>{item.id}</th> */}
+              <th>
+                <div style={{display:"flex"}}>
+                <img src="/Image/empl.png" style={{marginRight:'5px'}}/>{item.supplier_name}</div>
+                </th>
+              <td className="cursor-pointer"><div style={{display:'flex'}}>{item.supplier_brand}</div></td>
+              <td>{item.phone_no}</td>
+              <td>{item.email_id}</td>
+              <td>{item.country}</td>
+              <td>{item.last_purchasing_date}</td>
               <td className="flex">
-                <a href="#">
+                <a href="#emp_Profile">
                   <img src="/Image/carbon_view.png" className="text-3xl text-green-600 me-1" />
                 </a>
 
-                <a href="#">
+                <a href="#emp_Profile">
                   <img src="/Image/Edit.png" className="text-3xl text-green-600 me-1" />
                 </a>
                 <Link href={"#"}>
@@ -337,6 +440,145 @@ const users = () => {
         >
           Next
         </button>
+      </div>
+
+       {/* **********MODAL***** for  Employee Profile ******* */}
+
+       <div className="modal fixed inset-0 flex items-center justify-center" id="emp_Profile">
+        <div className="modal-box max-w-[1120px] min-h-[500px] ">
+          <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Suppliers <FaGreaterThan className="mt-1 ml-2 mr-2" />Profile</div>
+          {/**************INPUT TAGS**************/}
+          <div style={{
+              display: 'flex', marginTop: '15px',
+              marginLeft: '240px', marginBottom: '5px'
+            }}>
+          
+            <img src="/Image/EmpLogo.png" />
+            <div>
+            <div  style={{ marginLeft: '10px', marginTop: '10px' }}> <p>John Copper</p></div>
+            <div  style={{ marginLeft: '10px', marginTop: '10px' }}> <p>employee@example.com</p></div>
+            </div>
+            
+          </div>
+  
+          <div className="grid grid-cols-3 gap-x-5 gap-y-2">
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2 ">Supplier Name</p>
+              <input
+                type="text"
+                placeholder="John Cooper"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Brand Name</p>
+              <input
+                type="text"
+                placeholder="Himalaya"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Contact no.</p>
+              <input
+                type="number"
+                placeholder="+971 123 4577"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Country</p>
+              <input
+                type="text"
+                placeholder="India"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+
+
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Bank Name</p>
+              <input
+                type="text"
+                placeholder="Punjab National Bank"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Ifsc Code</p>
+              <input
+                type="text"
+                placeholder="PUNB0404800"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Account No.</p>
+              <input
+                type="text"
+                placeholder="01245 0404 8004 4048"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Last Purchase Date</p>
+              <input
+                type="date"
+                placeholder="18/05/2023"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Last Purchase  amount</p>
+              <input
+                type="number"
+                placeholder="14,253"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Payment Status</p>
+              <input
+                type="text"
+                placeholder="Success"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Payment Mode</p>
+              <input
+                type="text"
+                placeholder="NEFT"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+            <div className="" style={{ marginLeft: '10px' }}>
+              <p className="mb-2">Payment ID</p>
+              <input
+                type="text"
+                placeholder="TC0125DB0123654123"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+              />
+            </div>
+          </div>
+          <div className="modal-action flex justify-center">
+            <a
+              href="#"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              x
+            </a>
+            <a
+              href="#"
+              className="btn border-0 hover:border hover:border-[#1570EF] bg-[#1570EF] hover:bg-[#1570EF]"
+            >
+              Save
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
