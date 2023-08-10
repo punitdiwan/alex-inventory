@@ -160,6 +160,8 @@ const Sidebar1 = () => {
               ? "text-[#1570EF]"
               : pathname === "/prefrenceNotification"
               ? "text-[#1570EF]"
+              : pathname ==="/bankandtransaction"
+              ? "text-[#1570EF]"
               : ""
           }`}
           icon={
@@ -170,7 +172,7 @@ const Sidebar1 = () => {
                   ? { color: "#1570EF" }
                   : pathname == "/prefrenceNotification"
                   ? { color: "#1570EF" }
-                  : pathname == "/discountVoucher"
+                  : pathname == "/bankandtransaction"
                   ? { color: "#1570EF" }
                   : ""
               }
@@ -194,6 +196,18 @@ const Sidebar1 = () => {
             href="/prefrenceNotification"
           >
             <p className="text-sm ms-10 text-black">Change Password</p>
+            <img
+              className="my-auto"
+              src="/Image/SidebarImage/rightarrow.png"
+              style={{ width: "10px", height: "20px" }}
+              alt="icon"
+            />
+          </Link>
+          <Link
+            className=" z-40 py-2 text-base flex justify-between mx-3"
+            href="/bankandtransaction"
+          >
+            <p className="text-sm ms-10 text-black">Bank & Transactions</p>
             <img
               className="my-auto"
               src="/Image/SidebarImage/rightarrow.png"
