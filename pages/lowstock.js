@@ -9,7 +9,7 @@ import Link from "next/link";
 
 //Inventory Page
 
-const orders = () => {
+const lowstock = () => {
   const router = useRouter();
 
   const datac = {
@@ -308,7 +308,7 @@ const orders = () => {
       <div className="bg-white" style={{ marginTop: "10px" }}>
         <div className="flex justify-between items-center">
           <h2 style={{ color: "black", fontWeight: "bold" }} className="ml-3">
-            Category
+            Low Stocks
           </h2>
 
           <div className="mt-2">
@@ -469,6 +469,6 @@ const orders = () => {
   );
 };
 
-export default Layout(orders);
+export default Layout(lowstock);
 
 //Inventory  Page
