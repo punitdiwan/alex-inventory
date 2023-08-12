@@ -15,8 +15,20 @@ import { CgProfile } from "react-icons/cg";
 import { MdPassword } from "react-icons/md";
 import { MdDesignServices } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
+import { useState } from "react";
+import { MdOutlineSell } from "react-icons/md";
+import { MdOutlineToday } from "react-icons/md";
+import { TbAlignBoxBottomCenter} from "react-icons/tb";
+import { PiToteSimpleLight } from "react-icons/pi";
+import { TbMoneybag} from "react-icons/tb";
+import { AiOutlineTransaction } from "react-icons/ai";
+
+import { FaUsers} from "react-icons/fa";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   let pageTitleLogo = "";
   pageTitleLogo = <img src="/Images/Logo.png" alt="Dashboard Logo" />;
 
@@ -26,27 +38,27 @@ const Header = () => {
   return (
     <div className="bg-white z-10">
       <div style={{ zIndex: 10 }}>
-        {/* ***********LOGO for mob screen************** */}
-        <Link href="/dashboard" className="block md:hidden">
-          <img
-            className="mx-auto"
-            src="/logobgRemove.png"
-            width={50}
-            height={56}
-            alt="logo"
-          />
-        </Link>
 
-        <div className="navbar">
+         {/** Navigation bar start  */}
+        
+        <div className="navbar flex  justify-between ">
           <div className="flex-1">
-            {/* ***************dropdown for mobile*************** */}
-            <div className="dropdown block md:hidden">
-              <label tabIndex={0} className="">
-                <IoIosMenu className="text-xl" />
+
+            {/* ***************sidebar for mobile navigation bar *************** */}
+
+            <div className="dropdown block ">
+              <label
+                tabIndex={0}
+                className=""
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                <IoIosMenu className="text-xl ms:ml-[10px]  lg:hidden md:hidden" />
               </label>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu shadow bg-base-100 rounded-box w-screen"
+                className={`dropdown-content menu shadow bg-base-100 rounded-box w-screen ${
+                  isMobileMenuOpen ? "slide-in" : "slide-out"
+                }`}
                 style={{ position: "absolute", top: "20px", left: "10px" }}
               >
                 <Link href="/dashboard">
@@ -73,53 +85,23 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold text-xl ">Orders</h1>
+                    <h1 className="font-bold text-xl ">Inventory</h1>
                   </div>
                 </Link>
 
                 <Link href="/report">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
-                      <AiOutlineLock
+                      <TbAlignBoxBottomCenter
                         className="text-2xl"
                         style={
                           pathname == "/report" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
-                    <h1 className="font-bold text-xl ">Category</h1>
+                    <h1 className="font-bold text-xl ">Report</h1>
                   </div>
                 </Link>
-                
-                <Link href="/todaysale">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <AiOutlineLock
-                        className="text-2xl"
-                        style={
-                          pathname == "/todaysale" ? { color: "#1570EF" } : ""
-                        }
-                      />
-                    </div>
-                    <h1 className="font-bold text-xl ">todaysale</h1>
-                  </div>
-                </Link>
-
-
-                <Link href="/totalrevenue">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <AiOutlineLock
-                        className="text-2xl"
-                        style={
-                          pathname == "/totalrevenue" ? { color: "#1570EF" } : ""
-                        }
-                      />
-                    </div>
-                    <h1 className="font-bold text-xl ">Total revenue</h1>
-                  </div>
-                </Link>
-
                 <Link href="/customer">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
@@ -130,14 +112,13 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold text-xl ">Customer</h1>
+                    <h1 className="font-bold text-xl ">Supplier</h1>
                   </div>
                 </Link>
-
                 <Link href="/employee">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
-                      <MdDesignServices
+                      <FaUsers
                         className="text-2xl"
                         style={
                           pathname == "/employee" ? { color: "#1570EF" } : ""
@@ -147,7 +128,78 @@ const Header = () => {
                     <h1 className="font-bold text-xl ">Employee</h1>
                   </div>
                 </Link>
+                <Link href="/totalproducts">
+                  <div className="flex my-1">
+                    <div className="ms-7 me-3">
+                      <PiToteSimpleLight
+                        className="text-2xl"
+                        style={
+                          pathname == "/totalproducts"
+                            ? { color: "#1570EF" }
+                            : ""
+                        }
+                      />
+                    </div>
+                    <h1 className="font-bold text-xl ">Total Products</h1>
+                  </div>
+                </Link>
+                <Link href="/lowstock">
+                  <div className="flex my-1">
+                    <div className="ms-7 me-3">
+                      <AiOutlineShoppingCart
+                        className="text-2xl"
+                        style={
+                          pathname == "/lowstock" ? { color: "#1570EF" } : ""
+                        }
+                      />
+                    </div>
+                    <h1 className="font-bold text-xl ">Low Stocks</h1>
+                  </div>
+                </Link>
+                <Link href="/topselling">
+                  <div className="flex my-1">
+                    <div className="ms-7 me-3">
+                      <MdOutlineSell
+                        className="text-2xl"
+                        style={
+                          pathname == "/topselling" ? { color: "#1570EF" } : ""
+                        }
+                      />
+                    </div>
+                    <h1 className="font-bold text-xl ">Top Selling</h1>
+                  </div>
+                </Link>
 
+                <Link href="/todaysale">
+                  <div className="flex my-1">
+                    <div className="ms-7 me-3">
+                      <MdOutlineToday
+                        className="text-2xl"
+                        style={
+                          pathname == "/todaysale" ? { color: "#1570EF" } : ""
+                        }
+                      />
+                    </div>
+                    <h1 className="font-bold text-xl ">Today Sale</h1>
+                  </div>
+                </Link>
+
+                <Link href="/totalrevenue">
+                  <div className="flex my-1">
+                    <div className="ms-7 me-3">
+                      <TbMoneybag
+                        className="text-2xl"
+                        style={
+                          pathname == "/totalrevenue"
+                            ? { color: "#1570EF" }
+                            : ""
+                        }
+                      />
+                    </div>
+                    <h1 className="font-bold text-xl ">Total Revenue</h1>
+                  </div>
+                </Link>           
+              
                 <Link href="/revenue">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
@@ -178,7 +230,7 @@ const Header = () => {
                 <Link href="/prefrenceNotification">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
-                      <MdPassword
+                      <RiLockPasswordFill
                         className="text-2xl"
                         style={
                           pathname == "/prefrenceNotification"
@@ -193,7 +245,7 @@ const Header = () => {
                 <Link href="/bankandtransaction">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
-                      <MdPassword
+                      <AiOutlineTransaction
                         className="text-2xl"
                         style={
                           pathname == "/bankandtransaction"
@@ -208,10 +260,14 @@ const Header = () => {
               </ul>
             </div>
 
-            {/* ******************LOGO for md or more*************** */}
-            {/*<Link href="/dashboard" >
-            <img className='mx-10 md:block hidden' src="/logobgRemove.png" style={{ width: "150px", height: "100px" }} alt="logo" />
-          </Link>*/}
+            {/**      end of navigation of   side bar  */}
+
+
+
+            {/* ******************LOGO for md sm ms  or more*************** */}
+            <Link href="/dashboard" >
+            <img className='mx-10 lg:hidden  ' src="/Image/Logo.png" style={{ width: "300px", height: "30px" }} alt="logo" />
+          </Link>
 
             <a className="normal-case text-xl mx-5 font-bold text-[#1570EF]">
               {/* Hello, Admin */}
@@ -238,59 +294,70 @@ const Header = () => {
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
               ) : pathname == "/profile" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
-              ) : pathname =="/totalrevenue" ? (
+              ) : pathname == "/totalrevenue" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
-              ): pathname =="/todaysale" ? (
+              ) : pathname == "/todaysale" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
-              ) : pathname =="/bankandtransaction" ? (
+              ) : pathname == "/bankandtransaction" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
-              )  : (
+              ) : pathname == "/totalproducts" ? (
+                <img src="/Image/Logo.png" alt="Dashboard Logo" />
+              ) : pathname == "/topselling" ? (
+                <img src="/Image/Logo.png" alt="Dashboard Logo" />
+              ) : pathname == "/lowstock" ? (
+                <img src="/Image/Logo.png" alt="Dashboard Logo" />
+              ) : (
                 ""
               )}
             </a>
+
           </div>
-          <div className="w-full max-w-sm mx-auto p-1 relative text-gray-600 " style={{marginRight:'410px'}} >
-            <div >
-              {/* <CiSearch className="mt-6"/> */}
-            <input  
-              className="border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none w-full"
-              type="search"
-              name="search"
-              placeholder=" Search product, supplier, order" 
-            /></div>
-            <button type="submit" className="absolute right-0 top-0 mt-2 mr-4">
+
+
+          <div
+            className="w-full max-w-sm mx-auto p-1 relative text-gray-600 "
+            style={{ marginRight: "410px" }}>
+
+              {/** search bar for large screen   */}
+            <div className="md:hidden ms:hidden  sm:hidden">
+              <input
+                class="border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none w-full"
+                type="search"
+                name="search"
+                placeholder="Search product, supplier, order" />
+            </div>
+
+            {/* <button type="submit" className="absolute right-0 top-0 mt-2 mr-4">
               <svg
                 className="h-4 w-4 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-              >
-                {/* <path
-                  className="heroicon-ui"
-                  d="M21.707 20.293l-5.28-5.28a7.5 7.5 0 1 0-1.414 1.414l5.28 5.28a1 1 0 0 0 1.414-1.414zM10 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"
-                /> */}
-              </svg>
-            </button>
+              ></svg>
+            </button> */}
+
           </div>
 
-          {/* *******************hidden below md **************** */}
-          <div className="flex-none me-14 hidden md:block">
-            <Link href="/notification" className="indicator mx-4 ">
+          {/* *******************work on dashboard mobile screen ms **************** */}
+          
+          
+          <div className="flex justify-center  ">
+
+            <Link href="/notification" className="indicator mx-4  ">
               <span className="indicator-item badge badge-xs border border-[#1570EF] bg-[#1570EF]"></span>
               <MdOutlineNotificationsActive
-                className="text-2xl"
+                className="text-2xl "
                 style={pathname == "/notification" ? { color: "#1570EF" } : ""}
               />
             </Link>
 
             <div className="dropdown mx-5">
-              {/* <label tabIndex={0} className="">
+              <label tabIndex={0} className="">
               <img className='' src="/Image/headerImage/translater.png" width={50} height={50} alt="logo" />
-            </label> */}
-              <ul
+            </label>
+              {/* <ul
                 tabIndex={0}
                 style={{ position: "absolute", right: "-30px" }}
-                className="dropdown-content border menu p-2 shadow bg-base-100 rounded-box w-28"
-              >
+                className="dropdown-content border menu p-2 shadow bg-base-100 rounded-box w-28">
                 <Link href="#" className="flex p-2">
                   <img
                     className="me-5"
@@ -309,13 +376,14 @@ const Header = () => {
                   />
                   <span className="font-bold text-lg">AR</span>
                 </Link>
-              </ul>
+              </ul> */}
+
             </div>
 
-            <div className="dropdown ">
+            <div className="dropdown   ">
               <label tabIndex={0} className="flex">
                 <img
-                  className="mx-3"
+                  className=" ms:ml-[10px]"
                   src="/Image/headerImage/HeaderPerson.png"
                   width={50}
                   height={50}
@@ -330,11 +398,11 @@ const Header = () => {
                       : pathname == "/prefrenceNotification"
                       ? { color: "#1570EF" }
                       : { color: "black" }
-                  }
-                >
+                  }>
                   <p className="font-semibold">Jonathan</p>
                   <h1>Admin</h1>
                 </div>
+
                 <BiChevronDown
                   className="text-4xl mt-3"
                   style={
@@ -346,7 +414,7 @@ const Header = () => {
                   }
                 />
               </label>
-
+             {/**profile logo click dropdown  */}
               <ul
                 tabIndex={0}
                 className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-56"
@@ -368,7 +436,7 @@ const Header = () => {
                   </h1>
                 </Link>
 
-                {/* The button to open modal */}
+                {/* The button to open modal / for md/*/}
                 <label
                   htmlFor="my-modal-6"
                   className="flex me-3 hover:bg-slate-100 mt-1 mb-3"
@@ -394,8 +462,12 @@ const Header = () => {
                   </h1>
                 </Link>
               </ul>
+              {/**profile end click dropdown  */}
+              
             </div>
           </div>
+
+
           {/********************hidden below md************* */}
 
           <div className="dropdown dropdown-end block md:hidden">
@@ -465,6 +537,14 @@ const Header = () => {
             </ul>
           </div>
         </div>
+        {/** Navigation bar end  */}
+
+
+
+
+
+
+        {/**not a important  part for navigation  */}
 
         {/* Put this part before </body> tag (Logout modal)*/}
         <input type="checkbox" id="my-modal-6" className="modal-toggle" />

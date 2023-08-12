@@ -12,7 +12,11 @@ module.exports = {
     
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'ms': {'min':'350px','max':'630px'},
+      },
+    },
   },
   plugins: [
  

@@ -116,25 +116,6 @@ const Sidebar1 = () => {
             </h1>
           </div>
         </Link>
-
-        {/* <Link href="/employee">
-          <div className="flex my-6">
-            <div className="ms-7 me-3">
-              <MdDesignServices
-                className="text-2xl"
-                style={pathname == "/employee" ? { color: "#E97208" } : ""}
-              />
-            </div>
-            <h1
-              className={`font-bold text-xl ${
-                pathname === "/employee" ? "text-[#E97208]" : ""
-              }`}
-            >
-              Employee
-            </h1>
-          </div>
-        </Link> */}
-
         <Link href="/employee">
           <div className="flex my-6">
             <div className="ms-7 me-3">

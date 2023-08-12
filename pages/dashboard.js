@@ -162,101 +162,32 @@ const LowQuantityStock = () => {
 
 
 const Admin = () => {
-  const { getUserData } = useContext(AuthContext);
-  const [isOpen, setIsOpen] = useState(false);
-  const [userData, setUserData] = useState();
-  const [orders, setOrders] = useState({});
-  const ordersDocuments = orders?.documents;
-  const [pendingOrder, setPendingOrders] = useState("...");
-  const [totalCustomers, setTotalCustomers] = useState("...");
-  const router = useRouter();
-
-  // **GETTING USER**
-  useEffect(() => {
-    async function getUserDataHandler() {
-      const response = await getUserData();
-      if (typeof response === "object") {
-        setUserData(response);
-      }
-    }
-    getUserDataHandler();
-  }, [getUserData]);
-
-  // **GETTING ORDERS**
-  useEffect(() => {
-    async function getDataHandler(databaseId, collectionId) {
-      try {
-        const response = await getData(databaseId, collectionId);
-        if (typeof response !== "object")
-          throw new Error("Something went wrong! Try again later");
-
-        setOrders({
-          ...response,
-          documents: response.documents,
-        });
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    getDataHandler(
-      process.env.NEXT_PUBLIC_DATABASE_ID,
-      process.env.NEXT_PUBLIC_COLL_ORDERS
-    );
-  }, [getData]);
-
-  // **GETTING PENDING/"NEW" ORDERS**
-  useEffect(() => {
-    async function getPendingOrders() {
-      let headersList = {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "X-Appwrite-Project": "64b8cd79427ebc81a71c",
-      };
-      let response1 = await fetch(
-        "https://cw.maitretech.com/v1/databases/64b8d1cb6d5ef4397c37/collections/64900e33e090e3f48b2d/documents?queries[0]=equal(%5C%22status%5C%22%2C%20%5B%5C%22NEW%5C%22%5D)",
-        {
-          method: "GET",
-          headers: headersList,
-        }
-      );
-      let data = await response1.json();
-      setPendingOrders(data.total);
-    }
-    getPendingOrders();
-  }, []);
-
-  // **GETTING TOTAL CUSTOMERS**
-  useEffect(() => {
-    async function getTotalCustomers() {
-      try {
-        const response = await getTeamMembers(
-          process.env.NEXT_PUBLIC_CUSTOMERS_TEAM_ID
-        );
-        setTotalCustomers(response);
-      } catch (error) {
-        console.log("Team Error: ", error.message);
-      }
-    }
-    getTotalCustomers();
-  }, []);
-
+  
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className="pt-5 sm:w-full h-full">
+    <div className="">
       <div style={{ background: "white" }}>
-          <div style={{ display: "flex" }} className="ml-2 ">
-            <div className="sales-overview">
+          <div  className="flex sm:flex-col ms:flex-col lg:flex-row lg:items-start ">
+            <div className="bg-white border border-gray-300
+            ms:rounded-[8px]  ms:mt-[10px] ms:border-gray-400 ms:border-2 ms:w-[600px] ms:h-[150px] ms:ml-[85px] ms:mr-[15px]
+            sm:rounded-[8px]  sm:mt-[10px] sm:border-gray-400 sm:border-2 sm:w-[680px] sm:h-[150px] sm:ml-[15px]
+            md:w-[800px] md:h-[150px] md:rounded-[8px] md:border-gray-400 md:border-2 md:ml-[15px] md:mr-[15px]
+            lg:w-[680px] lg:h-[150px] lg:ml-[20px]  lg:rounded-[8px] 
+            
+            " 
+            >
               {/** This Section For Sales Overview  */}
               <p
                 style={{ fontSize: "20px" }}
-                className="text-2xl font-semibold p-2"
-              >
+                className="text-2xl font-semibold p-2" >
                 Sales Overview
               </p>
-              <div className="flex justify-between items-center">
+              
+              <div className="flex justify-between items-center ">
+
                 <div className="mt-6 ml-3">
                   <div className="ml-9">
                     <img src="/Image/Sales.png" />
@@ -266,6 +197,7 @@ const Admin = () => {
                     <p className="flex-1 text-right ml-6">Sales</p>
                   </div>
                 </div>
+
                 <div className="mt-6 ml-3">
                   <div className="ml-12">
                     <img src="/Image/Revenue.png" />
@@ -275,6 +207,7 @@ const Admin = () => {
                     <p className="flex-1 text-right ml-6">Revenue</p>
                   </div>
                 </div>
+
                 <div className="mt-6 ml-3">
                   <div className="ml-9">
                     <img src="/Image/Profit.png" />
@@ -284,6 +217,7 @@ const Admin = () => {
                     <p className="flex-1 text-right ml-6">Profit</p>
                   </div>
                 </div>
+
                 <div className="mt-6 ml-3">
                   <div className="ml-9">
                     <img src="/Image/Cost.png" />
@@ -293,12 +227,18 @@ const Admin = () => {
                     <p className="flex-1 text-right ml-6">Cost</p>
                   </div>
                 </div>
+
               </div>
             </div>
 
             {/**Inventory Summary */}
             <div className="ml-2">
-              <div className="inventory-summary">
+              <div className="bg-white border lg:border-gray-300  
+              ms:rounded-[8px]  ms:mt-[10px] ms:border-gray-400   ms:border-2 ms:w-[600px] ms:h-[150px] ms:ml-[76px] ms:mr-[10px]
+              sm:rounded-[8px]  sm:mt-[10px] sm:border-gray-400  sm:border-2 sm:w-[680px] sm:h-[150px] sm:ml-[10px]
+              md:w-[380px] md:h-[150px] md:mt-[10px] md:rounded-[8px]
+              lg:w-[450px] lg:h-[150px] lg:ml-[-5px]  lg:rounded-[8px] lg:mt-[-10px] lg:mt-[10px] lg:border-gray-400  lg:border-2 
+              ">
                 <p
                   style={{ fontSize: "20px" }}
                   className="text-2xl font-semibold p-2"
@@ -333,8 +273,13 @@ const Admin = () => {
             </div>
           </div>
 
-          <div style={{ display: "flex", marginTop: "20px" }} className="ml-2">
-            <div className="sales-overview">
+          <div style={{ display: "flex", marginTop: "20px" }} className="flex flex-col lg:flex-row lg:items-start ">
+            <div className="bg-white border border-gray-300 
+            ms:rounded-[8px]  ms:mt-[-10px] ms:border-gray-400 ms:border-2 ms:w-[600px] ms:h-[150px] ms:ml-[85px] ms:mr-[15px]  
+            sm:rounded-[8px]  sm:mt-[-10px] sm:border-gray-400 sm:border-2 sm:w-[680px] sm:h-[150px] sm:ml-[15px]
+            md:w-[800px] md:h-[150px] md:rounded-[8px] md:mb-[-450px] md:mr-[15px]
+             lg:w-[680px] lg:h-[150px] lg:ml-[20px]  lg:rounded-[8px] 
+            ">
               <p
                 style={{ fontSize: "20px" }}
                 className="text-2xl font-semibold p-2"
@@ -382,7 +327,13 @@ const Admin = () => {
               </div>
             </div>
             <div className="ml-2">
-              <div className="inventory-summary">
+              <div className="bg-white border border-gray-300  
+               ms:rounded-[8px]  ms:mt-[10px] ms:border-gray-400  ms:border-2 ms:w-[600px] ms:h-[150px] ms:ml-[76px] ms:mr-[10px]
+               sm:rounded-[8px]  sm:mt-[10px] sm:border-gray-400  sm:border-2 sm:w-[680px] sm:h-[150px] sm:ml-[10px]
+               md:w-[410px] md:h-[150px] md:rounded-[8px] md:ml-[400px] md:mt-[140px]
+               lg:w-[450px] lg:h-[150px] lg:ml-[-5px]  lg:rounded-[8px] lg:mt-[-10px]"
+           
+              >
                 <p
                   style={{ fontSize: "20px" }}
                   className="text-2xl font-semibold p-2"
@@ -417,11 +368,20 @@ const Admin = () => {
             </div>
           </div>
 
-          <div style={{ display: "flex", marginTop: "20px" }} className="ml-2">
-            <div className="Stock-List">
+          <div style={{ display: "flex", marginTop: "20px" }} className="flex flex-col lg:flex-row lg:items-start ">
+            <div className="bg-white border border-gray-300 
+            ms:rounded-[8px]  ms:mt-[-10px] ms:border-gray-400 ms:border-2 ms:w-[600px] ms:h-[470px] ms:ml-[85px] ms:mr-[15px] 
+            sm:rounded-[8px]  sm:mt-[-10px] sm:border-gray-400 sm:border-2 sm:w-[680px] sm:h-[450px] sm:ml-[15px]
+            md:mt-[140px] md:rounded-[8px]  md:w-[800px] md:h-[470px]
+            lg:w-[680px] lg:h-[470px] lg:ml-[20px]  lg:rounded-[8px] lg:mt-[-10px] 
+            ">
               <StockList />
             </div>
-            <div className="low-quantity">
+            <div className="bg-white border border-gray-300 
+             ms:rounded-[8px]  ms:mt-[10px] ms:border-gray-400 ms:border-2 ms:w-[600px] ms:h-[470px] ms:ml-[85px] ms:mr-[15px] 
+             sm:rounded-[8px]  sm:mt-[11px] sm:border-gray-400 sm:border-2 sm:w-[680px] sm:h-[450px] sm:ml-[15px]
+             md:mt-[10px] md:rounded-[8px] md:w-[800px] md:h-[470px]
+             lg:w-[450px] lg:h-[470px] lg:ml-[20px]  lg:rounded-[8px] lg:mt-[-10px]  ">
               <LowQuantityStock />
             </div>
           </div>
