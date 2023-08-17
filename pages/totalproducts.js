@@ -6,6 +6,10 @@ import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import Link from "next/link";
+import { MdOutlineLowPriority } from "react-icons/md";
+import { BiCategory } from "react-icons/bi";
+import { LuShoppingBag } from "react-icons/lu";
+import { GiSellCard } from "react-icons/gi";
 
 //Inventory Page
 
@@ -242,139 +246,296 @@ const totalproducts = () => {
   return (
     <div
       className=" sm:w-full h-screen pb-5 px-5 "
-      style={{ background: "#eeeee4" }}
+      style={{ background: "white" }}
     >
-      <div className="flex flex-row justify-between top-8">
-        <div
-          className="bg-white rounded-lg p-4 "
-          style={{ width: "1150px", marginTop: "5px" }}
-        >
-          <h2 className="text-xl font-bold" style={{ color: "black" }}>
-            Overall Inventory
-          </h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4 ">
-            <Link href="/orders">
-            <div className="ml-4 border-r-4 border-blue-500 pr-4 cursor-pointer">
-              <h4 style={{ color: "#1570EF" }}>Categories</h4>
-              <div className="ml-1 mt-2">14</div>
-              <div className="ml-1 mt-2">Last 7 days</div>
+      {/**for mobile device */}
+
+      <div className="ms:block lg:hidden md:hidden sm:hidden">
+        <h3 class="text-gray-700 hover:text-gray-900 dark:text-white dark:hover:text-white text-4xl font-medium">
+          Overall Inventory
+        </h3>
+
+        <div className="  mt-[50px]">
+          <div className="flex flex-row">
+            <div>
+              <Link href="/orders">
+                <div className="cursor-pointer border-2 ml-[-1px] ms:w-[341px] ms:h-[200px]">
+                  <div className="flex flex-row ml-[15px] mt-[20px]">
+                    {" "}
+                    <BiCategory
+                      className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
+                      style={{ color: "#629FF4" }}
+                    />
+                    <h4
+                      style={{ color: "black" }}
+                      className="text-3xl font-bold mt-[5px] ml-[15px]"
+                    >
+                      Categories
+                    </h4>{" "}
+                  </div>
+                  <div className="ml-[110px] mt-[-25px]">
+                    <div className="ml-1 mt-2 text-4xl font-bold ">14</div>
+                    <div className="ml-1 mt-2">Last 7 days</div>
+                  </div>
+                </div>
+              </Link>
             </div>
-            </Link>
-            
-            <Link href="/totalproducts">
-            <div className="ml-4 border-r-4 border-blue-500 pr-4 cursor-pointer">
-              <h4 style={{ color: "#E19133" }}>Total Products</h4>
-              <div className="flex justify-between items-center">
-                <p className="ml-1 mt-2">868</p>
-                <p className="ml-16 mt-2">25000</p>
-              </div>
-              <div className="flex justify-between items-center cursor-pointer">
-                <p className="ml-1 mt-2">Last 7 days</p>
-                <p className="ml-12 mt-2">Revenue</p>
-              </div>
+            <div>
+              <Link href="/totalproducts">
+                <div className=" border-2 ms:w-[341px] ms:h-[200px] ml-[15px] cursor-pointer">
+                  <div className="flex flex-row ml-[15px] mt-[20px]">
+                    <LuShoppingBag
+                      className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
+                      style={{ color: "#E19133" }}
+                    />
+                    <h4
+                      style={{ color: "black" }}
+                      className="text-3xl font-bold mt-[5px] ml-[15px]"
+                    >
+                      Total Products
+                    </h4>{" "}
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="ml-1 mt-2 text-4xl font-bold">868</p>
+                    <p className="ml-16 mt-2 text-4xl font-bold">25000</p>
+                  </div>
+                  <div className="flex justify-between items-center cursor-pointer">
+                    <p className="ml-1 mt-2">Last 7 days</p>
+                    <p className="ml-12 mt-2">Revenue</p>
+                  </div>
+                </div>
+              </Link>
             </div>
-            </Link>
-            <Link href="/topselling">
-            <div className="ml-4 border-r-4 border-blue-500 pr-4 cursor-pointer">
-              <p style={{ color: "#845EBC" }}>Top Selling</p>
-              <div className="flex justify-between items-center">
-                <p className="ml-1 mt-2">5</p>
-                <p className="ml-12 mt-2">$2500</p>
-              </div>
-              <div className="flex justify-between items-center">
-                <p className="ml-1 mt-2">Last 7 days</p>
-                <p className="ml-12 mt-2">Cost</p>
-              </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="mt-[15px]">
+              <Link href="/topselling">
+                <div className="cursor-pointer border-2 ml-[-1px] ms:w-[341px] ms:h-[200px]">
+                  <div className="flex flex-row ml-[15px] mt-[20px]">
+                    <GiSellCard
+                      className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
+                      style={{ color: "#845EBC" }}
+                    />
+                    <h4
+                      style={{ color: "black" }}
+                      className="text-3xl font-bold mt-[5px] ml-[15px]"
+                    >
+                      Top Selling
+                    </h4>{" "}
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="ml-1 mt-2 text-4xl font-bold">5</p>
+                    <p className="ml-1 mt-2 text-4xl font-bold">$2500</p>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="ml-1 mt-2">Last 7 days</p>
+                    <p className="ml-12 mt-2">Cost</p>
+                  </div>
+                </div>
+              </Link>{" "}
             </div>
-            </Link>
-            <Link href="lowstock">
-            <div className="ml-4 cursor-pointer">
-              <p style={{ color: "#F36960" }}> Low Stocks</p>
-              <div className="flex justify-between items-center ">
-                <p className="ml-1 mt-2">12</p>
-                <p className="ml-12 mt-2">2</p>
-              </div>
-              <div className="flex justify-between items-center">
-                <p className="ml-1 mt-2">Ordered</p>
-                <p className="ml-12 mt-2">Not in stock</p>
-              </div>
+            <div className="mt-[15px]">
+              <Link href="lowstock">
+                <div className="border-2 ms:w-[341px] ms:h-[200px] ml-[15px] cursor-pointer">
+                  <div className="flex flex-row ml-[15px] mt-[20px]">
+                    <MdOutlineLowPriority
+                      className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
+                      style={{ color: "#F36960" }}
+                    />
+                    <h4
+                      style={{ color: "black" }}
+                      className=" text-3xl font-bold mt-[5px] ml-[15px]"
+                    >
+                      {" "}
+                      Low Stocks
+                    </h4>{" "}
+                  </div>
+                  <div className="flex justify-between items-center ">
+                    <p className="ml-1 mt-2 text-4xl font-bold">12</p>
+                    <p className="ml-16 mt-2 text-4xl font-bold">2</p>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="ml-1 mt-2">Ordered</p>
+                    <p className="ml-12 mt-2">Not in stock</p>
+                  </div>
+                </div>
+              </Link>{" "}
             </div>
-            </Link>
           </div>
         </div>
       </div>
 
-      <div className="bg-white" style={{ marginTop: "10px" }}>
+      {/**this section for Inventroy category */}
+      <div className="flex flex-row justify-between top-8 ">
+        <div
+          className="bg-white rounded-lg p-4 ms:hidden lg:block md:block "
+          style={{ width: "1150px", marginTop: "5px" }}
+        >
+          <h2 className="text-xl font-bold" style={{ color: "black" }}>
+            Overall Inventory{" "}
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4 ">
+            <Link href="/orders">
+              <div className="ml-4 border-r-4 border-blue-500 pr-4 cursor-pointer">
+                <h4 style={{ color: "#1570EF" }}>Categories</h4>
+                <div className="ml-1 mt-2">14</div>
+                <div className="ml-1 mt-2">Last 7 days</div>
+              </div>
+            </Link>
+            <Link href="/totalproducts">
+              <div className="ml-4 border-r-4 border-blue-500 pr-4 cursor-pointer">
+                <h4 style={{ color: "#E19133" }}>Total Products</h4>
+                <div className="flex justify-between items-center">
+                  <p className="ml-1 mt-2">868</p>
+                  <p className="ml-16 mt-2">25000</p>
+                </div>
+                <div className="flex justify-between items-center cursor-pointer">
+                  <p className="ml-1 mt-2">Last 7 days</p>
+                  <p className="ml-12 mt-2">Revenue</p>
+                </div>
+              </div>
+            </Link>
+            <Link href="/topselling">
+              <div className="ml-4 border-r-4 border-blue-500 pr-4 cursor-pointer">
+                <p style={{ color: "#845EBC" }}>Top Selling</p>
+                <div className="flex justify-between items-center">
+                  <p className="ml-1 mt-2">5</p>
+                  <p className="ml-12 mt-2">$2500</p>
+                </div>
+                <div className="flex justify-between items-center">
+                  <p className="ml-1 mt-2">Last 7 days</p>
+                  <p className="ml-12 mt-2">Cost</p>
+                </div>
+              </div>
+            </Link>
+            <Link href="lowstock">
+              <div className="ml-4 cursor-pointer">
+                <p style={{ color: "#F36960" }}> Low Stocks</p>
+                <div className="flex justify-between items-center ">
+                  <p className="ml-1 mt-2">12</p>
+                  <p className="ml-12 mt-2">2</p>
+                </div>
+                <div className="flex justify-between items-center">
+                  <p className="ml-1 mt-2">Ordered</p>
+                  <p className="ml-12 mt-2">Not in stock</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
+      {/**end the for Inventroy category */}
+
+      <div className="bg-white ms:mt-[20px] md:mt-[10px]">
         <div className="flex justify-between items-center">
-          <h2 style={{ color: "black", fontWeight: "bold" }} className="ml-3">
-          Products
+          <h2
+            style={{ color: "black", fontWeight: "bold" }}
+            className="ml-3
+          ms:text-4xl 
+          md:text-xl
+          lg:text-xl
+          "
+          >
+            Products
           </h2>
 
           <div className="mt-2">
-            <button className="bg-blue-500 text-white rounded-lg px-4 py-2 mr-2">
+            <button
+              className="bg-blue-500 text-white rounded-lg px-4 py-2 mr-2  ms:text-2xl 
+          md:text-sm ms:font-bold md:font-normal"
+            >
               Add Category
             </button>
-            <button className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2">
+            <button
+              className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2  ms:text-2xl 
+          md:text-sm  ms:font-bold md:font-normal"
+            >
               Download all
             </button>
           </div>
         </div>
-
-        <table className="table table-compact w-full z-0 employeeTable">
-          <thead>
-            <tr>
-              {/* <th>S.No.</th> */}
-              <th>Category Name</th>
-              <th>Total Brands</th>
-              <th>Total Product</th>
-              <th>Images</th>
-              <th>Description</th>
-          
-              <th>Action</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {currentItems.map((item, index) => (
-              <tr key={item.id}>
-                {/* <th>{item.id}</th> */}
-                <th>
-                  <div style={{ display: "flex" }}>
-                    {item.category_name}
-                  </div>
+        <section className="border-2 ms:mt-[10px] md:border-none ms:max-h-[790px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
+          <table className="table  w-full  employeeTable ">
+            <thead>
+              <tr>
+                {/* <th>S.No.</th> */}
+                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
+                  Category Name
                 </th>
-                <td className="cursor-pointer">
-                  <div style={{ display: "flex" }}>{item.total_Brands}</div>
-                </td>
-                <td>{item.total_product}</td>
-                <td><img src={item.image}/></td>
-                <td>{item.description}</td>
-                <td className="flex">
-                  <a href="#emp_Profile">
-                    <img
-                      src="/Image/carbon_view.png"
-                      className="text-3xl text-green-600 me-1"
-                    />
-                  </a>
-                  <a href="#emp_Profile">
-                    <img
-                      src="/Image/Edit.png"
-                      className="text-3xl text-green-600 me-1"
-                    />
-                  </a>
-                  <Link href={"#"}>
-                    <img
-                      src="/Image/Delete.png"
-                      className="text-3xl text-red-500 ms-1"
-                    />
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
+                  Total Brands
+                </th>
+                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
+                  Total Product
+                </th>
+                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
+                  Images
+                </th>
+                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
+                  Description
+                </th>
 
+                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
+                  Action
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {currentItems.map((item, index) => (
+                <tr key={item.id}>
+                  {/* <th>{item.id}</th> */}
+                  <th>
+                    <div
+                      style={{ display: "flex" }}
+                      className="ms:text-xl ms:font-bold md:text-sm md:font-normal"
+                    >
+                      {item.category_name}
+                    </div>
+                  </th>
+                  <td className="cursor-pointer">
+                    <div
+                      style={{ display: "flex" }}
+                      className="ms:text-xl ms:font-bold md:text-sm md:font-normal"
+                    >
+                      {item.total_Brands}
+                    </div>
+                  </td>
+                  <td className="ms:text-xl ms:font-bold md:text-sm md:font-normal">
+                    {item.total_product}
+                  </td>
+                  <td>
+                    <img src={item.image} />
+                  </td>
+                  <td className="ms:text-xl ms:font-bold md:text-sm md:font-normal">
+                    {item.description}
+                  </td>
+                  <td className="flex">
+                    <a href="#emp_Profile">
+                      <img
+                        src="/Image/carbon_view.png"
+                        className="text-3xl text-green-600 me-1"
+                      />
+                    </a>
+                    <a href="#emp_Profile">
+                      <img
+                        src="/Image/Edit.png"
+                        className="text-3xl text-green-600 me-1"
+                      />
+                    </a>
+                    <Link href={"#"}>
+                      <img
+                        src="/Image/Delete.png"
+                        className="text-3xl text-red-500 ms-1"
+                      />
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
         <div
           className="mx-1"
           style={{ display: "flex", position: "fixed", bottom: 5, right: 20 }}

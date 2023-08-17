@@ -97,7 +97,8 @@ const StockList = () => {
           See All
         </div>
       </div>
-      <div className="max-h-[400px] overflow-y-auto"> {/* Adjust the max height */}
+
+      <div className="ms:max-h-[400px] md:max-h-[450px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide"> {/* Adjust the max height */}
         <table className="w-full border">
           <thead>
             <tr className="bg-gray-100">
@@ -107,9 +108,9 @@ const StockList = () => {
               <th className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
               lg:p-4 lg:border lg:text-center  lg:text-xl lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto  lg:dark:text-white lg:dark:hover:text-gray-200
               ">Sold Quantity</th>
-              <th className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
+              {/* <th className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
               lg:p-4 lg:border lg:text-center  lg:text-xl lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto  lg:dark:text-white lg:dark:hover:text-gray-200
-              ">Remaining Quantity</th>
+              ">Remaining Quantity</th> */}
               <th className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
               lg:p-4 lg:border lg:text-center  lg:text-xl lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto  lg:dark:text-white lg:dark:hover:text-gray-200
               ">Price</th>
@@ -120,7 +121,7 @@ const StockList = () => {
               <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
                 <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">{item.name}</td>
                 <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">{item.sold_Quantity}</td>
-                <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">{item.Remaining_Quantity}</td>
+                {/* <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">{item.Remaining_Quantity}</td> */}
                 <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200 ">${item.price.toFixed(2)}</td>
               </tr>
             ))}
@@ -193,7 +194,7 @@ const LowQuantityStock = () => {
           </div>
         </div>
 
-        <div className="max-h-[400px] overflow-y-auto">
+        <div className="ms:max-h-[500px] md:max-h-[450px] overflow-y-auto lg:scrollbar-hide">
           <table className="w-full border">
             <thead>
               <tr className="bg-gray-100">
@@ -202,7 +203,7 @@ const LowQuantityStock = () => {
                 ">Product Image</th>
                 <th className="p-4 border text-center  ms:text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">Product Name</th>
                 <th className="p-4 border text-center  ms:text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">Remaining Quantity</th>
-                <th className="p-4 border text-center  ms:text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">Price</th>
+                {/* <th className="p-4 border text-center  ms:text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">Price</th> */}
               </tr>
             </thead>
             <tbody>
@@ -223,7 +224,7 @@ const LowQuantityStock = () => {
                   <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">
                     {data.remainingQuantity}
                   </td>
-                  <td className="p-4 border text-center">{data.status}</td>
+                  {/* <td className="p-4 border text-center">{data.status}</td> */}
                 </tr>
               ))}
             </tbody>
@@ -288,8 +289,8 @@ const Admin = () => {
                       Total Sales
                     </h6>
                   </div>
-                  <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
-                    ₹26,35,262
+                  <h6 className="lg:hidden md:hidden ms:text-4xl md:text-3xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                    $26,35,262
                   </h6>
                   <h6 className="lg:hidden md:hidden">in today</h6>
                 </div>
@@ -318,8 +319,8 @@ const Admin = () => {
                       Total Revenue{" "}
                     </h6>{" "}
                   </div>
-                  <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
-                    ₹26,35,262
+                  <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                    $ 26,35,262
                   </h6>
                   <h6 className="lg:hidden md:hidden">in today</h6>
                 </div>
@@ -348,8 +349,8 @@ const Admin = () => {
                       Total Profit{" "}
                     </h6>
                   </div>
-                  <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
-                    ₹26,35,262
+                  <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                    $26,35,262
                   </h6>
                   <h6 className="lg:hidden md:hidden">in today</h6>
                 </div>
@@ -378,8 +379,8 @@ const Admin = () => {
                       Total Cost{" "}
                     </h6>{" "}
                   </div>
-                  <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
-                    ₹26,35,262
+                  <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                    $26,35,262
                   </h6>
                   <h6 className="lg:hidden md:hidden">in today</h6>
                 </div>
@@ -425,7 +426,7 @@ const Admin = () => {
                         Quantity in Hand{" "}
                       </h6>{" "}
                     </div>
-                    <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                    <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
                       35,262
                     </h6>
                     <h6 className="lg:hidden md:hidden">in today</h6>
@@ -455,7 +456,7 @@ const Admin = () => {
                         To be received{" "}
                       </h6>{" "}
                     </div>
-                    <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                    <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
                       832
                     </h6>
                     <h6 className="lg:hidden md:hidden">in today</h6>
@@ -505,7 +506,7 @@ const Admin = () => {
                       Total Purchase
                     </h6>
                   </div>
-                  <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                  <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
                     832
                   </h6>
                   <h6 className="lg:hidden md:hidden">in today</h6>
@@ -534,7 +535,7 @@ const Admin = () => {
                       Total Cost
                     </h6>
                   </div>
-                  <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                  <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
                     ₹26,35,262
                   </h6>
                   <h6 className="lg:hidden md:hidden">in today</h6>
@@ -564,8 +565,8 @@ const Admin = () => {
                       Total Sales
                     </h6>
                   </div>
-                  <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
-                    ₹26,35,262
+                  <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                    $26,35,262
                   </h6>
                   <h6 className="lg:hidden md:hidden">in today</h6>
                 </div>
@@ -593,8 +594,8 @@ const Admin = () => {
                       Total Sales
                     </h6>
                   </div>
-                  <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
-                    ₹26,35,262
+                  <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                    $26,35,262
                   </h6>
                   <h6 className="lg:hidden md:hidden">in today</h6>
                 </div>
@@ -640,7 +641,7 @@ const Admin = () => {
                         Number of Suppliers{" "}
                       </h6>{" "}
                     </div>
-                    <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                    <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
                       262
                     </h6>
                     <h6 className="lg:hidden md:hidden">in today</h6>
@@ -670,7 +671,7 @@ const Admin = () => {
                       Number of Categories{" "}
                       </h6>{" "}
                     </div>
-                    <h6 className="lg:hidden md:hidden text-2xl font-semibold text-gray-800 dark:text-white mt-[15px]">
+                    <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
                       262
                     </h6>
                     <h6 className="lg:hidden md:hidden">in today</h6>
