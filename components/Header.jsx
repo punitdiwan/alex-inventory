@@ -44,22 +44,28 @@ const Header = () => {
           <div className="flex-1">
             {/* ***************sidebar for mobile navigation bar *************** */}
 
-            <div className="dropdown block ">
+            <div className="dropdown block  " >
               <label
                 tabIndex={0}
                 className=""
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} // Toggle sidebar
               >
-                <IoIosMenu className="text-xl ms:ml-[10px] ms:w-[50px] ms:h-[50px]  sm:w-[50px] sm:h-[50px] lg:hidden md:hidden" />
+                <IoIosMenu className="text-xl ms:ml-[10px] ms:w-[50px] ms:h-[50px]   sm:w-[50px] sm:h-[50px] lg:hidden md:hidden" />
               </label>
 
               {/**sidebar color   */}
               <ul
                 tabIndex={0}
-                className={`dropdown-content menu shadow   w-[400px] h-[1980px] bg-slate-700  ${
+                className={`dropdown-content menu shadow   w-[550px]    bg-slate-700  ${
                   isMobileMenuOpen ? "slide-in" : "slide-out"
                 }`}
-                style={{ position: "absolute", top: "-23px", left: "-20px" }}
+                style={{
+                  position: "fixed",   // Set the position to fixed
+                  top: 0,              // Position from the top of the viewport
+                  left: 0,             // Position from the left of the viewport
+                  height: "100%",      // Set the height to 100% to cover the entire viewport height
+                  overflowY: "auto",   // Set overflow-y to auto to enable scrolling if content overflows
+                }}
               >
                 <div className="flex justify-between">
                   <div
@@ -88,7 +94,7 @@ const Header = () => {
                     style={{
                       marginTop: "20px",
                       marginLeft: "30px",
-                      fontSize: "20px ",
+                      fontSize: "40px ",
                       color: "#1570EF",
                     }}
                     className="text-2xl  font-extrabold"
@@ -103,13 +109,13 @@ const Header = () => {
                   <div className="flex mt-5 my-1">
                     <div className="ms-7 me-3">
                       <TbLayoutDashboard
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           pathname == "/dashboard" ? { color: "#1570EF" } : ""
                         }
                       />
                     </div>
-                    <h1 className="font-bold text-xl  font-serif text-[#E2E8F0]">
+                    <h1 className="font-bold text-4xl  font-serif text-[#E2E8F0]">
                       Dashboard
                     </h1>
                   </div>
@@ -119,7 +125,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <AiOutlineShoppingCart
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/orders" ? { color: "white" } : ""
                           pathname !== "/orders"
@@ -131,7 +137,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold text-xl   font-serif text-[#E2E8F0]">
+                    <h1 className="font-bold text-4xl   font-serif text-[#E2E8F0]">
                       Inventory
                     </h1>
                   </div>
@@ -141,7 +147,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <TbAlignBoxBottomCenter
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/report" ? { color: "#E2E8F0" } : ""
                           pathname !== "/report"
@@ -152,7 +158,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold text-xl  font-serif  text-[#E2E8F0]">
+                    <h1 className="font-bold text-4xl  font-serif  text-[#E2E8F0]">
                       Report
                     </h1>
                   </div>
@@ -161,7 +167,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <TbUsers
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/customer" ? { color: "#E2E8F0" } : ""
                           pathname !== "/customer"
@@ -172,7 +178,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-xl text-[#E2E8F0] ">
+                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
                       Supplier
                     </h1>
                   </div>
@@ -181,7 +187,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <FaUsers
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/employee" ? { color: "#E2E8F0" } : ""
                           pathname !== "/employee"
@@ -192,7 +198,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-xl text-[#E2E8F0] ">
+                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
                       Employee
                     </h1>
                   </div>
@@ -201,7 +207,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <PiToteSimpleLight
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px] "
                         style={
                           // pathname == "/totalproducts"
                           //   ? { color: "#1570EF" }
@@ -214,7 +220,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-xl  text-[#E2E8F0]">
+                    <h1 className="font-bold  font-serif text-4xl  text-[#E2E8F0]">
                       Total Products
                     </h1>
                   </div>
@@ -223,7 +229,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <AiOutlineShoppingCart
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/lowstock" ? { color: "#E2E8F0" } : ""
                           pathname !== "/lowstock"
@@ -234,7 +240,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-xl  text-[#E2E8F0]">
+                    <h1 className="font-bold  font-serif text-4xl  text-[#E2E8F0]">
                       Low Stocks
                     </h1>
                   </div>
@@ -243,7 +249,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <MdOutlineSell
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/topselling" ? { color: "#E2E8F0" } : ""
                           pathname !== "/topselling"
@@ -254,7 +260,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-xl text-[#E2E8F0] ">
+                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
                       Top Selling
                     </h1>
                   </div>
@@ -264,7 +270,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <MdOutlineToday
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/todaysale" ? { color: "#E2E8F0" } : ""
                           pathname !== "/todaysale"
@@ -275,7 +281,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-xl text-[#E2E8F0] ">
+                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
                       Today Sale
                     </h1>
                   </div>
@@ -285,7 +291,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <TbMoneybag
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/totalrevenue"
                           //   ? { color: "#E2E8F0" }
@@ -299,7 +305,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-xl  text-[#E2E8F0]">
+                    <h1 className="font-bold  font-serif text-4xl  text-[#E2E8F0]">
                       Total Revenue
                     </h1>
                   </div>
@@ -309,7 +315,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <HiOutlineCurrencyDollar
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/revenue" ? { color: "#E2E8F0" } : ""
                           pathname !== "/revenue"
@@ -320,7 +326,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-xl text-[#E2E8F0] ">
+                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
                       Revenue
                     </h1>
                   </div>
@@ -330,7 +336,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <CgProfile
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/profile" ? { color: "#E2E8F0" } : ""
                           pathname !== "/profile"
@@ -341,7 +347,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-xl text-[#E2E8F0] ">
+                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
                       Profile
                     </h1>
                   </div>
@@ -350,7 +356,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <RiLockPasswordFill
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           // pathname == "/prefrenceNotification"
                           //   ? { color: "#E2E8F0" }
@@ -363,7 +369,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-xl text-[#E2E8F0] ">
+                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
                       Change Password
                     </h1>
                   </div>
@@ -372,7 +378,7 @@ const Header = () => {
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <AiOutlineTransaction
-                        className="text-2xl"
+                        className="text-2xl w-[60px] h-[60px]"
                         style={
                           pathname !== "/bankandtransaction"
                             ? { color: "grey" }
@@ -382,7 +388,7 @@ const Header = () => {
                         }
                       />
                     </div>
-                    <h1 className="font-bold font-serif text-xl text-[#E2E8F0]">
+                    <h1 className="font-bold font-serif text-4xl text-[#E2E8F0]">
                       Bank And Transaction
                     </h1>
                   </div>
