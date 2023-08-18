@@ -483,8 +483,8 @@ const Header = () => {
 
           {/* *******************work on dashboard mobile screen ms **************** */}
 
-          <div className="hidden lg:block md:block">
-            <div className="flex justify-center  ">
+          <div className="ms:ml-[-200px] ms:mt-[10px]">
+            <div className="flex  ">
               <Link href="/notification" className="indicator mx-4  ">
                 <span className="indicator-item badge badge-xs border border-[#1570EF] bg-[#1570EF]"></span>
                 <MdOutlineNotificationsActive
