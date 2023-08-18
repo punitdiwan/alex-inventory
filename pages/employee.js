@@ -259,6 +259,7 @@ const employee = () => {
 
 
       {/* The button to open modal */}
+      <div className="lg:block md:block ms:hidden sm:hidden">
       <div className="flex items-center justify-between">
         <h1 className="font-semibold text-xl">Employees</h1>
         <div className="flex ">
@@ -307,18 +308,79 @@ const employee = () => {
           </div>
         </div>
       </div>
-      <table className="table table-compact w-full z-0 employeeTable">
+      </div>
+
+      <div className="md:hidden lg:hidden">
+        <div className="flex items-center ">
+        <div>
+          <div className="flex items-center">
+          <div className="mr-3 ms:text-4xl font-bold underline">Employees</div>
+         
+           </div>
+        </div>
+       </div>
+        <div className="mt-[55px]">
+       <div className="flex flex-row justify-end ">
+       <div >
+            <a href="#my_modal_8"
+              className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
+            >
+              Add New Employee
+            </a>
+          </div>
+          <div className="relative ml-4">
+            <div
+              onClick={() => setOpen(!open)}
+              className="cursor-pointer btn border-0 hover:border hover:border-[grey] hover:bg-white hover:text-[#1366D9] fiterIcon"
+            >
+              <BiFilter className="" />
+              Filters
+            </div>
+
+            {open && (
+              <div
+               
+                className="bg-white p-4 w-52 shadow-lg absolute top-full right-0 mt-2 z-10"
+              >
+                <ul>
+                  {Menus.map((menu) => (
+                    <li
+                      onClick={() => setOpen(false)}
+                      className="p-2 text-lg cursor-pointer rounded hover:bg-blue-200"
+                      key={menu.label}
+                    >
+                      <Link href={menu.url}>{menu.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+          <div className="ml-4">
+            <a
+              href=""
+              className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
+            >
+              Download all
+            </a>
+          </div>
+      </div>
+      </div>  
+      </div>
+
+      <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
+      <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
 
         <thead>
           <tr>
             {/* <th>S.No.</th> */}
-            <th>Employee ID</th>
-            <th>Employee Name</th>
-            <th>address</th>
-            <th>Joining Date</th>
-            <th>contact</th>
-            <th>Active</th>
-            <th>Action</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Employee ID</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Employee Name</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">address</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Joining Date</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">contact</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Active</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Action</th>
           </tr>
         </thead>
 
@@ -326,11 +388,13 @@ const employee = () => {
           {currentItems.map((item, index) => (
             <tr key={item.id}>
               {/* <th>{item.id}</th> */}
-              <th>{item.employeeid}</th>
-              <td className="cursor-pointer"><div style={{display:'flex'}}><img src={item.imageemp} style={{marginRight:'5px'}}/>{item.employeename}</div></td>
-              <td>{item.address}</td>
-              <td>{item.joiningDate}</td>
-              <td>{item.contact}</td>
+              <th  className="ms:font-extrabold text-2xl md:text-sm lg:text-sm
+              ms:py-[55px]
+              ">{item.employeeid}</th>
+              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal "><div style={{display:'flex'}}><img src={item.imageemp} style={{marginRight:'5px'}}/>{item.employeename}</div></td>
+              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.address}</td>
+              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.joiningDate}</td>
+              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.contact}</td>
               <td><Toggle
                 label="Toggle me"
                 toggled={true}
@@ -352,7 +416,7 @@ const employee = () => {
           ))}
         </tbody>
       </table>
-
+   </section>
       <div
         className="mx-1"
         style={{

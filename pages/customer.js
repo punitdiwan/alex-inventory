@@ -173,8 +173,10 @@ const users = () => {
 
   return (
     <div className="sm:w-full h-screen pb-5 px-5">
+        <div className="lg:block md:block ms:hidden sm:hidden">
       <div className="flex flex-row justify-between">
         <div className="text-xl font-bold ml-3">Supplier</div>
+        
         <div className="flex space-x-2">
           {/** button to open suppplier */}
           <a href="#addsupplier">
@@ -216,6 +218,60 @@ const users = () => {
           </button>
         </div>
       </div>
+      </div>
+
+       <div className="md:hidden lg:hidden">
+        <div className="flex items-center ">
+        <div>
+          <div className="flex items-center">
+          <div className="mr-3 ms:text-4xl font-bold underline">Suppliers</div>         
+           </div>
+        </div>
+       </div>
+        <div className="mt-[55px]">
+        <div className="flex flex-row justify-end">
+          {/** button to open suppplier */}
+          <a href="#addsupplier">
+            <button className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9] ">
+              Add Supplier
+            </button>
+          </a>
+          <div className="relative ml-4">
+            <div
+              onClick={() => setOpen(!open)}
+              className="cursor-pointer btn border-0 hover:border hover:border-[grey] hover:bg-white hover:text-[#1366D9] fiterIcon"
+            >
+              <BiFilter className="" />
+              Filters
+            </div>
+
+            {open && (
+              <div
+               
+                className="bg-white p-4 w-52 shadow-lg absolute top-full right-0 mt-2 z-10"
+              >
+                <ul>
+                  {Menus.map((menu) => (
+                    <li
+                      onClick={() => setOpen(false)}
+                      className="p-2 text-lg cursor-pointer rounded hover:bg-blue-200"
+                      key={menu.label}
+                    >
+                      <Link href={menu.url}>{menu.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+          <button className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2">
+            <i className="fas fa-download mr-2"></i>
+            Download all
+          </button>
+        </div>
+      </div>  
+      </div>
+
       {/* **********MODAL************ */}
       {/* **********MODAL***** for  Create New Order ******* */}
 
@@ -367,18 +423,19 @@ const users = () => {
         </div>
       </div>
 
-      <table className="table table-compact w-full z-0 employeeTable">
+      <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[1050px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
+      <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
 
         <thead>
           <tr>
             {/* <th>S.No.</th> */}
-            <th>Supplier Name</th>
-            <th>Supplier Brand</th>
-            <th>Phone No.</th>
-            <th>Email Id</th>
-            <th>Country</th>
-            <th>Last Purchasing Date </th>
-            <th>Action</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Supplier Name</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Supplier Brand</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Phone No.</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Email Id</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Country</th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Last Purchasing Date </th>
+            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Action</th>
           </tr>
         </thead>
 
@@ -386,15 +443,17 @@ const users = () => {
           {currentItems.map((item, index) => (
             <tr key={item.id}>
               {/* <th>{item.id}</th> */}
-              <th>
-                <div style={{display:"flex"}}>
+              <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm
+              ms:py-[45px]
+              ">
+                <div style={{display:"flex"}} >
                 <img src="/Image/empl.png" style={{marginRight:'5px'}}/>{item.supplier_name}</div>
                 </th>
-              <td className="cursor-pointer"><div style={{display:'flex'}}>{item.supplier_brand}</div></td>
-              <td>{item.phone_no}</td>
-              <td>{item.email_id}</td>
-              <td>{item.country}</td>
-              <td>{item.last_purchasing_date}</td>
+              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal "><div style={{display:'flex'}}>{item.supplier_brand}</div></td>
+              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.phone_no}</td>
+              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.email_id}</td>
+              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.country}</td>
+              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.last_purchasing_date}</td>
               <td className="flex">
                 <a href="#emp_Profile">
                   <img src="/Image/carbon_view.png" className="text-3xl text-green-600 me-1" />
@@ -411,7 +470,8 @@ const users = () => {
           ))}
         </tbody>
       </table>
-
+      
+    </section>
       <div className="mx-1 fixed bottom-5 right-20">
         <button
           className="btn btn-sm hover:bg-[#1366D9] text-xs rounded text-white bg-[#1366D9]"

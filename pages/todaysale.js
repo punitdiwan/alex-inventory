@@ -272,7 +272,8 @@ const todaysale = () => {
 
 
             {/* The button to open modal */}
-            <div className="flex items-center justify-between">
+            <div className="lg:block md:block ms:hidden sm:hidden">
+              <div className="flex items-center justify-between">
                 <div >
                     <div style={{ display: 'flex' }} className="text-xl font-bold">  Reports <FaGreaterThan className=" mt-1 ml-3 mr-3" />  Today Sale</div> </div>
                 <div className="flex">
@@ -313,20 +314,77 @@ const todaysale = () => {
                         </a>
                     </div>
                 </div>
+               </div>
             </div>
-            <table className="table table-compact w-full z-0 employeeTable">
+            
+            <div className="md:hidden lg:hidden">
+        <div className="flex items-center ">
+        <div>
+          <div className="flex items-center">
+          <div className="mr-3 ms:text-4xl font-bold underline">Report</div>
+          <div>
+            <FaGreaterThan className="mt-1 ml-3 mr-3 ms:text-3xl font-bold " />
+          </div>
+          <div className="ms:text-4xl font-bold underline" >Today Sale</div>
+           </div>
+        </div>
+       </div>
+        <div className="mt-[55px]">
+        <div className="flex flex-row justify-end ">
+                    <div className="relative ml-4">
+                        <div
+                            onClick={() => setOpen(!open)}
+                            className="cursor-pointer btn border-0 hover:border hover:border-[grey] hover:bg-white hover:text-[#1366D9] fiterIcon"
+                        >
+                            <BiFilter className="" />
+                            Filters
+                        </div>
+
+                        {open && (
+                            <div
+                                ref={menuRef}
+                                className="bg-white p-4 w-52 shadow-lg absolute top-full right-0 mt-2 z-10"
+                            >
+                                <ul>
+                                    {Menus.map((menu) => (
+                                        <li
+                                            onClick={() => setOpen(false)}
+                                            className="p-2 text-lg cursor-pointer rounded hover:bg-blue-200"
+                                            key={menu.label}
+                                        >
+                                            <Link href={menu.url}>{menu.label}</Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                    <div className="ml-4">
+                        <a
+                            href=""
+                            className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
+                        >
+                            Download all
+                        </a>
+                    </div>
+     </div>
+      </div>  
+      </div>
+
+      <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
+            <table className="table table-compact w-full  employeeTable ms:mt-[-5px]">
 
                 <thead>
                     <tr>
                         {/* <th>S.No.</th> */}
-                        <th>Product Name</th>
-                        <th>Customer name</th>
-                        <th>Date</th>
-                        <th>Total bill</th>
-                        <th>Paid amount</th>
-                        <th>Biller Name</th>
-                        <th>Payment Status</th>
-                        <th>Action</th>
+                        <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Product Name</th>
+                        <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Customer name</th>
+                        <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Date</th>
+                        <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Total bill</th>
+                        <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Paid amount</th>
+                        <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Biller Name</th>
+                        <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Payment Status</th>
+                        <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Action</th>
                     </tr>
                 </thead>
 
@@ -334,7 +392,9 @@ const todaysale = () => {
                     {currentItems.map((item, index) => (
                         <tr key={item.id}>
                             {/* <th>{item.id}</th> */}
-                            <th>{item.productname}</th>
+                            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm
+              ms:py-[55px]
+              ">{item.productname}</th>
                             <td className="cursor-pointer">{item.customername}</td>
                             <td>{item.date}</td>
                             <td>{item.totalbill}</td>
@@ -358,9 +418,9 @@ const todaysale = () => {
                     ))}
                 </tbody>
             </table>
-
+            </section>
             <div
-                className="mx-1"
+                className="mx-1 ms:mt-[55px]"
                 style={{
                     display: "flex",
                     justifyContent: "flex-end",

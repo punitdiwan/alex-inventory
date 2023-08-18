@@ -65,12 +65,12 @@ const login = () => {
         </div>
         <div className="basis-1/2 mx-auto ">
           <div className="card flex-shrink-0  justify-center  bg-white px-10 pt-7 pb-10 ">
-            <div className="">
-              {/* <img className='flex justify-center mx-auto my-6' src="/Image/loginpageImg/logoRound.png" width={162} height={121} alt="icon" /> */}
-              <h1 className='font-medium text-xl flex justify-center mx-auto  mb-3  mx-auto logo'>Login as a Admin</h1>
+            <div className=" ">
+             <div className='ms:mt-[100px]'> <img className='flex justify-center mx-auto ' src="/Image/ac.png" width={250} height={250} alt="icon" /> </div>
+              <h1 className='font-medium text-xl flex justify-center   mb-3  mx-auto logo'></h1>
 
 
-              <div className="form-control ">
+              <div className="form-control lg:mt-[-100px] ms:mt-[-100px] md:mt-[-100px] ">
                 <label className="label">
                   <span className="text-lg">Email*</span>
                 </label>
@@ -123,7 +123,7 @@ const login = () => {
               </div>
 
             </div>
-          </div>
+        </div>
 
 
 
