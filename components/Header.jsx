@@ -25,9 +25,16 @@ import { BsSearch } from "react-icons/bs";
 import { BiMessageRoundedDots } from "react-icons/bi";
 import { MdOutlineNightsStay } from "react-icons/md";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
+import { IoMdArrowDropup } from "react-icons/io";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { GrUserSettings } from "react-icons/gr";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isInventoryOpen, setIsInventoryOpen] = useState(false);
+  const [isReportOpen, setIsReportOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isBankTransactionOpen, setIsBankTransactionOpen] = useState(false);
 
   let pageTitleLogo = "";
   pageTitleLogo = <img src="/Images/Logo.png" alt="Dashboard Logo" />;
@@ -44,7 +51,7 @@ const Header = () => {
           <div className="flex-1">
             {/* ***************sidebar for mobile navigation bar *************** */}
 
-            <div className="dropdown block  " >
+            <div className="dropdown block  ">
               <label
                 tabIndex={0}
                 className=""
@@ -56,15 +63,16 @@ const Header = () => {
               {/**sidebar color   */}
               <ul
                 tabIndex={0}
-                className={`dropdown-content menu shadow   w-[550px]    bg-slate-700  ${
+                className={`dropdown-content menu shadow   w-[550px]    bg-sky-800   ${
                   isMobileMenuOpen ? "slide-in" : "slide-out"
                 }`}
                 style={{
-                  position: "fixed",   // Set the position to fixed
-                  top: 0,              // Position from the top of the viewport
-                  left: 0,             // Position from the left of the viewport
-                  height: "100%",      // Set the height to 100% to cover the entire viewport height
-                  overflowY: "auto",   // Set overflow-y to auto to enable scrolling if content overflows
+                  position: "fixed", // Set the position to fixed
+                  top: 0, // Position from the top of the viewport
+                  left: 0, // Position from the left of the viewport
+                  height: "100%", // Set the height to 100% to cover the entire viewport height
+                  overflowY: "auto", // Set overflow-y to auto to enable scrolling if content overflows
+                  boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
                 }}
               >
                 <div className="flex justify-between">
@@ -111,7 +119,9 @@ const Header = () => {
                       <TbLayoutDashboard
                         className="text-2xl w-[60px] h-[60px]"
                         style={
-                          pathname == "/dashboard" ? { color: "#1570EF" } : ""
+                          pathname === "/dashboard"
+                            ? { color: "#1570EF" }
+                            : { color: "white" }
                         }
                       />
                     </div>
@@ -121,48 +131,98 @@ const Header = () => {
                   </div>
                 </Link>
 
-                <Link href="/orders">
-                  <div className="flex my-1">
+                <div>
+                  {/* Use a button instead of div for better accessibility */}
+                  <button
+                    className="flex my-1 focus:outline-none"
+                    onClick={() => setIsInventoryOpen(!isInventoryOpen)}
+                  >
                     <div className="ms-7 me-3">
                       <AiOutlineShoppingCart
-                        className="text-2xl w-[60px] h-[60px]"
-                        style={
-                          // pathname == "/orders" ? { color: "white" } : ""
+                        className={`text-2xl w-[60px] h-[60px] ${
                           pathname !== "/orders"
-                          ? { color: "grey" }
-                          : pathname === "/orders"
-                          ? { color: "#6366f1" }
-                          : {}
-                        
-                        }
+                            ? "text-gray-500"
+                            : isInventoryOpen
+                            ? "text-indigo-600"
+                            : ""
+                        }`}
                       />
                     </div>
-                    <h1 className="font-bold text-4xl   font-serif text-[#E2E8F0]">
+                    <h1
+                      className={`font-bold font-serif text-4xl ${
+                        pathname !== "/orders"
+                          ? "text-gray-100"
+                          : "text-gray-400"
+                      }`}
+                    >
                       Inventory
                     </h1>
-                  </div>
-                </Link>
+                    
+                  </button>
+                </div>
 
-                <Link href="/report">
-                  <div className="flex my-1">
+                {/* Inventory Details */}
+                {isInventoryOpen && (
+                  <ul className="mt-2 ml-16 text-gray-300 list-none">
+                    <li>
+                      <Link href="/orders">Categories</Link>
+                    </li>
+                    <li>
+                      <Link href="/totalproducts">Total Products</Link>
+                    </li>
+                    <li>
+                      <Link href="/topselling">Top Selling</Link>
+                    </li>
+                    <li>
+                      <Link href="/lowstock">Low Stocks</Link>
+                    </li>
+                  </ul>
+                )}
+
+                <div>
+                  {/* Use a button instead of div for better accessibility */}
+                  <button
+                    className="flex my-1 focus:outline-none"
+                    onClick={() => setIsReportOpen(!isReportOpen)}
+                  >
                     <div className="ms-7 me-3">
                       <TbAlignBoxBottomCenter
-                        className="text-2xl w-[60px] h-[60px]"
-                        style={
-                          // pathname == "/report" ? { color: "#E2E8F0" } : ""
+                        className={`text-2xl w-[60px] h-[60px] ${
                           pathname !== "/report"
-                          ? { color: "grey" }
-                          : pathname === "/report"
-                          ? { color: "#6366f1" }
-                          : {}
-                        }
+                            ? "text-gray-500"
+                            : isReportOpen
+                            ? "text-indigo-600"
+                            : ""
+                        }`}
                       />
                     </div>
-                    <h1 className="font-bold text-4xl  font-serif  text-[#E2E8F0]">
+                    <h1
+                      className={`font-bold font-serif text-4xl ${
+                        pathname !== "/report"
+                          ? "text-gray-100"
+                          : "text-gray-400"
+                      }`}
+                    >
                       Report
                     </h1>
-                  </div>
-                </Link>
+                  </button>
+                </div>
+
+                {/* Report Details */}
+                {isReportOpen && (
+                  <ul className="mt-2 ml-16 text-gray-300 list-none">
+                    <li>
+                      <Link href="/report">My Orders</Link>
+                    </li>
+                    <li>
+                      <Link href="/todaysale">Today Sales</Link>
+                    </li>
+                    <li>
+                      {" "}
+                      <Link href="/totalrevenue">Total Revenue</Link>{" "}
+                    </li>
+                  </ul>
+                )}
                 <Link href="/customer">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
@@ -171,10 +231,10 @@ const Header = () => {
                         style={
                           // pathname == "/customer" ? { color: "#E2E8F0" } : ""
                           pathname !== "/customer"
-                          ? { color: "grey" }
-                          : pathname === "/customer"
-                          ? { color: "#6366f1" }
-                          : {}
+                            ? { color: "grey" }
+                            : pathname === "/customer"
+                            ? { color: "#6366f1" }
+                            : {}
                         }
                       />
                     </div>
@@ -191,122 +251,15 @@ const Header = () => {
                         style={
                           // pathname == "/employee" ? { color: "#E2E8F0" } : ""
                           pathname !== "/employee"
-                          ? { color: "grey" }
-                          : pathname === "/employee"
-                          ? { color: "#6366f1" }
-                          : {}
+                            ? { color: "grey" }
+                            : pathname === "/employee"
+                            ? { color: "#6366f1" }
+                            : {}
                         }
                       />
                     </div>
                     <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
                       Employee
-                    </h1>
-                  </div>
-                </Link>
-                <Link href="/totalproducts">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <PiToteSimpleLight
-                        className="text-2xl w-[60px] h-[60px] "
-                        style={
-                          // pathname == "/totalproducts"
-                          //   ? { color: "#1570EF" }
-                          //   : ""
-                          pathname !== "/totalproducts"
-                          ? { color: "grey" }
-                          : pathname === "/totalproducts"
-                          ? { color: "#6366f1" }
-                          : {}
-                        }
-                      />
-                    </div>
-                    <h1 className="font-bold  font-serif text-4xl  text-[#E2E8F0]">
-                      Total Products
-                    </h1>
-                  </div>
-                </Link>
-                <Link href="/lowstock">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <AiOutlineShoppingCart
-                        className="text-2xl w-[60px] h-[60px]"
-                        style={
-                          // pathname == "/lowstock" ? { color: "#E2E8F0" } : ""
-                          pathname !== "/lowstock"
-                          ? { color: "grey" }
-                          : pathname === "/lowstock"
-                          ? { color: "#6366f1" }
-                          : {}
-                        }
-                      />
-                    </div>
-                    <h1 className="font-bold  font-serif text-4xl  text-[#E2E8F0]">
-                      Low Stocks
-                    </h1>
-                  </div>
-                </Link>
-                <Link href="/topselling">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <MdOutlineSell
-                        className="text-2xl w-[60px] h-[60px]"
-                        style={
-                          // pathname == "/topselling" ? { color: "#E2E8F0" } : ""
-                          pathname !== "/topselling"
-                          ? { color: "grey" }
-                          : pathname === "/topselling"
-                          ? { color: "#6366f1" }
-                          : {}
-                        }
-                      />
-                    </div>
-                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
-                      Top Selling
-                    </h1>
-                  </div>
-                </Link>
-
-                <Link href="/todaysale">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <MdOutlineToday
-                        className="text-2xl w-[60px] h-[60px]"
-                        style={
-                          // pathname == "/todaysale" ? { color: "#E2E8F0" } : ""
-                          pathname !== "/todaysale"
-                          ? { color: "grey" }
-                          : pathname === "/todaysale"
-                          ? { color: "#6366f1" }
-                          : {}
-                        }
-                      />
-                    </div>
-                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
-                      Today Sale
-                    </h1>
-                  </div>
-                </Link>
-
-                <Link href="/totalrevenue">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <TbMoneybag
-                        className="text-2xl w-[60px] h-[60px]"
-                        style={
-                          // pathname == "/totalrevenue"
-                          //   ? { color: "#E2E8F0" }
-                          //   : ""
-
-                          pathname !== "/totalrevenue"
-                          ? { color: "grey" }
-                          : pathname === "/totalrevenue"
-                          ? { color: "#6366f1" }
-                          : {}
-                        }
-                      />
-                    </div>
-                    <h1 className="font-bold  font-serif text-4xl  text-[#E2E8F0]">
-                      Total Revenue
                     </h1>
                   </div>
                 </Link>
@@ -319,10 +272,10 @@ const Header = () => {
                         style={
                           // pathname == "/revenue" ? { color: "#E2E8F0" } : ""
                           pathname !== "/revenue"
-                          ? { color: "grey" }
-                          : pathname === "/revenue"
-                          ? { color: "#6366f1" }
-                          : {}
+                            ? { color: "grey" }
+                            : pathname === "/revenue"
+                            ? { color: "#6366f1" }
+                            : {}
                         }
                       />
                     </div>
@@ -332,67 +285,70 @@ const Header = () => {
                   </div>
                 </Link>
 
-                <Link href="/profile">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <CgProfile
+                <div>
+                  {/* Use a button instead of div for better accessibility */}
+                  <button
+                    className="flex my-1 focus:outline-none"
+                    onClick={() => setIsProfileOpen(!isProfileOpen)}
+                  >
+                    <div>
+                      <GrUserSettings
                         className="text-2xl w-[60px] h-[60px]"
                         style={
-                          // pathname == "/profile" ? { color: "#E2E8F0" } : ""
-                          pathname !== "/profile"
-                          ? { color: "grey" }
-                          : pathname === "/prefrenceNotification"
-                          ? { color: "#6366f1" }
-                          : {}
-                        }
-                      />
-                    </div>
-                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
-                      Profile
-                    </h1>
-                  </div>
-                </Link>
-                <Link href="/prefrenceNotification">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <RiLockPasswordFill
-                        className="text-2xl w-[60px] h-[60px]"
-                        style={
-                          // pathname == "/prefrenceNotification"
-                          //   ? { color: "#E2E8F0" }
-                          //   : ""
-                          pathname !== "/prefrenceNotification"
-                          ? { color: "grey" }
-                          : pathname === "/prefrenceNotification"
-                          ? { color: "#6366f1" }
-                          : {}
-                        }
-                      />
-                    </div>
-                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
-                      Change Password
-                    </h1>
-                  </div>
-                </Link>
-                <Link href="/bankandtransaction">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <AiOutlineTransaction
-                        className="text-2xl w-[60px] h-[60px]"
-                        style={
-                          pathname !== "/bankandtransaction"
+                          // pathname == "/revenue" ? { color: "#E2E8F0" } : ""
+                          pathname !== "/revenue"
                             ? { color: "grey" }
-                            : pathname === "/bankandtransaction"
+                            : pathname === "/revenue"
                             ? { color: "#6366f1" }
                             : {}
                         }
                       />
                     </div>
-                    <h1 className="font-bold font-serif text-4xl text-[#E2E8F0]">
-                      Bank And Transaction
+
+                    <h1
+                      className={`font-bold font-serif text-4xl ${
+                        pathname !== "/profile"
+                          ? "text-gray-100"
+                          : "text-gray-400"
+                      }`}
+                    >
+                      Settings
                     </h1>
-                  </div>
-                </Link>
+                    <div className="ml-[80px] me-3">
+                      {isProfileOpen ? (
+                        <IoMdArrowDropup
+                          className={`text-2xl w-[60px] h-[60px] ${
+                            pathname === "/profile" ? "text-indigo-600" : ""
+                          }`}
+                        />
+                      ) : (
+                        <IoMdArrowDropdown
+                          className={`text-2xl w-[60px] h-[60px] ${
+                            pathname === "/profile"
+                              ? "text-indigo-600"
+                              : "text-gray-500"
+                          }`}
+                        />
+                      )}
+                    </div>
+                  </button>
+                </div>
+
+                {/* Profile Details */}
+                {isProfileOpen && (
+                  <ul className="mt-2 ml-16 text-gray-300 list-none">
+                    <li>
+                      <Link href="/profile">Profile</Link>
+                    </li>
+                    <li>
+                      {" "}
+                      <Link href="/bankandtransaction">
+                        Bank And Transaction
+                      </Link>
+                    </li>
+                    <li>Change Password</li>
+                  </ul>
+                )}
               </ul>
             </div>
 

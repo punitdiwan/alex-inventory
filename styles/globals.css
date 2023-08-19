@@ -195,3 +195,14 @@ li:hover>button svg {
 .w-100px {
   width: 20px;
 }
+
+
+/* Apply this style when the Inventory section is open */
+.open-inventory li:nth-child(1) {
+  margin-top: 15px; /* Adjust as needed */
+}
+
+/* Apply this style when the Report section is open */
+.open-report li:nth-child(1) {
+  margin-top: 15px; /* Adjust as needed */
+}
