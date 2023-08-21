@@ -285,7 +285,7 @@ const Admin = () => {
                       className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden ms:"
                       style={{ color: "#629FF4" }}
                     />
-                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                       Total Sales
                     </h6>
                   </div>
@@ -315,7 +315,7 @@ const Admin = () => {
                       className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden"
                       style={{ color: "#817AF3" }}
                     />
-                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                       Total Revenue{" "}
                     </h6>{" "}
                   </div>
@@ -345,7 +345,7 @@ const Admin = () => {
                       className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden"
                       style={{ color: "#DBA362" }}
                     />
-                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                       Total Profit{" "}
                     </h6>
                   </div>
@@ -375,7 +375,7 @@ const Admin = () => {
                       className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden"
                       style={{ color: "#58D365" }}
                     />
-                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                       Total Cost{" "}
                     </h6>{" "}
                   </div>
@@ -422,7 +422,7 @@ const Admin = () => {
                         className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden ms:"
                         style={{ color: "#DBA362" }}
                       />
-                      <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                      <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                         Quantity in Hand{" "}
                       </h6>{" "}
                     </div>
@@ -452,7 +452,7 @@ const Admin = () => {
                         className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden ms:"
                         style={{ color: "#817AF3" }}
                       />
-                      <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                      <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                         To be received{" "}
                       </h6>{" "}
                     </div>
@@ -502,7 +502,7 @@ const Admin = () => {
                       className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden ms:"
                       style={{ color: "#009ED8" }}
                     />
-                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                       Total Purchase
                     </h6>
                   </div>
@@ -531,7 +531,7 @@ const Admin = () => {
                       className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden ms:"
                       style={{ color: "#58D365" }}
                     />
-                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                       Total Cost
                     </h6>
                   </div>
@@ -561,7 +561,7 @@ const Admin = () => {
                       className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden ms:"
                       style={{ color: "#817AF3" }}
                     />
-                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                       Total Sales
                     </h6>
                   </div>
@@ -590,7 +590,7 @@ const Admin = () => {
                       className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden ms:"
                       style={{ color: "#DBA362" }}
                     />
-                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                    <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                       Total Sales
                     </h6>
                   </div>
@@ -637,7 +637,7 @@ const Admin = () => {
                         className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden ms:"
                         style={{ color: "#24B8F1" }}
                       />
-                      <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                      <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                         Number of Suppliers{" "}
                       </h6>{" "}
                     </div>
@@ -667,7 +667,7 @@ const Admin = () => {
                         className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden ms:"
                         style={{ color: "#817AF3" }}
                       />
-                      <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[3px] ml-[10px]">
+                      <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
                       Number of Categories{" "}
                       </h6>{" "}
                     </div>

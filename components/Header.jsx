@@ -151,9 +151,13 @@ const Header = () => {
                 <div>
                   {/* Use a button instead of div for better accessibility */}
                   <button
-                    className="flex my-1 focus:outline-none"
-                    onClick={() => setIsInventoryOpen(!isInventoryOpen)}
-                  >
+            className="flex my-1 focus:outline-none"
+            onClick={() => {
+              setIsInventoryOpen(!isInventoryOpen);
+              setIsReportOpen(false);
+              setIsProfileOpen(false);
+            }}
+          >
                     <div className="ms-7 me-3">
                       <AiOutlineShoppingCart
                         className={`text-2xl w-[60px] h-[60px] ${
@@ -215,9 +219,13 @@ const Header = () => {
                 <div>
                   {/* Use a button instead of div for better accessibility */}
                   <button
-                    className="flex my-1 focus:outline-none"
-                    onClick={() => setIsReportOpen(!isReportOpen)}
-                  >
+            className="flex my-1 focus:outline-none"
+            onClick={() => {
+              setIsReportOpen(!isReportOpen);
+              setIsInventoryOpen(false);
+              setIsProfileOpen(false);
+            }}
+          >
                     <div className="ms-7 me-3">
                       <TbAlignBoxBottomCenter
                         className={`text-2xl w-[60px] h-[60px] ${
@@ -338,9 +346,13 @@ const Header = () => {
                   {/* Use a button instead of div for better accessibility */}
                   <div className="ms-7 me-3">
                   <button
-                    className="flex my-1 focus:outline-none"
-                    onClick={() => setIsProfileOpen(!isProfileOpen)}
-                  >
+            className="flex my-1 focus:outline-none"
+            onClick={() => {
+              setIsProfileOpen(!isProfileOpen);
+              setIsInventoryOpen(false);
+              setIsReportOpen(false);
+            }}
+          >
                     <div>
                       <GrUserSettings
                         className={`text-2xl w-[60px] h-[60px] ${
@@ -501,12 +513,12 @@ const Header = () => {
 
           {/* *******************work on dashboard mobile screen ms **************** */}
 
-          <div className="ms:ml-[-200px] ms:mt-[10px]">
+          <div className="ms:ml-[-220px] ms:mt-[10px]">
             <div className="flex  ">
               <Link href="/notification" className="indicator mx-4  ">
-                <span className="indicator-item badge badge-xs border border-[#1570EF] bg-[#1570EF]"></span>
+                <span className="indicator-item badge badge-xs border border-[#1570EF] bg-[#1570EF] ms:mt-[15px] ms:mr-[10px]"></span>
                 <MdOutlineNotificationsActive
-                  className="text-2xl "
+                  className="text-2xl ms:mt-[5px] ms:w-[50px] ms:h-[50px]"
                   style={
                     pathname == "/notification" ? { color: "#1570EF" } : ""
                   }
