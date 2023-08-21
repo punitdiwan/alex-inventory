@@ -21,13 +21,21 @@ import { AiOutlineTransaction } from "react-icons/ai";
 
 import { FaUsers } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { BsSearch } from "react-icons/bs";
+import { BsBank,BsHouseLockFill } from "react-icons/bs";
 import { BiMessageRoundedDots } from "react-icons/bi";
 import { MdOutlineNightsStay } from "react-icons/md";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { IoMdArrowDropup } from "react-icons/io";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { GrUserSettings } from "react-icons/gr";
+import { GrUserSettings,GrOrderedList } from "react-icons/gr";
+import { MdCategory,MdOutlineLowPriority } from "react-icons/md";
+import { TbSum} from "react-icons/tb";
+import { RiAlignTop} from "react-icons/ri";
+import { FcSalesPerformance } from "react-icons/fc";
+import { BsBarChartLineFill } from "react-icons/bs";
+import { FaUserTie } from "react-icons/fa";
+
+
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -63,7 +71,7 @@ const Header = () => {
               {/**sidebar color   */}
               <ul
                 tabIndex={0}
-                className={`dropdown-content menu shadow   w-[550px]    bg-sky-800   ${
+                className={`dropdown-content menu shadow   w-[550px]      ${
                   isMobileMenuOpen ? "slide-in" : "slide-out"
                 }`}
                 style={{
@@ -73,34 +81,44 @@ const Header = () => {
                   height: "100%", // Set the height to 100% to cover the entire viewport height
                   overflowY: "auto", // Set overflow-y to auto to enable scrolling if content overflows
                   boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                  backgroundColor: "rgb(15 23 42 / var(--tw-bg-opacity))",
+                  
                 }}
               >
+                {/**for side bar in mobile image with close icon */}
+
                 <div className="flex justify-between">
-                  <div
-                    style={{
-                      color: "white",
-                      marginLeft: "20px",
-                      marginTop: "20px",
-                    }}
-                    onClick={() => setIsMobileMenuOpen(false)} // Close sidebar
-                  >
-                    <BsArrowLeftCircleFill className="w-[50px] h-[50px]" />
-                  </div>
-                  <div
+                 
+                <div
                     style={{
                       color: "white",
                       marginTop: "19px",
                       marginRight: "9px",
                     }}
-                  >
+                >
                     <img src="/Image/Logo.png" className="w-[150px] h-[50px]" />
                   </div>
+
+
+                  <div
+                    style={{
+                      color: "white",
+                      // marginLeft: "20px",
+                      marginTop: "20px",
+                      marginRight:"30px"
+                    }}
+                    onClick={() => setIsMobileMenuOpen(false)} // Close sidebar
+                  >
+                    <BsArrowLeftCircleFill className="w-[50px] h-[50px]" />
+                  </div>
+               
                 </div>
+                <div className="h-px mt-5 bg-sky-300"></div>
 
                 <div>
                   <h3
                     style={{
-                      marginTop: "20px",
+                      marginTop: "30px",
                       marginLeft: "30px",
                       fontSize: "40px ",
                       color: "#1570EF",
@@ -114,15 +132,14 @@ const Header = () => {
                 {/** Side bar naming */}
 
                 <Link href="/dashboard">
-                  <div className="flex mt-5 my-1">
+                  <div className="flex mt-9 my-1">
                     <div className="ms-7 me-3">
                       <TbLayoutDashboard
                         className="text-2xl w-[60px] h-[60px]"
                         style={
                           pathname === "/dashboard"
                             ? { color: "#1570EF" }
-                            : { color: "white" }
-                        }
+                            : { color: "white" }}
                       />
                     </div>
                     <h1 className="font-bold text-4xl  font-serif text-[#E2E8F0]">
@@ -130,7 +147,7 @@ const Header = () => {
                     </h1>
                   </div>
                 </Link>
-
+                <div className="h-px mt-5 bg-sky-300"></div>
                 <div>
                   {/* Use a button instead of div for better accessibility */}
                   <button
@@ -165,19 +182,35 @@ const Header = () => {
                 {isInventoryOpen && (
                   <ul className="mt-2 ml-16 text-gray-300 list-none">
                     <li>
-                      <Link href="/orders">Categories</Link>
+                      <Link href="/orders">
+                        <MdCategory className="w-[30px] h-[30px]"/>
+                       <h2 className="text-2xl font-medium">Categories</h2> 
+                        
+                        </Link>
                     </li>
                     <li>
-                      <Link href="/totalproducts">Total Products</Link>
+                      <Link href="/totalproducts">
+                        <TbSum className="w-[30px] h-[30px]"/>
+                       <h2 className="text-2xl font-medium">Total Products</h2> 
+                        
+                        </Link>
                     </li>
                     <li>
-                      <Link href="/topselling">Top Selling</Link>
+                      <Link href="/topselling">
+                        <RiAlignTop className="w-[30px] h-[30px]"/>
+                        <h2 className="text-2xl font-medium" >Top Selling</h2>
+                        
+                        </Link>
                     </li>
                     <li>
-                      <Link href="/lowstock">Low Stocks</Link>
+                      <Link href="/lowstock">
+                        <MdOutlineLowPriority className="w-[30px] h-[30px]"/>
+                        <h2 className="text-2xl font-medium">Low Stocks</h2>                       
+                        </Link>
                     </li>
                   </ul>
                 )}
+                <div className="h-px mt-5 bg-sky-300"></div>
 
                 <div>
                   {/* Use a button instead of div for better accessibility */}
@@ -212,17 +245,31 @@ const Header = () => {
                 {isReportOpen && (
                   <ul className="mt-2 ml-16 text-gray-300 list-none">
                     <li>
-                      <Link href="/report">My Orders</Link>
+                      <Link href="/report">
+                        <GrOrderedList className="w-[30px] h-[30px]" />
+                      <h2 className="text-2xl font-medium">My Orders</h2>
+                        
+                        </Link>
                     </li>
                     <li>
-                      <Link href="/todaysale">Today Sales</Link>
+                      <Link href="/todaysale">
+                       <BsBarChartLineFill className="w-[30px] h-[30px]"  /> 
+                      <h2 className="text-2xl font-medium">Today Sales</h2>
+                      </Link>
                     </li>
                     <li>
-                      {" "}
-                      <Link href="/totalrevenue">Total Revenue</Link>{" "}
+                      
+                      <Link href="/totalrevenue">
+                      <FcSalesPerformance className="w-[30px] h-[30px]" />  
+                      <h2 className="text-2xl font-medium">
+                        
+                         Total Revenue </h2> 
+                        </Link>
                     </li>
                   </ul>
                 )}
+
+                <div className="h-px mt-5 bg-sky-300"></div>
                 <Link href="/customer">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
@@ -243,6 +290,7 @@ const Header = () => {
                     </h1>
                   </div>
                 </Link>
+                <div className="h-px mt-5 bg-sky-300"></div>
                 <Link href="/employee">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
@@ -263,8 +311,9 @@ const Header = () => {
                     </h1>
                   </div>
                 </Link>
+                <div className="h-px mt-5 bg-sky-300"></div>
 
-                <Link href="/revenue">
+                {/* <Link href="/revenue">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <HiOutlineCurrencyDollar
@@ -283,25 +332,24 @@ const Header = () => {
                       Revenue
                     </h1>
                   </div>
-                </Link>
+                </Link> */}
 
                 <div>
                   {/* Use a button instead of div for better accessibility */}
+                  <div className="ms-7 me-3">
                   <button
                     className="flex my-1 focus:outline-none"
                     onClick={() => setIsProfileOpen(!isProfileOpen)}
                   >
                     <div>
                       <GrUserSettings
-                        className="text-2xl w-[60px] h-[60px]"
-                        style={
-                          // pathname == "/revenue" ? { color: "#E2E8F0" } : ""
-                          pathname !== "/revenue"
-                            ? { color: "grey" }
-                            : pathname === "/revenue"
-                            ? { color: "#6366f1" }
-                            : {}
-                        }
+                        className={`text-2xl w-[60px] h-[60px] ${
+                          pathname !== "/report"
+                            ? "text-gray-500"
+                            : isProfileOpen
+                            ? "text-indigo-600"
+                            : ""
+                        }`}
                       />
                     </div>
 
@@ -332,29 +380,43 @@ const Header = () => {
                       )}
                     </div>
                   </button>
+                  </div>
                 </div>
 
                 {/* Profile Details */}
                 {isProfileOpen && (
                   <ul className="mt-2 ml-16 text-gray-300 list-none">
                     <li>
-                      <Link href="/profile">Profile</Link>
+                      <Link href="/profile">
+                        <FaUserTie className="w-[30px] h-[30px]"/>
+                       <h2 className="text-2xl font-medium">Profile</h2> 
+                        </Link>
                     </li>
                     <li>
-                      {" "}
+                      
                       <Link href="/bankandtransaction">
-                        Bank And Transaction
+                        <BsBank className="w-[30px] h-[30px]"/>
+                      <h2 className="text-2xl font-medium"> Bank And Transaction</h2>  
                       </Link>
                     </li>
-                    <li>Change Password</li>
+                    <li>
+                      
+                      <Link href="/prefrenceNotification">
+                        <BsHouseLockFill className="w-[30px] h-[30px]"/>
+                      <h2 className="text-2xl font-medium"> Change Password</h2>  
+                      </Link>
+                    </li>
                   </ul>
                 )}
+                 <div className="h-px mt-5 bg-sky-300"></div>
               </ul>
+              
             </div>
+           
 
             {/**      end of navigation of   side bar  */}
 
-            {/* ******************LOGO for md sm ms  or more mobile for that use*************** */}
+            {/* ****************** abcde LOGO for md sm ms  or more mobile for that use*************** */}
             <Link href="/dashboard">
               <img
                 className="mx-10 lg:hidden  "
