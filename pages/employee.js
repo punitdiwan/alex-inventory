@@ -458,7 +458,7 @@ const employee = () => {
       {/* **********MODAL***** for  AddEmployee ******* */}
 
       <div className="modal fixed inset-0 flex items-center justify-center" id="my_modal_8">
-        <div className="modal-box max-w-[1120px] min-h-[650px] ">
+        <div className="modal-box ms:max-w-[1120px] ms:min-h-[900px] md:max-w-[1120px] md:min-h-[650px] ">
           <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Employee <FaGreaterThan className="mt-1 ml-2 mr-2" /> Add New Employee</div>
           {/**************INPUT TAGS**************/}
           <div type="file"
@@ -471,65 +471,84 @@ const employee = () => {
             <label htmlFor="uploadImage" style={{ marginLeft: '10px', marginTop: '10px' }}> <p className="cursor-pointer" >Upload Profile Image</p></label>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-5 gap-y-2">
-            <div className="" style={{ marginLeft: '250px' }}>
-              <p className="mb-2 ">User ID</p>
+          <div className="grid  grid-cols-2 ms:grid-cols-1 lg:gap-x-5 lg:gap-y-2">
+            <div className="lg:ml-[250px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]">
+              <p className="mb-2 ms:hidden md:block lg:block ">User ID</p>
+              <lable className="lg:hidden md:hidden ms:ml-[-35px] ms:mr-[95px]">User ID</lable>
               <input
                 type="text"
                 placeholder="#124567"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px] ms:h-[70px] md:w-[300px] md:h-[50px]
+                "
               />
             </div>
 
-            <div className="" style={{ marginLeft: '50px' }}>
-              <p className="mb-2">Full Name</p>
+            <div className="lg:ml-[50px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]">
+              <p className="mb-2 ms:hidden md:block lg:block ">Full Name</p>
+              <lable className="lg:hidden md:hidden ms:ml-[-35px] ms:mr-[65px]">Full Name</lable>
               <input
                 type="text"
                 placeholder="John Cooper"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px] ms:h-[70px] md:w-[300px] md:h-[50px]
+                "
+               
               />
             </div>
 
-            <div className="" style={{ marginLeft: '250px' }}>
-              <p className="mb-2">Email</p>
+            <div  className="lg:ml-[250px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]">
+              <p className="mb-2 ms:hidden md:block lg:block ">Email</p>
+              <lable className="lg:hidden md:hidden ms:ml-[-35px] ms:mr-[115px]">Email</lable>
               <input
                 type="email"
                 placeholder="johncopper@example.com"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px]  ms:h-[70px]  md:w-[300px] md:h-[50px]
+                "
               />
             </div>
 
-            <div className="" style={{ marginLeft: '50px' }}>
-              <p className="mb-2">Contact No.</p>
+            <div className="lg:ml-[50px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]" >
+              <p className="mb-2 ms:hidden md:block lg:block ">Contact No.</p>
+              <lable className="lg:hidden md:hidden  ms:ml-[-35px] ms:mr-[45px]">Contact No.</lable>
               <input
                 type="text"
                 placeholder="+971 123 4577"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px] ms:h-[70px] md:w-[300px] md:h-[50px]
+                "
               />
             </div>
 
 
-            <div className="" style={{ marginLeft: '250px' }}>
-              <p className="mb-2">Address</p>
+            <div className="lg:ml-[250px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]" >
+              <p className="mb-2 ms:hidden md:block lg:block ">Address</p>
+              <lable className="lg:hidden md:hidden ms:ml-[-35px] ms:mr-[85px] ">Address</lable> 
               <input
                 type="text"
                 placeholder="Sheikh Mohammed Bin Rashed 
                 Boulevard Downtown Dubai,"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px] ms:h-[70px] md:w-[300px] md:h-[50px]
+                "
               />
             </div>
-            <div className="" style={{ marginLeft: '50px' }}>
-              <p className="mb-2">Password</p>
+            <div className="lg:ml-[50px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]" >
+              <p className="mb-2 ms:hidden md:block lg:block ">Password</p>
+              <lable className="lg:hidden md:hidden ms:ml-[-35px] ms:mr-[65px]">Password</lable>
               <input
                 type="password"
                 placeholder="********"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px] ms:h-[70px] md:w-[300px] md:h-[50px]
+                "
               />
             </div>
 
            
-            <div style={{ marginLeft: '180px' }}>
-              <table className="table table-compact w-full z-0 employeeTable" style={{ width: '900px' }}>
+            <section className=" border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[450px] md:max-w-[1200px] ms:overflow-y-auto  lg:scrollbar-hide" >
+              <table className="table table-compact w-full  employeeTable  md:w-[50px] md:ml-[250px]" >
 
                 <thead>
                   <tr>
@@ -566,8 +585,9 @@ const employee = () => {
                   </tr>
                 </tbody>
               </table>
-            </div>
+            </section>
           </div>
+
           <div className="modal-action flex justify-center">
             <a
               href="#"
@@ -592,7 +612,7 @@ const employee = () => {
        {/* **********MODAL***** for  Employee Profile ******* */}
 
        <div className="modal fixed inset-0 flex items-center justify-center" id="emp_Profile">
-        <div className="modal-box max-w-[1120px] min-h-[650px] ">
+        <div className="modal-box ms:max-w-[1120px] ms:min-h-[900px] md:max-w-[1120px] md:min-h-[650px] ">
           <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Employee <FaGreaterThan className="mt-1 ml-2 mr-2" />Profile</div>
           {/**************INPUT TAGS**************/}
           <div style={{
@@ -623,91 +643,84 @@ const employee = () => {
 
 
 
-          <div className="grid grid-cols-2 gap-x-5 gap-y-2">
-            <div className="" style={{ marginLeft: '250px' }}>
-              <p className="mb-2 ">User ID</p>
+<div className="grid  grid-cols-2 ms:grid-cols-1 lg:gap-x-5 lg:gap-y-2">
+            <div className="lg:ml-[250px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]">
+              <p className="mb-2 ms:hidden md:block lg:block ">User ID</p>
+              <lable className="lg:hidden md:hidden ms:ml-[-35px] ms:mr-[95px]">User ID</lable>
               <input
                 type="text"
                 placeholder="#124567"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px] ms:h-[70px] md:w-[300px] md:h-[50px]
+                "
               />
             </div>
 
-            <div className="" style={{ marginLeft: '50px' }}>
-              <p className="mb-2">Full Name</p>
+            <div className="lg:ml-[50px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]">
+              <p className="mb-2 ms:hidden md:block lg:block ">Full Name</p>
+              <lable className="lg:hidden md:hidden ms:ml-[-35px] ms:mr-[65px]">Full Name</lable>
               <input
                 type="text"
                 placeholder="John Cooper"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px] ms:h-[70px] md:w-[300px] md:h-[50px]
+                "
+               
               />
             </div>
 
-            <div className="" style={{ marginLeft: '250px' }}>
-              <p className="mb-2">Email</p>
+            <div  className="lg:ml-[250px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]">
+              <p className="mb-2 ms:hidden md:block lg:block ">Email</p>
+              <lable className="lg:hidden md:hidden ms:ml-[-35px] ms:mr-[115px]">Email</lable>
               <input
                 type="email"
                 placeholder="johncopper@example.com"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px]  ms:h-[70px]  md:w-[300px] md:h-[50px]
+                "
               />
             </div>
 
-            <div className="" style={{ marginLeft: '50px' }}>
-              <p className="mb-2">Contact No.</p>
+            <div className="lg:ml-[50px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]" >
+              <p className="mb-2 ms:hidden md:block lg:block ">Contact No.</p>
+              <lable className="lg:hidden md:hidden  ms:ml-[-35px] ms:mr-[45px]">Contact No.</lable>
               <input
                 type="text"
                 placeholder="+971 123 4577"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px] ms:h-[70px] md:w-[300px] md:h-[50px]
+                "
               />
             </div>
 
-            {/* <div className="">
-              <p className="mb-2">Date of Birth</p>
-              <input
-                type="date"
-                className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] "
-              />
-            </div> */}
 
-            {/* <div className="">
-              <p className="mb-2">Gender</p>
-              <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] focus:ring-2 focus:border-[#E97208] ">
-                <option value="">Male</option>
-                <option value="">Famale</option>
-              </select>
-            </div> */}
-
-            <div className="" style={{ marginLeft: '250px' }}>
-              <p className="mb-2">Address</p>
+            <div className="lg:ml-[250px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]" >
+              <p className="mb-2 ms:hidden md:block lg:block ">Address</p>
+              <lable className="lg:hidden md:hidden ms:ml-[-35px] ms:mr-[85px] ">Address</lable> 
               <input
                 type="text"
                 placeholder="Sheikh Mohammed Bin Rashed 
                 Boulevard Downtown Dubai,"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px] ms:h-[70px] md:w-[300px] md:h-[50px]
+                "
               />
             </div>
-            <div className="" style={{ marginLeft: '50px' }}>
-              <p className="mb-2">Password</p>
+            <div className="lg:ml-[50px] ms:ml-[100px] ms:text-2xl ms:font-semibold ms:mt-[10px]" >
+              <p className="mb-2 ms:hidden md:block lg:block ">Password</p>
+              <lable className="lg:hidden md:hidden ms:ml-[-35px] ms:mr-[65px]">Password</lable>
               <input
                 type="password"
                 placeholder="********"
-                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1]
+                ms:w-[400px] ms:h-[70px] md:w-[300px] md:h-[50px]
+                "
               />
             </div>
 
-            {/* <div
-              type="file"
-              accept="image/*"
-              className="cursor-pointer "
-             >
-              <input type="file" accept="image/*" id="uploadImage" hidden />
-
-              <label htmlFor="uploadImage" className="flex justify-center my-2">
-
-                <p>Upload Profile Image</p>
-              </label>
-            </div> */}
-            <div style={{ marginLeft: '180px' }}>
-              <table className="table table-compact w-full z-0 employeeTable" style={{ width: '900px' }}>
+           
+            <section className=" border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[450px] md:max-w-[1200px] ms:overflow-y-auto  lg:scrollbar-hide" >
+              <table className="table table-compact w-full  employeeTable  md:w-[50px] md:ml-[250px]" >
 
                 <thead>
                   <tr>
@@ -744,7 +757,7 @@ const employee = () => {
                   </tr>
                 </tbody>
               </table>
-            </div>
+            </section>
           </div>
           <div className="modal-action flex justify-center">
             <a
