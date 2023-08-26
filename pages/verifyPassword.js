@@ -24,10 +24,8 @@ const verifyPassword = () => {
 
                         <h1 className='text-md mb-6 flex justify-center mx-auto'>Please enter 4 digit code sent to given Gmail id </h1>
                         <div className="form-control mb-9">
-                            {/* <label className="label">
-                                        <span className="text-lg">Email*</span>
-                                    </label> */}
                             <input type="text" placeholder="OTP....." className="mb-4 border-[#E97208] border-b-2 focus:ring-0 border-t-0 border-l-0 border-r-0" />
+                        
                         </div>
 
                         <div className="form-control">

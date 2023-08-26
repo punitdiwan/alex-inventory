@@ -18,7 +18,7 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 
 //Inventory Page
 
-const orders = () => {
+const inventory = () => {
   const router = useRouter();
 
   const datac = {
@@ -255,6 +255,7 @@ const orders = () => {
       {/**for mobile device */}
 
       <div className="ms:block lg:hidden md:hidden sm:hidden">
+
         <h3 class="text-gray-700 hover:text-gray-900 dark:text-white dark:hover:text-white text-4xl font-medium">
           Overall Inventory
         </h3>
@@ -262,7 +263,7 @@ const orders = () => {
         <div className="  mt-[50px]">
           <div className="flex flex-row">
           <div>
-            <Link href="/orders">
+            <Link href="/inventory">
               <div className="cursor-pointer border-2 ml-[-1px] ms:w-[341px] ms:h-[200px]">
 
                <div className="flex flex-row ml-[15px] mt-[20px]"> <BiCategory className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
@@ -346,7 +347,7 @@ const orders = () => {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4 ">
-            <Link href="/orders">
+            <Link href="/inventory">
               <div className="ml-4 border-r-4 border-blue-500 pr-4 cursor-pointer">
                 <h4 style={{ color: "#1570EF" }}>Categories</h4>
                 <div className="ml-1 mt-2">14</div>
@@ -408,10 +409,12 @@ const orders = () => {
           </h2>
 
           <div className="mt-2">
+            <a href="#addProduct">
             <button className="bg-blue-500 text-white rounded-lg px-4 py-2 mr-2  ms:text-2xl 
           md:text-sm ms:font-bold md:font-normal">
               Add Category
             </button>
+            </a>
             <button className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2  ms:text-2xl 
           md:text-sm  ms:font-bold md:font-normal">
               Download all
@@ -509,47 +512,144 @@ const orders = () => {
         </div>
       </div>
 
+     
       {/* **********MODAL************ */}
-      <div className="modal" id="editService">
-        <div className="modal-box w-11/12 max-w-3xl">
+
+      <div
+        className="modal fixed inset-0 flex items-center justify-center :overflow-y-auto "
+        id="addProduct"
+      >
+        <div className="modal-box max-w-[650px] min-h-[590px] scrollable-area overflow-hidden">
+          <div
+            style={{ display: "flex", marginLeft: "20px", marginTop: "-5px" }}
+            className="text-xl font-semibold mr-4"
+          >
+            New Product
+          </div>
           {/**************INPUT TAGS**************/}
-          <h1 className="font-medium text-xl text-center">Add New Items</h1>
-          <div className="grid grid-cols-8 gap-x-6 gap-y-6 p-5 ">
-            <select className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] col-span-3 ">
-              <option value="">Catagory</option>
-              <option value="">Catagory 1</option>
-              <option value="">Catagory 2</option>
-              <option value="">Catagory 3</option>
-            </select>
 
-            <input
-              type="text"
-              placeholder="Enter Item Name"
-              className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] col-span-3 "
-            />
-            <input
-              type="text"
-              placeholder="Enter Price"
-              className="input w-full max-w-xs border border-[#E97208] focus:ring-[#E97208] col-span-2"
-            />
-            <div
-              type="file"
-              accept="image/*"
-              className="cursor-pointer border border-[#E97208] rounded-md col-span-8"
+          <div
+            type="file"
+            accept="image/*"
+            style={{
+              display: "flex",
+              marginTop: "15px",
+              marginLeft: "170px",
+              marginBottom: "5px",
+            }}
+            className="cursor-pointer "
+          >
+            <input type="file" accept="image/*" id="uploadImage" hidden />
+            <img src="/Image/supplierLogo.png" />
+            <label
+              htmlFor="uploadImage"
+              style={{ marginLeft: "10px", marginTop: "10px" }}
             >
-              <input type="file" accept="image/*" id="uploadImage" hidden />
+              {" "}
+              <p className="cursor-pointer">Upload Profile Image</p>
+            </label>
+          </div>
 
-              <label htmlFor="uploadImage" className="flex justify-center my-2">
-                <FaCloudUploadAlt className="text-2xl mx-2" />
-                <p>Upload Profile Image</p>
-              </label>
+          <div style={{ marginTop: "20px" }}>
+            <div style={{ display: "flex" }}>
+              <div
+                className="mb-2 text-bold "
+                style={{ marginTop: "15px", marginLeft: "27px" }}
+              >
+                Product Name
+              </div>
+              <input
+                type="text"
+                placeholder="Enter product name"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "5px",
+                  marginLeft: "95px",
+                  borderColor: "grey",
+                }}
+              />
             </div>
 
-            <textarea
-              type="text"
-              placeholder="Describe something about that item and ingredents......"
-              className="input input-bordered py-2 border-[#E97208] focus:ring-[#E97208] focus:border[#E97208]  w-full max-w-full col-span-8"
-            />
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "15px", marginLeft: "27px" }}>
+                Category
+              </div>
+              <input
+                type="text"
+                placeholder="Select product category "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "133px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+               Brand Name
+              </div>
+              <input
+                type="text"
+                placeholder="Himalaya"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "110px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+               Cost Price
+              </div>
+              <input
+                type="text"
+                placeholder="Enter buying price"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "126px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+              Quantity
+              </div>
+              <input
+                type="text"
+                placeholder="Enter product quantity"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "142px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+              Selling Price
+              </div>
+              <input
+                type="text"
+                placeholder="Enter product unit"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "114px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
           </div>
           <div className="modal-action flex justify-center">
             <a
@@ -558,9 +658,24 @@ const orders = () => {
             >
               x
             </a>
-            <a href="#" className="btn bg-[#E97208] hover:bg-[#E97208]">
-              Add Item
+            <div style={{display:"flex",marginTop:"-10px"}}>
+              <div style={{marginLeft:"160px"}}>
+            <a
+              href="#" 
+              className="btn border-0 hover:border hover:border-[#858D9D] bg-[#858D9D] hover:bg-[#858D9D] "
+            >
+              Discard
             </a>
+            </div>
+            <div style={{marginLeft:"20px"}}>
+            <a
+              href="#"
+              className="btn border-0 hover:border hover:border-[#1570EF] bg-[#1570EF] hover:bg-[#1570EF]"
+            >
+              Add Product
+            </a>
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -568,6 +683,6 @@ const orders = () => {
   );
 };
 
-export default Layout(orders);
+export default Layout(inventory);
 
 //Inventory  Page

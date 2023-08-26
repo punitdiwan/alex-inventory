@@ -1,87 +1,91 @@
-import React, { useState, useEffect, useContext } from 'react'
-import WithoutLayout from '../components/WithoutLoyout'
-import { useRouter } from 'next/router'
-import jwt from 'jsonwebtoken';
-import { AuthContext } from '../store/AuthContext';
-
+import React, { useState, useEffect, useContext } from "react";
+import WithoutLayout from "../components/WithoutLoyout";
+import { useRouter } from "next/router";
+import jwt from "jsonwebtoken";
+import { AuthContext } from "../store/AuthContext";
 
 const login = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("")
-  const [loginError, setLoginError] = useState("")
-  const [isLoggin, setIsLogging] = useState(false)
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const [isLoggin, setIsLogging] = useState(false);
 
-  const {loginUser, getUserData } = useContext(AuthContext)
+  const { loginUser, getUserData } = useContext(AuthContext);
 
   function usernameHandler(event) {
     event.preventDefault();
-    setUsername(event.target.value)
+    setUsername(event.target.value);
   }
   function passwordHandler(event) {
     event.preventDefault();
-    setPassword(event.target.value)
+    setPassword(event.target.value);
   }
 
+  async function submitHandler(event) {
+    event.preventDefault();
+    router.push("/dashboard");
+    return;
+    try {
+      setLoginError(false);
+      setIsLogging(true);
+      const response = await loginUser(username, password);
+      if (response) throw new Error(response);
 
-   async function submitHandler(event) {
-     event.preventDefault()
-     router.push('/dashboard')
-     return
-    try{
-      setLoginError(false)
-      setIsLogging(true)
-      const response = await loginUser(username, password)
-      if(response) throw new Error(response)
-
-      router.push('/dashboard')
-
-    }catch(error){
-      setLoginError(error.message)
-      setIsLogging(false)
+      router.push("/dashboard");
+    } catch (error) {
+      setLoginError(error.message);
+      setIsLogging(false);
     }
   }
 
-  useEffect(()=> {
-    async function getUserDataHandler(){
-      const userdata = await getUserData()
-      if(typeof userdata === "object"){
+  useEffect(() => {
+    async function getUserDataHandler() {
+      const userdata = await getUserData();
+      if (typeof userdata === "object") {
         console.log("User found! Redireting to dashboard ");
-        router.push('/dashboard')
+        router.push("/dashboard");
       }
     }
-    getUserDataHandler()
-  }, [])
-
-
+    getUserDataHandler();
+  }, []);
 
   return (
-
     <form onSubmit={submitHandler}>
-
       <div className="flex ">
-        <div className="basis-1/2 lg:block hidden" style={{ height: "100vh", }}>
-          <img src="/Image/EntryLo.png" style={{ height: "100%", width: "100%" }} alt="icon" />
+        <div className="basis-1/2 lg:block hidden" style={{ height: "100vh" }}>
+          <img
+            src="/Image/EntryLo.png"
+            style={{ height: "100%", width: "100%" }}
+            alt="icon"
+          />
         </div>
         <div className="basis-1/2 mx-auto ">
           <div className="card flex-shrink-0  justify-center  bg-white px-10 pt-7 pb-10 ">
             <div className=" ">
-             <div className='ms:mt-[100px]'> <img className='flex justify-center mx-auto ' src="/Image/ac.png" width={250} height={250} alt="icon" /> </div>
-              <h1 className='font-medium text-xl flex justify-center   mb-3  mx-auto logo'></h1>
-
+              <div className="ms:mt-[100px]">
+                {" "}
+                <img
+                  className="flex justify-center mx-auto "
+                  src="/Image/ac.png"
+                  width={250}
+                  height={250}
+                  alt="icon"
+                />{" "}
+              </div>
+              <h1 className="font-medium text-xl flex justify-center   mb-3  mx-auto logo"></h1>
 
               <div className="form-control lg:mt-[-100px] ms:mt-[-100px] md:mt-[-100px] ">
                 <label className="label">
                   <span className="text-lg">Email*</span>
                 </label>
                 <input
-                  name='username'
+                  name="username"
                   onChange={usernameHandler}
                   // required
                   type="text"
                   placeholder="Enter your Email..."
                   className="mb-4 border-[#1570EF] border-b-2 focus:ring-0 border-t-0 border-l-0 border-r-0 "
-
                 />
               </div>
 
@@ -91,52 +95,47 @@ const login = () => {
                 </label>
 
                 <input
-                  name='password'
+                  name="password"
                   onChange={passwordHandler}
                   // required
                   type="password"
                   placeholder="Enter your Password..."
-
                   className="mb-4 border-[#1570EF] border-b-2 focus:ring-0 border-t-0 border-l-0 border-r-0 "
-
                 />
 
                 <div className="form-control">
-
                   <div className="cursor-pointer flex justify-end">
-
-                    <a href="/forgetPassword" className="label-text-alt link link-hover py-1 text-[#1570EF] font-semibold ">Forgot password</a>
+                    <a
+                      href="/forgetPassword"
+                      className="label-text-alt link link-hover py-1 text-[#1570EF] font-semibold "
+                    >
+                      Forgot password
+                    </a>
                   </div>
                 </div>
-
-
               </div>
-
-
 
               <div className="mt-4">
-                {<p className='text-center text-red-600 mb-1'>{loginError}</p>}
+                {<p className="text-center text-red-600 mb-1">{loginError}</p>}
 
-                {!isLoggin && <button className="block w-[100%]  btn py-3 text-white border-2 border-[#1570EF] hover:bg-white hover:text-[#1570EF] hover:border-[#1570EF] rounded-full bg-[#1570EF]">Login</button>}
+                {!isLoggin && (
+                  <button className="block w-[100%]  btn py-3 text-white border-2 border-[#1570EF] hover:bg-white hover:text-[#1570EF] hover:border-[#1570EF] rounded-full bg-[#1570EF]">
+                    Login
+                  </button>
+                )}
 
-                {isLoggin && <button className="cursor-not-allowed	 block w-[100%]  btn py-3 text-gray-500 border-2 border-gray-300 rounded-full bg-gray-300 hover:bg-gray-300 hover:border-gray-300">Logging In...</button>}
+                {isLoggin && (
+                  <button className="cursor-not-allowed	 block w-[100%]  btn py-3 text-gray-500 border-2 border-gray-300 rounded-full bg-gray-300 hover:bg-gray-300 hover:border-gray-300">
+                    Logging In...
+                  </button>
+                )}
               </div>
-
             </div>
+          </div>
         </div>
-
-
-
-        </div>
-
-
       </div>
-
     </form>
+  );
+};
 
-
-
-  )
-}
-
-export default login
+export default login;

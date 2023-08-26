@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import { FaGreaterThan } from "react-icons/fa";
 
-const prefrenceNotification = () => {
+const change_Password = () => {
   return (
     <div
       className="
@@ -20,7 +20,7 @@ const prefrenceNotification = () => {
         Change <FaGreaterThan className="mt-1 ml-2 mr-2" /> Password
       </div>
       <div className=" md:bg-white md:rounded-lg md:px-10 md:py-10
-      lg:bg-white lg:rounded-lg lg:px-10 lg:py-10
+      lg:bg-white lg:rounded-lg lg:px-10 lg:py-10 
       
       ">
         <div className=" grid grid-cols-1 md:grid-cols-2  gap-x-14 gap-y-5 mx-auto">
@@ -95,4 +95,4 @@ const prefrenceNotification = () => {
   );
 };
 
-export default Layout(prefrenceNotification);
+export default Layout(change_Password);

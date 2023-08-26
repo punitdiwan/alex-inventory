@@ -5,7 +5,7 @@ import Link from "next/link";
 import { BiFilter } from "react-icons/bi";
 import { FaGreaterThan } from "react-icons/fa";
 
-const users = () => {
+const supplier = () => {
   
   const Menus = [
     { label: "In-stock", url: "/" },
@@ -644,4 +644,4 @@ const users = () => {
   );
 };
 
-export default Layout(users);
+export default Layout(supplier);
