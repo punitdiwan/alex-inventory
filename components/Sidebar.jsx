@@ -46,7 +46,8 @@ const Sidebar1 = () => {
       </main>
 
       <Menu className="overflow-hidden">
-        <Link href="/dashboard">
+
+      <Link href="/dashboard_Retailer">
           <div className="flex mb-6">
             <div className="ms-7 me-3">
               <TbLayoutDashboard
@@ -63,24 +64,60 @@ const Sidebar1 = () => {
             </h1>
           </div>
         </Link>
-
-        <Link href="/orders">
-          <div className="flex my-6">
+        <Link href="/dashboard_Retailer">
+          <div className="flex mb-6">
             <div className="ms-7 me-3">
-              <AiOutlineShoppingCart
+              <TbLayoutDashboard
                 className="text-2xl"
-                style={pathname == "/orders" ? { color: "#1570EF" } : ""}
+                style={pathname === "/dashboard_Retailer" ? { color: "#1570EF" } : {}}
               />
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/orders" ? "text-[#1570EF]" : ""
+                pathname === "/dashboard_Retailer" ? "text-[#1570EF]" : ""
+              }`}
+            >
+              Dashboard Retailer
+            </h1>
+          </div>
+        </Link>
+        
+
+        <Link href="/inventory">
+          <div className="flex my-6">
+            <div className="ms-7 me-3">
+              <AiOutlineShoppingCart
+                className="text-2xl"
+                style={pathname == "/inventory" ? { color: "#1570EF" } : ""}
+              />
+            </div>
+            <h1
+              className={`font-bold text-xl ${
+                pathname === "/inventory" ? "text-[#1570EF]" : ""
               }`}
             >
               Inventory
             </h1>
           </div>
         </Link>
+        <Link href="/retailerInventory">
+          <div className="flex my-6">
+            <div className="ms-7 me-3">
+              <AiOutlineShoppingCart
+                className="text-2xl"
+                style={pathname == "/retailerInventory" ? { color: "#1570EF" } : ""}
+              />
+            </div>
+            <h1
+              className={`font-bold text-xl ${
+                pathname === "/retailerInventory" ? "text-[#1570EF]" : ""
+              }`}
+            >
+              Retailer Inventory
+            </h1>
+          </div>
+        </Link>
+        
         <Link href="/report">
           <div className="flex my-6">
             <div className="ms-7 me-3">
@@ -99,17 +136,17 @@ const Sidebar1 = () => {
           </div>
         </Link>
         
-        <Link href="/customer">
+        <Link href="/supplier">
           <div className="flex my-6">
             <div className="ms-7 me-3">
               <TbUsers
                 className="text-2xl"
-                style={pathname == "/customer" ? { color: "#1570EF" } : ""}
+                style={pathname == "/supplier" ? { color: "#1570EF" } : ""}
               />
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/customer" ? "text-[#1570EF]" : ""
+                pathname === "/supplier" ? "text-[#1570EF]" : ""
               }`}
             >
               Supplier

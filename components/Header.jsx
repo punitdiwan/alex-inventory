@@ -161,7 +161,7 @@ const Header = () => {
                     <div className="ms-7 me-3">
                       <AiOutlineShoppingCart
                         className={`text-2xl w-[60px] h-[60px] ${
-                          pathname !== "/orders"
+                          pathname !== "/inventory"
                             ? "text-gray-500"
                             : isInventoryOpen
                             ? "text-indigo-600"
@@ -171,7 +171,7 @@ const Header = () => {
                     </div>
                     <h1
                       className={`font-bold font-serif text-4xl ${
-                        pathname !== "/orders"
+                        pathname !== "/inventory"
                           ? "text-gray-100"
                           : "text-gray-400"
                       }`}
@@ -186,7 +186,7 @@ const Header = () => {
                 {isInventoryOpen && (
                   <ul className="mt-2 ml-16 text-gray-300 list-none">
                     <li>
-                      <Link href="/orders">
+                      <Link href="/inventory">
                         <MdCategory className="w-[30px] h-[30px]"/>
                        <h2 className="text-2xl font-medium">Categories</h2> 
                         
@@ -278,16 +278,16 @@ const Header = () => {
                 )}
 
                 <div className="h-px mt-5 bg-sky-300"></div>
-                <Link href="/customer">
+                <Link href="/supplier">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <TbUsers
                         className="text-2xl w-[60px] h-[60px]"
                         style={
-                          // pathname == "/customer" ? { color: "#E2E8F0" } : ""
-                          pathname !== "/customer"
+                       
+                          pathname !== "/supplier"
                             ? { color: "grey" }
-                            : pathname === "/customer"
+                            : pathname === "/supplier"
                             ? { color: "#6366f1" }
                             : {}
                         }
@@ -413,7 +413,7 @@ const Header = () => {
                     </li>
                     <li>
                       
-                      <Link href="/prefrenceNotification">
+                      <Link href="/change_Password">
                         <BsHouseLockFill className="w-[30px] h-[30px]"/>
                       <h2 className="text-2xl font-medium"> Change Password</h2>  
                       </Link>
@@ -453,13 +453,13 @@ const Header = () => {
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
               ) : pathname == "/report" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
-              ) : pathname == "/prefrenceNotification" ? (
+              ) : pathname == "/change_Password" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
-              ) : pathname == "/customer" ? (
+              ) : pathname == "/supplier" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
               ) : pathname == "/employee" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
-              ) : pathname == "/orders" ? (
+              ) : pathname == "/inventory" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
               ) : pathname == "/revenue" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
@@ -482,6 +482,8 @@ const Header = () => {
               ) : pathname == "/topselling" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
               ) : pathname == "/lowstock" ? (
+                <img src="/Image/Logo.png" alt="Dashboard Logo" />
+              ) : pathname == "/dashboard_Retailer" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
               ) : (
                 ""
@@ -535,29 +537,7 @@ const Header = () => {
                     alt="logo"
                   />
                 </label>
-                {/* <ul
-                tabIndex={0}
-                style={{ position: "absolute", right: "-30px" }}
-                className="dropdown-content border menu p-2 shadow bg-base-100 rounded-box w-28">
-                <Link href="#" className="flex p-2">
-                  <img
-                    className="me-5"
-                    src="/Image/headerImage/ENflag.png"
-                    style={{ width: "40px", height: "20px" }}
-                    alt="logo"
-                  />
-                  <span className="font-bold text-lg">EN</span>
-                </Link>
-                <Link href="#" className="flex p-2">
-                  <img
-                    className="me-5"
-                    src="/Image/headerImage/UnitedArabFlag.png"
-                    style={{ width: "40px", height: "20px" }}
-                    alt="logo"
-                  />
-                  <span className="font-bold text-lg">AR</span>
-                </Link>
-              </ul> */}
+                
               </div>
 
               <div className="dropdown   ">
@@ -575,7 +555,7 @@ const Header = () => {
                     style={
                       pathname == "/profile"
                         ? { color: "#1570EF" }
-                        : pathname == "/prefrenceNotification"
+                        : pathname == "/change_Password"
                         ? { color: "#1570EF" }
                         : { color: "black" }
                     }
@@ -589,7 +569,7 @@ const Header = () => {
                     style={
                       pathname == "/profile"
                         ? { color: "#1570EF" }
-                        : pathname == "/prefrenceNotification"
+                        : pathname == "/change_Password"
                         ? { color: "#1570EF" }
                         : ""
                     }
@@ -619,24 +599,24 @@ const Header = () => {
                   </Link>
 
                   {/* The button to open modal / for md/*/}
+
                   <label
                     htmlFor="my-modal-6"
-                    className="flex me-3 hover:bg-slate-100 mt-1 mb-3"
-                  >
+                    className="flex me-3 hover:bg-slate-100 mt-1 mb-3">
                     <img
                       className="mx-3"
                       src="/Image/headerImage/logout.png"
                       width={20}
                       height={20}
-                      alt="logo"
-                    />
+                      alt="logo" />
+
                     <h1 className="font-semibold text-xl hover:text-black">
                       Logout
                     </h1>
                   </label>
 
                   <Link
-                    href="/prefrenceNotification"
+                    href="/change_Password"
                     className="flex me-3 hover:bg-slate-100 my-3"
                   >
                     <h1 className="font-semibold text-xl hover:text-black mx-2">
@@ -645,6 +625,7 @@ const Header = () => {
                   </Link>
                 </ul>
                 {/**profile end click dropdown  */}
+                
               </div>
             </div>
           </div>
@@ -685,8 +666,7 @@ const Header = () => {
                     className="mx-2 my-1"
                     style={
                       pathname == "/notification" ? { color: "#1570EF" } : ""
-                    }
-                  />
+                    } />
                 </h1>
 
                 <h1 className="font-semibold text-md">Notification</h1>
@@ -697,6 +677,7 @@ const Header = () => {
                 className="flex me-3 hover:bg-slate-100 mt-2 mb-3"
               >
                 {/**mobile screen  */}
+
                 <img
                   className="mx-2 p-1"
                   src="/Image/headerImage/logout.png"
@@ -724,6 +705,7 @@ const Header = () => {
         {/**not a important  part for navigation  */}
 
         {/* Put this part before </body> tag (Logout modal)*/}
+        
         <input type="checkbox" id="my-modal-6" className="modal-toggle" />
         <div className="modal modal-bottom sm:modal-middle">
           <div className="modal-box">
