@@ -421,9 +421,11 @@ const inventory = () => {
             </button>
           </div>
         </div>
+
         <section className="border-2 ms:mt-[10px] md:border-none ms:max-h-[790px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
           
-         <table className="table  w-full  employeeTable  ">
+         <table className="table table-compact w-full  employeeTable  ">
+          
           <thead>
             <tr>
               {/* <th>S.No.</th> */}
@@ -435,7 +437,7 @@ const inventory = () => {
               <th  className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Images</th>
               <th  className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Description</th>
 
-              <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Action</th>
+              <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm lg:font-extrabold">Action</th>
             </tr>
           </thead>
 
@@ -447,30 +449,32 @@ const inventory = () => {
                   <div style={{ display: "flex" }} className="ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.category_name}</div>
                 </th>
                 <td className="cursor-pointer">
-                  <div style={{ display: "flex",color:"grey" }} className="ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.total_Brands}</div>
+                  <div style={{ display: "flex",color:"black" }} className="ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.total_Brands}</div>
                 </td>
-                <td style={{color:"grey"}} className=" ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.total_product}</td>
+                <td style={{color:"black"}} className=" ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.total_product}</td>
                 <td>
                   <img src={item.image} />
                 </td>
-                <td style={{color:"grey"}} className=" ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.description}</td>
+                <td style={{color:"black"}} className=" ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.description}</td>
+                
                 <td className="flex">
                   <a href="#emp_Profile">
                     <BiShow style={{color:"#002054"}}
-                      className=" me-1 ms:w-[80px] ms:h-[50px] md:w-[] md:h-[]"
+                      className="  ms:w-[80px] ms:h-[50px] md:w-[] md:h-[] lg:w-[90px] lg:h-[20px]"
                     />
                   </a>
                   <a href="#emp_Profile">
                     <BiSolidEdit
-                      className=" text-green-600 me-1  ms:w-[80px] ms:h-[50px]"
+                      className=" text-green-600   ms:w-[80px] ms:h-[50px] lg:w-[90px] lg:h-[20px]"
                     />
                   </a>
                   <Link href={"#"}>
                     <MdOutlineDeleteOutline
-                      className=" text-red-500 ms-1  ms:w-[80px] ms:h-[50px]"
+                      className=" text-red-500  ms:w-[80px] ms:h-[50px] lg:w-[90px] lg:h-[20px]"
                     />
                   </Link>
                 </td>
+
               </tr>
             ))}
           </tbody>
@@ -679,6 +683,7 @@ const inventory = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
