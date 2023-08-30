@@ -87,7 +87,7 @@ const StockList = () => {
     <div className="p-4">
       {/** stock list  */}
       <div className="flex justify-between items-center mb-4">
-        <div className=" ms:text-4xl  text-gray-700 hover:text-gray-900 font-semibold p-2 dark:text-white dark:hover:text-white
+        <div className=" ms:text-4xl  text-gray-900 hover:text-gray-600 font-semibold p-2 dark:text-white dark:hover:text-white
                          md:text-2xl 
                          lg:text-2xl ">
           StockList
@@ -122,14 +122,16 @@ const StockList = () => {
             </tr>
           </thead>
           <tbody>
-            {dummyData.map((item, index) => (
+            {
+            dummyData.map((item, index) => (
               <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
 
                 <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">{item.name}</td>
                 <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">{item.sold_Quantity}</td>
                 <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200 ">${item.price.toFixed(2)}</td>
               </tr>
-            ))}
+            ))
+            }
           </tbody>
         </table>
       </div>
@@ -186,7 +188,7 @@ const LowQuantityStock = () => {
       <div className="p-4">
         <div className="flex justify-between items-center mb-4">
           <div className="ms:text-3xl font-semibold p-2
-                          lg:text-2xl">
+                          lg:text-2xl text-gray-900 hover:text-gray-600">
             Lowstock
           </div>
           <div className="text-blue-600 cursor-pointer hover:underline">
@@ -257,7 +259,7 @@ const Admin = () => {
 
             {/** This Section For Sales Overview  */}
 
-            <h3 className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-700 hover:text-gray-900 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid ">
+            <h3 className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid ">
               Sales Overview
             </h3>
 
@@ -403,7 +405,7 @@ const Admin = () => {
               lg:w-[450px] lg:h-[150px] lg:ml-[-5px]  lg:rounded-[8px]  lg:mt-[10px]  lg:border-2 
               "
             >
-              <p className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid">
+              <p className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid">
                 Inventory Summary
               </p>
 
@@ -484,7 +486,7 @@ const Admin = () => {
             lg:w-[680px] lg:h-[150px] lg:ml-[20px]  lg:rounded-[8px] 
             "
           >
-            <p className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid">
+            <p className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid">
               Purchase Overview
             </p>
             <div className="flex ms:flex-wrap md:justify-between md:items-center lg:justify-between lg:items-center">
@@ -618,7 +620,7 @@ const Admin = () => {
             >
               <p
                 // style={{ fontSize: "20px" }}
-                className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid"
+                className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid"
               >
                 Product Summary
               </p>
