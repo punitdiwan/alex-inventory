@@ -455,63 +455,45 @@ const totalproducts = () => {
             </button>
           </div>
         </div>
-        <section className="border-2 ms:mt-[10px] md:border-none ms:max-h-[790px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
-          <table className="table  w-full  employeeTable ">
-            <thead>
-              <tr>
-                {/* <th>S.No.</th> */}
-                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
-                  Category Name
+        <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
+        <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
+          <thead className="">
+          <tr >
+              {/* <th>S.No.</th> */}
+              <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">
+                Category Name
                 </th>
-                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
-                  Total Brands
-                </th>
-                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
-                  Total Product
-                </th>
-                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
-                  Images
-                </th>
-                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
-                  Description
-                </th>
+                <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">Total Brands</th>
+                <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">Total Product</th>
+                <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">Images</th>
+                <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">Description</th>
 
-                <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">
-                  Action
-                </th>
-              </tr>
-            </thead>
+                <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">Action</th>
+            </tr>
+          </thead>
 
-            <tbody>
-              {currentItems.map((item, index) => (
+          <tbody>
+            {currentItems.map((item, index) => (
+              
                 <tr key={item.id}>
-                  {/* <th>{item.id}</th> */}
-                  <th>
-                    <div
-                      style={{ display: "flex" }}
-                      className="ms:text-xl ms:font-bold md:text-sm md:font-normal"
-                    >
-                      {item.category_name}
-                    </div>
-                  </th>
-                  <td className="cursor-pointer">
-                    <div
-                      style={{ display: "flex" }}
-                      className="ms:text-xl ms:font-bold md:text-sm md:font-normal"
-                    >
-                      {item.total_Brands}
-                    </div>
-                  </td>
-                  <td className="ms:text-xl ms:font-bold md:text-sm md:font-normal">
-                    {item.total_product}
-                  </td>
-                  <td>
-                    <img src={item.image} />
-                  </td>
-                  <td className="ms:text-xl ms:font-bold md:text-sm md:font-normal">
-                    {item.description}
-                  </td>
-                  <td className="flex">
+                {/* <th>{item.id}</th> */}
+
+                <th style={{ textAlign:"center" }}
+                  className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm
+              ms:py-[45px] lg:bg-blue-200 lg:text-black lg:py-[14px]
+              "
+                >{item.category_name}
+                </th>
+                <td style={{ textAlign:"center" }} className="cursor-pointer ">
+                    {item.total_Brands}
+                </td>
+                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.total_product}</td>
+                <td>
+                  <img src={item.image} style={{textAlign:"center"}} />
+                </td>
+                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.description}</td>
+                
+                <td className="flex ms:mt-[50px] ">
                     <a href="#emp_Profile">
                       <img
                         src="/Image/carbon_view.png"
@@ -531,10 +513,11 @@ const totalproducts = () => {
                       />
                     </Link>
                   </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+              </tr>
+            ))}
+          </tbody>
+        </table>
         </section>
         <div
           className="mx-1"

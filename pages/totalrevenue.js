@@ -395,15 +395,15 @@ const totalrevenue = () => {
         <thead>
           <tr>
             {/* <th>S.No.</th> */}
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Category</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Brand Name</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm"> Total Qty.</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Date</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Cost/packet</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Sell/packet</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Profit/packet</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Total Profit</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Action</th>
+            <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">Category</th>
+            <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">Brand Name</th>
+            <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white"> Total Qty.</th>
+            <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">Date</th>
+            <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">Cost/packet</th>
+            <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">Sell/packet</th>
+            <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">Profit/packet</th>
+            <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">Total Profit</th>
+            <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">Action</th>
           </tr>
         </thead>
 
@@ -411,18 +411,30 @@ const totalrevenue = () => {
           {currentItems.map((item, index) => (
             <tr key={item.id}>
               {/* <th>{item.id}</th> */}
-              <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm
-              ms:py-[55px]
-              ">{item.categoryname}</th>
-              <td className="cursor-pointer">{item.brandname}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.totalquantity}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.date}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.costpacket}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.sellpacket}</td>
-              <td style={{ color: "#10A760" }} className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.profitpacket}</td>
-              <td style={{ color: "#1570EF" }} className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.totalprofit}</td>
+              <th style={{ textAlign:"center" }}
+                  className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm
+              ms:py-[45px] lg:bg-blue-200 lg:text-black lg:py-[14px]
+              "
+                >{item.categoryname}</th>
+              <td style={{textAlign:"center"}} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.brandname}</td>
+              <td style={{textAlign:"center"}}className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.totalquantity}</td>
+              <td style={{textAlign:"center"}} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.date}</td>
+              <td style={{textAlign:"center"}} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.costpacket}</td>
+              <td style={{textAlign:"center"}} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.sellpacket}</td>
+              <td style={{ color: "#10A760",textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.profitpacket}</td>
+              <td style={{ color: "#1570EF",textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.totalprofit}</td>
+              <td style={{ color: "#1570EF",textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black lg:flex lg:py-[15px]">
+              <a href="#emp_Profile">
+                  <img src="/Image/carbon_view.png" className="text-3xl text-green-600 me-1" />
+                </a>
 
-              <td className="flex">
+
+                <Link href={"#"}>
+                  <img src="/Image/Delete.png" className="text-3xl text-red-500 ms-1" />
+                </Link>
+
+              </td>
+              {/* <td className=" ms:bg-blue-200 ms:text-black lg:text-black lg:flex lg:bg-blue-200 lg:py-[14px]">
                 <a href="#emp_Profile">
                   <img src="/Image/carbon_view.png" className="text-3xl text-green-600 me-1" />
                 </a>
@@ -431,14 +443,14 @@ const totalrevenue = () => {
                 <Link href={"#"}>
                   <img src="/Image/Delete.png" className="text-3xl text-red-500 ms-1" />
                 </Link>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>
       </table>
       </section>
       <div
-        className="mx-1 ms:mt-[55px]"
+        className="mx-1 ms:mt-[55px] lg:mt-[10px]"
         style={{
           display: "flex",
           justifyContent: "flex-end",

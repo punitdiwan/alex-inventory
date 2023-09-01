@@ -622,7 +622,7 @@ const Admin = () => {
                 // style={{ fontSize: "20px" }}
                 className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid"
               >
-                Product Summary
+                Order Summary
               </p>
               <div className="flex ms:flex-wrap md:justify-between md:items-center lg:justify-between lg:items-center">
                 <div className="ms:ml-[9px] ms:mt-[15px] md:mt-[-1px] lg:mt-[-1px] ms:w-[330px] ms:h-[200px] lg:block md:block ms:bg-white border ms:border-gray-300">
@@ -637,7 +637,7 @@ const Admin = () => {
                         style={{ color: "#24B8F1" }}
                       />
                       <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
-                        Number of Suppliers{" "}
+                        Pending Orders{" "}
                       </h6>{" "}
                     </div>
                     <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
@@ -651,7 +651,7 @@ const Admin = () => {
                     </p>
                   </div>
                   <p className="ml-2 ms:font-semibold ms:hidden lg:block md:block">
-                    Number of Suppliers
+                   Order History
                   </p>
                 </div>
 

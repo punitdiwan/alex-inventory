@@ -7,38 +7,34 @@ import { FaGreaterThan } from "react-icons/fa";
 
 import Link from "next/link";
 
-
-
-
 const Toggle = ({ label, toggled, onClick }) => {
-  const [isToggled, toggle] = useState(toggled)
+  const [isToggled, toggle] = useState(toggled);
 
   const callback = () => {
-    toggle(!isToggled)
-    onClick(!isToggled)
-  }
+    toggle(!isToggled);
+    onClick(!isToggled);
+  };
 
   return (
     <label className="labeltoggle">
-      <input type="checkbox" defaultChecked={isToggled} onClick={callback} className="inputtoggle" />
+      <input
+        type="checkbox"
+        defaultChecked={isToggled}
+        onClick={callback}
+        className="inputtoggle"
+      />
       <span className="spantoggle" />
       {/* <strong className="strongtoggle">{label}</strong> */}
     </label>
-  )
-}
-
-
-
+  );
+};
 
 const report = () => {
-
-
   const Menus = [
     { label: "My Orders", url: "/report" },
     { label: "Today Sales", url: "/todaysale" },
     { label: "Total Revenue", url: "/totalrevenue" },
   ];
-
 
   const router = useRouter();
 
@@ -53,9 +49,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "2",
@@ -66,9 +62,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "3",
@@ -79,9 +75,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "4",
@@ -92,9 +88,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "5",
@@ -105,9 +101,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "6",
@@ -118,9 +114,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "7",
@@ -131,9 +127,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "8",
@@ -144,9 +140,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "9",
@@ -157,9 +153,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "10",
@@ -170,9 +166,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "11",
@@ -183,9 +179,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "12",
@@ -196,9 +192,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "13",
@@ -209,9 +205,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "14",
@@ -222,9 +218,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "15",
@@ -235,9 +231,9 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
       {
         id: "16",
@@ -248,11 +244,10 @@ const report = () => {
         quantity: "43 Packets",
         buyingprice: "₹ 130",
         totalprice: "₹ 6,200",
-        totaldue: '₹ 00',
-        paymentstaus: 'Confirm',
-        action: ' ',
+        totaldue: "₹ 00",
+        paymentstaus: "Confirm",
+        action: " ",
       },
-
     ],
   };
 
@@ -285,197 +280,246 @@ const report = () => {
     }
   };
 
-
-  const logState = state => {
-    console.log("Toggled:", state)
-  }
+  const logState = (state) => {
+    console.log("Toggled:", state);
+  };
 
   const [open, setOpen] = useState(false);
-
 
   const menuRef = useRef();
   const imgRef = useRef();
 
-
-
   return (
-
     <div className=" sm:w-full h-screen pb-5 px-5 employeeButton">
-
-
       {/* The button to open modal */}
       <div className="lg:block md:block ms:hidden sm:hidden">
-      <div className="flex items-center justify-between ">
-        <div >
-          <div style={{ display: 'flex' }} className="text-xl font-bold">
-            <div> <h2>Reports </h2> </div> 
-             <div> <FaGreaterThan className=" mt-1 ml-3 mr-3" /> </div>
-            <div><h2>My Orders</h2>  </div> 
-          </div>
-        </div>
-      
-        <div className="flex">
-          <div >
-            <a href="#create_order"
-              className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
-            >
-              Create new Order
-            </a>
-          </div>
-          <div className="relative ml-4">
-            <div
-              onClick={() => setOpen(!open)}
-              className="cursor-pointer btn border-0 hover:border hover:border-[grey] hover:bg-white hover:text-[#1366D9] fiterIcon"
-            >
-              <BiFilter className="" />
-              Filters
-            </div>
-
-            {open && (
-              <div
-                ref={menuRef}
-                className="bg-white p-4 w-52 shadow-lg absolute top-full right-0 mt-2 z-10"
-              >
-                <ul>
-                  {Menus.map((menu) => (
-                    <li
-                      onClick={() => setOpen(false)}
-                      className="p-2 text-lg cursor-pointer rounded hover:bg-blue-200"
-                      key={menu.label}
-                    >
-                      <Link href={menu.url}>{menu.label}</Link>
-                    </li>
-                  ))}
-                </ul>
+        <div className="flex items-center justify-between ">
+          <div>
+            <div style={{ display: "flex" }} className="text-xl font-bold">
+              <div>
+                {" "}
+                <h2>Reports </h2>{" "}
               </div>
-            )}
+              <div>
+                {" "}
+                <FaGreaterThan className=" mt-1 ml-3 mr-3" />{" "}
+              </div>
+              <div>
+                <h2>My Orders</h2>{" "}
+              </div>
+            </div>
           </div>
-          <div className="ml-4">
-            <a
-              href=""
-              className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
-            >
-              Download all
-            </a>
+
+          <div className="flex">
+            <div>
+              <a
+                href="#create_order"
+                className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
+              >
+                Create new Order
+              </a>
+            </div>
+            <div className="relative ml-4">
+              <div
+                onClick={() => setOpen(!open)}
+                className="cursor-pointer btn border-0 hover:border hover:border-[grey] hover:bg-white hover:text-[#1366D9] fiterIcon"
+              >
+                <BiFilter className="" />
+                Filters
+              </div>
+
+              {open && (
+                <div
+                  ref={menuRef}
+                  className="bg-white p-4 w-52 shadow-lg absolute top-full right-0 mt-2 z-10"
+                >
+                  <ul>
+                    {Menus.map((menu) => (
+                      <li
+                        onClick={() => setOpen(false)}
+                        className="p-2 text-lg cursor-pointer rounded hover:bg-blue-200"
+                        key={menu.label}
+                      >
+                        <Link href={menu.url}>{menu.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+            <div className="ml-4">
+              <a
+                href=""
+                className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
+              >
+                Download all
+              </a>
+            </div>
           </div>
         </div>
-      </div>
       </div>
 
       <div className="md:hidden lg:hidden">
         <div className="flex items-center ">
-        <div>
-          <div className="flex items-center">
-          <div className="mr-3 ms:text-4xl font-bold underline">Report</div>
           <div>
-            <FaGreaterThan className="mt-1 ml-3 mr-3 ms:text-3xl font-bold " />
-          </div>
-          <div className="ms:text-4xl font-bold underline" >My Orders</div>
-           </div>
-        </div>
-       </div>
-        <div className="mt-[55px]">
-       <div className="flex flex-row justify-end ">
-          <div >
-            <a href="#create_order"
-              className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9] "
-            >
-              Create new Order
-            </a>
-          </div>
-          <div className="relative ml-4">
-            <div
-              onClick={() => setOpen(!open)}
-              className="cursor-pointer btn border-0 hover:border hover:border-[grey] hover:bg-white hover:text-[#1366D9] fiterIcon"
-            >
-              <BiFilter className="" />
-              Filters
-            </div>
-
-            {open && (
-              <div
-                ref={menuRef}
-                className="bg-white p-4 w-52 shadow-lg absolute top-full right-0 mt-2 z-10"
-              >
-                <ul>
-                  {Menus.map((menu) => (
-                    <li
-                      onClick={() => setOpen(false)}
-                      className="p-2 text-lg cursor-pointer rounded hover:bg-blue-200"
-                      key={menu.label}
-                    >
-                      <Link href={menu.url}>{menu.label}</Link>
-                    </li>
-                  ))}
-                </ul>
+            <div className="flex items-center">
+              <div className="mr-3 ms:text-4xl font-bold underline">Report</div>
+              <div>
+                <FaGreaterThan className="mt-1 ml-3 mr-3 ms:text-3xl font-bold " />
               </div>
-            )}
+              <div className="ms:text-4xl font-bold underline">My Orders</div>
+            </div>
           </div>
-          <div className="ml-4">
-            <a
-              href=""
-              className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
-            >
-              Download all
-            </a>
+        </div>
+        <div className="mt-[55px]">
+          <div className="flex flex-row justify-end ">
+            <div>
+              <a
+                href="#create_order"
+                className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9] "
+              >
+                Create new Order
+              </a>
+            </div>
+            <div className="relative ml-4">
+              <div
+                onClick={() => setOpen(!open)}
+                className="cursor-pointer btn border-0 hover:border hover:border-[grey] hover:bg-white hover:text-[#1366D9] fiterIcon"
+              >
+                <BiFilter className="" />
+                Filters
+              </div>
+
+              {open && (
+                <div
+                  ref={menuRef}
+                  className="bg-white p-4 w-52 shadow-lg absolute top-full right-0 mt-2 z-10"
+                >
+                  <ul>
+                    {Menus.map((menu) => (
+                      <li
+                        onClick={() => setOpen(false)}
+                        className="p-2 text-lg cursor-pointer rounded hover:bg-blue-200"
+                        key={menu.label}
+                      >
+                        <Link href={menu.url}>{menu.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+            <div className="ml-4">
+              <a
+                href=""
+                className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9]"
+              >
+                Download all
+              </a>
+            </div>
           </div>
-      </div>
-      </div>  
+        </div>
       </div>
 
       <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
-      <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
-
-        <thead>
-          <tr>
-            {/* <th>S.No.</th> */}
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Product Name</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Brand Name</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Category</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Supplier Name</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Quantity</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Buying Price</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Total Price</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Total Due</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Payment Status</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {currentItems.map((item, index) => (
-            <tr key={item.id}>
-              {/* <th>{item.id}</th> */}
-              <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm
-              ms:py-[55px]
-              ">{item.productname}</th>
-              <td className="cursor-pointer">{item.brandname}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.category}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.suppliername}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.quantity}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.buyingprice}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal " >{item.totalprice}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal " >{item.totaldue}</td>
-              <td style={{ color: "#10A760" }} className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.paymentstaus}</td>
-
-              <td class="flex">
-                <button className="bg-[#1570EF] text-white border border-blue-700 rounded px-4 py-2">
-                  Pay now
-                </button>
-              </td>
+        <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
+          <thead>
+            <tr>
+              {/* <th>S.No.</th> */}
+              <th className="ms:font-extrabold ms:py-4 ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+                Product Name
+              </th>
+              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+                Brand Name
+              </th>
+              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+                Category
+              </th>
+              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+                Supplier Name
+              </th>
+              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+                Quantity
+              </th>
+              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+                Buying Price
+              </th>
+              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+                Total Price
+              </th>
+              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9]  ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+                Total Due
+              </th>
+              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+                Payment Status
+              </th>
+              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+                Action
+              </th>
             </tr>
-          ))}
-        </tbody>
-       </table>
+          </thead>
+
+          <tbody>
+            {currentItems.map((item, index) => (
+              <tr key={item.id}>
+                {/* <th>{item.id}</th> */}
+                <th style={{ textAlign:"center" }}
+                  className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm
+              ms:py-[45px] lg:bg-blue-200 lg:text-black
+              "
+                >
+                  {item.productname}
+                </th>
+                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">
+                  {item.brandname}
+                </td>
+                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black ">
+                  {item.category}
+                </td>
+                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black ">
+                  {item.suppliername}
+                </td>
+                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black">
+                  {item.quantity}
+                </td>
+                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black">
+                  {item.buyingprice}
+                </td>
+                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black ">
+                  {item.totalprice}
+                </td>
+                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black">
+                  {item.totaldue}
+                </td>
+                <td
+                  style={{ color: "#10A760",textAlign:"center" }}
+                  className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black "
+                >
+                  {item.paymentstaus}
+                </td>
+
+                <td
+                  style={{ textAlign:"center" }}
+                  className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black "
+                >
+                  <button className="bg-[#1570EF] text-white border border-blue-700 rounded px-4 py-2">pay now</button>
+                </td>
+
+                
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
       <div
-        className="mx-1 ms:mt-[55px]"
+        className="mx-1 ms:mt-[55px] lg:mt-[5px]"
         style={{
           display: "flex",
           justifyContent: "flex-end",
           bottom: 5,
           right: 20,
-        }}  >
+        }}
+      >
         {/* Pagination buttons */}
 
         <button
@@ -489,8 +533,9 @@ const report = () => {
         {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index + 1}
-            className={`btn btn-sm btn-outline hover:bg-[#1366D9] mx-2  text-black rounded border border-[#1366D9] ${currentPage === index + 1 ? "bg-[#1366D9] text-white" : ""
-              }`}
+            className={`btn btn-sm btn-outline hover:bg-[#1366D9] mx-2  text-black rounded border border-[#1366D9] ${
+              currentPage === index + 1 ? "bg-[#1366D9] text-white" : ""
+            }`}
             onClick={() => paginate(index + 1)}
           >
             {index + 1}
@@ -507,22 +552,43 @@ const report = () => {
       </div>
       {/* **********MODAL***** for  AddEmployee ******* */}
 
-      <div className="modal fixed inset-0 flex items-center justify-center" id="my_modal_8">
+      <div
+        className="modal fixed inset-0 flex items-center justify-center"
+        id="my_modal_8"
+      >
         <div className="modal-box max-w-[1120px] min-h-[700px] ">
-          <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Employee <FaGreaterThan className="mt-1 ml-2 mr-2" /> Add New Employee</div>
+          <div
+            style={{ display: "flex", marginLeft: "50px", marginTop: "5px" }}
+            className="text-xl font-semibold mr-4"
+          >
+            Employee <FaGreaterThan className="mt-1 ml-2 mr-2" /> Add New
+            Employee
+          </div>
           {/**************INPUT TAGS**************/}
-          <div type="file"
-            accept="image/*" style={{
-              display: 'flex', marginTop: '15px',
-              marginLeft: '240px', marginBottom: '5px'
-            }} className="cursor-pointer ">
+          <div
+            type="file"
+            accept="image/*"
+            style={{
+              display: "flex",
+              marginTop: "15px",
+              marginLeft: "240px",
+              marginBottom: "5px",
+            }}
+            className="cursor-pointer "
+          >
             <input type="file" accept="image/*" id="uploadImage" hidden />
             <img src="/Image/EmployeeLogo.png" />
-            <label htmlFor="uploadImage" style={{ marginLeft: '10px', marginTop: '10px' }}> <p className="cursor-pointer" >Upload Profile Image</p></label>
+            <label
+              htmlFor="uploadImage"
+              style={{ marginLeft: "10px", marginTop: "10px" }}
+            >
+              {" "}
+              <p className="cursor-pointer">Upload Profile Image</p>
+            </label>
           </div>
 
           <div className="grid grid-cols-2 gap-x-5 gap-y-2">
-            <div className="" style={{ marginLeft: '250px' }}>
+            <div className="" style={{ marginLeft: "250px" }}>
               <p className="mb-2 ">User ID</p>
               <input
                 type="text"
@@ -531,7 +597,7 @@ const report = () => {
               />
             </div>
 
-            <div className="" style={{ marginLeft: '50px' }}>
+            <div className="" style={{ marginLeft: "50px" }}>
               <p className="mb-2">Full Name</p>
               <input
                 type="text"
@@ -540,7 +606,7 @@ const report = () => {
               />
             </div>
 
-            <div className="" style={{ marginLeft: '250px' }}>
+            <div className="" style={{ marginLeft: "250px" }}>
               <p className="mb-2">Email</p>
               <input
                 type="email"
@@ -549,7 +615,7 @@ const report = () => {
               />
             </div>
 
-            <div className="" style={{ marginLeft: '50px' }}>
+            <div className="" style={{ marginLeft: "50px" }}>
               <p className="mb-2">Contact No.</p>
               <input
                 type="text"
@@ -558,8 +624,7 @@ const report = () => {
               />
             </div>
 
-
-            <div className="" style={{ marginLeft: '250px' }}>
+            <div className="" style={{ marginLeft: "250px" }}>
               <p className="mb-2">Address</p>
               <input
                 type="text"
@@ -568,7 +633,7 @@ const report = () => {
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
               />
             </div>
-            <div className="" style={{ marginLeft: '50px' }}>
+            <div className="" style={{ marginLeft: "50px" }}>
               <p className="mb-2">Password</p>
               <input
                 type="password"
@@ -577,10 +642,11 @@ const report = () => {
               />
             </div>
 
-
-            <div style={{ marginLeft: '180px' }}>
-              <table className="table table-compact w-full z-0 employeeTable" style={{ width: '900px' }}>
-
+            <div style={{ marginLeft: "180px" }}>
+              <table
+                className="table table-compact w-full z-0 employeeTable"
+                style={{ width: "900px" }}
+              >
                 <thead>
                   <tr>
                     <th>Permissions</th>
@@ -593,26 +659,42 @@ const report = () => {
                 <tbody>
                   <tr>
                     <td>permission1</td>
-                    <td > <Toggle
-                      label="Toggle me"
-                      toggled={true}
-                      onClick={logState}
-                    />View </td>
-                    <td> <Toggle
-                      label="Toggle me"
-                      toggled={true}
-                      onClick={logState}
-                    />Add</td>
-                    <td> <Toggle
-                      label="Toggle me"
-                      toggled={true}
-                      onClick={logState}
-                    />Edit</td>
-                    <td> <Toggle
-                      label="Toggle me"
-                      toggled={true}
-                      onClick={logState}
-                    />Delete</td>
+                    <td>
+                      {" "}
+                      <Toggle
+                        label="Toggle me"
+                        toggled={true}
+                        onClick={logState}
+                      />
+                      View{" "}
+                    </td>
+                    <td>
+                      {" "}
+                      <Toggle
+                        label="Toggle me"
+                        toggled={true}
+                        onClick={logState}
+                      />
+                      Add
+                    </td>
+                    <td>
+                      {" "}
+                      <Toggle
+                        label="Toggle me"
+                        toggled={true}
+                        onClick={logState}
+                      />
+                      Edit
+                    </td>
+                    <td>
+                      {" "}
+                      <Toggle
+                        label="Toggle me"
+                        toggled={true}
+                        onClick={logState}
+                      />
+                      Delete
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -637,89 +719,150 @@ const report = () => {
 
       {/**End the modal of add employee  */}
 
-
-
       {/* **********MODAL***** for  Create New Order ******* */}
 
-      <div className="modal fixed inset-0 flex items-center justify-center" id="create_order">
+      <div
+        className="modal fixed inset-0 flex items-center justify-center"
+        id="create_order"
+      >
         <div className="modal-box max-w-[600px] min-h-[650px] ">
-          <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Create New Order</div>
+          <div
+            style={{ display: "flex", marginLeft: "50px", marginTop: "5px" }}
+            className="text-xl font-semibold mr-4"
+          >
+            Create New Order
+          </div>
           {/**************INPUT TAGS**************/}
 
-
-          <div style={{ marginTop: '20px' }}>
-            <div style={{ display: 'flex' }} >
-              <div className="mb-2 text-bold " style={{ marginTop: "20px", marginLeft: "47px" }}>Supplier Name</div>
+          <div style={{ marginTop: "20px" }}>
+            <div style={{ display: "flex" }}>
+              <div
+                className="mb-2 text-bold "
+                style={{ marginTop: "20px", marginLeft: "47px" }}
+              >
+                Supplier Name
+              </div>
               <input
                 type="text"
                 placeholder="Supplier 1"
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
-                style={{ marginTop: '10px', marginLeft: "65px", borderColor: "grey" }} />
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "65px",
+                  borderColor: "grey",
+                }}
+              />
             </div>
 
-            <div style={{ display: 'flex' }}>
-              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Brand Name</div>
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>
+                Brand Name
+              </div>
               <input
                 type="text"
                 placeholder="Himalaya"
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
-                style={{ marginTop: '10px', marginLeft: "80px", borderColor: "grey" }} />
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "80px",
+                  borderColor: "grey",
+                }}
+              />
             </div>
 
-            <div style={{ display: 'flex' }} >
-              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Category</div>
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>
+                Category
+              </div>
               <input
                 type="email"
                 placeholder="Face"
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
-                style={{ marginTop: '10px', marginLeft: "103px", borderColor: "grey" }} />
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "103px",
+                  borderColor: "grey",
+                }}
+              />
             </div>
 
-            <div style={{ display: 'flex' }} >
-              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Supplier</div>
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>
+                Supplier
+              </div>
               <input
                 type="text"
                 placeholder="Supplier1"
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
-                style={{ marginTop: '10px', marginLeft: "111px", borderColor: "grey" }} />
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "111px",
+                  borderColor: "grey",
+                }}
+              />
             </div>
 
-
-            <div style={{ display: 'flex' }} >
-              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Quantity</div>
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>
+                Quantity
+              </div>
               <input
                 type="text"
                 placeholder="43  Packets"
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
-                style={{ marginTop: '10px', marginLeft: "110px", borderColor: "grey" }} />
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "110px",
+                  borderColor: "grey",
+                }}
+              />
             </div>
-            <div style={{ display: 'flex' }} >
-              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Buying Price</div>
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>
+                Buying Price
+              </div>
               <input
                 type="password"
                 placeholder="₹ 240"
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
-                style={{ marginTop: '10px', marginLeft: "81px", borderColor: "grey" }} />
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "81px",
+                  borderColor: "grey",
+                }}
+              />
             </div>
 
-            <div style={{ display: 'flex' }} >
-              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Order Date</div>
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>
+                Order Date
+              </div>
               <input
                 type="date"
                 placeholder="18/05/23"
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
-                style={{ marginTop: '10px', marginLeft: "93px", borderColor: "grey" }} />
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "93px",
+                  borderColor: "grey",
+                }}
+              />
             </div>
-            <div style={{ display: 'flex' }} >
-              <div style={{ marginTop: "20px", marginLeft: "47px" }}>Total Price</div>
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "47px" }}>
+                Total Price
+              </div>
               <input
                 type="text"
                 placeholder="14,253"
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
-                style={{ marginTop: '10px', marginLeft: "93px", borderColor: "grey" }} />
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "93px",
+                  borderColor: "grey",
+                }}
+              />
             </div>
-
-
           </div>
           <div className="modal-action flex justify-center">
             <a
@@ -744,26 +887,40 @@ const report = () => {
         </div>
       </div>
 
-
-
-
       {/* **********MODAL***** for  Employee Profile ******* */}
 
-      <div className="modal fixed inset-0 flex items-center justify-center" id="emp_Profile">
+      <div
+        className="modal fixed inset-0 flex items-center justify-center"
+        id="emp_Profile"
+      >
         <div className="modal-box max-w-[1120px] min-h-[700px] ">
-          <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Employee <FaGreaterThan className="mt-1 ml-2 mr-2" />Profile</div>
+          <div
+            style={{ display: "flex", marginLeft: "50px", marginTop: "5px" }}
+            className="text-xl font-semibold mr-4"
+          >
+            Employee <FaGreaterThan className="mt-1 ml-2 mr-2" />
+            Profile
+          </div>
           {/**************INPUT TAGS**************/}
-          <div style={{
-            display: 'flex', marginTop: '15px',
-            marginLeft: '240px', marginBottom: '5px'
-          }}>
-
+          <div
+            style={{
+              display: "flex",
+              marginTop: "15px",
+              marginLeft: "240px",
+              marginBottom: "5px",
+            }}
+          >
             <img src="/Image/EmpLogo.png" />
             <div>
-              <div style={{ marginLeft: '10px', marginTop: '10px' }}> <p>John Copper</p></div>
-              <div style={{ marginLeft: '10px', marginTop: '10px' }}> <p>employee@example.com</p></div>
+              <div style={{ marginLeft: "10px", marginTop: "10px" }}>
+                {" "}
+                <p>John Copper</p>
+              </div>
+              <div style={{ marginLeft: "10px", marginTop: "10px" }}>
+                {" "}
+                <p>employee@example.com</p>
+              </div>
             </div>
-
           </div>
           {/* 
           <div
@@ -779,10 +936,8 @@ const report = () => {
             </label>
           </div> */}
 
-
-
           <div className="grid grid-cols-2 gap-x-5 gap-y-2">
-            <div className="" style={{ marginLeft: '250px' }}>
+            <div className="" style={{ marginLeft: "250px" }}>
               <p className="mb-2 ">User ID</p>
               <input
                 type="text"
@@ -791,7 +946,7 @@ const report = () => {
               />
             </div>
 
-            <div className="" style={{ marginLeft: '50px' }}>
+            <div className="" style={{ marginLeft: "50px" }}>
               <p className="mb-2">Full Name</p>
               <input
                 type="text"
@@ -800,7 +955,7 @@ const report = () => {
               />
             </div>
 
-            <div className="" style={{ marginLeft: '250px' }}>
+            <div className="" style={{ marginLeft: "250px" }}>
               <p className="mb-2">Email</p>
               <input
                 type="email"
@@ -809,7 +964,7 @@ const report = () => {
               />
             </div>
 
-            <div className="" style={{ marginLeft: '50px' }}>
+            <div className="" style={{ marginLeft: "50px" }}>
               <p className="mb-2">Contact No.</p>
               <input
                 type="text"
@@ -834,7 +989,7 @@ const report = () => {
               </select>
             </div> */}
 
-            <div className="" style={{ marginLeft: '250px' }}>
+            <div className="" style={{ marginLeft: "250px" }}>
               <p className="mb-2">Address</p>
               <input
                 type="text"
@@ -843,7 +998,7 @@ const report = () => {
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
               />
             </div>
-            <div className="" style={{ marginLeft: '50px' }}>
+            <div className="" style={{ marginLeft: "50px" }}>
               <p className="mb-2">Password</p>
               <input
                 type="password"
@@ -864,9 +1019,11 @@ const report = () => {
                 <p>Upload Profile Image</p>
               </label>
             </div> */}
-            <div style={{ marginLeft: '180px' }}>
-              <table className="table table-compact w-full z-0 employeeTable" style={{ width: '900px' }}>
-
+            <div style={{ marginLeft: "180px" }}>
+              <table
+                className="table table-compact w-full z-0 employeeTable"
+                style={{ width: "900px" }}
+              >
                 <thead>
                   <tr>
                     <th>Permissions</th>
@@ -879,26 +1036,42 @@ const report = () => {
                 <tbody>
                   <tr>
                     <td>permission1</td>
-                    <td > <Toggle
-                      label="Toggle me"
-                      toggled={true}
-                      onClick={logState}
-                    />View </td>
-                    <td> <Toggle
-                      label="Toggle me"
-                      toggled={true}
-                      onClick={logState}
-                    />Add</td>
-                    <td> <Toggle
-                      label="Toggle me"
-                      toggled={true}
-                      onClick={logState}
-                    />Edit</td>
-                    <td> <Toggle
-                      label="Toggle me"
-                      toggled={true}
-                      onClick={logState}
-                    />Delete</td>
+                    <td>
+                      {" "}
+                      <Toggle
+                        label="Toggle me"
+                        toggled={true}
+                        onClick={logState}
+                      />
+                      View{" "}
+                    </td>
+                    <td>
+                      {" "}
+                      <Toggle
+                        label="Toggle me"
+                        toggled={true}
+                        onClick={logState}
+                      />
+                      Add
+                    </td>
+                    <td>
+                      {" "}
+                      <Toggle
+                        label="Toggle me"
+                        toggled={true}
+                        onClick={logState}
+                      />
+                      Edit
+                    </td>
+                    <td>
+                      {" "}
+                      <Toggle
+                        label="Toggle me"
+                        toggled={true}
+                        onClick={logState}
+                      />
+                      Delete
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -920,9 +1093,6 @@ const report = () => {
           </div>
         </div>
       </div>
-
-
-
     </div>
   );
 };

@@ -12,10 +12,12 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineLock } from "react-icons/ai";
 import { MdMiscellaneousServices } from "react-icons/md";
 import { AiFillSetting } from "react-icons/ai";
+import { GiProgression } from "react-icons/gi";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
 const Sidebar1 = () => {
+
   const params = useRouter();
   const { pathname } = params;
   const { collapseSidebar } = useProSidebar();
@@ -25,13 +27,13 @@ const Sidebar1 = () => {
       defaultCollapsed={false}
       width="180px"
       collapsedWidth="65px"
-      className="hidden md:block"
-    >
+      className="hidden md:block" >
+
       <main>
+
         <button
           onClick={() => collapseSidebar()}
-          className="hover:text-[#1570EF]"
-        >
+          className="hover:text-[#1570EF]" >
           <div className="flex">
             <div className="ms-7 me-3">
               <IoIosMenu className="text-3xl " />
@@ -43,11 +45,12 @@ const Sidebar1 = () => {
             ></h1>
           </div>
         </button>
+        
       </main>
 
       <Menu className="overflow-hidden">
 
-      <Link href="/dashboard_Retailer">
+      <Link href="/dashboard">
           <div className="flex mb-6">
             <div className="ms-7 me-3">
               <TbLayoutDashboard
@@ -58,12 +61,15 @@ const Sidebar1 = () => {
             <h1
               className={`font-bold text-xl ${
                 pathname === "/dashboard" ? "text-[#1570EF]" : ""
+
               }`}
             >
               Dashboard
             </h1>
           </div>
         </Link>
+
+
         <Link href="/dashboard_Retailer">
           <div className="flex mb-6">
             <div className="ms-7 me-3">
@@ -100,6 +106,7 @@ const Sidebar1 = () => {
             </h1>
           </div>
         </Link>
+
         <Link href="/retailerInventory">
           <div className="flex my-6">
             <div className="ms-7 me-3">
@@ -118,23 +125,71 @@ const Sidebar1 = () => {
           </div>
         </Link>
         
-        <Link href="/report">
-          <div className="flex my-6">
-            <div className="ms-7 me-3">
-              <AiOutlineLock
-                className="text-2xl"
-                style={pathname == "/report" ? { color: "#1570EF" } : ""}
-              />
-            </div>
-            <h1
-              className={`font-bold text-xl ${
-                pathname === "/report" ? "text-[#1570EF]" : ""
-              }`}
-            >
-              Reports
-            </h1>
-          </div>
-        </Link>
+        {/**for  report */}
+
+        <SubMenu
+          label="Reports"
+          className={`text-xl font-bold z-40 -my-3 -ms-1 ${
+            pathname === "/report"
+              ? "text-[#1570EF]"
+              : pathname === "/todaysale"
+              ? "text-[#1570EF]"
+              : pathname ==="/totalrevenue"
+              ? "text-[#1570EF]"
+              : ""
+          }`}
+          icon={
+            <GiProgression
+              className="text-5xl pl-3"
+              style={
+                pathname == "/report"
+                  ? { color: "#1570EF" }
+                  : pathname == "/todaysale"
+                  ? { color: "#1570EF" }
+                  : pathname == "/totalrevenue"
+                  ? { color: "#1570EF" }
+                  : ""
+              }
+            />
+          }
+        >
+          <Link
+            className="z-40 py-2 text-base flex justify-between  mx-3"
+            href="/report"
+          >
+            <p className="text-sm ms-10 text-black">My Orders</p>
+            <img
+              className=""
+              src="/Image/SidebarImage/rightarrow.png"
+              style={{ width: "10px", height: "20px" }}
+              alt="icon"
+            />
+          </Link>
+          <Link
+            className=" z-40 py-2 text-base flex justify-between mx-3"
+            href="/todaysale"
+          >
+            <p className="text-sm ms-10 text-black">Today Sales</p>
+            <img
+              className="my-auto"
+              src="/Image/SidebarImage/rightarrow.png"
+              style={{ width: "10px", height: "20px" }}
+              alt="icon"
+            />
+          </Link>
+          <Link
+            className=" z-40 py-2 text-base flex justify-between mx-3"
+            href="/totalrevenue"
+          >
+            <p className="text-sm ms-10 text-black">Total Revenue</p>
+            <img
+              className="my-auto"
+              src="/Image/SidebarImage/rightarrow.png"
+              style={{ width: "10px", height: "20px" }}
+              alt="icon"
+            />
+          </Link>
+        </SubMenu>
         
         <Link href="/supplier">
           <div className="flex my-6">
@@ -153,6 +208,7 @@ const Sidebar1 = () => {
             </h1>
           </div>
         </Link>
+
         <Link href="/employee">
           <div className="flex my-6">
             <div className="ms-7 me-3">
@@ -170,6 +226,8 @@ const Sidebar1 = () => {
             </h1>
           </div>
         </Link>
+
+       {/** for settings */}
 
         <SubMenu
           label="Setting"
@@ -234,6 +292,7 @@ const Sidebar1 = () => {
             />
           </Link>
         </SubMenu>
+        
       </Menu>
     </Sidebar>
   );

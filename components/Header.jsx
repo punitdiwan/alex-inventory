@@ -526,7 +526,8 @@ const Header = () => {
                   }
                 />
               </Link>
-
+                    
+              {/*  notification ke bagale me
               <div className="dropdown mx-5">
                 <label tabIndex={0} className="">
                   <img
@@ -538,7 +539,7 @@ const Header = () => {
                   />
                 </label>
                 
-              </div>
+              </div> */}
 
               <div className="dropdown   ">
                 <label tabIndex={0} className="flex">

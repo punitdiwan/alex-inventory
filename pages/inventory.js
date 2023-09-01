@@ -8,13 +8,11 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import Link from "next/link";
 import { MdOutlineLowPriority } from "react-icons/md";
 import { BiCategory } from "react-icons/bi";
-import { LuShoppingBag} from "react-icons/lu";
+import { LuShoppingBag } from "react-icons/lu";
 import { GiSellCard } from "react-icons/gi";
 import { BiShow } from "react-icons/bi";
 import { BiSolidEdit } from "react-icons/bi";
 import { MdOutlineDeleteOutline } from "react-icons/md";
-
-
 
 //Inventory Page
 
@@ -251,87 +249,121 @@ const inventory = () => {
   return (
     <div
       className=" sm:w-full h-screen pb-5 px-5 "
-      style={{ background: "white" }}>
+      style={{ background: "white" }}
+    >
       {/**for mobile device */}
 
       <div className="ms:block lg:hidden md:hidden sm:hidden">
-
         <h3 class="text-gray-700 hover:text-gray-900 dark:text-white dark:hover:text-white text-4xl font-medium">
           Overall Inventory
         </h3>
 
         <div className="  mt-[50px]">
           <div className="flex flex-row">
-          <div>
-            <Link href="/inventory">
-              <div className="cursor-pointer border-2 ml-[-1px] ms:w-[341px] ms:h-[200px]">
-
-               <div className="flex flex-row ml-[15px] mt-[20px]"> <BiCategory className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
-                      style={{ color: "#629FF4" }}/>
-                <h4 style={{ color: "black" }} className="text-3xl font-bold mt-[5px] ml-[15px]">Categories</h4> </div>
-                <div className="ml-[110px] mt-[-25px]">
-                <div className="ml-1 mt-2 text-4xl font-bold ">14</div>
-                <div className="ml-1 mt-2">Last 7 days</div> 
+            <div>
+              <Link href="/inventory">
+                <div className="cursor-pointer border-2 ml-[-1px] ms:w-[341px] ms:h-[200px]">
+                  <div className="flex flex-row ml-[15px] mt-[20px]">
+                    {" "}
+                    <BiCategory
+                      className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
+                      style={{ color: "#629FF4" }}
+                    />
+                    <h4
+                      style={{ color: "black" }}
+                      className="text-3xl font-bold mt-[5px] ml-[15px]"
+                    >
+                      Categories
+                    </h4>{" "}
+                  </div>
+                  <div className="ml-[110px] mt-[-25px]">
+                    <div className="ml-1 mt-2 text-4xl font-bold ">14</div>
+                    <div className="ml-1 mt-2">Last 7 days</div>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </div>
-          <div>
-            <Link href="/totalproducts">
-              <div className=" border-2 ms:w-[341px] ms:h-[200px] ml-[15px] cursor-pointer">
-                <div className="flex flex-row ml-[15px] mt-[20px]">
-                <LuShoppingBag className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
-                      style={{ color: "#E19133" }}/>
-                <h4 style={{ color: "black" }} className="text-3xl font-bold mt-[5px] ml-[15px]">Total Products</h4> </div>
-                <div className="flex justify-between items-center">
-                  <p className="ml-1 mt-2 text-4xl font-bold">868</p>
-                  <p className="ml-16 mt-2 text-4xl font-bold">25000</p>
+              </Link>
+            </div>
+            <div>
+              <Link href="/totalproducts">
+                <div className=" border-2 ms:w-[341px] ms:h-[200px] ml-[15px] cursor-pointer">
+                  <div className="flex flex-row ml-[15px] mt-[20px]">
+                    <LuShoppingBag
+                      className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
+                      style={{ color: "#E19133" }}
+                    />
+                    <h4
+                      style={{ color: "black" }}
+                      className="text-3xl font-bold mt-[5px] ml-[15px]"
+                    >
+                      Total Products
+                    </h4>{" "}
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="ml-1 mt-2 text-4xl font-bold">868</p>
+                    <p className="ml-16 mt-2 text-4xl font-bold">25000</p>
+                  </div>
+                  <div className="flex justify-between items-center cursor-pointer">
+                    <p className="ml-1 mt-2">Last 7 days</p>
+                    <p className="ml-12 mt-2">Revenue</p>
+                  </div>
                 </div>
-                <div className="flex justify-between items-center cursor-pointer">
-                  <p className="ml-1 mt-2">Last 7 days</p>
-                  <p className="ml-12 mt-2">Revenue</p>
-                </div>
-              </div>
-            </Link>
-          </div>
+              </Link>
+            </div>
           </div>
           <div className="flex flex-row">
-          <div className="mt-[15px]" >
-            <Link href="/topselling">
-              <div className="cursor-pointer border-2 ml-[-1px] ms:w-[341px] ms:h-[200px]">
-              <div className="flex flex-row ml-[15px] mt-[20px]">
-                <GiSellCard className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
-                      style={{ color: "#845EBC" }}/>
-                <h4 style={{ color: "black" }} className="text-3xl font-bold mt-[5px] ml-[15px]">Top Selling</h4> </div>
-                <div className="flex justify-between items-center">
-                  <p className="ml-1 mt-2 text-4xl font-bold">5</p>
-                  <p className="ml-1 mt-2 text-4xl font-bold">$2500</p>
+            <div className="mt-[15px]">
+              <Link href="/topselling">
+                <div className="cursor-pointer border-2 ml-[-1px] ms:w-[341px] ms:h-[200px]">
+                  <div className="flex flex-row ml-[15px] mt-[20px]">
+                    <GiSellCard
+                      className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
+                      style={{ color: "#845EBC" }}
+                    />
+                    <h4
+                      style={{ color: "black" }}
+                      className="text-3xl font-bold mt-[5px] ml-[15px]"
+                    >
+                      Top Selling
+                    </h4>{" "}
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="ml-1 mt-2 text-4xl font-bold">5</p>
+                    <p className="ml-1 mt-2 text-4xl font-bold">$2500</p>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="ml-1 mt-2">Last 7 days</p>
+                    <p className="ml-12 mt-2">Cost</p>
+                  </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <p className="ml-1 mt-2">Last 7 days</p>
-                  <p className="ml-12 mt-2">Cost</p>
+              </Link>{" "}
+            </div>
+            <div className="mt-[15px]">
+              <Link href="lowstock">
+                <div className="border-2 ms:w-[341px] ms:h-[200px] ml-[15px] cursor-pointer">
+                  <div className="flex flex-row ml-[15px] mt-[20px]">
+                    <MdOutlineLowPriority
+                      className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
+                      style={{ color: "#F36960" }}
+                    />
+                    <h4
+                      style={{ color: "black" }}
+                      className=" text-3xl font-bold mt-[5px] ml-[15px]"
+                    >
+                      {" "}
+                      Low Stocks
+                    </h4>{" "}
+                  </div>
+                  <div className="flex justify-between items-center ">
+                    <p className="ml-1 mt-2 text-4xl font-bold">12</p>
+                    <p className="ml-16 mt-2 text-4xl font-bold">2</p>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="ml-1 mt-2">Ordered</p>
+                    <p className="ml-12 mt-2">Not in stock</p>
+                  </div>
                 </div>
-              </div>
-            </Link>{" "}
-          </div>
-          <div className="mt-[15px]">
-            <Link href="lowstock">
-              <div className="border-2 ms:w-[341px] ms:h-[200px] ml-[15px] cursor-pointer">
-              <div className="flex flex-row ml-[15px] mt-[20px]">
-                <MdOutlineLowPriority className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
-                      style={{ color: "#F36960" }}/>
-                <h4 style={{ color: "black" }} className=" text-3xl font-bold mt-[5px] ml-[15px]"> Low Stocks</h4> </div>
-                <div className="flex justify-between items-center ">
-                  <p className="ml-1 mt-2 text-4xl font-bold">12</p>
-                  <p className="ml-16 mt-2 text-4xl font-bold">2</p>
-                </div>
-                <div className="flex justify-between items-center">
-                  <p className="ml-1 mt-2">Ordered</p>
-                  <p className="ml-12 mt-2">Not in stock</p>
-                </div>
-              </div>
-            </Link>{" "}
-          </div>
+              </Link>{" "}
+            </div>
           </div>
         </div>
       </div>
@@ -398,88 +430,151 @@ const inventory = () => {
       </div>
       {/**end the for Inventroy category */}
 
-      <div className="bg-white ms:mt-[20px] md:mt-[10px]" >
+      <div className="bg-white ms:mt-[20px] md:mt-[10px]">
         <div className="flex justify-between items-center">
-          <h2 style={{ color: "black", fontWeight: "bold" }} className="ml-3
+          <h2
+            style={{ color: "black", fontWeight: "bold" }}
+            className="ml-3
           ms:text-4xl 
           md:text-xl
           lg:text-xl
-          ">
+          "
+          >
             Category
           </h2>
 
           <div className="mt-2">
             <a href="#addProduct">
-            <button className="bg-blue-500 text-white rounded-lg px-4 py-2 mr-2  ms:text-2xl 
-          md:text-sm ms:font-bold md:font-normal">
-              Add Category
-            </button>
+              <button
+                className="bg-blue-500 text-white rounded-lg px-4 py-2 mr-2  ms:text-2xl 
+          md:text-sm ms:font-bold md:font-normal"
+              >
+                Add Category
+              </button>
             </a>
-            <button className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2  ms:text-2xl 
-          md:text-sm  ms:font-bold md:font-normal">
+            <button
+              className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2  ms:text-2xl 
+          md:text-sm  ms:font-bold md:font-normal"
+            >
               Download all
             </button>
           </div>
         </div>
 
-        <section className="border-2 ms:mt-[10px] md:border-none ms:max-h-[790px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
-          
-         <table className="table table-compact w-full  employeeTable  ">
-          
-          <thead>
-            <tr>
-              {/* <th>S.No.</th> */}
-              <th 
-              className="ms:font-extrabold text-2xl md:text-sm lg:text-sm"
-              >Category Name</th>
-              <th  className=" ms:font-extrabold text-2xl md:text-sm lg:text-sm">Total Brands</th>
-              <th  className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Total Product</th>
-              <th  className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Images</th>
-              <th  className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Description</th>
-
-              <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm lg:font-extrabold">Action</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {currentItems.map((item, index) => (
-              <tr key={item.id}>
-                {/* <th>{item.id}</th> */}
-                <th>
-                  <div style={{ display: "flex" }} className="ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.category_name}</div>
+        <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
+          <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
+            <thead className="">
+              <tr>
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Category Name
                 </th>
-                <td className="cursor-pointer">
-                  <div style={{ display: "flex",color:"black" }} className="ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.total_Brands}</div>
-                </td>
-                <td style={{color:"black"}} className=" ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.total_product}</td>
-                <td>
-                  <img src={item.image} />
-                </td>
-                <td style={{color:"black"}} className=" ms:text-xl ms:font-bold md:text-sm md:font-normal">{item.description}</td>
-                
-                <td className="flex">
-                  <a href="#emp_Profile">
-                    <BiShow style={{color:"#002054"}}
-                      className="  ms:w-[80px] ms:h-[50px] md:w-[] md:h-[] lg:w-[90px] lg:h-[20px]"
-                    />
-                  </a>
-                  <a href="#emp_Profile">
-                    <BiSolidEdit
-                      className=" text-green-600   ms:w-[80px] ms:h-[50px] lg:w-[90px] lg:h-[20px]"
-                    />
-                  </a>
-                  <Link href={"#"}>
-                    <MdOutlineDeleteOutline
-                      className=" text-red-500  ms:w-[80px] ms:h-[50px] lg:w-[90px] lg:h-[20px]"
-                    />
-                  </Link>
-                </td>
-
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Total Brands
+                </th>
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Total Product
+                </th>
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Images
+                </th>
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Description
+                </th>
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Action
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              {currentItems.map((item, index) => (
+                <tr
+                  key={item.id}
+                  className={`${
+                    index % 2 === 0 ? "bg-white" : "bg-gray-300"
+                  } border-b-[2px] border-gray-500`}
+                >
+                  <th
+                    style={{ textAlign: "center", background: "none" }}
+                    className={` ms:text-3xl  lg:text-sm ms:py-[45px] lg:py-[14px]`}
+                    
+                  >
+                    {item.category_name}
+                  </th>
+                  <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.total_Brands}
+                  </td>
+                  <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.total_product}
+                  </td>
+                  <td style={{ textAlign: "center", background: "none" }}>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                      <img src={item.image} alt="Product Image" style={{}} />
+                    </div>
+                  </td>
+                  <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.description}
+                  </td>
+                  <td
+                    style={{
+                      textAlign: "center",
+                      background: "none",
+                      borderBottom: "none",
+                    }}
+                    className="flex justify-center items-center ms:mt-[35px]"
+                  >
+                    <a href="#emp_Profile">
+                      <img
+                        src="/Image/carbon_view.png"
+                        className="text-3xl text-green-600 me-1"
+                      />
+                    </a>
+                    <a href="#emp_Profile">
+                      <img
+                        src="/Image/Edit.png"
+                        className="text-3xl text-green-600 me-1"
+                      />
+                    </a>
+                    <Link href="#">
+                      <img
+                        src="/Image/Delete.png"
+                        className="text-3xl text-red-500 ms-1"
+                      />
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </section>
+
         <div
           className="mx-1"
           style={{ display: "flex", position: "fixed", bottom: 5, right: 20 }}
@@ -516,7 +611,6 @@ const inventory = () => {
         </div>
       </div>
 
-     
       {/* **********MODAL************ */}
 
       <div
@@ -592,7 +686,7 @@ const inventory = () => {
 
             <div style={{ display: "flex" }}>
               <div style={{ marginTop: "20px", marginLeft: "27px" }}>
-               Brand Name
+                Brand Name
               </div>
               <input
                 type="text"
@@ -608,7 +702,7 @@ const inventory = () => {
 
             <div style={{ display: "flex" }}>
               <div style={{ marginTop: "20px", marginLeft: "27px" }}>
-               Cost Price
+                Cost Price
               </div>
               <input
                 type="text"
@@ -624,7 +718,7 @@ const inventory = () => {
 
             <div style={{ display: "flex" }}>
               <div style={{ marginTop: "20px", marginLeft: "27px" }}>
-              Quantity
+                Quantity
               </div>
               <input
                 type="text"
@@ -640,7 +734,7 @@ const inventory = () => {
 
             <div style={{ display: "flex" }}>
               <div style={{ marginTop: "20px", marginLeft: "27px" }}>
-              Selling Price
+                Selling Price
               </div>
               <input
                 type="text"
@@ -653,7 +747,6 @@ const inventory = () => {
                 }}
               />
             </div>
-
           </div>
           <div className="modal-action flex justify-center">
             <a
@@ -662,28 +755,27 @@ const inventory = () => {
             >
               x
             </a>
-            <div style={{display:"flex",marginTop:"-10px"}}>
-              <div style={{marginLeft:"160px"}}>
-            <a
-              href="#" 
-              className="btn border-0 hover:border hover:border-[#858D9D] bg-[#858D9D] hover:bg-[#858D9D] "
-            >
-              Discard
-            </a>
-            </div>
-            <div style={{marginLeft:"20px"}}>
-            <a
-              href="#"
-              className="btn border-0 hover:border hover:border-[#1570EF] bg-[#1570EF] hover:bg-[#1570EF]"
-            >
-              Add Product
-            </a>
-            </div>
+            <div style={{ display: "flex", marginTop: "-10px" }}>
+              <div style={{ marginLeft: "160px" }}>
+                <a
+                  href="#"
+                  className="btn border-0 hover:border hover:border-[#858D9D] bg-[#858D9D] hover:bg-[#858D9D] "
+                >
+                  Discard
+                </a>
+              </div>
+              <div style={{ marginLeft: "20px" }}>
+                <a
+                  href="#"
+                  className="btn border-0 hover:border hover:border-[#1570EF] bg-[#1570EF] hover:bg-[#1570EF]"
+                >
+                  Add Product
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
