@@ -338,7 +338,7 @@ const inventory = () => {
               </Link>{" "}
             </div>
             <div className="mt-[15px]">
-              <Link href="lowstock">
+              <Link href="/lowstock">
                 <div className="border-2 ms:w-[341px] ms:h-[200px] ml-[15px] cursor-pointer">
                   <div className="flex flex-row ml-[15px] mt-[20px]">
                     <MdOutlineLowPriority

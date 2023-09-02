@@ -257,7 +257,7 @@ const lowstock = () => {
         <div className="  mt-[50px]">
           <div className="flex flex-row">
           <div>
-            <Link href="/orders">
+            <Link href="/inventory">
               <div className="cursor-pointer border-2 ml-[-1px] ms:w-[341px] ms:h-[200px]">
 
                <div className="flex flex-row ml-[15px] mt-[20px]"> <BiCategory className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
@@ -309,7 +309,7 @@ const lowstock = () => {
             </Link>{" "}
           </div>
           <div className="mt-[15px]">
-            <Link href="lowstock">
+            <Link href="/lowstock">
               <div className="border-2 ms:w-[341px] ms:h-[200px] ml-[15px] cursor-pointer">
               <div className="flex flex-row ml-[15px] mt-[20px]">
                 <MdOutlineLowPriority className="ms:w-[80px] ms:h-[80px]  lg:hidden md:hidden "
@@ -341,7 +341,7 @@ const lowstock = () => {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4 ">
-          <Link href="/orders">
+          <Link href="/inventory">
             <div className="ml-4 border-r-4 border-blue-500 pr-4 cursor-pointer">
               <h4 style={{ color: "#1570EF" }}>Categories</h4>
               <div className="ml-1 mt-2">14</div>
@@ -374,7 +374,7 @@ const lowstock = () => {
               </div>
             </div>
           </Link>
-          <Link href="lowstock">
+          <Link href="/lowstock">
             <div className="ml-4 cursor-pointer">
               <p style={{ color: "#F36960" }}> Low Stocks</p>
               <div className="flex justify-between items-center ">
@@ -413,44 +413,94 @@ const lowstock = () => {
           </div>
         </div>
         <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
-        <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
-          <thead className="">
-          <tr >
-              {/* <th>S.No.</th> */}
-              <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">
-                Category Name
+          <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
+            <thead className="">
+              <tr>
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Category Name
                 </th>
-                <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">Total Brands</th>
-                <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">Total Product</th>
-                <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">Images</th>
-                <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">Description</th>
-
-                <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">Action</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {currentItems.map((item, index) => (
-              
-                <tr key={item.id}>
-                {/* <th>{item.id}</th> */}
-
-                <th style={{ textAlign:"center" }}
-                  className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm
-              ms:py-[45px] lg:bg-blue-200 lg:text-black lg:py-[14px]
-              "
-                >{item.category_name}
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Total Brands
                 </th>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ">
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Total Product
+                </th>
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Images
+                </th>
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Description
+                </th>
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Action
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {currentItems.map((item, index) => (
+                <tr
+                  key={item.id}
+                  className={`${
+                    index % 2 === 0 ? "bg-white" : "bg-gray-300"
+                  } border-b-[2px] border-gray-500`}
+                >
+                  <th
+                    style={{ textAlign: "center", background: "none" }}
+                    className={` ms:text-3xl  lg:text-sm ms:py-[45px] lg:py-[14px]`}
+                    
+                  >
+                    {item.category_name}
+                  </th>
+                  <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                     {item.total_Brands}
-                </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.total_product}</td>
-                <td>
-                  <img src={item.image} style={{textAlign:"center"}} />
-                </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.description}</td>
-                
-                <td className="flex ms:mt-[50px] ">
+                  </td>
+                  <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.total_product}
+                  </td>
+                  <td style={{ textAlign: "center", background: "none" }}>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                      <img src={item.image} alt="Product Image" style={{}} />
+                    </div>
+                  </td>
+                  <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.description}
+                  </td>
+                  <td
+                    style={{
+                      textAlign: "center",
+                      background: "none",
+                      borderBottom: "none",
+                    }}
+                    className="flex justify-center items-center ms:mt-[35px]"
+                  >
                     <a href="#emp_Profile">
                       <img
                         src="/Image/carbon_view.png"
@@ -463,18 +513,17 @@ const lowstock = () => {
                         className="text-3xl text-green-600 me-1"
                       />
                     </a>
-                    <Link href={"#"}>
+                    <Link href="#">
                       <img
                         src="/Image/Delete.png"
                         className="text-3xl text-red-500 ms-1"
                       />
                     </Link>
                   </td>
-
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </section>
         <div
           className="mx-1"

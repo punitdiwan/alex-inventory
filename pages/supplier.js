@@ -4,6 +4,7 @@ import { FiFilter } from "react-icons/fi";
 import Link from "next/link";
 import { BiFilter } from "react-icons/bi";
 import { FaGreaterThan } from "react-icons/fa";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const supplier = () => {
   
@@ -395,11 +396,8 @@ const supplier = () => {
             </div>
           </div>
           <div className="modal-action flex justify-center">
-            <a
-              href="#"
-              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-            >
-              x
+          <a href="#" className="btn btn-success btn-circle btn-ghost absolute right-2 top-2">
+            <AiFillCloseCircle style={{width:"30px",height:"30px",color:"#1570EF"}} className=""/>
             </a>
             <div style={{display:"flex",marginTop:"10px"}}>
               <div style={{marginLeft:"160px"}}>
@@ -423,38 +421,113 @@ const supplier = () => {
         </div>
       </div>
 
-      <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[1050px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
-      <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
-
-        <thead>
+      <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
+          <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
+            <thead className="">
           <tr>
             {/* <th>S.No.</th> */}
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Supplier Name</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Supplier Brand</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Phone No.</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Email Id</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Country</th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Last Purchasing Date </th>
-            <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm">Action</th>
+            <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Supplier Name
+                  </th>
+                  <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Supplier Brand
+                  </th>
+                  <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Phone No.
+                  </th>
+                  <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Email Id
+                  </th>
+                  <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Country
+                  </th>
+                  <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Last Purchasing Date
+                   </th>
+                   <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Action
+                  </th>
           </tr>
         </thead>
 
         <tbody>
           {currentItems.map((item, index) => (
-            <tr key={item.id}>
+              <tr
+              key={item.id}
+              className={`${
+                index % 2 === 0 ? "bg-white" : "bg-gray-300"
+              } border-b-[2px] border-gray-500`}
+            >
               {/* <th>{item.id}</th> */}
-              <th className="ms:font-extrabold text-2xl md:text-sm lg:text-sm
-              ms:py-[45px]
-              ">
+              <th
+                    style={{ textAlign: "center", background: "none" }}
+                    className={` ms:text-3xl  lg:text-sm ms:py-[45px] lg:py-[14px]`}
+                    
+                  >
                 <div style={{display:"flex"}} >
-                <img src="/Image/empl.png" style={{marginRight:'5px'}}/>{item.supplier_name}</div>
+                <img src="/Image/empl.png" style={{marginRight:'5px'}}/>
+                {item.supplier_name}
+                </div>
                 </th>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal "><div style={{display:'flex'}}>{item.supplier_brand}</div></td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.phone_no}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.email_id}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.country}</td>
-              <td className="cursor-pointer ms:text-xl ms:font-bold md:text-sm md:font-normal ">{item.last_purchasing_date}</td>
-              <td className="flex">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                  {item.supplier_brand}</td>
+              <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.phone_no}
+                    </td>
+                    <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.email_id}
+                    </td>
+                    <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.country}
+                    </td>
+                    <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.last_purchasing_date}
+                    
+                  </td>
+                  <td
+                    style={{
+                      textAlign: "center",
+                      background: "none",
+                      borderBottom: "none",
+                    }}
+                    className="flex justify-center items-center ms:mt-[35px]"
+                  >
                 <a href="#emp_Profile">
                   <img src="/Image/carbon_view.png" className="text-3xl text-green-600 me-1" />
                 </a>
@@ -625,11 +698,8 @@ const supplier = () => {
             </div>
           </div>
           <div className="modal-action flex justify-center">
-            <a
-              href="#"
-              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-            >
-              x
+          <a href="#" className="btn btn-success btn-circle btn-ghost absolute right-2 top-2">
+            <AiFillCloseCircle style={{width:"30px",height:"30px",color:"#1570EF"}} className=""/>
             </a>
             <a
               href="#"

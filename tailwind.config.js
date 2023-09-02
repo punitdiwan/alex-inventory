@@ -15,7 +15,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'ms': {'min':'350px','max':'639px'},
+        'ms': {'min':'150px','max':'639px'},
       },
     },
   },
