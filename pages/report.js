@@ -422,86 +422,147 @@ const report = () => {
       </div>
 
       <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
-        <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
-          <thead>
-            <tr>
+          <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
+            <thead className="">
+              <tr>
               {/* <th>S.No.</th> */}
-              <th className="ms:font-extrabold ms:py-4 ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Product Name
               </th>
-              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Brand Name
               </th>
-              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Category
               </th>
-              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Supplier Name
               </th>
-              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Quantity
               </th>
-              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Buying Price
               </th>
-              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Total Price
               </th>
-              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9]  ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Total Due
               </th>
-              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Payment Status
               </th>
-              <th className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Action
               </th>
             </tr>
           </thead>
 
           <tbody>
-            {currentItems.map((item, index) => (
-              <tr key={item.id}>
-                {/* <th>{item.id}</th> */}
-                <th style={{ textAlign:"center" }}
-                  className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm
-              ms:py-[45px] lg:bg-blue-200 lg:text-black
-              "
+              {currentItems.map((item, index) => (
+                <tr
+                  key={item.id}
+                  className={`${
+                    index % 2 === 0 ? "bg-white" : "bg-gray-300"
+                  } border-b-[2px] border-gray-500`}
                 >
+
+                {/* <th>{item.id}</th> */}
+                 <th
+                    style={{ textAlign: "center", background: "none" }}
+                    className={` ms:text-3xl  lg:text-sm ms:py-[45px] lg:py-[14px]`}
+                    
+                  >
                   {item.productname}
                 </th>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.brandname}
                 </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black ">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.category}
                 </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black ">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.suppliername}
                 </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.quantity}
                 </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.buyingprice}
                 </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black ">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.totalprice}
                 </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.totaldue}
                 </td>
                 <td
-                  style={{ color: "#10A760",textAlign:"center" }}
-                  className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black "
-                >
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.paymentstaus}
                 </td>
 
                 <td
-                  style={{ textAlign:"center" }}
-                  className="cursor-pointer ms:bg-blue-200 ms:text-black ms:text-xl ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black "
-                >
+                    style={{
+                      textAlign: "center",
+                      background: "none",
+                      borderBottom: "none",
+                    }}
+                    className="flex justify-center items-center ms:mt-[35px]"
+                  >
                   <button className="bg-[#1570EF] text-white border border-blue-700 rounded px-4 py-2">pay now</button>
                 </td>
 
@@ -725,7 +786,7 @@ const report = () => {
         className="modal fixed inset-0 flex items-center justify-center"
         id="create_order"
       >
-        <div className="modal-box max-w-[600px] min-h-[650px] ">
+        <div className="modal-box lg:max-w-[600px] lg:min-h-[550px] ">
           <div
             style={{ display: "flex", marginLeft: "50px", marginTop: "5px" }}
             className="text-xl font-semibold mr-4"

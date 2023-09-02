@@ -366,85 +366,143 @@ const todaysale = () => {
       </div>
 
       <section className="border-2 ms:mt-[50px] md:border-none ms:max-h-[990px] ms:max-w-[700px] md:max-h-[550px] md:max-w-[1200px] ms:overflow-y-auto md:overflow-y-auto lg:scrollbar-hide">
-        <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
-          <thead className="">
-            <tr >
+          <table className="table table-compact w-full  employeeTable ms:mt-[-5px] ">
+            <thead className="">
+              <tr>
+       
               {/* <th>S.No.</th> */}
-              <th style={{textAlign:"center"}} className="ms:py-4 ms:text-white ms:bg-[#1366D9] ms:font-extrabold text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Product Name
               </th>
-              <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Customer name
               </th>
-              <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Date
               </th>
-              <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Total bill
               </th>
-              <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Paid amount
               </th>
-              <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Biller Name
               </th>
-              <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Payment Status
               </th>
-              <th style={{textAlign:"center"}} className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-blue-500 lg:text-white">
+              <th
+                  style={{ textAlign: "center" }}
+                  className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
                 Action
               </th>
             </tr>
           </thead>
 
           <tbody>
-            {currentItems.map((item, index) => (
-              <tr key={item.id}>
+              {currentItems.map((item, index) => (
+                <tr
+                  key={item.id}
+                  className={`${
+                    index % 2 === 0 ? "bg-white" : "bg-gray-300"
+                  } border-b-[2px] border-gray-500`}
+                >
                 {/* <th>{item.id}</th> */}
 
-                <th style={{ textAlign:"center" }}
-                  className="ms:font-extrabold ms:text-white ms:bg-[#1366D9] ms:rounded-md text-2xl md:text-sm lg:text-sm
-              ms:py-[45px] lg:bg-blue-200 lg:text-black lg:py-[14px]
-              "
-                >
+                <th
+                    style={{ textAlign: "center", background: "none" }}
+                    className={` ms:text-3xl  lg:text-sm ms:py-[45px] lg:py-[14px]`}
+                    
+                  >
                   {item.productname}{" "}
                 </th>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.customername}
                 </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">{item.date}</td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.date}
+                    </td>
+                    <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+
                   {item.totalbill}
                 </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.paidamount}
                 </td>
-                <td style={{ textAlign:"center" }} className="cursor-pointer ms:bg-blue-200 ms:text-black lg:bg-blue-200 lg:text-black">
+                <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.billername}
                 </td>
                 <td
-                  style={{ color: "#10A760",textAlign:"center" }}
-                  className="cursor-pointer ms:text-xl ms:bg-blue-200 ms:text-black ms:font-bold md:text-sm md:font-normal lg:bg-blue-200 lg:text-black "
-                >
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
                   {item.paymentstatus}
                 </td>
-                <td className="flex">
-                  <a href="#emp_Profile">
-                    <BiShow style={{color:"#002054"}}
-                      className="  ms:w-[80px] ms:h-[50px] md:w-[] md:h-[] lg:w-[90px] lg:h-[20px]"
-                    />
-                  </a>
-                  <a href="#emp_Profile">
-                    <BiSolidEdit
-                      className=" text-green-600   ms:w-[80px] ms:h-[50px] lg:w-[90px] lg:h-[20px]"
-                    />
-                  </a>
-                  <Link href={"#"}>
-                    <MdOutlineDeleteOutline
-                      className=" text-red-500  ms:w-[80px] ms:h-[50px] lg:w-[90px] lg:h-[20px]"
-                    />
-                  </Link>
-                </td>
+                <td
+                    style={{
+                      textAlign: "center",
+                      background: "none",
+                      borderBottom: "none",
+                    }}
+                    className="flex justify-center items-center ms:mt-[35px]"
+                  >
+                    <a href="#emp_Profile">
+                      <img
+                        src="/Image/carbon_view.png"
+                        className="text-3xl text-green-600 me-1"
+                      />
+                    </a>
+                    <a href="#emp_Profile">
+                      <img
+                        src="/Image/Edit.png"
+                        className="text-3xl text-green-600 me-1"
+                      />
+                    </a>
+                    <Link href="#">
+                      <img
+                        src="/Image/Delete.png"
+                        className="text-3xl text-red-500 ms-1"
+                      />
+                    </Link>
+                  </td>
                 
               </tr>
             ))}

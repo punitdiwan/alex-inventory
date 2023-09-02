@@ -515,12 +515,12 @@ const Header = () => {
 
           {/* *******************work on dashboard mobile screen ms **************** */}
 
-          <div className="ms:ml-[-220px] ms:mt-[10px]">
+          <div className="ms:ml-[-220px] ms:mt-[10px]  lg:ml-[-220px] :mt-[10px] ">
             <div className="flex  ">
               <Link href="/notification" className="indicator mx-4  ">
-                <span className="indicator-item badge badge-xs border border-[#1570EF] bg-[#1570EF] ms:mt-[15px] ms:mr-[10px]"></span>
+                <span className="indicator-item badge badge-xs border border-[#1570EF] bg-[#1570EF] ms:mt-[15px] ms:mr-[10px] lg:mt-[16px] lg:mr-[27px]"></span>
                 <MdOutlineNotificationsActive
-                  className="text-2xl ms:mt-[5px] ms:w-[50px] ms:h-[50px]"
+                  className="text-2xl ms:mt-[5px] ms:w-[50px] ms:h-[50px]  lg:mt-[9px] lg:mr-[15px] lg:w-[40px] lg:h-[40px]"
                   style={
                     pathname == "/notification" ? { color: "#1570EF" } : ""
                   }
