@@ -13,6 +13,7 @@ import { AiOutlineLock } from "react-icons/ai";
 import { MdMiscellaneousServices } from "react-icons/md";
 import { AiFillSetting } from "react-icons/ai";
 import { GiProgression } from "react-icons/gi";
+import { BiLogOut } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -28,6 +29,8 @@ const Sidebar1 = () => {
       width="180px"
       collapsedWidth="65px"
       className="hidden md:block" >
+
+        
 
       <main>
 
@@ -191,20 +194,20 @@ const Sidebar1 = () => {
           </Link>
         </SubMenu>
         
-        <Link href="/supplier">
+        <Link href="/retailer">
           <div className="flex my-6">
             <div className="ms-7 me-3">
               <TbUsers
                 className="text-2xl"
-                style={pathname == "/supplier" ? { color: "#1570EF" } : ""}
+                style={pathname == "/retailer" ? { color: "#1570EF" } : ""}
               />
             </div>
             <h1
               className={`font-bold text-xl ${
-                pathname === "/supplier" ? "text-[#1570EF]" : ""
+                pathname === "/retailer" ? "text-[#1570EF]" : ""
               }`}
             >
-              Supplier
+              Retailer
             </h1>
           </div>
         </Link>
@@ -292,6 +295,24 @@ const Sidebar1 = () => {
             />
           </Link>
         </SubMenu>
+
+        <Link href="/">
+          <div className="flex my-6">
+            <div className="ms-7 me-3">
+              <BiLogOut
+                className="text-2xl"
+                style={pathname == "/" ? { color: "#1570EF" } : ""}
+              />
+            </div>
+            <h1
+              className={`font-bold text-xl ${
+                pathname === "/" ? "text-[#1570EF]" : ""
+              }`}
+            >
+              Logout
+            </h1>
+          </div>
+        </Link>
         
       </Menu>
     </Sidebar>

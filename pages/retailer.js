@@ -6,7 +6,7 @@ import { BiFilter } from "react-icons/bi";
 import { FaGreaterThan } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
 
-const supplier = () => {
+const retailer = () => {
   
   const Menus = [
     { label: "In-stock", url: "/" },
@@ -19,100 +19,100 @@ const supplier = () => {
     cardData: [
       {
         id: "1",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
       },
       {
         id: "2",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
       },
       {
         id: "3",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
       },
       {
         id: "4",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
       },
       {
         id: "5",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
       },
       {
         id: "6",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
       },
       {
         id: "7",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
       },
       {
         id: "8",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
       },
       {
         id: "9",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
       },
       {
         id: "10",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
@@ -120,20 +120,20 @@ const supplier = () => {
 
       {
         id: "11",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
       },
       {
         id: "12",
-        supplier_name: "Supplier 1",
-        supplier_brand: "Himalaya",
+        retailer_name: "Retailer 1",
+        retailer_brand: "Himalaya",
         phone_no: "+91 21456 32001",
-        email_id: "Supplier@example.com",
+        email_id: "Retailer@example.com",
         country: "India",
         last_purchasing_date: "19/05/23",
         action: "(PP)",
@@ -176,13 +176,13 @@ const supplier = () => {
     <div className="sm:w-full h-screen pb-5 px-5">
         <div className="lg:block md:block ms:hidden sm:hidden">
       <div className="flex flex-row justify-between">
-        <div className="text-xl font-bold ml-3">Supplier</div>
+        <div className="text-xl font-bold ml-3">Retailers</div>
         
         <div className="flex space-x-2">
           {/** button to open suppplier */}
           <a href="#addsupplier">
             <button className="bg-blue-500 text-white rounded-lg px-4 py-2 mr-2">
-              Add Supplier
+              Add Retailer
             </button>{" "}
           </a>
           <div className="relative ml-4">
@@ -225,7 +225,7 @@ const supplier = () => {
         <div className="flex items-center ">
         <div>
           <div className="flex items-center">
-          <div className="mr-3 ms:text-4xl font-bold underline">Suppliers</div>         
+          <div className="mr-3 ms:text-4xl font-bold underline">Retailers</div>         
            </div>
         </div>
        </div>
@@ -234,7 +234,7 @@ const supplier = () => {
           {/** button to open suppplier */}
           <a href="#addsupplier">
             <button className="btn border-0 hover:border hover:border-[#1366D9] bg-[#1366D9] hover:bg-white hover:text-[#1366D9] ">
-              Add Supplier
+              Add Retailer
             </button>
           </a>
           <div className="relative ml-4">
@@ -285,7 +285,7 @@ const supplier = () => {
             style={{ display: "flex", marginLeft: "20px", marginTop: "5px" }}
             className="text-xl font-semibold mr-4"
           >
-            New Supplier
+            New Retailer
           </div>
           {/**************INPUT TAGS**************/}
 
@@ -317,11 +317,11 @@ const supplier = () => {
                 className="mb-2 text-bold "
                 style={{ marginTop: "20px", marginLeft: "27px" }}
               >
-                Supplier Name
+                Retailer Name
               </div>
               <input
                 type="text"
-                placeholder="enter a supplier"
+                placeholder="enter a Retailer"
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
                 style={{
                   marginTop: "10px",
@@ -333,11 +333,11 @@ const supplier = () => {
 
             <div style={{ display: "flex" }}>
               <div style={{ marginTop: "20px", marginLeft: "27px" }}>
-                Supplier Brand
+                Retailer Brand
               </div>
               <input
                 type="text"
-                placeholder=" enter supplier brand "
+                placeholder=" enter Retailer brand "
                 className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
                 style={{
                   marginTop: "10px",
@@ -413,7 +413,7 @@ const supplier = () => {
               href="#"
               className="btn border-0 hover:border hover:border-[#1570EF] bg-[#1570EF] hover:bg-[#1570EF]"
             >
-              Add Supplier
+              Add Retailer
             </a>
             </div>
             </div>
@@ -430,13 +430,13 @@ const supplier = () => {
                   style={{ textAlign: "center" }}
                   className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
                 >
-                  Supplier Name
+                  Retailer Name
                   </th>
                   <th
                   style={{ textAlign: "center" }}
                   className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
                 >
-                  Supplier Brand
+                  Retailer Brand
                   </th>
                   <th
                   style={{ textAlign: "center" }}
@@ -456,12 +456,13 @@ const supplier = () => {
                 >
                   Country
                   </th>
-                  <th
+                  {/* <th
                   style={{ textAlign: "center" }}
                   className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
                 >
                   Last Purchasing Date
-                   </th>
+                   </th> */}
+
                    <th
                   style={{ textAlign: "center" }}
                   className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
@@ -487,14 +488,14 @@ const supplier = () => {
                   >
                 <div style={{display:"flex"}} >
                 <img src="/Image/empl.png" style={{marginRight:'5px'}}/>
-                {item.supplier_name}
+                {item.retailer_name}
                 </div>
                 </th>
                 <td
                     style={{ textAlign: "center", background: "none" }}
                     className="  ms:text-3xl  lg:text-sm"
                   >
-                  {item.supplier_brand}</td>
+                  {item.retailer_brand}</td>
               <td
                     style={{ textAlign: "center", background: "none" }}
                     className="  ms:text-3xl  lg:text-sm"
@@ -513,13 +514,13 @@ const supplier = () => {
                   >
                     {item.country}
                     </td>
-                    <td
+                    {/* <td
                     style={{ textAlign: "center", background: "none" }}
                     className="  ms:text-3xl  lg:text-sm"
                   >
                     {item.last_purchasing_date}
                     
-                  </td>
+                  </td> */}
                   <td
                     style={{
                       textAlign: "center",
@@ -579,7 +580,7 @@ const supplier = () => {
 
        <div className="modal fixed inset-0 flex items-center justify-center" id="emp_Profile">
         <div className="modal-box max-w-[1120px] min-h-[500px] ">
-          <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Suppliers <FaGreaterThan className="mt-1 ml-2 mr-2" />Profile</div>
+          <div style={{ display: 'flex', marginLeft: '50px', marginTop: '5px' }} className="text-xl font-semibold mr-4">Retailers <FaGreaterThan className="mt-1 ml-2 mr-2" />Profile</div>
           {/**************INPUT TAGS**************/}
           <div style={{
               display: 'flex', marginTop: '15px',
@@ -596,7 +597,7 @@ const supplier = () => {
   
           <div className="grid grid-cols-3 gap-x-5 gap-y-2">
             <div className="" style={{ marginLeft: '10px' }}>
-              <p className="mb-2 ">Supplier Name</p>
+              <p className="mb-2 ">Retailer Name</p>
               <input
                 type="text"
                 placeholder="John Cooper"
@@ -714,4 +715,4 @@ const supplier = () => {
   );
 };
 
-export default Layout(supplier);
+export default Layout(retailer);

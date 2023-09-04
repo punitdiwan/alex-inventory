@@ -20,192 +20,213 @@ const totalproducts = () => {
     cardData: [
       {
         id: "1",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "2",
-        category_name: "skins Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "3",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "4",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "5",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "6",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "7",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "8",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "9",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "10",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "11",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "12",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "13",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "14",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "15",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "16",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "17",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "18",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "19",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
-        image: " /Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        image: "/Image/cate_image.jpg",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "20",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
       {
         id: "21",
-        category_name: "Face Products",
-        total_Brands: "12 Brands",
-        total_product: "43 Products",
         image: "/Image/cate_image.jpg",
-        description: "Lorem ipsum dolor sit amet, ",
-        action: "...",
+        product_name: "soul flower",
+        category_name:"Face Products",
+        cost_price:"25",
+        selling_price:"40",
+        quantity:"43 packates",
+        avalibility:"in-stock"
       },
     ],
   };
@@ -441,12 +462,14 @@ const totalproducts = () => {
           </h2>
 
           <div className="mt-2">
+          <a href="#addProduct">
             <button
               className="bg-blue-500 text-white rounded-lg px-4 py-2 mr-2  ms:text-2xl 
           md:text-sm ms:font-bold md:font-normal"
             >
-              Add Category
+              Add Product
             </button>
+            </a>
             <button
               className="bg-gray-300 text-gray-600 rounded-lg px-4 py-2  ms:text-2xl 
           md:text-sm  ms:font-bold md:font-normal"
@@ -463,37 +486,43 @@ const totalproducts = () => {
                   style={{ textAlign: "center" }}
                   className="ms:py-4 ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 text-2xl md:text-sm lg:py-[15px] lg:text-sm lg:bg-gray-600 lg:text-white"
                 >
-                  Category Name
+                  Products Image
                 </th>
                 <th
                   style={{ textAlign: "center" }}
                   className="ms:text-3xl ms:font-bold  ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
                 >
-                  Total Brands
+                  Products Name
                 </th>
                 <th
                   style={{ textAlign: "center" }}
                   className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
                 >
-                  Total Product
+                  Category Name
                 </th>
                 <th
                   style={{ textAlign: "center" }}
                   className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
                 >
-                  Images
+                  Cost Price/Item
                 </th>
                 <th
                   style={{ textAlign: "center" }}
                   className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
                 >
-                  Description
+                  Selling Price/Item
                 </th>
                 <th
                   style={{ textAlign: "center" }}
                   className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
                 >
-                  Action
+                  Quantity
+                </th>
+                <th
+                  style={{ textAlign: "center" }}
+                  className="ms:text-3xl ms:font-bold ms:text-white ms:bg-gray-600 ms:rounded-md text-2xl md:text-sm lg:text-sm lg:bg-gray-600 lg:text-white"
+                >
+                  Availability
                 </th>
               </tr>
             </thead>
@@ -511,58 +540,50 @@ const totalproducts = () => {
                     className={` ms:text-3xl  lg:text-sm ms:py-[45px] lg:py-[14px]`}
                     
                   >
-                    {item.category_name}
-                  </th>
-                  <td
-                    style={{ textAlign: "center", background: "none" }}
-                    className="  ms:text-3xl  lg:text-sm"
-                  >
-                    {item.total_Brands}
-                  </td>
-                  <td
-                    style={{ textAlign: "center", background: "none" }}
-                    className="  ms:text-3xl  lg:text-sm"
-                  >
-                    {item.total_product}
-                  </td>
-                  <td style={{ textAlign: "center", background: "none" }}>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                       <img src={item.image} alt="Product Image" style={{}} />
                     </div>
+                  </th>
+
+                  <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.product_name}
                   </td>
                   <td
                     style={{ textAlign: "center", background: "none" }}
                     className="  ms:text-3xl  lg:text-sm"
                   >
-                    {item.description}
+                    {item.category_name}
                   </td>
                   <td
-                    style={{
-                      textAlign: "center",
-                      background: "none",
-                      borderBottom: "none",
-                    }}
-                    className="flex justify-center items-center ms:mt-[35px]"
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
                   >
-                    <a href="#emp_Profile">
-                      <img
-                        src="/Image/carbon_view.png"
-                        className="text-3xl text-green-600 me-1"
-                      />
-                    </a>
-                    <a href="#emp_Profile">
-                      <img
-                        src="/Image/Edit.png"
-                        className="text-3xl text-green-600 me-1"
-                      />
-                    </a>
-                    <Link href="#">
-                      <img
-                        src="/Image/Delete.png"
-                        className="text-3xl text-red-500 ms-1"
-                      />
-                    </Link>
+                    {item.cost_price}
                   </td>
+                  <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.selling_price}
+                  </td>
+
+                  <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm"
+                  >
+                    {item.quantity}
+                  </td>
+
+                  <td
+                    style={{ textAlign: "center", background: "none" }}
+                    className="  ms:text-3xl  lg:text-sm text-green-500"
+                  >
+                    {item.avalibility}
+                  </td>
+                  
                 </tr>
               ))}
             </tbody>
@@ -603,6 +624,177 @@ const totalproducts = () => {
           </button>
         </div>
       </div>
+
+      {/* **********MODAL************ */}
+
+      <div
+        className="modal fixed inset-0 flex items-center justify-center :overflow-y-auto "
+        id="addProduct"
+      >
+        <div className="modal-box max-w-[650px] min-h-[590px] scrollable-area overflow-hidden">
+          <div
+            style={{ display: "flex", marginLeft: "20px", marginTop: "-5px" }}
+            className="text-xl font-semibold mr-4"
+          >
+            New Product
+          </div>
+          {/**************INPUT TAGS**************/}
+
+          <div
+            type="file"
+            accept="image/*"
+            style={{
+              display: "flex",
+              marginTop: "15px",
+              marginLeft: "170px",
+              marginBottom: "5px",
+            }}
+            className="cursor-pointer "
+          >
+            <input type="file" accept="image/*" id="uploadImage" hidden />
+            <img src="/Image/supplierLogo.png" />
+            <label
+              htmlFor="uploadImage"
+              style={{ marginLeft: "10px", marginTop: "10px" }}
+            >
+              {" "}
+              <p className="cursor-pointer">Upload Profile Image</p>
+            </label>
+          </div>
+
+          <div style={{ marginTop: "20px" }}>
+            <div style={{ display: "flex" }}>
+              <div
+                className="mb-2 text-bold "
+                style={{ marginTop: "15px", marginLeft: "27px" }}
+              >
+                Product Name
+              </div>
+              <input
+                type="text"
+                placeholder="Enter product name"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "5px",
+                  marginLeft: "95px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "15px", marginLeft: "27px" }}>
+                Category
+              </div>
+              <input
+                type="text"
+                placeholder="Select product category "
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "133px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+                Brand Name
+              </div>
+              <input
+                type="text"
+                placeholder="Himalaya"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "110px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+                Cost Price
+              </div>
+              <input
+                type="text"
+                placeholder="Enter buying price"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "126px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+                Quantity
+              </div>
+              <input
+                type="text"
+                placeholder="Enter product quantity"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "142px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex" }}>
+              <div style={{ marginTop: "20px", marginLeft: "27px" }}>
+                Selling Price
+              </div>
+              <input
+                type="text"
+                placeholder="Enter product unit"
+                className="input w-full max-w-xs border border-[#4169E1] focus:ring-[#4169E1] focus:ring-2 focus:border-[#4169E1] "
+                style={{
+                  marginTop: "10px",
+                  marginLeft: "114px",
+                  borderColor: "grey",
+                }}
+              />
+            </div>
+          </div>
+          <div className="modal-action flex justify-center">
+            <a
+              href="#"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              x
+            </a>
+            <div style={{ display: "flex", marginTop: "-10px" }}>
+              <div style={{ marginLeft: "160px" }}>
+                <a
+                  href="#"
+                  className="btn border-0 hover:border hover:border-[#858D9D] bg-[#858D9D] hover:bg-[#858D9D] "
+                >
+                  Discard
+                </a>
+              </div>
+              <div style={{ marginLeft: "20px" }}>
+                <a
+                  href="#"
+                  className="btn border-0 hover:border hover:border-[#1570EF] bg-[#1570EF] hover:bg-[#1570EF]"
+                >
+                  Add Product
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+
+
+
+
       {/* **********MODAL************ */}
       <div className="modal" id="editService">
         <div className="modal-box w-11/12 max-w-3xl">

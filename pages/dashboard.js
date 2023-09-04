@@ -13,11 +13,9 @@ import { BiHome } from "react-icons/bi";
 import { VscSave } from "react-icons/vsc";
 import { GiReturnArrow } from "react-icons/gi";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
-import { TbCategory} from "react-icons/tb";
-
+import { TbCategory } from "react-icons/tb";
 
 const StockList = () => {
-
   // Dummy data for the table
 
   const dummyData = [
@@ -68,12 +66,14 @@ const StockList = () => {
       sold_Quantity: 30,
       Remaining_Quantity: 70,
       price: 19.99,
-    }, {
+    },
+    {
       name: "Item 1",
       sold_Quantity: 30,
       Remaining_Quantity: 70,
       price: 19.99,
-    }, {
+    },
+    {
       name: "Item 1",
       sold_Quantity: 30,
       Remaining_Quantity: 70,
@@ -84,60 +84,86 @@ const StockList = () => {
 
   return (
     <div className="mx-auto">
-    <div className="p-4">
-      {/** stock list  */}
-      <div className="flex justify-between items-center mb-4">
-        <div className=" ms:text-4xl  text-gray-900 hover:text-gray-600 font-semibold p-2 dark:text-white dark:hover:text-white
+      <div className="p-4">
+        {/** stock list  */}
+        <div className="flex justify-between items-center mb-4">
+          <div
+            className=" ms:text-4xl  text-gray-900 hover:text-gray-600 font-semibold p-2 dark:text-white dark:hover:text-white
                          md:text-2xl 
-                         lg:text-2xl ">
-          StockList
+                         lg:text-2xl "
+          >
+            Stock List
+          </div>
+          <div className="text-blue-600 cursor-pointer hover:underline">
+            See All
+          </div>
         </div>
-        <div className="text-blue-600 cursor-pointer hover:underline">
-          See All
-        </div>
-      </div>
 
-      <div className="ms:max-h-[400px] ms:overflow-y-auto  
+        <div
+          className="ms:max-h-[400px] ms:overflow-y-auto  
                       md:max-h-[450px]  md:overflow-y-auto 
-                      lg:scrollbar-hide"> {/* Adjust the max height */}
-        
-        <table className="w-full border">
-          <thead>
-            <tr className="bg-gray-100">
-              
-              <th className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
+                      lg:scrollbar-hide"
+        >
+          {" "}
+          {/* Adjust the max height */}
+          <table className="w-full border">
+            <thead>
+              <tr className="bg-gray-100">
+                <th
+                  className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
               lg:p-4 lg:border lg:text-center  lg:text-xl lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto  lg:dark:text-white lg:dark:hover:text-gray-200
-              ">Name
-              </th>
-
-              <th className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
-              lg:p-4 lg:border lg:text-center  lg:text-xl lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto  lg:dark:text-white lg:dark:hover:text-gray-200
-              ">Sold Quantity
-              </th>
-           
-              <th className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
-              lg:p-4 lg:border lg:text-center  lg:text-xl lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto  lg:dark:text-white lg:dark:hover:text-gray-200
-              ">Price
+              "
+                >
+                  Name
                 </th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-            dummyData.map((item, index) => (
-              <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
 
-                <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">{item.name}</td>
-                <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">{item.sold_Quantity}</td>
-                <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200 ">${item.price.toFixed(2)}</td>
+                <th
+                  className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
+              lg:p-4 lg:border lg:text-center  lg:text-xl lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto  lg:dark:text-white lg:dark:hover:text-gray-200
+              "
+                >
+                  Sold Quantity
+                </th>
+
+                <th
+                  className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
+              lg:p-4 lg:border lg:text-center  lg:text-xl lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto  lg:dark:text-white lg:dark:hover:text-gray-200
+              "
+                >
+                  Remaining Quantity
+                </th>
+
+                <th
+                  className="p-4 border text-center text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200
+              lg:p-4 lg:border lg:text-center  lg:text-xl lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto  lg:dark:text-white lg:dark:hover:text-gray-200
+              "
+                >
+                  Price
+                </th>
               </tr>
-            ))
-            }
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {dummyData.map((item, index) => (
+                <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
+                  <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">
+                    {item.name}
+                  </td>
+                  <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">
+                    {item.sold_Quantity}
+                  </td>
+                  <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">
+                    {item.Remaining_Quantity}
+                  </td>
+                  <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200 ">
+                    ${item.price.toFixed(2)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
-  
   );
 };
 
@@ -180,55 +206,59 @@ const LowQuantityStock = () => {
       imageUrl: "Image/Product3.png",
       status: "Low",
     },
-    
   ];
 
   return (
     <div className="mx-auto">
       <div className="p-4">
         <div className="flex justify-between items-center mb-4">
-          <div className="ms:text-3xl font-semibold p-2
-                          lg:text-2xl text-gray-900 hover:text-gray-600">
-            Lowstock
+          <div
+            className="ms:text-3xl font-semibold p-2
+                          lg:text-2xl text-gray-900 hover:text-gray-600"
+          >
+            Low Quantity Stock
           </div>
           <div className="text-blue-600 cursor-pointer hover:underline">
             See All
           </div>
         </div>
 
-        <div className="ms:max-h-[500px] md:max-h-[450px] overflow-y-auto 
-        lg:scrollbar-hide">
-
+        <div className="ms:max-h-[500px] md:max-h-[450px] overflow-y-auto lg:scrollbar-hide">
           <table className="w-full border">
             <thead>
-              <tr className="bg-gray-100">
-                <th className="p-4 border text-center  ms:text-2xl ms:font-semibold ms:text-gray-800 ms:hover:text-gray-900 ms:my-auto  ms:dark:text-white ms:dark:hover:text-gray-200
-                lg:p-4 lg:border lg:text-center  lg:text-xl-block lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto  lg:dark:text-white lg:dark:hover:text-gray-200
-                ">Product Image</th>
-                <th className="p-4 border text-center  ms:text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">Product Name</th>
-                <th className="p-4 border text-center  ms:text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">Remaining Quantity</th>
-              
-              </tr>
+              {/* <tr className="bg-gray-100">
+        <th className="p-4 border text-center ms:text-2xl ms:font-semibold ms:text-gray-800 ms:hover:text-gray-900 ms:my-auto ms:dark:text-white ms:dark:hover:text-gray-200 lg:p-4 lg:border lg:text-center lg:text-xl-block lg:font-semibold lg:text-gray-800 lg:hover:text-gray-900 lg:my-auto lg:dark:text-white lg:dark:hover:text-gray-200 whitespace-nowrap">Product Image</th>
+        <th className="p-4 border text-center ms:text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto dark:text-white dark:hover:text-gray-200 whitespace-nowrap">Product Name</th>
+        <th className="p-4 border text-center ms:text-2xl font-semibold text-gray-800 hover:text-gray-900 my-auto dark:text-white dark:hover:text-gray-200 whitespace-nowrap">Remaining Quantity</th>
+      </tr> */}
             </thead>
             <tbody>
-              { 
-              lowquantity.map((data, index) => (
+              {lowquantity.map((data, index) => (
                 <tr
                   key={index}
-                  className={(index + 1) % 2 === 0 ? "bg-gray-50" : ""} >
+                  className={(index + 1) % 2 === 0 ? "bg-gray-50" : ""}
+                >
                   <td className="p-4 border text-center">
-                    
                     <img
                       src={data.imageUrl}
                       className="mr-4 w-16 h-16 object-contain"
                       alt={data.productName}
                     />
                   </td>
-                  <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">{data.productName}</td>
-                  <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto  dark:text-white dark:hover:text-gray-200">
-                    {data.remainingQuantity}
+                  <td className="p-4 border text-center text-xl font-semibold text-gray-800 hover:text-gray-900 my-auto dark:text-white dark:hover:text-gray-200 whitespace-nowrap">
+                    {data.productName}
+                    <br />
+                    <p className="text-sm">
+                      {" "}
+                      Remaining Quantity : {data.remainingQuantity}{" "}
+                    </p>
                   </td>
-                 
+
+                  <td className="p-4 border text-center text-sm font-semibold text-gray-800 hover:text-gray-900 my-auto dark:text-white dark:hover:text-gray-200 whitespace-nowrap">
+                    <span className="bg-red-200 text-red-600 rounded-full px-2 py-1">
+                      {data.status}
+                    </span>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -256,25 +286,21 @@ const Admin = () => {
             lg:w-[680px] lg:h-[150px] lg:ml-[20px]  lg:rounded-[8px]             
             "
           >
-
             {/** This Section For Sales Overview  */}
 
             <h3 className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid ">
               Sales Overview
             </h3>
 
-
             <div className=" flex ms:flex-wrap md:justify-between md:items-center lg:justify-between lg:items-center ">
-
               <div className="mt-6 ml-3 ms:w-[330px] ms:h-[200px] lg:block md:block ms:bg-white border ms:border-gray-300">
-
                 <div className="ml-9 ">
-          {/** mobile screen par hidden  */}
+                  {/** mobile screen par hidden  */}
                   <img
                     src="/Image/Sales.png"
                     className="ms:hidden lg:block md:block "
                   />
-          {/** large screen or md  par hidden  or  ms  me visible  */}
+                  {/** large screen or md  par hidden  or  ms  me visible  */}
 
                   <div className="lg:hidden md:hidden flex flex-row ms:mt-[20px]">
                     <PiNoteLight
@@ -291,11 +317,11 @@ const Admin = () => {
                   <h6 className="lg:hidden md:hidden">in today</h6>
                 </div>
 
-         {/** yha tak mobile screen  1st part end  or neeche se large screen start he  */}
+                {/** yha tak mobile screen  1st part end  or neeche se large screen start he  */}
 
                 <div className="flex mt-4">
                   <p className="flex-1 text-left ml-2 ms:font-semibold ms:hidden lg:block md:block ">
-                    832
+                    $832
                   </p>
                   <p className="flex-1 text-right ml-6 ms:font-semibold ms:hidden lg:block md:block ">
                     Sales
@@ -325,7 +351,7 @@ const Admin = () => {
                 </div>
                 <div className="flex mt-4">
                   <p className="flex-1 text-left ml-2 ms:font-semibold ms:hidden lg:block md:block   ">
-                    ₹18,300
+                    $18,300
                   </p>
                   <p className="flex-1 text-right ml-6 ms:font-semibold ms:hidden lg:block md:block  ">
                     Revenue
@@ -355,7 +381,7 @@ const Admin = () => {
                 </div>
                 <div className="flex mt-4">
                   <p className="flex-1 text-left ml-2 ms:font-semibold ms:hidden lg:block md:block  ">
-                    ₹868
+                    $868
                   </p>
                   <p className="flex-1 text-right ml-6 ms:font-semibold ms:hidden lg:block md:block  ">
                     Profit
@@ -385,7 +411,7 @@ const Admin = () => {
                 </div>
                 <div className="flex mt-4">
                   <p className="flex-1 text-left ml-2 ms:font-semibold ms:hidden lg:block md:block ">
-                    ₹17,432
+                    $17,432
                   </p>
                   <p className="flex-1 text-right ml-6 ms:font-semibold ms:hidden lg:block md:block ">
                     Cost
@@ -506,13 +532,13 @@ const Admin = () => {
                     </h6>
                   </div>
                   <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
-                    832
+                    82
                   </h6>
                   <h6 className="lg:hidden md:hidden">in today</h6>
                 </div>
                 <div className="flex mt-4">
                   <p className="flex-1 text-left ml-2 ms:font-semibold ms:hidden lg:block md:block  ">
-                    832
+                    82
                   </p>
                   <p className="flex-1 text-right ml-6 ms:font-semibold ms:hidden lg:block md:block ">
                     Purchase
@@ -541,7 +567,7 @@ const Admin = () => {
                 </div>
                 <div className="flex mt-4">
                   <p className=" flex-1 text-left ml-2 ms:font-semibold ms:hidden lg:block md:block ">
-                    ₹18,300
+                    $18,300
                   </p>
                   <p className=" flex-1 text-right ml-6 ms:font-semibold ms:hidden lg:block md:block ">
                     Cost
@@ -571,7 +597,7 @@ const Admin = () => {
                 </div>
                 <div className="flex mt-4">
                   <p className="flex-1 text-left ml-2 ms:font-semibold ms:hidden lg:block md:block ">
-                    ₹868
+                    8
                   </p>
                   <p className="flex-1 text-right ml-6 ms:font-semibold ms:hidden lg:block md:block ">
                     Cancel
@@ -600,7 +626,7 @@ const Admin = () => {
                 </div>
                 <div className="flex mt-4">
                   <p className="flex-1 text-left ml-2 ms:font-semibold ms:hidden lg:block md:block  ">
-                    ₹17,432
+                    $17,432
                   </p>
                   <p className="flex-1 text-right ml-6 ms:font-semibold ms:hidden lg:block md:block">
                     Return
@@ -622,7 +648,7 @@ const Admin = () => {
                 // style={{ fontSize: "20px" }}
                 className="lg:text-2xl font-semibold p-2  ms:text-4xl md:text-2xl text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white text-2xl ms:underline ms:decoration-solid"
               >
-                Order Summary
+                Orders Summary
               </p>
               <div className="flex ms:flex-wrap md:justify-between md:items-center lg:justify-between lg:items-center">
                 <div className="ms:ml-[9px] ms:mt-[15px] md:mt-[-1px] lg:mt-[-1px] ms:w-[330px] ms:h-[200px] lg:block md:block ms:bg-white border ms:border-gray-300">
@@ -651,12 +677,12 @@ const Admin = () => {
                     </p>
                   </div>
                   <p className="ml-2 ms:font-semibold ms:hidden lg:block md:block">
-                   Order History
+                    Pending Orders
                   </p>
                 </div>
 
                 <div className="ms:ml-[9px] ms:mt-[15px] md:mt-[-1px] lg:mt-[-1px] ms:w-[330px] ms:h-[200px] lg:block md:block ms:bg-white border ms:border-gray-300">
-                  <div style={{ marginLeft: "75px" }}>
+                  <div style={{ marginLeft: "40px" }}>
                     <img
                       src="/Image/Categories.png"
                       className="ms:hidden lg:block md:block"
@@ -667,7 +693,7 @@ const Admin = () => {
                         style={{ color: "#817AF3" }}
                       />
                       <h6 className="ms:text-2xl ms:font-bold text-gray-800 mb-2 dark:text-white my-auto mt-[15px] ml-[10px]">
-                      Number of Categories{" "}
+                        Order status{" "}
                       </h6>{" "}
                     </div>
                     <h6 className="lg:hidden md:hidden ms:text-4xl font-semibold text-gray-800 dark:text-white mt-[15px]">
@@ -676,11 +702,16 @@ const Admin = () => {
                     <h6 className="lg:hidden md:hidden">in today</h6>
                   </div>
                   <div className="flex mt-1">
-                    <p style={{ marginLeft: "75px" }} className=" ml-10 ms:font-semibold ms:hidden lg:block md:block ">
+                    <p
+                      style={{ marginLeft: "" }}
+                      className=" ml-10 ms:font-semibold ms:hidden lg:block md:block "
+                    >
                       832
                     </p>
                   </div>
-                  <p className=" ml-2 ms:font-semibold ms:hidden lg:block md:block">Number of Categories</p>
+                  <p style={{marginRight:"40px"}} className="  ms:font-semibold ms:hidden lg:block md:block">
+                    Order status
+                  </p>
                 </div>
               </div>
             </div>

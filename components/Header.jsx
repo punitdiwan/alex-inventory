@@ -9,7 +9,11 @@ import { IoIosMenu } from "react-icons/io";
 import { TbUsers } from "react-icons/tb";
 import { TbLayoutDashboard } from "react-icons/tb";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import {
+  AiOutlineShoppingCart,
+  AiOutlinePlus,
+  AiOutlineMinus,
+} from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { useState } from "react";
 import { MdOutlineSell } from "react-icons/md";
@@ -18,24 +22,23 @@ import { TbAlignBoxBottomCenter } from "react-icons/tb";
 import { PiToteSimpleLight } from "react-icons/pi";
 import { TbMoneybag } from "react-icons/tb";
 import { AiOutlineTransaction } from "react-icons/ai";
+import { LuSettings } from "react-icons/lu";
 
 import { FaUsers } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { BsBank,BsHouseLockFill } from "react-icons/bs";
-import { BiMessageRoundedDots } from "react-icons/bi";
+import { BsBank, BsHouseLockFill } from "react-icons/bs";
+import { BiSolidRightArrow } from "react-icons/bi";
 import { MdOutlineNightsStay } from "react-icons/md";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { IoMdArrowDropup } from "react-icons/io";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { GrUserSettings,GrOrderedList } from "react-icons/gr";
-import { MdCategory,MdOutlineLowPriority } from "react-icons/md";
-import { TbSum} from "react-icons/tb";
-import { RiAlignTop} from "react-icons/ri";
+import { GrUserSettings, GrOrderedList } from "react-icons/gr";
+import { MdCategory, MdOutlineLowPriority } from "react-icons/md";
+import { TbSum } from "react-icons/tb";
+import { RiAlignTop } from "react-icons/ri";
 import { FcSalesPerformance } from "react-icons/fc";
 import { BsBarChartLineFill } from "react-icons/bs";
 import { FaUserTie } from "react-icons/fa";
-
-
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -82,36 +85,32 @@ const Header = () => {
                   overflowY: "auto", // Set overflow-y to auto to enable scrolling if content overflows
                   boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
                   backgroundColor: "rgb(15 23 42 / var(--tw-bg-opacity))",
-                  
                 }}
               >
                 {/**for side bar in mobile image with close icon */}
 
                 <div className="flex justify-between">
-                 
-                <div
+                  <div
                     style={{
                       color: "white",
                       marginTop: "19px",
                       marginRight: "9px",
                     }}
-                >
+                  >
                     <img src="/Image/Logo.png" className="w-[150px] h-[50px]" />
                   </div>
-
 
                   <div
                     style={{
                       color: "white",
                       // marginLeft: "20px",
                       marginTop: "20px",
-                      marginRight:"30px"
+                      marginRight: "30px",
                     }}
                     onClick={() => setIsMobileMenuOpen(false)} // Close sidebar
                   >
                     <BsArrowLeftCircleFill className="w-[50px] h-[50px]" />
                   </div>
-               
                 </div>
                 <div className="h-px mt-5 bg-sky-300"></div>
 
@@ -139,7 +138,8 @@ const Header = () => {
                         style={
                           pathname === "/dashboard"
                             ? { color: "#1570EF" }
-                            : { color: "white" }}
+                            : { color: "white" }
+                        }
                       />
                     </div>
                     <h1 className="font-bold text-4xl  font-serif text-[#E2E8F0]">
@@ -151,34 +151,51 @@ const Header = () => {
                 <div>
                   {/* Use a button instead of div for better accessibility */}
                   <button
-            className="flex my-1 focus:outline-none"
-            onClick={() => {
-              setIsInventoryOpen(!isInventoryOpen);
-              setIsReportOpen(false);
-              setIsProfileOpen(false);
-            }}
-          >
+                    className="flex my-1 focus:outline-none"
+                    onClick={() => {
+                      setIsInventoryOpen(!isInventoryOpen);
+                      setIsReportOpen(false);
+                      setIsProfileOpen(false);
+                    }}
+                  >
                     <div className="ms-7 me-3">
                       <AiOutlineShoppingCart
                         className={`text-2xl w-[60px] h-[60px] ${
                           pathname !== "/inventory"
-                            ? "text-gray-500"
+                            ? "text-white"
                             : isInventoryOpen
-                            ? "text-indigo-600"
+                            ? "text-white"
                             : ""
                         }`}
                       />
                     </div>
                     <h1
                       className={`font-bold font-serif text-4xl ${
-                        pathname !== "/inventory"
-                          ? "text-gray-100"
-                          : "text-gray-400"
+                        pathname !== "/inventory" ? "text-white" : "text-white"
                       }`}
                     >
                       Inventory
                     </h1>
-                    
+
+                    <div className="ml-[80px] me-3">
+                      {isInventoryOpen ? (
+                        <IoMdArrowDropdown
+                          className={`text-2xl w-[60px] h-[60px] ml-[120px]  ${
+                            pathname === "/inventory"
+                              ? "text-white"
+                              : "text-white"
+                          }`}
+                        />
+                      ) : (
+                        <BiSolidRightArrow
+                          className={`text-2xl w-[30px] h-[60px] ml-[120px]  ${
+                            pathname === "/inventory"
+                              ? "text-white"
+                              : "text-white"
+                          }`}
+                        />
+                      )}
+                    </div>
                   </button>
                 </div>
 
@@ -187,30 +204,27 @@ const Header = () => {
                   <ul className="mt-2 ml-16 text-gray-300 list-none">
                     <li>
                       <Link href="/inventory">
-                        <MdCategory className="w-[30px] h-[30px]"/>
-                       <h2 className="text-2xl font-medium">Categories</h2> 
-                        
-                        </Link>
+                        <MdCategory className="w-[30px] h-[30px]" />
+                        <h2 className="text-2xl font-medium">Categories</h2>
+                      </Link>
                     </li>
                     <li>
                       <Link href="/totalproducts">
-                        <TbSum className="w-[30px] h-[30px]"/>
-                       <h2 className="text-2xl font-medium">Total Products</h2> 
-                        
-                        </Link>
+                        <TbSum className="w-[30px] h-[30px]" />
+                        <h2 className="text-2xl font-medium">Total Products</h2>
+                      </Link>
                     </li>
                     <li>
                       <Link href="/topselling">
-                        <RiAlignTop className="w-[30px] h-[30px]"/>
-                        <h2 className="text-2xl font-medium" >Top Selling</h2>
-                        
-                        </Link>
+                        <RiAlignTop className="w-[30px] h-[30px]" />
+                        <h2 className="text-2xl font-medium">Top Selling</h2>
+                      </Link>
                     </li>
                     <li>
                       <Link href="/lowstock">
-                        <MdOutlineLowPriority className="w-[30px] h-[30px]"/>
-                        <h2 className="text-2xl font-medium">Low Stocks</h2>                       
-                        </Link>
+                        <MdOutlineLowPriority className="w-[30px] h-[30px]" />
+                        <h2 className="text-2xl font-medium">Low Stocks</h2>
+                      </Link>
                     </li>
                   </ul>
                 )}
@@ -219,33 +233,46 @@ const Header = () => {
                 <div>
                   {/* Use a button instead of div for better accessibility */}
                   <button
-            className="flex my-1 focus:outline-none"
-            onClick={() => {
-              setIsReportOpen(!isReportOpen);
-              setIsInventoryOpen(false);
-              setIsProfileOpen(false);
-            }}
-          >
+                    className="flex my-1 focus:outline-none"
+                    onClick={() => {
+                      setIsReportOpen(!isReportOpen);
+                      setIsInventoryOpen(false);
+                      setIsProfileOpen(false);
+                    }}
+                  >
                     <div className="ms-7 me-3">
                       <TbAlignBoxBottomCenter
                         className={`text-2xl w-[60px] h-[60px] ${
                           pathname !== "/report"
-                            ? "text-gray-500"
+                            ? "text-white"
                             : isReportOpen
-                            ? "text-indigo-600"
+                            ? "text-white"
                             : ""
                         }`}
                       />
                     </div>
                     <h1
                       className={`font-bold font-serif text-4xl ${
-                        pathname !== "/report"
-                          ? "text-gray-100"
-                          : "text-gray-400"
+                        pathname !== "/report" ? "text-white" : "text-white"
                       }`}
                     >
                       Report
                     </h1>
+                    <div className="ml-[80px] me-3">
+                      {isReportOpen ? (
+                        <IoMdArrowDropdown
+                          className={`text-2xl w-[60px] h-[60px] ml-[170px]  ${
+                            pathname === "/report" ? "text-white" : "text-white"
+                          }`}
+                        />
+                      ) : (
+                        <BiSolidRightArrow
+                          className={`text-2xl w-[30px] h-[60px] ml-[170px]  ${
+                            pathname === "/report" ? "text-white" : "text-white"
+                          }`}
+                        />
+                      )}
+                    </div>
                   </button>
                 </div>
 
@@ -255,40 +282,36 @@ const Header = () => {
                     <li>
                       <Link href="/report">
                         <GrOrderedList className="w-[30px] h-[30px]" />
-                      <h2 className="text-2xl font-medium">My Orders</h2>
-                        
-                        </Link>
-                    </li>
-                    <li>
-                      <Link href="/todaysale">
-                       <BsBarChartLineFill className="w-[30px] h-[30px]"  /> 
-                      <h2 className="text-2xl font-medium">Today Sales</h2>
+                        <h2 className="text-2xl font-medium">My Orders</h2>
                       </Link>
                     </li>
                     <li>
-                      
+                      <Link href="/todaysale">
+                        <BsBarChartLineFill className="w-[30px] h-[30px]" />
+                        <h2 className="text-2xl font-medium">Today Sales</h2>
+                      </Link>
+                    </li>
+                    <li>
                       <Link href="/totalrevenue">
-                      <FcSalesPerformance className="w-[30px] h-[30px]" />  
-                      <h2 className="text-2xl font-medium">
-                        
-                         Total Revenue </h2> 
-                        </Link>
+                        <FcSalesPerformance className="w-[30px] h-[30px]" />
+                        <h2 className="text-2xl font-medium">Total Revenue </h2>
+                      </Link>
                     </li>
                   </ul>
                 )}
 
                 <div className="h-px mt-5 bg-sky-300"></div>
+
                 <Link href="/supplier">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <TbUsers
                         className="text-2xl w-[60px] h-[60px]"
                         style={
-                       
                           pathname !== "/supplier"
-                            ? { color: "grey" }
+                            ? { color: "white" }
                             : pathname === "/supplier"
-                            ? { color: "#6366f1" }
+                            ? { color: "white" }
                             : {}
                         }
                       />
@@ -298,145 +321,124 @@ const Header = () => {
                     </h1>
                   </div>
                 </Link>
+
                 <div className="h-px mt-5 bg-sky-300"></div>
+
                 <Link href="/employee">
                   <div className="flex my-1">
                     <div className="ms-7 me-3">
                       <FaUsers
                         className="text-2xl w-[60px] h-[60px]"
                         style={
-                          // pathname == "/employee" ? { color: "#E2E8F0" } : ""
                           pathname !== "/employee"
-                            ? { color: "grey" }
+                            ? { color: "white" }
                             : pathname === "/employee"
-                            ? { color: "#6366f1" }
+                            ? { color: "white" }
                             : {}
                         }
                       />
                     </div>
-                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
+                    <h1 className="font-bold  font-serif text-4xl text-white ">
                       Employee
                     </h1>
                   </div>
                 </Link>
-                <div className="h-px mt-5 bg-sky-300"></div>
 
-                {/* <Link href="/revenue">
-                  <div className="flex my-1">
-                    <div className="ms-7 me-3">
-                      <HiOutlineCurrencyDollar
-                        className="text-2xl w-[60px] h-[60px]"
-                        style={
-                          // pathname == "/revenue" ? { color: "#E2E8F0" } : ""
-                          pathname !== "/revenue"
-                            ? { color: "grey" }
-                            : pathname === "/revenue"
-                            ? { color: "#6366f1" }
-                            : {}
-                        }
-                      />
-                    </div>
-                    <h1 className="font-bold  font-serif text-4xl text-[#E2E8F0] ">
-                      Revenue
-                    </h1>
-                  </div>
-                </Link> */}
+                <div className="h-px mt-5 bg-sky-300"></div>
 
                 <div>
                   {/* Use a button instead of div for better accessibility */}
                   <div className="ms-7 me-3">
-                  <button
-            className="flex my-1 focus:outline-none"
-            onClick={() => {
-              setIsProfileOpen(!isProfileOpen);
-              setIsInventoryOpen(false);
-              setIsReportOpen(false);
-            }}
-          >
-                    <div>
-                      <GrUserSettings
-                        className={`text-2xl w-[60px] h-[60px] ${
-                          pathname !== "/report"
-                            ? "text-gray-500"
-                            : isProfileOpen
-                            ? "text-indigo-600"
-                            : ""
-                        }`}
-                      />
-                    </div>
-
-                    <h1
-                      className={`font-bold font-serif text-4xl ${
-                        pathname !== "/profile"
-                          ? "text-gray-100"
-                          : "text-gray-400"
-                      }`}
+                    <button
+                      className="flex my-1 focus:outline-none"
+                      onClick={() => {
+                        setIsProfileOpen(!isProfileOpen);
+                        setIsInventoryOpen(false);
+                        setIsReportOpen(false);
+                      }}
                     >
-                      Settings
-                    </h1>
-                    <div className="ml-[80px] me-3">
-                      {isProfileOpen ? (
-                        <IoMdArrowDropup
+                      <div>
+                        <LuSettings
                           className={`text-2xl w-[60px] h-[60px] ${
-                            pathname === "/profile" ? "text-indigo-600" : ""
+                            pathname !== "/profile"
+                              ? "text-white"
+                              : isProfileOpen
+                              ? "text-white"
+                              : "text-white"
                           }`}
                         />
-                      ) : (
-                        <IoMdArrowDropdown
-                          className={`text-2xl w-[60px] h-[60px] ${
-                            pathname === "/profile"
-                              ? "text-indigo-600"
-                              : "text-gray-500"
-                          }`}
-                        />
-                      )}
-                    </div>
-                  </button>
+                      </div>
+
+                      <h1
+                        className={`font-bold font-serif text-4xl ml-3 ${
+                          pathname !== "/profile" ? "text-white" : "text-white"
+                        }`}
+                      >
+                        Settings
+                      </h1>
+                      <div className="ml-[80px] me-3">
+                        {isProfileOpen ? (
+                          <IoMdArrowDropdown
+                            className={`text-2xl w-[60px] h-[60px] ml-[150px] ${
+                              pathname === "/profile"
+                                ? "text-white"
+                                : "text-white"
+                            }`}
+                          />
+                        ) : (
+                          <BiSolidRightArrow
+                            className={`text-2xl w-[30px] h-[60px] ml-[150px] ${
+                              pathname === "/profile"
+                                ? "text-white"
+                                : "text-white"
+                            }`}
+                          />
+                        )}
+                      </div>
+                    </button>
                   </div>
                 </div>
 
                 {/* Profile Details */}
                 {isProfileOpen && (
-                  <ul className="mt-2 ml-16 text-gray-300 list-none">
+                  <ul className="mt-2 ml-16 text-white list-none">
                     <li>
                       <Link href="/profile">
-                        <FaUserTie className="w-[30px] h-[30px]"/>
-                       <h2 className="text-2xl font-medium">Profile</h2> 
-                        </Link>
-                    </li>
-                    <li>
-                      
-                      <Link href="/bankandtransaction">
-                        <BsBank className="w-[30px] h-[30px]"/>
-                      <h2 className="text-2xl font-medium"> Bank And Transaction</h2>  
+                        <FaUserTie className="w-[30px] h-[30px]" />
+                        <h2 className="text-2xl font-medium">Profile</h2>
                       </Link>
                     </li>
                     <li>
-                      
+                      <Link href="/bankandtransaction">
+                        <BsBank className="w-[30px] h-[30px]" />
+                        <h2 className="text-2xl font-medium">
+                          {" "}
+                          Bank And Transaction
+                        </h2>
+                      </Link>
+                    </li>
+                    <li>
                       <Link href="/change_Password">
-                        <BsHouseLockFill className="w-[30px] h-[30px]"/>
-                      <h2 className="text-2xl font-medium"> Change Password</h2>  
+                        <BsHouseLockFill className="w-[30px] h-[30px]" />
+                        <h2 className="text-2xl font-medium">
+                          {" "}
+                          Change Password
+                        </h2>
                       </Link>
                     </li>
                   </ul>
                 )}
-                 <div className="h-px mt-5 bg-sky-300"></div>
+                <div className="h-px mt-5 bg-sky-300"></div>
               </ul>
-              
             </div>
-           
 
             {/**      end of navigation of   side bar  */}
 
             {/* ****************** abcde LOGO for md sm ms  or more mobile for that use*************** */}
             <Link href="/dashboard">
-              <img
-                className="mx-10 lg:hidden  "
-                src="/Image/Logo.png"
-                style={{ width: "600px", height: "40px" }}
-                alt="logo"
-              />
+              <img className="mx-10  " src="/Image/Logo.png" alt="logo" />
             </Link>
+
             {/**search for mobile */}
             {/* <div><BsSearch className="ms:ml-[70px] ms:w-[50px] ms:h-[20px] sm:ml-[70px] sm:w-[50px] sm:h-[20px] md:hidden lg:hidden"/></div>
           
@@ -446,8 +448,8 @@ const Header = () => {
           <div>
             <MdOutlineNightsStay className="ms:ml-[10px]"/></div>  */}
 
-            <a className="normal-case text-xl mx-5 font-bold text-[#1570EF]">
-              {/* Hello, Admin */}
+            {/* <a className="normal-case text-xl mx-5 font-bold text-[#1570EF]">
+             
 
               {pathname == "/dashboard" ? (
                 <img src="/Image/Logo.png" alt="Dashboard Logo" />
@@ -488,34 +490,57 @@ const Header = () => {
               ) : (
                 ""
               )}
-            </a>
+            </a> */}
           </div>
           <div
             className="w-full max-w-sm mx-auto p-1 relative text-gray-600 "
             style={{ marginRight: "410px" }}
-          >
-            {/** search bar for large screen   */}
-            <div className="md:hidden ms:hidden  sm:hidden">
-              <input
-                class="border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none w-full"
-                type="search"
-                name="search"
-                placeholder="Search product, supplier, order"
-              />
-            </div>
-
-            {/* <button type="submit" className="absolute right-0 top-0 mt-2 mr-4">
-              <svg
-                className="h-4 w-4 fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              ></svg>
-            </button> */}
-          </div>
+          ></div>
 
           {/* *******************work on dashboard mobile screen ms **************** */}
 
           <div className="ms:ml-[-220px] ms:mt-[10px]  lg:ml-[-220px] :mt-[10px] ">
+            <form>
+              <label
+                for="default-search"
+                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+              >
+                Search
+              </label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg
+                    class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="search"
+                  id="default-search"
+                  class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search Mockups, Logos..."
+                  required
+                />
+                <button
+                  type="submit"
+                  class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
+
             <div className="flex  ">
               <Link href="/notification" className="indicator mx-4  ">
                 <span className="indicator-item badge badge-xs border border-[#1570EF] bg-[#1570EF] ms:mt-[15px] ms:mr-[10px] lg:mt-[16px] lg:mr-[27px]"></span>
@@ -526,7 +551,7 @@ const Header = () => {
                   }
                 />
               </Link>
-                    
+
               {/*  notification ke bagale me
               <div className="dropdown mx-5">
                 <label tabIndex={0} className="">
@@ -603,13 +628,15 @@ const Header = () => {
 
                   <label
                     htmlFor="my-modal-6"
-                    className="flex me-3 hover:bg-slate-100 mt-1 mb-3">
+                    className="flex me-3 hover:bg-slate-100 mt-1 mb-3"
+                  >
                     <img
                       className="mx-3"
                       src="/Image/headerImage/logout.png"
                       width={20}
                       height={20}
-                      alt="logo" />
+                      alt="logo"
+                    />
 
                     <h1 className="font-semibold text-xl hover:text-black">
                       Logout
@@ -626,7 +653,6 @@ const Header = () => {
                   </Link>
                 </ul>
                 {/**profile end click dropdown  */}
-                
               </div>
             </div>
           </div>
@@ -667,7 +693,8 @@ const Header = () => {
                     className="mx-2 my-1"
                     style={
                       pathname == "/notification" ? { color: "#1570EF" } : ""
-                    } />
+                    }
+                  />
                 </h1>
 
                 <h1 className="font-semibold text-md">Notification</h1>
@@ -706,7 +733,7 @@ const Header = () => {
         {/**not a important  part for navigation  */}
 
         {/* Put this part before </body> tag (Logout modal)*/}
-        
+
         <input type="checkbox" id="my-modal-6" className="modal-toggle" />
         <div className="modal modal-bottom sm:modal-middle">
           <div className="modal-box">
